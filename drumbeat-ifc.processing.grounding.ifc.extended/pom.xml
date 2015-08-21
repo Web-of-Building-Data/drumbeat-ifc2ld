@@ -4,7 +4,7 @@
 
 	<groupId>fi.hut.cs.drumbeat</groupId>
 	<artifactId>drumbeat-ifc.processing.grounding.ifc.extended</artifactId>
-	<version>1.0.0-RELEASE</version>
+	<version>0.1.0-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>drumbeat-ifc.processing.grounding.ifc.extended</name>
