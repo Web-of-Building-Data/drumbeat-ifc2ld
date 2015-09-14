@@ -50,7 +50,7 @@ public class Ifc2RdfMetaModelExporter extends Ifc2RdfExporterBase {
 		super.setModelNamespacePrefix(modelNamespacePrefix);
 		super.setModelNamespaceUri(modelNamespaceUri);		
 	}
-	
+	                                                                                                                    
 	public Model export() throws IfcException {
 		
 		//
@@ -58,34 +58,34 @@ public class Ifc2RdfMetaModelExporter extends Ifc2RdfExporterBase {
 		//
 		adapter.startExport();		
 		
-		adapter.setNamespacePrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.RDF.BASE_PREFIX, RDF.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.RDFS.BASE_PREFIX, RDFS.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.XSD.BASE_PREFIX, XSD.getURI());	
-		adapter.setNamespacePrefix(RdfVocabulary.VOID.BASE_PREFIX, RdfVocabulary.VOID.BASE_URI);
-		adapter.setNamespacePrefix(RdfVocabulary.DCTERMS.BASE_PREFIX, RdfVocabulary.DCTERMS.BASE_URI);
+		adapter.defineNamespacePrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
+		adapter.defineNamespacePrefix(RdfVocabulary.RDF.BASE_PREFIX, RDF.getURI());
+		adapter.defineNamespacePrefix(RdfVocabulary.RDFS.BASE_PREFIX, RDFS.getURI());
+		adapter.defineNamespacePrefix(RdfVocabulary.XSD.BASE_PREFIX, XSD.getURI());	
+		adapter.defineNamespacePrefix(RdfVocabulary.VOID.BASE_PREFIX, RdfVocabulary.VOID.BASE_URI);
+		adapter.defineNamespacePrefix(RdfVocabulary.DCTERMS.BASE_PREFIX, RdfVocabulary.DCTERMS.BASE_URI);
 		
-		adapter.setNamespacePrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX, Ifc2RdfVocabulary.EXPRESS.getBaseUri());		
-		adapter.setNamespacePrefix(Ifc2RdfVocabulary.STEP.BASE_PREFIX,Ifc2RdfVocabulary.STEP.getBaseUri());
+		adapter.defineNamespacePrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX, Ifc2RdfVocabulary.EXPRESS.getBaseUri());		
+		adapter.defineNamespacePrefix(Ifc2RdfVocabulary.STEP.BASE_PREFIX,Ifc2RdfVocabulary.STEP.getBaseUri());
 
 		
 		adapter.exportEmptyLine();
 		
 		Resource dataSetResource = super.createUriResource(metaDataSetUri);
 
-		adapter.setNamespacePrefix(getModelNamespacePrefix(), getModelNamespaceUri());
+		adapter.defineNamespacePrefix(getModelNamespacePrefix(), getModelNamespaceUri());
 		adapter.exportEmptyLine();
 
 		adapter.exportTriple(dataSetResource, RDF.type, RdfVocabulary.VOID.DataSet);
 
-		String conversionOptionsString = context.getConversionOptions().toString();
+		String conversionParamsString = context.getConversionParams().toString();
 //				.replaceFirst("\\[", "[\r\n\t\t\t ")
 //				.replaceFirst("\\]", "\r\n\t\t]")
 //				.replaceAll(",", "\r\n\t\t\t");		
-		conversionOptionsString = String.format("OWL profile: %s.\r\n\t\tConversion options: %s",
+		conversionParamsString = String.format("OWL profile: %s.\r\n\t\tConversion options: %s",
 				owlProfileList.getOwlProfileIds(),
-				conversionOptionsString); 
-		adapter.exportTriple(dataSetResource, RdfVocabulary.DCTERMS.description, jenaModel.createTypedLiteral(conversionOptionsString));		
+				conversionParamsString); 
+		adapter.exportTriple(dataSetResource, RdfVocabulary.DCTERMS.description, jenaModel.createTypedLiteral(conversionParamsString));		
 
 		IfcStepFileDescription stepFileDescription = metaModel.getFileDescription();
 		stepFileDescription.getDescriptions().forEach(x ->

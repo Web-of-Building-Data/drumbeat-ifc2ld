@@ -35,7 +35,7 @@ public class JenaModelExportAdapter implements RdfExportAdapter {
 	}
 
 	@Override
-	public void setNamespacePrefix(String prefix, String uri) {
+	public void defineNamespacePrefix(String prefix, String uri) {
 		jenaModel.setNsPrefix(prefix, uri);
 	}
 

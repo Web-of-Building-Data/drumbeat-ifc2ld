@@ -11,7 +11,7 @@ public interface RdfExportAdapter {
 	
 	void exportOntologyHeader(String uri, String version, String comment);
 	
-	void setNamespacePrefix(String prefix, String uri);
+	void defineNamespacePrefix(String prefix, String uri);
 
 	void startExport();
 

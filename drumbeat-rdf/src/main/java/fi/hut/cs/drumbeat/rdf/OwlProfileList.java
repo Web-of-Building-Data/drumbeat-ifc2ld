@@ -13,6 +13,9 @@ import fi.hut.cs.drumbeat.rdf.OwlProfile.RdfTripleObjectTypeEnum;
 public class OwlProfileList extends ArrayList<OwlProfile> {
 	
 	private static final long serialVersionUID = 1L;
+	
+	public OwlProfileList() {		
+	}
 
 	public OwlProfileList(String[] owlProfileNames) {
 		for (String owlProfileName : owlProfileNames) {

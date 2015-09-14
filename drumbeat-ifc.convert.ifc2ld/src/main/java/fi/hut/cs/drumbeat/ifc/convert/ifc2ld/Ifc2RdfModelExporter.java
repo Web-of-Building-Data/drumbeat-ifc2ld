@@ -65,33 +65,33 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 		//
 		adapter.startExport();
 		
-		adapter.setNamespacePrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.RDF.BASE_PREFIX, RDF.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.RDFS.BASE_PREFIX, RDFS.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.XSD.BASE_PREFIX, XSD.getURI());	
+		adapter.defineNamespacePrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
+		adapter.defineNamespacePrefix(RdfVocabulary.RDF.BASE_PREFIX, RDF.getURI());
+		adapter.defineNamespacePrefix(RdfVocabulary.RDFS.BASE_PREFIX, RDFS.getURI());
+		adapter.defineNamespacePrefix(RdfVocabulary.XSD.BASE_PREFIX, XSD.getURI());	
 		
 		
-//		if (context.isEnabledOption(Ifc2RdfConversionOptionsEnum.ForceConvertRdfListToOloOrderedList)) {
+//		if (context.isEnabledOption(Ifc2RdfConversionParamsEnum.ForceConvertRdfListToOloOrderedList)) {
 //			adapter.setNamespacePrefix(RdfVocabulary.OLO.BASE_PREFIX, RdfVocabulary.OLO.BASE_URI);
 //		}
 //		
-		adapter.setNamespacePrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX, Ifc2RdfVocabulary.EXPRESS.getBaseUri());		
-		adapter.setNamespacePrefix(Ifc2RdfVocabulary.IFC.BASE_PREFIX, getOntologyNamespaceUri());
+		adapter.defineNamespacePrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX, Ifc2RdfVocabulary.EXPRESS.getBaseUri());		
+		adapter.defineNamespacePrefix(Ifc2RdfVocabulary.IFC.BASE_PREFIX, getOntologyNamespaceUri());
 		adapter.exportEmptyLine();
 		
-		adapter.setNamespacePrefix(getModelNamespacePrefix(), getModelNamespaceUri());
+		adapter.defineNamespacePrefix(getModelNamespacePrefix(), getModelNamespaceUri());
 		adapter.exportEmptyLine();
 
-		String conversionOptionsString = context.getConversionOptions().toString()
+		String conversionParamsString = context.getConversionParams().toString()
 				.replaceFirst("\\[", "[\r\n\t\t\t ")
 				.replaceFirst("\\]", "\r\n\t\t]")
 				.replaceAll(",", "\r\n\t\t\t");
 		
-		conversionOptionsString = String.format("OWL profile: %s.\r\n\t\tConversion options: %s",
+		conversionParamsString = String.format("OWL profile: %s.\r\n\t\tConversion options: %s",
 				owlProfileList.getOwlProfileIds(),
-				conversionOptionsString); 
+				conversionParamsString); 
 		
-		adapter.exportOntologyHeader(getModelNamespaceUri(), "1.0", conversionOptionsString);		
+		adapter.exportOntologyHeader(getModelNamespaceUri(), "1.0", conversionParamsString);		
 		
 		for (IfcEntity entity : ifcModel.getEntities()) {
 			writeEntity(entity);
@@ -120,7 +120,7 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 			writeAttribute(entityResource, attribute);
 		}
 		
-		if (context.isEnabledOption(Ifc2RdfConversionOptionsEnum.ExportDebugInfo)) {
+		if (context.getConversionParams().getParam(Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO).getBooleanValue()) {
 		
 //			if (entity.isLiteralValueContainer()) {
 //				adapter.exportTriple(entityResource, RDF.type, super.createUriResource(
