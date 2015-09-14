@@ -27,8 +27,6 @@ import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
 import fi.hut.cs.drumbeat.rdf.OwlProfile;
 import fi.hut.cs.drumbeat.rdf.OwlProfileEnum;
 import fi.hut.cs.drumbeat.rdf.OwlProfileList;
-import fi.hut.cs.drumbeat.rdf.export.JenaModelExportAdapter;
-import fi.hut.cs.drumbeat.rdf.export.RdfExportAdapter;
 
 public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 	
@@ -36,7 +34,6 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 	
 	private IfcSchema ifcSchema;
 	private Model jenaModel;
-	private RdfExportAdapter rdfExportAdapter;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -49,7 +46,6 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 		ifcSchema = new IfcSchema(TEST_SCHEMA_VERSION);
 
 		jenaModel = ModelFactory.createDefaultModel();
-		rdfExportAdapter = new JenaModelExportAdapter(jenaModel);
 	}
 
 	@Test
@@ -59,7 +55,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 				Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_DOUBLE);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.REAL);
 		assertEquals(XSD.xdouble, xsdDataType);
 	}
@@ -71,7 +67,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 				Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_DECIMAL);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.REAL);
 		assertEquals(XSD.decimal, xsdDataType);
 	}
@@ -83,7 +79,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 				Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_STRING);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.REAL);
 		assertEquals(XSD.xstring, xsdDataType);
 	}
@@ -98,7 +94,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 		owlProfiles.add(new OwlProfile(OwlProfileEnum.OWL2_RL));
 		conversionContext.setOwlProfiles(owlProfiles);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.REAL);
 		assertEquals(XSD.xdouble, xsdDataType);
 	}	
@@ -114,7 +110,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 		owlProfiles.add(new OwlProfile(OwlProfileEnum.OWL2_EL));
 		conversionContext.setOwlProfiles(owlProfiles);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.REAL);
 		assertEquals(XSD.decimal, xsdDataType);
 	}
@@ -129,7 +125,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 		owlProfiles.add(new OwlProfile(OwlProfileEnum.OWL2_RL));
 		conversionContext.setOwlProfiles(owlProfiles);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.REAL);
 		assertEquals(XSD.decimal, xsdDataType);
 	}	
@@ -141,7 +137,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Doubles {
 				Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_DOUBLE);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		double d = new Random().nextDouble();
 		

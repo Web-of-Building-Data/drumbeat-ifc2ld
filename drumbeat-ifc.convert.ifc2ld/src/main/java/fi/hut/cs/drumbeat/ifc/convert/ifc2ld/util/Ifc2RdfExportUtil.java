@@ -13,8 +13,6 @@ import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfSchemaExporter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.config.Ifc2RdfConversionContextLoader;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcModel;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
-import fi.hut.cs.drumbeat.rdf.export.JenaModelExportAdapter;
-import fi.hut.cs.drumbeat.rdf.export.RdfExportAdapter;
 
 
 /**
@@ -77,9 +75,7 @@ public class Ifc2RdfExportUtil {
 		logger.info("Exporting schema to Jena");
 		try {
 			
-			RdfExportAdapter rdfExportAdapter = new JenaModelExportAdapter(jenaModel);			
-			
-			new Ifc2RdfSchemaExporter(schema, context, rdfExportAdapter).export();
+			new Ifc2RdfSchemaExporter(schema, context, jenaModel).export();
 			
 			logger.info("Exporting schema has been completed successfully");
 			
@@ -133,9 +129,7 @@ public class Ifc2RdfExportUtil {
 
 		logger.info("Exporting model to Jena");
 		try {
-			RdfExportAdapter rdfExportAdapter = new JenaModelExportAdapter(jenaModel);			
-
-			new Ifc2RdfModelExporter(model, context, rdfExportAdapter).export();
+			new Ifc2RdfModelExporter(model, context, jenaModel).export();
 			
 			logger.info("Exporting model has been completed successfully");
 			
@@ -188,9 +182,7 @@ public class Ifc2RdfExportUtil {
 
 		logger.info("Exporting model to Jena");
 		try {
-			RdfExportAdapter rdfExportAdapter = new JenaModelExportAdapter(jenaModel);			
-
-			new Ifc2RdfMetaModelExporter(metaDataSetUri, model, context, rdfExportAdapter).export();
+			new Ifc2RdfMetaModelExporter(metaDataSetUri, model, context, jenaModel).export();
 			
 			logger.info("Exporting model has been completed successfully");
 			

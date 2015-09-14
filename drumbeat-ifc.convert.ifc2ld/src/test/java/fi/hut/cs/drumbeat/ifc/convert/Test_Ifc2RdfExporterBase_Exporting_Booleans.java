@@ -22,8 +22,6 @@ import fi.hut.cs.drumbeat.ifc.data.LogicalEnum;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcLiteralValue;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
-import fi.hut.cs.drumbeat.rdf.export.JenaModelExportAdapter;
-import fi.hut.cs.drumbeat.rdf.export.RdfExportAdapter;
 
 public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 	
@@ -31,7 +29,6 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 	
 	private IfcSchema ifcSchema;
 	private Model jenaModel;
-	private RdfExportAdapter rdfExportAdapter;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -44,7 +41,6 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 		ifcSchema = new IfcSchema(TEST_SCHEMA_VERSION);
 
 		jenaModel = ModelFactory.createDefaultModel();
-		rdfExportAdapter = new JenaModelExportAdapter(jenaModel);
 	}
 
 	@Test
@@ -54,7 +50,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_NAMED_INDIVIDUAL);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.BOOLEAN);
 		assertEquals(OWL2.NamedIndividual, xsdDataType);
 	}
@@ -66,7 +62,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_BOOLEAN);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.BOOLEAN);
 		assertEquals(XSD.xboolean, xsdDataType);
 	}
@@ -78,7 +74,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_STRING);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.BOOLEAN);
 		assertEquals(XSD.xstring, xsdDataType);
 	}
@@ -90,7 +86,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_NAMED_INDIVIDUAL);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.TRUE.toString(), ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
 		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
@@ -106,7 +102,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_BOOLEAN);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.TRUE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
 		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
@@ -130,7 +126,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_BOOLEAN);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.FALSE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
 		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
@@ -154,7 +150,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_BOOLEAN);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.UNKNOWN, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
 		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
@@ -178,7 +174,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_STRING);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.TRUE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
 		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
@@ -202,7 +198,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_STRING);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.FALSE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
 		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
@@ -226,7 +222,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
 				Ifc2RdfConversionParams.VALUE_XSD_STRING);
 		
-		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, rdfExportAdapter);
+		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.UNKNOWN, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
 		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		

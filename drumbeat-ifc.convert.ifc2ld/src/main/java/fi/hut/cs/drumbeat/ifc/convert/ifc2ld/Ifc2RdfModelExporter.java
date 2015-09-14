@@ -1,7 +1,9 @@
 package fi.hut.cs.drumbeat.ifc.convert.ifc2ld;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 
 
 
@@ -25,7 +27,6 @@ import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 import fi.hut.cs.drumbeat.rdf.OwlProfileList;
 import fi.hut.cs.drumbeat.rdf.RdfVocabulary;
-import fi.hut.cs.drumbeat.rdf.export.RdfExportAdapter;
 
 
 public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
@@ -36,17 +37,15 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 	
 	private Ifc2RdfConversionContext context;
 	private OwlProfileList owlProfileList;
-	private RdfExportAdapter adapter;
 	
-	public Ifc2RdfModelExporter(IfcModel ifcModel, Ifc2RdfConversionContext context, RdfExportAdapter rdfExportAdapter) {
-		super(context, rdfExportAdapter);
+	public Ifc2RdfModelExporter(IfcModel ifcModel, Ifc2RdfConversionContext context, Model jenaModel) {
+		super(context, jenaModel);
 		
 		this.ifcSchema = ifcModel.getSchema();
 		this.ifcModel = ifcModel;		
 		this.context = context;
 		this.owlProfileList = context.getOwlProfileList();
 		this.jenaModel = getJenaModel();
-		adapter = rdfExportAdapter;
 		
 		String modelNamespacePrefix = context.getModelPrefix();
 		String modelNamespaceUri = String.format(context.getModelNamespaceFormat(), ifcSchema.getVersion(), context.getName());
@@ -63,24 +62,24 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 		//
 		// write header and prefixes
 		//
-		adapter.startExport();
+		//adapter.startExport();
 		
-		adapter.defineNamespacePrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
-		adapter.defineNamespacePrefix(RdfVocabulary.RDF.BASE_PREFIX, RDF.getURI());
-		adapter.defineNamespacePrefix(RdfVocabulary.RDFS.BASE_PREFIX, RDFS.getURI());
-		adapter.defineNamespacePrefix(RdfVocabulary.XSD.BASE_PREFIX, XSD.getURI());	
+		jenaModel.setNsPrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
+		jenaModel.setNsPrefix(RdfVocabulary.RDF.BASE_PREFIX, RDF.getURI());
+		jenaModel.setNsPrefix(RdfVocabulary.RDFS.BASE_PREFIX, RDFS.getURI());
+		jenaModel.setNsPrefix(RdfVocabulary.XSD.BASE_PREFIX, XSD.getURI());	
 		
 		
 //		if (context.isEnabledOption(Ifc2RdfConversionParamsEnum.ForceConvertRdfListToOloOrderedList)) {
 //			adapter.setNamespacePrefix(RdfVocabulary.OLO.BASE_PREFIX, RdfVocabulary.OLO.BASE_URI);
 //		}
 //		
-		adapter.defineNamespacePrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX, Ifc2RdfVocabulary.EXPRESS.getBaseUri());		
-		adapter.defineNamespacePrefix(Ifc2RdfVocabulary.IFC.BASE_PREFIX, getOntologyNamespaceUri());
-		adapter.exportEmptyLine();
+		jenaModel.setNsPrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX, Ifc2RdfVocabulary.EXPRESS.getBaseUri());		
+		jenaModel.setNsPrefix(Ifc2RdfVocabulary.IFC.BASE_PREFIX, getOntologyNamespaceUri());
+		//adapter.exportEmptyLine();
 		
-		adapter.defineNamespacePrefix(getModelNamespacePrefix(), getModelNamespaceUri());
-		adapter.exportEmptyLine();
+		jenaModel.setNsPrefix(getModelNamespacePrefix(), getModelNamespaceUri());
+		//adapter.exportEmptyLine();
 
 		String conversionParamsString = context.getConversionParams().toString()
 				.replaceFirst("\\[", "[\r\n\t\t\t ")
@@ -91,13 +90,20 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 				owlProfileList.getOwlProfileIds(),
 				conversionParamsString); 
 		
-		adapter.exportOntologyHeader(getModelNamespaceUri(), "1.0", conversionParamsString);		
+		Resource ontology = jenaModel.createResource(getOntologyNamespaceUri());
+		ontology.addProperty(RDF.type, OWL.Ontology);
+		String version = "1.0";
+		ontology.addProperty(OWL.versionInfo, String.format("v%1$s %2$tY/%2$tm/%2$te %2$tH:%2$tM:%2$tS", version, new Date()));
+		if (conversionParamsString != null) {
+			//ontology.addProperty(RDFS.comment, String.format("\"\"\"%s\"\"\"", comment));
+			ontology.addProperty(RDFS.comment, conversionParamsString);
+		}
 		
 		for (IfcEntity entity : ifcModel.getEntities()) {
 			writeEntity(entity);
 		}
 		
-		adapter.endExport();
+		//adapter.endExport();
 		
 		return jenaModel;
 	}
@@ -123,12 +129,12 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 		if (context.getConversionParams().getParam(Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO).getBooleanValue()) {
 		
 //			if (entity.isLiteralValueContainer()) {
-//				adapter.exportTriple(entityResource, RDF.type, super.createUriResource(
+//				jenaModel.add(entityResource, RDF.type, super.createUriResource(
 //						super.formatOntologyName(Ifc2RdfVocabulary.IFC.LITERAL_VALUE_CONTAINER_ENTITY)));
 //			}
 			
 //			if (entity.isSharedBlankNode()) {
-//				adapter.exportTriple(
+//				jenaModel.add(
 //						entityResource,
 //						RDF.type,
 //						super.createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.SUPER_ENTITY)));				
@@ -138,7 +144,7 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 //			if (entity.hasName()) {
 //				String entityRawName = entity.getRawName();
 //				if (!entityRawName.equals(entity.getName())) {
-//					adapter.exportTriple(
+//					jenaModel.add(
 //							entityResource,
 //							super.createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.RAW_NAME)).as(Property.class),
 //									jenaModel.createTypedLiteral(entityRawName));
@@ -147,26 +153,26 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 			
 			String debugMessage = entity.getDebugMessage();
 			if (debugMessage != null) {
-				adapter.exportTriple(
+				jenaModel.add(
 				entityResource,
 				super.createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.PROPERTY_DEBUG_MESSAGE)).as(Property.class),
 						jenaModel.createTypedLiteral(debugMessage));				
 			}
 			
-			adapter.exportTriple(
+			jenaModel.add(
 					entityResource,
 					super.createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.PROPERTY_LINE_NUMBER_PROPERTY)).as(Property.class),
 					jenaModel.createTypedLiteral(entity.getLineNumber()));
 		}		
 
-		adapter.exportEmptyLine();
+		//adapter.exportEmptyLine();
 	}
 	
 	private void writeAttribute(Resource entityResource, IfcAttribute attribute) {		
 		IfcAttributeInfo attributeInfo = attribute.getAttributeInfo();
 		Property attributeResource = convertAttributeInfoToResource(attributeInfo);
 		IfcValue value = attribute.getValue();
-		adapter.exportTriple(entityResource, attributeResource, convertValueToNode(value, attributeInfo.getAttributeTypeInfo()));
+		jenaModel.add(entityResource, attributeResource, convertValueToNode(value, attributeInfo.getAttributeTypeInfo()));
 	}
 	
 	public RDFNode convertValueToNode(IfcValue value, IfcTypeInfo typeInfo) {
