@@ -10,6 +10,7 @@ import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfMetaModelExporter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfModelExporter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfSchemaExporter;
+import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.config.Ifc2RdfConversionContextLoader;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcModel;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.rdf.export.JenaModelExportAdapter;
@@ -38,7 +39,7 @@ public class Ifc2RdfExportUtil {
 	 */
 	public static Ifc2RdfConversionContext getDefaultConversionContext() throws ConfigurationParserException {
 		if (defaultContext == null) {
-			defaultContext = Ifc2RdfConversionContext.loadFromConfigurationFile(null); 
+			defaultContext = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(null); 
 		}
 		return defaultContext;
 	}
@@ -98,7 +99,7 @@ public class Ifc2RdfExportUtil {
 	 * @throws Exception
 	 */
 	public static void exportSchemaToJenaModel(Model jenaModel, IfcSchema schema, String contextName) throws Exception {
-		Ifc2RdfConversionContext context = Ifc2RdfConversionContext.loadFromConfigurationFile(contextName);
+		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(contextName);
 		exportSchemaToJenaModel(jenaModel, schema, context);
 	}
 	
@@ -154,7 +155,7 @@ public class Ifc2RdfExportUtil {
 	 * @throws Exception
 	 */
 	public static void exportModelToJenaModel(Model jenaModel, IfcModel model, String contextName) throws Exception {
-		Ifc2RdfConversionContext context = Ifc2RdfConversionContext.loadFromConfigurationFile(contextName);
+		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(contextName);
 		exportModelToJenaModel(jenaModel, model, context);
 	}
 
@@ -209,7 +210,7 @@ public class Ifc2RdfExportUtil {
 	 * @throws Exception
 	 */
 	public static void exportMetaModelToJenaModel(String metaDataSetUri, Model jenaModel, IfcModel model, String contextName) throws Exception {
-		Ifc2RdfConversionContext context = Ifc2RdfConversionContext.loadFromConfigurationFile(contextName);
+		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(contextName);
 		exportMetaModelToJenaModel(metaDataSetUri, jenaModel, model, context);
 	}
 }
