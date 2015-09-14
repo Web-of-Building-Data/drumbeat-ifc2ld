@@ -16,4 +16,3 @@
 @ECHO.
 @ECHO.
 
-REM PAUSE
