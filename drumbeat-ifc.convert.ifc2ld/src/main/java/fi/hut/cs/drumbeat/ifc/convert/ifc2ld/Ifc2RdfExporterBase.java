@@ -32,7 +32,6 @@ import fi.hut.cs.drumbeat.ifc.data.schema.IfcLogicalTypeInfo;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 import fi.hut.cs.drumbeat.rdf.RdfVocabulary;
-import fi.hut.cs.drumbeat.rdf.export.RdfExportAdapter;
 
 
 /**
@@ -42,8 +41,7 @@ import fi.hut.cs.drumbeat.rdf.export.RdfExportAdapter;
  */
 public abstract class Ifc2RdfExporterBase {
 	
-	private RdfExportAdapter rdfExportAdapter;
-	private Model jenaModel;
+	protected final Model jenaModel;
 	private Ifc2RdfConversionContext context;
 //	private String ontologyNamespacePrefix;
 	private String ontologyNamespaceUri;
@@ -54,9 +52,8 @@ public abstract class Ifc2RdfExporterBase {
 	private Resource xsdTypeForEnums;
 	private Map<IfcTypeEnum, Property> mapOf_Type_hasXXXProperty;
 	
-	protected Ifc2RdfExporterBase(Ifc2RdfConversionContext context, RdfExportAdapter rdfExportAdapter) {
-		this.rdfExportAdapter = rdfExportAdapter;
-		this.jenaModel = rdfExportAdapter.getInternalJenaModel();
+	protected Ifc2RdfExporterBase(Ifc2RdfConversionContext context, Model jenaModel) {
+		this.jenaModel = jenaModel;
 		this.context = context;
 		this.mapOf_Type_hasXXXProperty = new HashMap<>();
 	}
@@ -149,10 +146,10 @@ public abstract class Ifc2RdfExporterBase {
 			}
 
 			resource = createAnonResource();
-			rdfExportAdapter.exportTriple(resource, RDF.type, createUriResource(formatTypeName(type)));
+			resource.addProperty(RDF.type, createUriResource(formatTypeName(type)));
 			
 			Property hasXXXProperty = getHasXXXProperty(type);			
-			rdfExportAdapter.exportTriple(resource, hasXXXProperty, valueNode);			
+			resource.addProperty(hasXXXProperty, valueNode);			
 			
 		} else if (type instanceof IfcEnumerationTypeInfo) {
 			
@@ -163,7 +160,7 @@ public abstract class Ifc2RdfExporterBase {
 				resource = createAnonResource();
 				Property property = getHasXXXProperty(type);			
 				RDFNode valueNode = jenaModel.createTypedLiteral(literalValue.getValue(), xsdType.getURI());
-				rdfExportAdapter.exportTriple(resource, property, valueNode);			
+				resource.addProperty(property, valueNode);			
 			}
 			
 //			adapter.exportTriple(resource, RDF.type, createUriResource(formatTypeName(type)));
@@ -176,7 +173,7 @@ public abstract class Ifc2RdfExporterBase {
 				resource = createUriResource(formatExpressOntologyName((String)literalValue.getValue()));
 			} else {
 				resource = createAnonResource();				
-				rdfExportAdapter.exportTriple(resource, RDF.type, createUriResource(formatTypeName(type)));				
+				resource.addProperty(RDF.type, createUriResource(formatTypeName(type)));				
 				
 				Property property = getHasXXXProperty(type);
 				
@@ -190,7 +187,7 @@ public abstract class Ifc2RdfExporterBase {
 					valueNode = jenaModel.createTypedLiteral("unknown");					
 				}				
 							
-				rdfExportAdapter.exportTriple(resource, property, valueNode);			
+				resource.addProperty(property, valueNode);			
 			}
 			
 //			adapter.exportTriple(resource, RDF.type, createUriResource(formatExpressOntologyName(type.getName())));
