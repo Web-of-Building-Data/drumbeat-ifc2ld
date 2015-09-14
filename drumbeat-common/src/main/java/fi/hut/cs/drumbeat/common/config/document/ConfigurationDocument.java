@@ -1,14 +1,18 @@
 package fi.hut.cs.drumbeat.common.config.document;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import javax.naming.spi.DirectoryManager;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.*;
+
+import fi.hut.cs.drumbeat.common.file.FileManager;
 
 
 public class ConfigurationDocument {
@@ -64,7 +68,8 @@ public class ConfigurationDocument {
 		try {
 			load(new FileInputStream(configFilePath));
 		} catch (FileNotFoundException e) {
-			throw new ConfigurationParserException(String.format("ConfigurationItem parser error: %s", e.getMessage()), e);
+			File file = new File(configFilePath);
+			throw new ConfigurationParserException(String.format("ConfigurationItem parser error: file not found '%s'", file.getAbsolutePath()), e);
 		}
 	}
 
