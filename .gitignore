@@ -12,4 +12,5 @@
 /drumbeat-rdf.versioning/
 /drumbeat-interface/
 /*TempFiles/
-maven-output.txt
+maven*output.txt
+*.log
