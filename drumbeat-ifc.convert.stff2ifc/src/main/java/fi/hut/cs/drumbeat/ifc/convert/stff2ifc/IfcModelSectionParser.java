@@ -254,14 +254,14 @@ class IfcModelSectionParser {
 					switch (s) {
 					case "T":
 					case "TRUE":
-						attributeValues.add(new IfcLiteralValue(LogicalEnum.TRUE.toString(), attributeTypeInfo, IfcTypeEnum.LOGICAL));
+						attributeValues.add(new IfcLiteralValue(LogicalEnum.TRUE, attributeTypeInfo, IfcTypeEnum.LOGICAL));
 						break;
 					case "F":
 					case "FALSE":
-						attributeValues.add(new IfcLiteralValue(LogicalEnum.FALSE.toString(), attributeTypeInfo, IfcTypeEnum.LOGICAL));
+						attributeValues.add(new IfcLiteralValue(LogicalEnum.FALSE, attributeTypeInfo, IfcTypeEnum.LOGICAL));
 						break;
 					default:
-						attributeValues.add(new IfcLiteralValue(LogicalEnum.UNKNOWN.toString(), attributeTypeInfo, IfcTypeEnum.LOGICAL));
+						attributeValues.add(new IfcLiteralValue(LogicalEnum.UNKNOWN, attributeTypeInfo, IfcTypeEnum.LOGICAL));
 						break;
 
 					}
