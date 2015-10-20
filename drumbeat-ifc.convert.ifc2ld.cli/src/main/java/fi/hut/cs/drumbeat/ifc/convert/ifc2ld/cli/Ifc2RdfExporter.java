@@ -281,7 +281,7 @@ public class Ifc2RdfExporter {
 	 * @throws IOException
 	 * @throws IfcParserException
 	 */
-	private static List<IfcSchema> parseSchemas(String inputSchemaFilePath) throws IOException, IfcParserException {
+	public static List<IfcSchema> parseSchemas(String inputSchemaFilePath) throws IOException, IfcParserException {
 		logger.info(String.format("Parsing schema from file or folder '%s'", inputSchemaFilePath));
 		final List<IfcSchema> schemas = IfcParserUtil.parseSchemas(inputSchemaFilePath);
 		logger.info("Parsing schema is compeleted");
@@ -297,7 +297,7 @@ public class Ifc2RdfExporter {
 	 * @param gzipOutputFile 
 	 * @throws Exception
 	 */
-	private static Model exportSchema(
+	public static Model exportSchema(
 			JenaModelFactoryBase outputSchemaJenaModelFactory,
 			IfcSchema schema,
 			String conversionContextName,
@@ -331,7 +331,7 @@ public class Ifc2RdfExporter {
 	 * @throws IOException
 	 * @throws IfcParserException
 	 */
-	private static IfcModel parseModel(String inputModelFilePath) throws IOException, IfcParserException {
+	public static IfcModel parseModel(String inputModelFilePath) throws IOException, IfcParserException {
 		logger.info(String.format("Parsing model from file '%s'", inputModelFilePath));
 		IfcModel model = IfcParserUtil.parseModel(inputModelFilePath);
 		logger.info("Parsing model is completed");
@@ -347,7 +347,7 @@ public class Ifc2RdfExporter {
 	 * @param outputFileLanguage
 	 * @throws Exception
 	 */
-	private static Model exportModel(
+	public static Model exportModel(
 			JenaModelFactoryBase outputModelJenaModelFactory,
 			IfcModel model,
 			String conversionContextName,
@@ -392,7 +392,7 @@ public class Ifc2RdfExporter {
 	 * @param outputFileLanguage
 	 * @throws Exception
 	 */
-	private static Model exportMetaModel(
+	public static Model exportMetaModel(
 			JenaModelFactoryBase outputMetaModelJenaModelFactory,
 			IfcModel model,
 			String conversionContextName,

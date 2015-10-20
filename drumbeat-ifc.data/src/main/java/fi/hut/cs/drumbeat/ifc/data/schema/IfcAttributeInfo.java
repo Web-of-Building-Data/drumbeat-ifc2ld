@@ -11,7 +11,7 @@ public class IfcAttributeInfo implements Comparable<IfcAttributeInfo>,
 
 	private IfcEntityTypeInfo entityTypeInfo;
 	private String name;
-	private String uniqueName;
+//	private String uniqueName;
 	private int attributeIndex;
 	private IfcTypeInfo attributeTypeInfo;
 	private boolean isOptional;
@@ -33,19 +33,23 @@ public class IfcAttributeInfo implements Comparable<IfcAttributeInfo>,
 		return name;
 	}
 
-	/**
-	 * @return the uniqueName
-	 */
-	public String getUniqueName() {
-		return uniqueName != null ? uniqueName : name;
-	}
-
-	/**
-	 * @param uniqueName
-	 *            the uniqueName to set
-	 */
-	public void setUniqueName(String rdfName) {
-		this.uniqueName = rdfName;
+//	/**
+//	 * @return the uniqueName
+//	 */
+//	public String getUniqueName() {
+//		return uniqueName != null ? uniqueName : name;
+//	}
+//
+//	/**
+//	 * @param uniqueName
+//	 *            the uniqueName to set
+//	 */
+//	public void setUniqueName(String rdfName) {
+//		this.uniqueName = rdfName;
+//	}
+	
+	public String getLongName() {
+		return String.format("%s_%s", name, entityTypeInfo);
 	}
 
 	public int getAttributeIndex() {

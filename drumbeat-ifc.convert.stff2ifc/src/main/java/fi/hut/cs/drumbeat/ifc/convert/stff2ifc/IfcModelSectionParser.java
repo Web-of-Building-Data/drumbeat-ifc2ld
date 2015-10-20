@@ -10,7 +10,7 @@ import fi.hut.cs.drumbeat.common.string.RegexUtils;
 import fi.hut.cs.drumbeat.common.string.StrBuilderWrapper;
 import fi.hut.cs.drumbeat.common.string.StringUtils;
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.LogicalEnum;
 import fi.hut.cs.drumbeat.ifc.data.model.*;
 import fi.hut.cs.drumbeat.ifc.data.schema.*;

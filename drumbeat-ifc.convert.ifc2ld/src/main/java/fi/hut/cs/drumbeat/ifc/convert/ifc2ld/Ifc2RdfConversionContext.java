@@ -71,7 +71,7 @@ public class Ifc2RdfConversionContext {
 	 * @return the modelPrefix
 	 */
 	public String getModelPrefix() {
-		return modelPrefix;
+		return modelPrefix;	
 	}
 	
 	/**

@@ -4,8 +4,8 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.common.guid.GuidCompressor;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcEntity;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcGuidValue;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcLiteralAttribute;

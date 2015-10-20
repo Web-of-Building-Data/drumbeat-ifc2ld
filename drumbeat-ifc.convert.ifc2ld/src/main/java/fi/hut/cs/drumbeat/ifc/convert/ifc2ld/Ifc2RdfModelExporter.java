@@ -126,7 +126,7 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 			writeAttribute(entityResource, attribute);
 		}
 		
-		if (context.getConversionParams().getParam(Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO).getBooleanValue()) {
+		if ((Boolean)context.getConversionParams().getParam(Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO).getValue()) {
 		
 //			if (entity.isLiteralValueContainer()) {
 //				jenaModel.add(entityResource, RDF.type, super.createUriResource(
