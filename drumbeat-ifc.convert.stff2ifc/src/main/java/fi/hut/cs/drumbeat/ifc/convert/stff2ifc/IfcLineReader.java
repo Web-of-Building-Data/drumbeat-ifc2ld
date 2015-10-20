@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import fi.hut.cs.drumbeat.common.string.StringUtils;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 
 
 public class IfcLineReader {

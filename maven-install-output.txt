@@ -1,0 +1,782 @@
+
+*****************************************
+BUILDING drumbeat-common (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-common 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-common ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-common ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.common.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec
+Running fi.hut.cs.drumbeat.common.string.StringUtils_CollectionToString_TestCase
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-common ---
+[INFO] Building jar: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\drumbeat-common-0.1.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-common ---
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\drumbeat-common-0.1.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-common\0.1.0-RELEASE\drumbeat-common-0.1.0-RELEASE.jar
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-common\0.1.0-RELEASE\drumbeat-common-0.1.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.539 s
+[INFO] Finished at: 2015-10-08T07:55:24+03:00
+[INFO] Final Memory: 16M/223M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-common (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.common (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.common 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.common ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.common ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.common.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.common ---
+[INFO] Building jar: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\drumbeat-ifc.common-0.1.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.common ---
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\drumbeat-ifc.common-0.1.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.common\0.1.0-RELEASE\drumbeat-ifc.common-0.1.0-RELEASE.jar
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.common\0.1.0-RELEASE\drumbeat-ifc.common-0.1.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.784 s
+[INFO] Finished at: 2015-10-08T07:55:35+03:00
+[INFO] Final Memory: 16M/203M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.common (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.data (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.data 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.data ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.data ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.data ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 45 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.data ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.data ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.data ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.drumbeat_ifc.data.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.data ---
+[INFO] Building jar: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\drumbeat-ifc.data-0.1.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.data ---
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\drumbeat-ifc.data-0.1.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.data\0.1.0-RELEASE\drumbeat-ifc.data-0.1.0-RELEASE.jar
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.data\0.1.0-RELEASE\drumbeat-ifc.data-0.1.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.669 s
+[INFO] Finished at: 2015-10-08T07:55:46+03:00
+[INFO] Final Memory: 15M/215M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.data (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-rdf (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-rdf 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-rdf ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-rdf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-rdf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-rdf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-rdf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-rdf ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.rdf.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+Running fi.hut.cs.drumbeat.rdf.Test_OwlProfile_supportsStatement
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.633 sec
+
+Results :
+
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-rdf ---
+[INFO] Building jar: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\drumbeat-rdf-0.1.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-rdf ---
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\drumbeat-rdf-0.1.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-rdf\0.1.0-RELEASE\drumbeat-rdf-0.1.0-RELEASE.jar
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-rdf\0.1.0-RELEASE\drumbeat-rdf-0.1.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.384 s
+[INFO] Finished at: 2015-10-08T07:55:53+03:00
+[INFO] Final Memory: 18M/228M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-rdf (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-rdf.modelfactory (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat.rdf.modelfactory 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-rdf.modelfactory ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-rdf.modelfactory ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-rdf.modelfactory ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-rdf.modelfactory ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-rdf.modelfactory ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-rdf.modelfactory ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.rdf.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-rdf.modelfactory ---
+[INFO] Building jar: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\drumbeat-rdf.modelfactory-0.1.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-rdf.modelfactory ---
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\drumbeat-rdf.modelfactory-0.1.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-rdf.modelfactory\0.1.0-RELEASE\drumbeat-rdf.modelfactory-0.1.0-RELEASE.jar
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-rdf.modelfactory\0.1.0-RELEASE\drumbeat-rdf.modelfactory-0.1.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.956 s
+[INFO] Finished at: 2015-10-08T07:56:03+03:00
+[INFO] Final Memory: 18M/216M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-rdf.modelfactory (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.convert.stff2ifc (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.convert.step2ifc 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.convert.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Building jar: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\drumbeat-ifc.convert.stff2ifc-0.1.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\drumbeat-ifc.convert.stff2ifc-0.1.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.stff2ifc\0.1.0-RELEASE\drumbeat-ifc.convert.stff2ifc-0.1.0-RELEASE.jar
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.stff2ifc\0.1.0-RELEASE\drumbeat-ifc.convert.stff2ifc-0.1.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.069 s
+[INFO] Finished at: 2015-10-08T07:56:09+03:00
+[INFO] Final Memory: 17M/217M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.convert.stff2ifc (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.processing.grounding.ifc (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.processing.grounding.ifc 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.processing.grounding.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Building jar: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\drumbeat-ifc.processing.grounding.ifc-0.1.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\drumbeat-ifc.processing.grounding.ifc-0.1.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.processing.grounding.ifc\0.1.0-RELEASE\drumbeat-ifc.processing.grounding.ifc-0.1.0-RELEASE.jar
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.processing.grounding.ifc\0.1.0-RELEASE\drumbeat-ifc.processing.grounding.ifc-0.1.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.814 s
+[INFO] Finished at: 2015-10-08T07:56:19+03:00
+[INFO] Final Memory: 17M/214M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.processing.grounding.ifc (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.convert.ifc2rdf 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.convert.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Booleans
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.821 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles
+Tests run: 7, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.011 sec <<< FAILURE!
+test_Getting_XsdTypeOfDouble_As_AutoMostEfficient_OWL2EL(fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles)  Time elapsed: 0.008 sec  <<< ERROR!
+java.lang.IllegalArgumentException: Option 'ConvertDoublesTo': illegal value 'AutoMostEfficient' (allowed values are: [xsd:decimal, xsd:double, owl:real, xsd:string])
+	at fi.hut.cs.drumbeat.common.params.StringParam.checkValue(StringParam.java:136)
+	at fi.hut.cs.drumbeat.common.params.StringParam.setValue(StringParam.java:92)
+	at fi.hut.cs.drumbeat.common.params.StringParams.setParamValue(StringParams.java:55)
+	at fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles.test_Getting_XsdTypeOfDouble_As_AutoMostEfficient_OWL2EL(Test_Ifc2RdfExporterBase_Exporting_Doubles.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+test_Getting_XsdTypeOfDouble_As_AutoMostEfficient_OWL2RL(fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.IllegalArgumentException: Option 'ConvertDoublesTo': illegal value 'AutoMostEfficient' (allowed values are: [xsd:decimal, xsd:double, owl:real, xsd:string])
+	at fi.hut.cs.drumbeat.common.params.StringParam.checkValue(StringParam.java:136)
+	at fi.hut.cs.drumbeat.common.params.StringParam.setValue(StringParam.java:92)
+	at fi.hut.cs.drumbeat.common.params.StringParams.setParamValue(StringParams.java:55)
+	at fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles.test_Getting_XsdTypeOfDouble_As_AutoMostEfficient_OWL2RL(Test_Ifc2RdfExporterBase_Exporting_Doubles.java:90)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+test_Getting_XsdTypeOfDouble_As_AutoMostSupported_OWL2RL(fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles)  Time elapsed: 0.002 sec  <<< ERROR!
+java.lang.IllegalArgumentException: Option 'ConvertDoublesTo': illegal value 'AutoMostSupported' (allowed values are: [xsd:decimal, xsd:double, owl:real, xsd:string])
+	at fi.hut.cs.drumbeat.common.params.StringParam.checkValue(StringParam.java:136)
+	at fi.hut.cs.drumbeat.common.params.StringParam.setValue(StringParam.java:92)
+	at fi.hut.cs.drumbeat.common.params.StringParams.setParamValue(StringParams.java:55)
+	at fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles.test_Getting_XsdTypeOfDouble_As_AutoMostSupported_OWL2RL(Test_Ifc2RdfExporterBase_Exporting_Doubles.java:121)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+
+Results :
+
+Tests in error: 
+  test_Getting_XsdTypeOfDouble_As_AutoMostEfficient_OWL2EL(fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles): Option 'ConvertDoublesTo': illegal value 'AutoMostEfficient' (allowed values are: [xsd:decimal, xsd:double, owl:real, xsd:string])
+  test_Getting_XsdTypeOfDouble_As_AutoMostEfficient_OWL2RL(fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles): Option 'ConvertDoublesTo': illegal value 'AutoMostEfficient' (allowed values are: [xsd:decimal, xsd:double, owl:real, xsd:string])
+  test_Getting_XsdTypeOfDouble_As_AutoMostSupported_OWL2RL(fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_Doubles): Option 'ConvertDoublesTo': illegal value 'AutoMostSupported' (allowed values are: [xsd:decimal, xsd:double, owl:real, xsd:string])
+
+Tests run: 18, Failures: 0, Errors: 3, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.888 s
+[INFO] Finished at: 2015-10-08T07:56:34+03:00
+[INFO] Final Memory: 19M/245M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project drumbeat-ifc.convert.ifc2ld: There are test failures.
+[ERROR] 
+[ERROR] Please refer to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld.cli (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.convert.ifc2ld.cli 0.1.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Deleting c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Surefire report directory: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.convert.ifc2ld.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Building jar: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.convert.ifc2ld.cli-0.1.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:copy-dependencies (copy-dependencies) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Copying jackson-databind-2.3.3.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jackson-databind-2.3.3.jar
+[INFO] Copying libthrift-0.9.1.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\libthrift-0.9.1.jar
+[INFO] Copying log4j-1.2.17.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\log4j-1.2.17.jar
+[INFO] Copying drumbeat-ifc.data-0.1.0-RELEASE.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.data-0.1.0-RELEASE.jar
+[INFO] Copying slf4j-api-1.7.6.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\slf4j-api-1.7.6.jar
+[INFO] Copying slf4j-log4j12-1.7.6.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\slf4j-log4j12-1.7.6.jar
+[INFO] Copying jena-arq-2.12.1.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jena-arq-2.12.1.jar
+[INFO] Copying jackson-annotations-2.3.0.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jackson-annotations-2.3.0.jar
+[INFO] Copying jcl-over-slf4j-1.7.6.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jcl-over-slf4j-1.7.6.jar
+[INFO] Copying jsonld-java-0.5.0.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jsonld-java-0.5.0.jar
+[INFO] Copying drumbeat-ifc.convert.ifc2ld-0.1.0-RELEASE.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.convert.ifc2ld-0.1.0-RELEASE.jar
+[INFO] Copying httpcore-4.2.5.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\httpcore-4.2.5.jar
+[INFO] Copying xercesImpl-2.11.0.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\xercesImpl-2.11.0.jar
+[INFO] Copying xml-apis-1.4.01.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\xml-apis-1.4.01.jar
+[INFO] Copying drumbeat-rdf.modelfactory-0.1.0-RELEASE.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-rdf.modelfactory-0.1.0-RELEASE.jar
+[INFO] Copying commons-cli-1.2.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\commons-cli-1.2.jar
+[INFO] Copying commons-codec-1.10.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\commons-codec-1.10.jar
+[INFO] Copying commons-csv-1.0.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\commons-csv-1.0.jar
+[INFO] Copying drumbeat-ifc.processing.grounding.ifc-0.1.0-RELEASE.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.processing.grounding.ifc-0.1.0-RELEASE.jar
+[INFO] Copying drumbeat-common-0.1.0-RELEASE.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-common-0.1.0-RELEASE.jar
+[INFO] Copying jena-iri-1.1.1.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jena-iri-1.1.1.jar
+[INFO] Copying jackson-core-2.3.3.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jackson-core-2.3.3.jar
+[INFO] Copying jena-core-2.12.1.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jena-core-2.12.1.jar
+[INFO] Copying hamcrest-core-1.3.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\hamcrest-core-1.3.jar
+[INFO] Copying httpclient-cache-4.2.6.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\httpclient-cache-4.2.6.jar
+[INFO] Copying drumbeat-rdf-0.1.0-RELEASE.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-rdf-0.1.0-RELEASE.jar
+[INFO] Copying junit-4.12.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\junit-4.12.jar
+[INFO] Copying drumbeat-ifc.convert.stff2ifc-0.1.0-RELEASE.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.convert.stff2ifc-0.1.0-RELEASE.jar
+[INFO] Copying commons-lang3-3.3.2.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\commons-lang3-3.3.2.jar
+[INFO] Copying drumbeat-ifc.common-0.1.0-RELEASE.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.common-0.1.0-RELEASE.jar
+[INFO] Copying httpclient-4.2.6.jar to c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\httpclient-4.2.6.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.convert.ifc2ld.cli-0.1.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.ifc2ld.cli\0.1.0-RELEASE\drumbeat-ifc.convert.ifc2ld.cli-0.1.0-RELEASE.jar
+[INFO] Installing c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.ifc2ld.cli\0.1.0-RELEASE\drumbeat-ifc.convert.ifc2ld.cli-0.1.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.802 s
+[INFO] Finished at: 2015-10-08T07:56:44+03:00
+[INFO] Final Memory: 24M/355M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld.cli (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-test (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]   
+[ERROR]   The project  (c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-test\pom.xml) has 1 error
+[ERROR]     Non-readable POM c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-test\pom.xml: c:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-test\pom.xml (The system cannot find the path specified)
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+
+*****************************************
+BUILDING drumbeat-test (completed)
+*****************************************
+
+
+
+
+

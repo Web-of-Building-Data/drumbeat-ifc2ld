@@ -68,14 +68,14 @@ public class Ifc2RdfConversionContextLoader {
 				String conversionParamValue = properties.getProperty(propertyName);
 				// TODO: enable allowing unknown params
 				//conversionParams.getParam(conversionParamName, true).setValue(conversionParamValue);
-				conversionParams.getParam(conversionParamName).setValue(conversionParamValue);
+				conversionParams.getParam(conversionParamName).setStringValue(conversionParamValue);
 			}
 		}
 		
-		String ontologyPrefix = properties.getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_PREFIX, Ifc2RdfVocabulary.DEFAULT_ONTOLOGY_PREFIX);
+		String ontologyPrefix = properties.getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_PREFIX, Ifc2RdfVocabulary.IFC.BASE_PREFIX);
 		context.setOntologyPrefix(ontologyPrefix);
 		
-		String ontologyNamespaceFormat = properties.getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_NAMESPACE_FORMAT, Ifc2RdfVocabulary.DEFAULT_ONTOLOGY_NAMESPACE_FORMAT)
+		String ontologyNamespaceFormat = properties.getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_NAMESPACE_FORMAT, Ifc2RdfVocabulary.IFC.getBaseUriFormat())
 				.replaceAll(CONFIGURATION_NAMESPACE_FORMAT_VARIABLE_SCHEMA_VERSION, "%1s")
 				.replaceAll(CONFIGURATION_VARIABLE_CONVERTER_CONTEXT_NAME, "%2s");
 		context.setOntologyNamespaceFormat(ontologyNamespaceFormat);

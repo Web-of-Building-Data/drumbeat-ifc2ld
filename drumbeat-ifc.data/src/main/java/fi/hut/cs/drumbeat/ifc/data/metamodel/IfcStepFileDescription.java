@@ -2,7 +2,7 @@ package fi.hut.cs.drumbeat.ifc.data.metamodel;
 
 import java.util.List;
 
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcEntity;
 
 public class IfcStepFileDescription extends IfcStepEntity {

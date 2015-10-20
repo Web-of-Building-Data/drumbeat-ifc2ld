@@ -1,4 +1,4 @@
-package fi.hut.cs.drumbeat.ifc.common;
+package fi.hut.cs.drumbeat.ifc.data;
 
 import fi.hut.cs.drumbeat.common.string.StringUtils;
 

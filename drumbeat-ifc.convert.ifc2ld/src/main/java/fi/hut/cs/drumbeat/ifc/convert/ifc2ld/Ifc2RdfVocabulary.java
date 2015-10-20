@@ -9,7 +9,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 import fi.hut.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.hut.cs.drumbeat.common.config.document.ConfigurationParserException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.LogicalEnum;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcCollectionKindEnum;
 import fi.hut.cs.drumbeat.rdf.RdfVocabulary;
@@ -24,14 +24,35 @@ public class Ifc2RdfVocabulary {
 	
 	public static final String DEFAULT_ONTOLOGY_BASE = "http://drumbeat.cs.hut.fi/owl/";
 	
-	public static final String DEFAULT_ONTOLOGY_PREFIX = "ifc:";
-	public static final String DEFAULT_ONTOLOGY_NAMESPACE_FORMAT = DEFAULT_ONTOLOGY_BASE + "%s#";	
+	public static final String DEFAULT_EXPRESS_ONTOLOGY_BASE = DEFAULT_ONTOLOGY_BASE + "EXPRESS#";
+	public static final String DEFAULT_IFC_ONTOLOGY_BASE_FORMAT = DEFAULT_ONTOLOGY_BASE + "%s#";
+	
 	public static final String DEFAULT_MODEL_PREFIX = ":";
 	public static final String DEFAULT_MODEL_NAMESPACE_FORMAT = "http://drumbeat.cs.hut.fi/model/";	
 
 	public static class IFC {
 		
+		private static String baseUriFormat;
+
 		public static final String BASE_PREFIX = "ifc";
+
+		public static final String getBaseUriFormat() {
+			if (baseUriFormat == null) {
+				Properties properties;
+				try {
+					properties = ConfigurationDocument.getInstance().getProperties();
+				} catch (ConfigurationParserException e) {
+					Logger.getRootLogger().error("Error properties section in the configuration file", e);
+					return null;
+				}
+				baseUriFormat = properties.getProperty("ifc.baseuri", DEFAULT_IFC_ONTOLOGY_BASE_FORMAT);
+			}
+			return baseUriFormat;
+		}
+		
+		public static final String getBaseUri(String ifcVersion) {
+			return String.format(getBaseUriFormat(), ifcVersion);
+		}
 
 		public static final String EMPTY_LIST = "EMPTY_LIST";		
 		
@@ -62,7 +83,7 @@ public class Ifc2RdfVocabulary {
 					Logger.getRootLogger().error("Error properties section in the configuration file", e);
 					return null;
 				}
-				baseUri = properties.getProperty("express.baseuri", DEFAULT_ONTOLOGY_BASE + "EXPRESS#");
+				baseUri = properties.getProperty("express.baseuri", DEFAULT_EXPRESS_ONTOLOGY_BASE);
 			}
 			return baseUri;
 		}
@@ -77,6 +98,7 @@ public class Ifc2RdfVocabulary {
 		public static final Resource Bag = RdfVocabulary.DEFAULT_MODEL.createResource(getBaseUri() + "Bag");		
 		public static final Resource Collection = RdfVocabulary.DEFAULT_MODEL.createResource(getBaseUri() + "Collection");
 		public static final Resource Defined = RdfVocabulary.DEFAULT_MODEL.createResource(getBaseUri() + "Defined");		
+		public static final Resource EmptyList = RdfVocabulary.DEFAULT_MODEL.createResource(getBaseUri() + "EmptyList");		
 		public static final Resource Entity = RdfVocabulary.DEFAULT_MODEL.createResource(getBaseUri() + "Entity");		
 		public static final Resource EntityProperty = RdfVocabulary.DEFAULT_MODEL.createResource(getBaseUri() + "EntityProperty");
 		public static final Resource Enum = RdfVocabulary.DEFAULT_MODEL.createResource(getBaseUri() + "Enum");		
@@ -88,11 +110,13 @@ public class Ifc2RdfVocabulary {
 
 		public static final Property endIndex = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "endIndex");
 		public static final Property index = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "index");
+		public static final Property isFollowedBy = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "isFollowedBy");		
 		public static final Property isOrdered = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "isOrdered");
 		public static final Property item = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "item");
 		public static final Property itemType = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "itemType");
 		public static final Property hasBinary = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasBinary");
 //		public static final Property hasBoolean = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasBoolean");
+		public static final Property hasContent = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasContent");
 		public static final Property hasInteger = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasInteger");
 		public static final Property hasLogical = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasLogical");
 		public static final Property hasNumber = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasNumber");

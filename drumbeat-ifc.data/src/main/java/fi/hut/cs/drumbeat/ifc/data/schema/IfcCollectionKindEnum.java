@@ -1,6 +1,6 @@
 package fi.hut.cs.drumbeat.ifc.data.schema;
 
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 
 public enum IfcCollectionKindEnum {
 	

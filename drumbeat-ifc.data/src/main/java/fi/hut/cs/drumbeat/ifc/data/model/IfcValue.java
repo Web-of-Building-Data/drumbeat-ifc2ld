@@ -2,7 +2,7 @@ package fi.hut.cs.drumbeat.ifc.data.model;
 
 import java.io.Serializable;
 
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 
 
 public abstract class IfcValue implements Serializable { // IRdfNode,  {

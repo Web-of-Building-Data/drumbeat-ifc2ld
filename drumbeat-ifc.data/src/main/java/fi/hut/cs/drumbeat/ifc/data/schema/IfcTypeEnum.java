@@ -2,9 +2,10 @@ package fi.hut.cs.drumbeat.ifc.data.schema;
 
 import java.util.EnumSet;
 
-public enum IfcTypeEnum {
+public enum IfcTypeEnum {	
 	
 	ENTITY,
+	BINARY,
 	GUID,
 	ENUM,
 	INTEGER,

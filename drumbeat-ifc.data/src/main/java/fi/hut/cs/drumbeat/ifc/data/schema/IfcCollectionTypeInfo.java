@@ -4,8 +4,8 @@ import java.util.EnumSet;
 
 import fi.hut.cs.drumbeat.common.string.StringUtils;
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.Cardinality;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 
 public class IfcCollectionTypeInfo extends IfcNonEntityTypeInfo {
 
@@ -151,24 +151,27 @@ public class IfcCollectionTypeInfo extends IfcNonEntityTypeInfo {
 	}
 
 	public static String formatCollectionTypeName(IfcCollectionKindEnum collectionKind, String itemTypeInfoName, Cardinality cardinality) {
-		if (itemTypeInfoName != null && cardinality != null) {
-			return String.format("%s_%s_%s_%s_%s",
-					collectionKind,
-					cardinality.getMinCardinality(),
-					cardinality.getMaxCardinality() == Cardinality.UNBOUNDED ? "UNBOUNDED" : cardinality.getMaxCardinality(),
-					IfcVocabulary.ExpressFormat.OF,
-					itemTypeInfoName); 
-		} else if (cardinality != null) {
-			return String.format("%s_%s_%s",
-					collectionKind,
-					cardinality.getMinCardinality(),
-					cardinality.getMaxCardinality() == Cardinality.UNBOUNDED ? "UNBOUNDED" : cardinality.getMaxCardinality()); 
-		} else { // itemTypeInfoName
-			return String.format("%s_%s_%s",
-					collectionKind,
-					IfcVocabulary.ExpressFormat.OF,
-					itemTypeInfoName);
-		}
+		
+		return String.format("%s_%s", itemTypeInfoName, collectionKind);		
+		
+//		if (itemTypeInfoName != null && cardinality != null) {
+//			return String.format("%s_%s_%s_%s_%s",
+//					collectionKind,
+//					cardinality.getMinCardinality(),
+//					cardinality.getMaxCardinality() == Cardinality.UNBOUNDED ? "UNBOUNDED" : cardinality.getMaxCardinality(),
+//					IfcVocabulary.ExpressFormat.OF,
+//					itemTypeInfoName); 
+//		} else if (cardinality != null) {
+//			return String.format("%s_%s_%s",
+//					collectionKind,
+//					cardinality.getMinCardinality(),
+//					cardinality.getMaxCardinality() == Cardinality.UNBOUNDED ? "UNBOUNDED" : cardinality.getMaxCardinality()); 
+//		} else { // itemTypeInfoName
+//			return String.format("%s_%s_%s",
+//					collectionKind,
+//					IfcVocabulary.ExpressFormat.OF,
+//					itemTypeInfoName);
+//		}
 
 	}
 

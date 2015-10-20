@@ -23,7 +23,7 @@ import fi.hut.cs.drumbeat.ifc.data.model.IfcLiteralValue;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
 
-public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
+public class Deprecated_Test_Ifc2RdfExporterBase_Exporting_BooleanTypes {
 	
 	private static final String TEST_SCHEMA_VERSION = "IfcTest"; 
 	
@@ -51,7 +51,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.VALUE_NAMED_INDIVIDUAL);
 		
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
-		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.BOOLEAN);
+		Resource xsdDataType = rdfSchemaExporter.getBaseTypeForBooleans();
 		assertEquals(OWL2.NamedIndividual, xsdDataType);
 	}
 
@@ -63,7 +63,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.VALUE_XSD_BOOLEAN);
 		
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
-		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.BOOLEAN);
+		Resource xsdDataType = rdfSchemaExporter.getBaseTypeForBooleans();
 		assertEquals(XSD.xboolean, xsdDataType);
 	}
 
@@ -75,7 +75,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 				Ifc2RdfConversionParams.VALUE_XSD_STRING);
 		
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
-		Resource xsdDataType = rdfSchemaExporter.getXsdDataType(ifcSchema.BOOLEAN);
+		Resource xsdDataType = rdfSchemaExporter.getBaseTypeForBooleans();
 		assertEquals(XSD.xstring, xsdDataType);
 	}
 
@@ -88,11 +88,11 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 		
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
-		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.TRUE.toString(), ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
-		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
-		assertNotNull(resource);
-		assertTrue(resource.isURIResource());
-		assertEquals(Ifc2RdfVocabulary.EXPRESS.getBaseUri() + "TRUE", resource.getURI());
+		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.TRUE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
+		RDFNode node = rdfSchemaExporter.convertLiteralToNode(value);		
+		assertNotNull(node);
+		assertTrue(node.isURIResource());
+		assertEquals(Ifc2RdfVocabulary.EXPRESS.getBaseUri() + "true", node.asResource().getURI());
 	}
 	
 	@Test
@@ -105,11 +105,11 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.TRUE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
-		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
-		assertNotNull(resource);
-		assertTrue(resource.isAnon());
+		RDFNode node = rdfSchemaExporter.convertLiteralToNode(value);		
+		assertNotNull(node);
+		assertTrue(node.isAnon());
 		
-		Statement valueStatement = resource.getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
+		Statement valueStatement = node.asResource().getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
 		assertNotNull(valueStatement);
 		RDFNode valueObject = valueStatement.getObject();
 		
@@ -129,11 +129,11 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.FALSE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
-		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
-		assertNotNull(resource);
-		assertTrue(resource.isAnon());
+		RDFNode node = rdfSchemaExporter.convertLiteralToNode(value);		
+		assertNotNull(node);
+		assertTrue(node.isAnon());
 		
-		Statement valueStatement = resource.getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
+		Statement valueStatement = node.asResource().getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
 		assertNotNull(valueStatement);
 		RDFNode valueObject = valueStatement.getObject();
 		
@@ -153,11 +153,11 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.UNKNOWN, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
-		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
-		assertNotNull(resource);
-		assertTrue(resource.isAnon());
+		RDFNode node = rdfSchemaExporter.convertLiteralToNode(value);		
+		assertNotNull(node);
+		assertTrue(node.isAnon());
 		
-		Statement valueStatement = resource.getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
+		Statement valueStatement = node.asResource().getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
 		assertNotNull(valueStatement);
 		RDFNode valueObject = valueStatement.getObject();
 		
@@ -177,11 +177,11 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.TRUE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
-		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
-		assertNotNull(resource);
-		assertTrue(resource.isAnon());
+		RDFNode node = rdfSchemaExporter.convertLiteralToNode(value);		
+		assertNotNull(node);
+		assertTrue(node.isAnon());
 		
-		Statement valueStatement = resource.getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
+		Statement valueStatement = node.asResource().getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
 		assertNotNull(valueStatement);
 		RDFNode valueObject = valueStatement.getObject();
 		
@@ -201,11 +201,11 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.FALSE, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
-		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
-		assertNotNull(resource);
-		assertTrue(resource.isAnon());
+		RDFNode node = rdfSchemaExporter.convertLiteralToNode(value);		
+		assertNotNull(node);
+		assertTrue(node.isAnon());
 		
-		Statement valueStatement = resource.getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
+		Statement valueStatement = node.asResource().getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
 		assertNotNull(valueStatement);
 		RDFNode valueObject = valueStatement.getObject();
 		
@@ -225,11 +225,11 @@ public class Test_Ifc2RdfExporterBase_Exporting_Booleans {
 		Ifc2RdfSchemaExporter rdfSchemaExporter = new Ifc2RdfSchemaExporter(ifcSchema, conversionContext, jenaModel);
 		
 		IfcLiteralValue value = new IfcLiteralValue(LogicalEnum.UNKNOWN, ifcSchema.BOOLEAN, IfcTypeEnum.LOGICAL);		
-		Resource resource = rdfSchemaExporter.convertLiteralToNode(value);		
-		assertNotNull(resource);
-		assertTrue(resource.isAnon());
+		RDFNode node = rdfSchemaExporter.convertLiteralToNode(value);		
+		assertNotNull(node);
+		assertTrue(node.isAnon());
 		
-		Statement valueStatement = resource.getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
+		Statement valueStatement = node.asResource().getProperty(Ifc2RdfVocabulary.EXPRESS.hasLogical);
 		assertNotNull(valueStatement);
 		RDFNode valueObject = valueStatement.getObject();
 		
