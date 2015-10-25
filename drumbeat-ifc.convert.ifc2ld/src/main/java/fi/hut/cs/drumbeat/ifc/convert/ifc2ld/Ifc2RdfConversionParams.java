@@ -2,6 +2,8 @@ package fi.hut.cs.drumbeat.ifc.convert.ifc2ld;
 
 import java.util.Arrays;
 
+import org.apache.commons.lang3.NotImplementedException;
+
 import fi.hut.cs.drumbeat.common.params.*;
 
 public class Ifc2RdfConversionParams extends TypedParams {
@@ -209,5 +211,13 @@ public class Ifc2RdfConversionParams extends TypedParams {
 
 	public String convertDoublesTo() {
 		return (String)getParam(PARAM_CONVERT_DOUBLES_TO).getValue();		
+	}
+
+	public boolean convertSetAttributesAsMultipleProperties() {
+		String convertCollectionsTo = convertCollectionsTo();
+		if (convertCollectionsTo == VALUE_DRUMMOND_LIST) {
+			return false;
+		}
+		throw new NotImplementedException("Unknown collection type");
 	}
 }

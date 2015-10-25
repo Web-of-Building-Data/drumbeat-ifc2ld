@@ -117,7 +117,7 @@ public abstract class Ifc2RdfExporterBase {
 			 jenaModel.add(listTypeResource, RDF.type, OWL.Class);	
 			 jenaModel.add(listTypeResource, RDFS.subClassOf, Ifc2RdfVocabulary.EXPRESS.List);
 			 
-			 exportPropertyDefinition(Ifc2RdfVocabulary.EXPRESS.isFollowedBy.inModel(jenaModel),
+			 exportPropertyDefinition(Ifc2RdfVocabulary.EXPRESS.hasNext.inModel(jenaModel),
 					 listTypeResource, listTypeResource, true, 1, 1);
 			 
 			 Resource emptyListTypeResource = createUriResource(formatTypeName(typeInfo).replace("List", "EmptyList"));

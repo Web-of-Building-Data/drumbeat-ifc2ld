@@ -75,5 +75,9 @@ public class FileManager {
 		
 		return filePath;
 	}
+	
+	public static String getCurrentDirectory() {
+		return System.getProperty("user.dir");
+	}
 
 }

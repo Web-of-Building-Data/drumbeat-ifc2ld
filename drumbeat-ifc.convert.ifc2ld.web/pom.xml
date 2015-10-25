@@ -5,7 +5,7 @@
 	<groupId>fi.hut.cs.drumbeat</groupId>
 	<artifactId>drumbeat-ifc.convert.ifc2ld.web</artifactId>
 	<packaging>war</packaging>
-	<version>0.1.0-RELEASE</version>
+	<version>0.2.0-RELEASE</version>
 	<name>drumbeat-ifc.convert.ifc2ld.web</name>
 
 	<properties>
@@ -134,7 +134,56 @@
 			<artifactId>drumbeat-rdf.modelfactory</artifactId>
 			<version>${drumbeat.version}</version>
 		</dependency>
+		
+		<!-- Apache Jena Core -->
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-core</artifactId>
+			<version>${jena.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>${jena.version}</version>
+		</dependency>
+		
 				
+		<!-- dependency>
+			<groupId>${drumbeat.groupId}</groupId>
+			<artifactId>drumbeat-rdf.modelfactory.allegrograph</artifactId>
+			<version>${drumbeat.version}</version>
+		</dependency> -->
+		
+		<!--  <dependency>
+			<groupId>tr.com.srdc</groupId>
+			<artifactId>virt-jena</artifactId>
+			<version>2.6.2-srdc</version>
+		</dependency> -->
+
+		<!-- 
+		<dependency>
+			<groupId>${drumbeat.groupId}</groupId>
+			<artifactId>drumbeat-rdf.modelfactory.virtuoso</artifactId>
+			<version>${drumbeat.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${drumbeat.groupId}</groupId>
+			<artifactId>drumbeat-jython</artifactId>
+			<version>${drumbeat.version}</version>
+		</dependency>
+		 -->
+		 
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		 
+
 	</dependencies>
 
 	<build>

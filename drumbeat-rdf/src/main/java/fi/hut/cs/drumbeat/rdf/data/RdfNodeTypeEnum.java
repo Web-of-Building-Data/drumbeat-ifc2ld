@@ -5,24 +5,24 @@ import com.hp.hpl.jena.rdf.model.RDFNode;
 public enum RdfNodeTypeEnum {
 	Uri,
 	BlankNode,
-	Literal,
-	List;
+	Literal;
+//	List;
 	
 	public boolean isUri() {
 		return this == Uri;
 	}
 	
 	public boolean isBlankNode() {
-		return this == BlankNode || this == List;
+		return this == BlankNode; // || this == List;
 	}
 
 	public boolean isLiteral() {
 		return this == Literal;
 	}
 	
-	public boolean isList() {
-		return this == List;
-	}
+//	public boolean isList() {
+//		return this == List;
+//	}
 	
 	public boolean isTerminated() {
 		return this == Uri || this == Literal;

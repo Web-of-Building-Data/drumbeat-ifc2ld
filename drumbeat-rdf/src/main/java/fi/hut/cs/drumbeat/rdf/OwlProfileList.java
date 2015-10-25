@@ -16,13 +16,25 @@ public class OwlProfileList extends ArrayList<OwlProfile> {
 	public OwlProfileList() {		
 	}
 
-	public OwlProfileList(String[] owlProfileNames) {
+	public OwlProfileList(String... owlProfileNames) {
 		for (String owlProfileName : owlProfileNames) {
-			OwlProfileEnum owlProfileEnum = OwlProfileEnum.valueOf(owlProfileName.trim());
-			add(new OwlProfile(owlProfileEnum));
+			OwlProfileEnum owlProfileId = OwlProfileEnum.valueOf(owlProfileName.trim());
+			add(new OwlProfile(owlProfileId));
 		}		
 	}
 	
+	public OwlProfileList(OwlProfileEnum... owlProfileIds) {
+		for (OwlProfileEnum owlProfileId : owlProfileIds) {
+			add(new OwlProfile(owlProfileId));
+		}		
+	}
+
+	public OwlProfileList(OwlProfile... owlProfiles) {
+		for (OwlProfile owlProfile : owlProfiles) {
+			add(owlProfile);
+		}		
+	}
+
 	public List<OwlProfileEnum> getOwlProfileIds() {
 		return this.stream().map(OwlProfile::getOwlProfileId).collect(Collectors.toList());
 	}

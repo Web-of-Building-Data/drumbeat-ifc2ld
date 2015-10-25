@@ -18,7 +18,7 @@ public class Ifc2RdfConversionContextLoader {
 	/////////////////////////
 	
 	public static final String CONFIGURATION_SECTION_CONVERTER_TYPE_NAME = "Ifc2Rdf";
-	public static final String CONFIGURATION_PROPERTY_OWL_VERSION = "OwlVersion";
+	public static final String CONFIGURATION_PROPERTY_ONTOLOGY_VERSION = "Ontology.Version";
 	
 	private static final String CONFIGURATION_PROPERTY_OWL_PROFILE = "OwlProfile";
 	private static final String CONFIGURATION_PROPERTY_CONVERSION_OPTIONS_PREFIX = "Options.";
@@ -49,7 +49,7 @@ public class Ifc2RdfConversionContextLoader {
 	
 	public static void loadConfigurationToContext(Ifc2RdfConversionContext context, ConfigurationItemEx configuration) {
 		
-		context.setOwlVersion(configuration.getProperties().getProperty(CONFIGURATION_PROPERTY_OWL_VERSION, "1.0.0"));
+		context.setIfcOntologyVersion(configuration.getProperties().getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_VERSION, "1.0.0"));
 		
 		String[] owlProfileNames = configuration.getProperties().getProperty(CONFIGURATION_PROPERTY_OWL_PROFILE).split(",");
 		OwlProfileList owlProfileList = new OwlProfileList(owlProfileNames);

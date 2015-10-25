@@ -110,7 +110,6 @@ public class Ifc2RdfVocabulary {
 
 		public static final Property endIndex = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "endIndex");
 		public static final Property index = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "index");
-		public static final Property isFollowedBy = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "isFollowedBy");		
 		public static final Property isOrdered = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "isOrdered");
 		public static final Property item = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "item");
 		public static final Property itemType = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "itemType");
@@ -119,8 +118,10 @@ public class Ifc2RdfVocabulary {
 		public static final Property hasContent = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasContent");
 		public static final Property hasInteger = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasInteger");
 		public static final Property hasLogical = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasLogical");
+		public static final Property hasNext = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasNext");		
 		public static final Property hasNumber = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasNumber");
 		public static final Property hasReal = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasReal");
+		public static final Property hasSetItem = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasSetItem");
 		public static final Property hasString = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasString");
 		public static final Property hasValue = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "hasValue");
 		public static final Property next = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "next");
