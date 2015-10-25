@@ -33,7 +33,7 @@ import fi.hut.cs.drumbeat.rdf.RdfVocabulary;
  * @author Nam
  * 
  */
-public class fc2RdfSchemaExporter extends Ifc2RdfExporterBase {
+public class fc2RdfSchemaExporter extends Ifc2RdfExporterBase_Old {
 
 	private IfcSchema ifcSchema;
 	private Ifc2RdfConversionContext context;
@@ -253,7 +253,7 @@ public class fc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.EmptyList, RDF.type, OWL.Class);
 		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.EmptyList, RDFS.subClassOf, Ifc2RdfVocabulary.EXPRESS.List);
 		
-		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.isFollowedBy, RDF.type, OWL.ObjectProperty);
+		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.hasNext, RDF.type, OWL.ObjectProperty);
 		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.hasContent, RDF.type, OWL.ObjectProperty);
 		
 

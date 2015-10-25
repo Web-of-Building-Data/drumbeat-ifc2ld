@@ -72,13 +72,13 @@ public class MainUI extends UI {
 		TabSheet tabSheet = new TabSheet();
 		layout.addComponent(tabSheet);
 		
-		tabSheet.addTab(new IfcConfigView(), "Config");
+		tabSheet.addTab(new ConfigView(), "Config");
 
-		tabSheet.addTab(new IfcSchemaView(), "Convert Schema");
+		tabSheet.addTab(new ConvertSchemaView(), "Convert Schema");
 		
-		tabSheet.addTab(new IfcModelView(), "Convert Data");
+		tabSheet.addTab(new ConvertModelView(), "Convert Data");
 		
-		tabSheet.setSelectedTab(1);
+		tabSheet.setSelectedTab(2);
 	}
 	
 

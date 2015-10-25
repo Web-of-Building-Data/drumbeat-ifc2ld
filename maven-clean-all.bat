@@ -28,6 +28,9 @@ CALL maven-clean-single.bat drumbeat-ifc.convert.ifc2ld 1>> %OUTPUT_FILE%
 CALL maven-clean-single.bat drumbeat-ifc.convert.ifc2ld.cli 1>> %OUTPUT_FILE%
 
 @ECHO ON
+CALL maven-clean-single.bat drumbeat-ifc.convert.ifc2ld.web 1>> %OUTPUT_FILE%
+
+@ECHO ON
 CALL maven-clean-single.bat drumbeat-test 1>> %OUTPUT_FILE%
 
 @PAUSE

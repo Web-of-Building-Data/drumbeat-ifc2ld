@@ -33,6 +33,7 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+    	Object map = RdfUtils.getRdfFormatMap();
+    	assertNotNull(map);
     }
 }

@@ -1,11 +1,12 @@
 package fi.hut.cs.drumbeat.ifc.convert.ifc2ld;
 
+import fi.hut.cs.drumbeat.rdf.OwlProfileEnum;
 import fi.hut.cs.drumbeat.rdf.OwlProfileList;
 
 
 public class Ifc2RdfConversionContext {
 	
-	private String owlVersion; 
+	private String ifcOntologyVersion; 
 	private OwlProfileList owlProfileList;
 	private String name;
 	private String ontologyPrefix;
@@ -17,14 +18,17 @@ public class Ifc2RdfConversionContext {
 	
 	public Ifc2RdfConversionContext() {
 		conversionParams = new Ifc2RdfConversionParams();
+		owlProfileList = new OwlProfileList(OwlProfileEnum.OWL2_Full);
+		ontologyPrefix = Ifc2RdfVocabulary.IFC.BASE_PREFIX;
+		ontologyNamespaceFormat = Ifc2RdfVocabulary.DEFAULT_IFC_ONTOLOGY_BASE_FORMAT;
 	}
 	
-	public String getOwlVersion() {
-		return owlVersion;
+	public String getIfcOntologyVersion() {
+		return ifcOntologyVersion;
 	}
 
-	public void setOwlVersion(String owlVersion) {
-		this.owlVersion = owlVersion;
+	public void setIfcOntologyVersion(String version) {
+		this.ifcOntologyVersion = version;
 	}
 
 	public OwlProfileList getOwlProfileList() {

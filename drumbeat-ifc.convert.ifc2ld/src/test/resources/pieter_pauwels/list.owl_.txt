@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY list "http://www.co-ode.org/ontologies/list.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.co-ode.org/ontologies/lists/2008/09/11/list.owl#"
+     xml:base="http://www.co-ode.org/ontologies/lists/2008/09/11/list.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:list="http://www.co-ode.org/ontologies/list.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI"
+            >http://owl-workshop.man.ac.uk/acceptedLong/submission_12.pdf</rdfs:seeAlso>
+        <rdfs:comment
+            >A set of entities used to describe the OWL list pattern.</rdfs:comment>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/list.owl#hasContents -->
+
+    <owl:ObjectProperty rdf:about="&list;hasContents">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&list;hasListProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/list.owl#hasListProperty -->
+
+    <owl:ObjectProperty rdf:about="&list;hasListProperty">
+        <rdfs:domain rdf:resource="&list;OWLList"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/list.owl#hasNext -->
+
+    <owl:ObjectProperty rdf:about="&list;hasNext">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&list;isFollowedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/list.owl#isFollowedBy -->
+
+    <owl:ObjectProperty rdf:about="&list;isFollowedBy">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&list;OWLList"/>
+        <rdfs:subPropertyOf rdf:resource="&list;hasListProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/list.owl#EmptyList -->
+
+    <owl:Class rdf:about="&list;EmptyList">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&list;OWLList"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&list;hasContents"/>
+                                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&list;OWLList"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&list;isFollowedBy"/>
+                                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/list.owl#OWLList -->
+
+    <owl:Class rdf:about="&list;OWLList">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&list;isFollowedBy"/>
+                <owl:allValuesFrom rdf:resource="&list;OWLList"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.842) http://owlapi.sourceforge.net -->
+

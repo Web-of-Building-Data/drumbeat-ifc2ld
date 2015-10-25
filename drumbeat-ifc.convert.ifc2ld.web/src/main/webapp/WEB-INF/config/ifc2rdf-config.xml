@@ -156,16 +156,25 @@
 	</converterPool>
 	
 	<jenaModelPool>
-		<jenaModel name="Memory1" default="true">
+		<jenaModel name="File" default="true">
 			<class>fi.hut.cs.drumbeat.rdf.modelfactory.MemoryJenaModelFactory</class>
 		</jenaModel>
-		<jenaModel name="AllegroGraph1" default="true">
+		<!-- jenaModel name="AllegroGraph1" default="false" enabled="false">
 			<class>fi.hut.cs.drumbeat.rdf.modelfactory.allegrograph.AGJenaModelFactory</class>
 			<params>
 				<param name="ServerUrl" value="http://murskain.cs.hut.fi:10035/" />
 				<param name="UserName" value="test" />
 				<param name="Password" value="xyz" />
 				<param name="ModelId" value="IFC2X3TC" />				
+			</params>
+		</jenaModel> -->
+		<jenaModel name="Virtuoso_Local" default="false">		           
+			<class>fi.hut.cs.drumbeat.rdf.modelfactory.virtuoso.VirtuosoJenaModelFactory</class>
+			<params>
+				<param name="ServerUrl" value="jdbc:virtuoso://localhost:1111/charset=UTF-8/log_enable=2" />
+				<param name="UserName" value="dba" />
+				<param name="Password" value="dba" />
+				<param name="ModelId" value="ifc_test" />				
 			</params>
 		</jenaModel>
 	</jenaModelPool>

@@ -33,26 +33,26 @@ import fi.hut.cs.drumbeat.rdf.RdfVocabulary;
  * @author Nam
  * 
  */
-public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
+public class Ifc2RdfSchemaExporter {
 
+	private Ifc2RdfConverter converter;
 	private IfcSchema ifcSchema;
 	private Ifc2RdfConversionContext context;
-	private OwlProfileList owlProfileList;
+	private Model jenaModel;
 
 	private Map<String, IfcCollectionTypeInfo> additionalCollectionTypeDictionary = new HashMap<>();
 
-	public Ifc2RdfSchemaExporter(IfcSchema ifcSchema,
-			Ifc2RdfConversionContext context, Model jenaModel) {
-		super(context, jenaModel);
+	public Ifc2RdfSchemaExporter(IfcSchema ifcSchema, Ifc2RdfConversionContext context, Model jenaModel) {
 		this.ifcSchema = ifcSchema;
 		this.context = context;
-		this.owlProfileList = context.getOwlProfileList();
-
+		this.jenaModel = jenaModel;		
+		
+		converter = new Ifc2RdfConverter(context, ifcSchema);
 		if (context.getOntologyNamespaceFormat() != null) {
-			super.setOntologyNamespaceUri(String.format(
+			converter.setIfcOntologyNamespaceUri(String.format(
 					context.getOntologyNamespaceFormat(),
 					ifcSchema.getVersion(), context.getName()));
-		}
+		}		
 	}
 
 	public Model export() throws IfcException, IOException {
@@ -60,8 +60,73 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 		//
 		// write header and prefixes
 		//
-		// adapter.startExport();
+		exportOntologyHeader();
 
+		if (!context.getConversionParams().ignoreExpressSchema()) {
+			exportExpressOntology();
+		}
+
+		if (!context.getConversionParams().ignoreIfcSchema()) {
+
+			//
+			// write non-entity types section
+			//
+			Collection<IfcNonEntityTypeInfo> nonEntityTypeInfos = ifcSchema
+					.getNonEntityTypeInfos();
+
+
+			// enumeration types
+			// adapter.startSection("ENUMERATION TYPES");
+			for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
+				if (nonEntityTypeInfo instanceof IfcEnumerationTypeInfo) {
+					converter.convertEnumerationTypeInfo((IfcEnumerationTypeInfo) nonEntityTypeInfo, jenaModel);
+					
+				}
+			}
+
+
+			// defined types
+			// adapter.startSection("DEFINED TYPES");
+			for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
+				if (nonEntityTypeInfo instanceof IfcDefinedTypeInfo) {
+					converter.convertDefinedTypeInfo((IfcDefinedTypeInfo) nonEntityTypeInfo, jenaModel);					
+				}
+			}
+
+
+			// select types
+			// adapter.startSection("SELECT TYPES");
+			for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
+				if (nonEntityTypeInfo instanceof IfcSelectTypeInfo) {
+					converter.convertSelectTypeInfo((IfcSelectTypeInfo) nonEntityTypeInfo, jenaModel);					
+				}
+			}
+
+
+			// collection types
+			//adapter.startSection("COLLECTION TYPES");
+			for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
+				if (nonEntityTypeInfo instanceof IfcCollectionTypeInfo) {
+					// TODO: check if additional collection types must be exported
+					converter.convertCollectionTypeInfo((IfcCollectionTypeInfo)nonEntityTypeInfo, jenaModel);					
+				}
+			}
+
+
+			//
+			// write entity types section
+			//
+			for (IfcEntityTypeInfo entityTypeInfo : ifcSchema.getEntityTypeInfos()) {
+				converter.convertEntityTypeInfo(entityTypeInfo, jenaModel);			 
+			}			 
+
+		}
+
+		return jenaModel;
+	}
+
+	private void exportOntologyHeader() {
+		
 		// define owl:
 		jenaModel.setNsPrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
 
@@ -78,16 +143,13 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 		jenaModel.setNsPrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX,
 				Ifc2RdfVocabulary.EXPRESS.getBaseUri());
 
-		boolean ignoreIfcSchema = (Boolean)context.getConversionParams()
-				.getParam(Ifc2RdfConversionParams.PARAM_IGNORE_IFC_SCHEMA)
-				.getValue();
-		if (!ignoreIfcSchema) {
+		if (!context.getConversionParams().ignoreIfcSchema()) {
 			// define ifc:
 			jenaModel.setNsPrefix(Ifc2RdfVocabulary.IFC.BASE_PREFIX,
-					getOntologyNamespaceUri());
+					converter.getIfcOntologyNamespaceUri());
 		}
 
-		// //adapter.exportEmptyLine();
+		// 
 
 		String conversionParamsString = context.getConversionParams()
 				.toString().replaceFirst("\\[", "[\r\n\t\t\t ")
@@ -96,12 +158,12 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 		// TODO: Format ontology comment here
 		conversionParamsString = String.format(
 				"OWL profile: %s.\r\n\t\tConversion options: %s",
-				owlProfileList.getOwlProfileIds(), conversionParamsString);
+				context.getOwlProfileList().getOwlProfileIds(), conversionParamsString);
 
-		// adapter.exportOntologyHeader(getOntologyNamespaceUri(), "1.0",
+		// adapter.exportOntologyHeader(converter.getIfcOntologyNamespaceUri(), "1.0",
 		// conversionParamsString);
 
-		Resource ontology = jenaModel.createResource(getOntologyNamespaceUri());
+		Resource ontology = jenaModel.createResource(converter.getIfcOntologyNamespaceUri());
 		ontology.addProperty(RDF.type, OWL.Ontology);
 		String version = "1.0";
 		ontology.addProperty(OWL.versionInfo, String.format(
@@ -112,103 +174,14 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 			// String.format("\"\"\"%s\"\"\"", comment));
 			ontology.addProperty(RDFS.comment, conversionParamsString);
 		}
-
-		boolean ignoreExpressSchema = (Boolean)context.getConversionParams()
-				.getParam(Ifc2RdfConversionParams.PARAM_IGNORE_EXPRESS_SCHEMA)
-				.getValue();
-
-		if (!ignoreExpressSchema) {
-			exportExpressOntology();
-		}
-
-		if (!ignoreIfcSchema) {
-
-			//
-			// write non-entity types section
-			//
-			Collection<IfcNonEntityTypeInfo> nonEntityTypeInfos = ifcSchema
-					.getNonEntityTypeInfos();
-
-
-			// enumeration types
-			// adapter.startSection("ENUMERATION TYPES");
-			for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
-				if (nonEntityTypeInfo instanceof IfcEnumerationTypeInfo) {
-					exportEnumType((IfcEnumerationTypeInfo) nonEntityTypeInfo);
-					// adapter.exportEmptyLine();
-				}
-			}
-			// adapter.endSection();
-
-			// defined types
-			// adapter.startSection("DEFINED TYPES");
-			for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
-				if (nonEntityTypeInfo instanceof IfcDefinedTypeInfo) {
-					exportDefinedTypeInfo((IfcDefinedTypeInfo) nonEntityTypeInfo);
-					// adapter.exportEmptyLine();
-				}
-			}
-			// adapter.endSection();
-
-			// select types
-			// adapter.startSection("SELECT TYPES");
-			for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
-				if (nonEntityTypeInfo instanceof IfcSelectTypeInfo) {
-					exportSelectTypeInfo((IfcSelectTypeInfo) nonEntityTypeInfo);
-					// adapter.exportEmptyLine();
-				}
-			}
-			// adapter.endSection();
-
-			// collection types
-			//adapter.startSection("COLLECTION TYPES");
-			for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
-				if (nonEntityTypeInfo instanceof IfcCollectionTypeInfo) {
-					exportCollectionTypeInfo((IfcCollectionTypeInfo)nonEntityTypeInfo);
-					//adapter.exportEmptyLine();
-				}
-			}
-//			adapter.endSection();
-
-			 //
-			 // write entity types section
-			 //
-			 // if (!context.isEnabledOption(Ifc2RdfConversionParamsEnum.IgnoreEntityTypes))
-			 {
-				 //adapter.startSection("ENTITY TYPES");
-				 for (IfcEntityTypeInfo entityTypeInfo : ifcSchema.getEntityTypeInfos()) {
-					 exportEntityTypeInfo(entityTypeInfo);
-				 //	adapter.exportEmptyLine();
-				 }
-			 }
-			 //adapter.endSection();
-			 // }
-			
-//			 //
-//			 // write entity types section
-//			 //
-//			 // if (!context.isEnabledOption(Ifc2RdfConversionParamsEnum.IgnoreCollectionTypes))
-//			 {
-//				 //adapter.startSection("ADDITIONAL COLLECTION TYPES");
-//				 for (IfcCollectionTypeInfo collectionTypeInfo :
-//				 additionalCollectionTypeDictionary.values()) {
-//				 exportCollectionTypeInfo(collectionTypeInfo);
-//				 //adapter.exportEmptyLine();
-//			 }
-			 //adapter.endSection();
-			 // }
-
-			// adapter.endExport();
-
-		}
-
-		return super.getJenaModel();
+		
 	}
-
+	
 	private void exportExpressOntology() {
 
-		final boolean declareFunctionalProperties = owlProfileList
-				.supportsStatement(RDF.type, OWL.FunctionalProperty);
+//		final boolean declareFunctionalProperties = context
+//				.getOwlProfileList()
+//				.supportsStatement(RDF.type, OWL.FunctionalProperty);
 
 		// TODO: Generate literal and logical types automatically (not manually
 		// as below)
@@ -219,10 +192,9 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 				.getNonEntityTypeInfos();
 		for (IfcNonEntityTypeInfo nonEntityTypeInfo : nonEntityTypeInfos) {
 			if (nonEntityTypeInfo instanceof IfcLiteralTypeInfo) {
-				exportLiteralTypeInfo((IfcLiteralTypeInfo) nonEntityTypeInfo);
-				// adapter.exportEmptyLine();
+				converter.convertLiteralTypeInfo((IfcLiteralTypeInfo) nonEntityTypeInfo, jenaModel);				
 			} else if (nonEntityTypeInfo instanceof IfcLogicalTypeInfo) {
-				exportLogicalTypeInfo((IfcLogicalTypeInfo) nonEntityTypeInfo);
+				converter.convertLogicalTypeInfo((IfcLogicalTypeInfo) nonEntityTypeInfo, jenaModel);
 			}
 		}
 		// adapter.endSection();
@@ -253,8 +225,13 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.EmptyList, RDF.type, OWL.Class);
 		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.EmptyList, RDFS.subClassOf, Ifc2RdfVocabulary.EXPRESS.List);
 		
-		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.isFollowedBy, RDF.type, OWL.ObjectProperty);
 		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.hasContent, RDF.type, OWL.ObjectProperty);
+		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.hasNext, RDF.type, OWL.ObjectProperty);
+		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.hasSetItem, RDF.type, OWL.ObjectProperty);
+
+		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.hasContent, RDFS.domain, Ifc2RdfVocabulary.EXPRESS.List);
+		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.hasNext, RDFS.domain, Ifc2RdfVocabulary.EXPRESS.List);
+		jenaModel.add(Ifc2RdfVocabulary.EXPRESS.hasSetItem, RDFS.domain, Ifc2RdfVocabulary.EXPRESS.Set);
 		
 
 		// jenaModel.add(Ifc2RdfVocabulary.EXPRESS.slot, RDF.type,
@@ -402,7 +379,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// private void exportCollectionTypeInfo(IfcCollectionTypeInfo typeInfo) {
 	//
 	// Resource typeResource =
-	// super.createUriResource(super.formatTypeName(typeInfo));
+	// converter.createUriResource(converter.formatTypeName(typeInfo));
 	// jenaModel.add(typeResource, RDF.type, OWL.Class);
 	//
 	// IfcCollectionKindEnum collectionKind = typeInfo.getCollectionKind();
@@ -420,7 +397,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// }
 	//
 	// Resource slotClassResource =
-	// createUriResource(super.formatOntologyName(super.formatSlotClassName(typeInfo.getName())));
+	// createUriResource(converter.formatOntologyName(converter.formatSlotClassName(typeInfo.getName())));
 	// jenaModel.add(slotClassResource, RDF.type, OWL.Class);
 	// jenaModel.add(slotClassResource, RDFS.subClassOf,
 	// Ifc2RdfVocabulary.EXPRESS.Slot);
@@ -434,17 +411,17 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// exportPropertyRestriction(typeResource, Ifc2RdfVocabulary.EXPRESS.slot,
 	// OWL.allValuesFrom, slotClassResource);
 	//
-	// //adapter.exportEmptyLine();
+	// 
 	//
 	// exportPropertyRestriction(slotClassResource,
 	// Ifc2RdfVocabulary.EXPRESS.item, OWL.allValuesFrom,
-	// createUriResource(super.formatTypeName(typeInfo.getItemTypeInfo())));
+	// createUriResource(converter.formatTypeName(typeInfo.getItemTypeInfo())));
 	// }
 	//
 	// } else {
 	//
 	// String superTypeName =
-	// super.formatTypeName(superCollectionTypeWithItemTypeAndNoCardinalities);
+	// converter.formatTypeName(superCollectionTypeWithItemTypeAndNoCardinalities);
 	// jenaModel.add(typeResource, RDFS.subClassOf,
 	// createUriResource(superTypeName));
 	// additionalCollectionTypeDictionary.put(superTypeName,
@@ -497,14 +474,14 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// // }
 	// //
 	// //
-	// // //adapter.exportEmptyLine();
+	// // 
 	// //
 	// // }
 	//
 	// } else {
 	//
 	// String superTypeName =
-	// super.formatTypeName(superCollectionTypeWithCardinalititesAndNoItemType);
+	// converter.formatTypeName(superCollectionTypeWithCardinalititesAndNoItemType);
 	// jenaModel.add(typeResource, RDFS.subClassOf,
 	// createUriResource(superTypeName));
 	// additionalCollectionTypeDictionary.put(superTypeName,
@@ -536,7 +513,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// // write restriction on length of list as [ owl:oneOf (min, min + 1, ...,
 	// max) ]
 	// //
-	// Resource blankNode1 = super.createAnonResource();
+	// Resource blankNode1 = converter.createAnonResource();
 	// jenaModel.add(blankNode1, RDF.type, RDFS.Datatype);
 	// jenaModel.add(blankNode1, OWL.oneOf, getCardinalityValueList(min, max));
 	//
@@ -554,12 +531,12 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// // write restriction on length of list as [ owl:compelmentOf [ owl:oneOf
 	// (0, 1, ..., min - 1) ]
 	// //
-	// Resource blankNode2 = super.createAnonResource();
+	// Resource blankNode2 = converter.createAnonResource();
 	// jenaModel.add(blankNode2, RDF.type, RDFS.Datatype);
 	// jenaModel.add(blankNode2, OWL.oneOf,
 	// getCardinalityValueList(Cardinality.ZERO, min - 1));
 	//
-	// Resource blankNode1 = super.createAnonResource();
+	// Resource blankNode1 = converter.createAnonResource();
 	// jenaModel.add(blankNode1, RDF.type, OWL.Class);
 	// jenaModel.add(blankNode1, OWL.complementOf, blankNode2);
 	//
@@ -571,7 +548,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	//
 	// }
 	//
-	// //adapter.exportEmptyLine();
+	// 
 	//
 	// } // for
 	//
@@ -581,10 +558,10 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	//
 	// // define ifc:EmptyList
 	// Resource emptyListTypeUri =
-	// createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.EMPTY_LIST));
+	// createUriResource(converter.formatOntologyName(Ifc2RdfVocabulary.IFC.EMPTY_LIST));
 	// jenaModel.add(emptyListTypeUri, RDF.type, OWL.Class);
 	// jenaModel.add(emptyListTypeUri, RDFS.subClassOf, RDF.List);
-	// //adapter.exportEmptyLine();
+	// 
 	//
 	// }
 	// }
@@ -592,7 +569,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// private void writeAttributeConstraint(Resource typeResource, Resource
 	// attributeResource, Property constraintKindProperty, RDFNode
 	// constraintValueTypeResource) {
-	// Resource blankNode = super.createAnonResource();
+	// Resource blankNode = converter.createAnonResource();
 	// jenaModel.add(blankNode, RDF.type, OWL.Restriction);
 	// jenaModel.add(blankNode, OWL.onProperty, attributeResource);
 	// jenaModel.add(blankNode, constraintKindProperty,
@@ -617,10 +594,10 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	//
 	// for (IfcAttributeInfo attributeInfo : attributeInfoList) {
 	// IfcEntityTypeInfo domainTypeInfo = attributeInfo.getEntityTypeInfo();
-	// domainTypeNames.add(super.formatTypeName(domainTypeInfo));
+	// domainTypeNames.add(converter.formatTypeName(domainTypeInfo));
 	//
 	// IfcTypeInfo rangeTypeInfo = attributeInfo.getAttributeTypeInfo();
-	// rangeTypeNames.add(super.formatTypeName(rangeTypeInfo));
+	// rangeTypeNames.add(converter.formatTypeName(rangeTypeInfo));
 	// valueTypes.addAll(rangeTypeInfo.getValueTypes());
 	//
 	// isFunctionalProperty = isFunctionalProperty &&
@@ -633,7 +610,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// // owl:DataProperty, owl:ObjectProperty, or rdf:Property
 	// //
 	// Resource attributeResource =
-	// createUriResource(super.formatOntologyName(attributeName));
+	// createUriResource(converter.formatOntologyName(attributeName));
 	// if (valueTypes.size() == 1 && !valueTypes.contains(IfcTypeEnum.ENTITY)) {
 	// jenaModel.add(attributeResource, RDF.type, OWL.DatatypeProperty);
 	// } else {
@@ -676,7 +653,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// domainTypeResources.add(createUriResource(domainTypeName));
 	// }
 	//
-	// Resource domainTypeResource = super.createAnonResource();
+	// Resource domainTypeResource = converter.createAnonResource();
 	// jenaModel.add(domainTypeResource, RDF.type, OWL.Class);
 	// jenaModel.add(domainTypeResource, OWL.unionOf,
 	// createList(domainTypeResources));
@@ -701,7 +678,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// rangeTypeResources.add(createUriResource(rangeTypeName));
 	// }
 	//
-	// Resource rangeTypeResource = super.createAnonResource();
+	// Resource rangeTypeResource = converter.createAnonResource();
 	// jenaModel.add(rangeTypeResource, RDF.type, OWL.Class);
 	// jenaModel.add(rangeTypeResource, OWL.unionOf,
 	// createList(rangeTypeResources));
@@ -721,17 +698,17 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// IfcInverseLinkInfo inverseLinkInfo =
 	// (IfcInverseLinkInfo)attributeInfoList.get(0);
 	// jenaModel.add(attributeResource, OWL.inverseOf,
-	// createUriResource(super.formatAttributeName(inverseLinkInfo.getOutgoingLinkInfo())));
+	// createUriResource(converter.formatAttributeName(inverseLinkInfo.getOutgoingLinkInfo())));
 	// }
 	// } else {
 	// if (avoidDuplicationOfPropertyNames) {
 	// for (IfcAttributeInfo subAttributeInfo : attributeInfoList) {
-	// //adapter.exportEmptyLine();
+	// 
 	// List<IfcAttributeInfo> attributeInfoSubList = new ArrayList<>();
 	// attributeInfoSubList.add(subAttributeInfo);
 	// String subAttributeName = subAttributeInfo.getUniqueName();
 	// writeAttributeInfo(subAttributeName, attributeInfoSubList);
-	// jenaModel.add(createUriResource(super.formatOntologyName(subAttributeName)),
+	// jenaModel.add(createUriResource(converter.formatOntologyName(subAttributeName)),
 	// RDFS.subPropertyOf, attributeResource);
 	// }
 	// }
@@ -743,7 +720,7 @@ public class Ifc2RdfSchemaExporter extends Ifc2RdfExporterBase {
 	// for (int i = min; i <= max; ++i) {
 	// literals.add(getJenaModel().createTypedLiteral(i));
 	// }
-	// return super.createList(literals);
+	// return converter.createList(literals);
 	// }
 
 }

@@ -7,8 +7,8 @@ import com.hp.hpl.jena.rdf.model.Model;
 
 import fi.hut.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
-import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfMetaModelExporter;
-import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfModelExporter;
+import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfMetaModelExporter_Old;
+import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfModelExporter_Old;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfSchemaExporter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.config.Ifc2RdfConversionContextLoader;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcModel;
@@ -129,7 +129,7 @@ public class Ifc2RdfExportUtil {
 
 		logger.info("Exporting model to Jena");
 		try {
-			new Ifc2RdfModelExporter(model, context, jenaModel).export();
+			new Ifc2RdfModelExporter_Old(model, context, jenaModel).export();
 			
 			logger.info("Exporting model has been completed successfully");
 			
@@ -182,7 +182,7 @@ public class Ifc2RdfExportUtil {
 
 		logger.info("Exporting model to Jena");
 		try {
-			new Ifc2RdfMetaModelExporter(metaDataSetUri, model, context, jenaModel).export();
+			new Ifc2RdfMetaModelExporter_Old(metaDataSetUri, model, context, jenaModel).export();
 			
 			logger.info("Exporting model has been completed successfully");
 			

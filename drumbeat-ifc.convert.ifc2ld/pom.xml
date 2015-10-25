@@ -4,7 +4,7 @@
 
 	<groupId>fi.hut.cs.drumbeat</groupId>
 	<artifactId>drumbeat-ifc.convert.ifc2ld</artifactId>
-	<version>0.1.0-RELEASE</version>
+	<version>0.2.0-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>drumbeat-ifc.convert.ifc2rdf</name>
@@ -54,6 +54,14 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>drumbeat-ifc.convert.stff2ifc</artifactId>
+			<version>${project.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 	
 	<build>
