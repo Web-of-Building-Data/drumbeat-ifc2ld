@@ -37,10 +37,12 @@ public class Ifc2RdfMetaModelExporter extends Ifc2RdfExporterBase {
 		this.owlProfileList = context.getOwlProfileList();
 		
 
-		String modelNamespacePrefix = context.getModelPrefix();
-		String modelNamespaceUri = String.format(context.getModelNamespaceFormat(), ifcSchema.getVersion(), context.getName());
+		String modelNamespacePrefix = context.getModelNamespacePrefix();
+		String modelNamespaceUri = String.format(context.getModelNamespaceUriFormat(), ifcSchema.getVersion(), context.getName());
 		
-		String ontologyNamespaceUri = String.format(context.getOntologyNamespaceFormat(), ifcSchema.getVersion(), context.getName());
+		//String ontologyNamespaceUri = String.format(context.getOntologyNamespaceUriFormat(), ifcSchema.getVersion(), context.getName());
+		String ontologyNamespaceUri = Ifc2RdfVocabulary.IFC.getBaseUri(ifcSchema.getVersion());
+		
 		super.setOntologyNamespaceUri(ontologyNamespaceUri);
 		super.setModelNamespacePrefix(modelNamespacePrefix);
 		super.setModelNamespaceUri(modelNamespaceUri);		

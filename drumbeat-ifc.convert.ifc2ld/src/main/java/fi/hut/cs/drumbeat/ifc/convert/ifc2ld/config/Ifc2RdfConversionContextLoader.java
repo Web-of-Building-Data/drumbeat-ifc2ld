@@ -22,8 +22,8 @@ public class Ifc2RdfConversionContextLoader {
 	
 	private static final String CONFIGURATION_PROPERTY_OWL_PROFILE = "OwlProfile";
 	private static final String CONFIGURATION_PROPERTY_CONVERSION_OPTIONS_PREFIX = "Options.";
-	private static final String CONFIGURATION_PROPERTY_ONTOLOGY_PREFIX = "Ontology.Prefix";
-	private static final String CONFIGURATION_PROPERTY_ONTOLOGY_NAMESPACE_FORMAT = "Ontology.NamespaceFormat";	
+//	private static final String CONFIGURATION_PROPERTY_ONTOLOGY_PREFIX = "Ontology.Prefix";
+//	private static final String CONFIGURATION_PROPERTY_ONTOLOGY_NAMESPACE_FORMAT = "Ontology.NamespaceFormat";	
 	private static final String CONFIGURATION_PROPERTY_MODEL_PREFIX = "Model.Prefix";
 	private static final String CONFIGURATION_PROPERTY_MODEL_NAMESPACE_FORMAT = "Model.NamespaceFormat";
 	
@@ -72,22 +72,26 @@ public class Ifc2RdfConversionContextLoader {
 			}
 		}
 		
-		String ontologyPrefix = properties.getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_PREFIX, Ifc2RdfVocabulary.IFC.BASE_PREFIX);
-		context.setOntologyPrefix(ontologyPrefix);
-		
-		String ontologyNamespaceFormat = properties.getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_NAMESPACE_FORMAT, Ifc2RdfVocabulary.IFC.getBaseUriFormat())
-				.replaceAll(CONFIGURATION_NAMESPACE_FORMAT_VARIABLE_SCHEMA_VERSION, "%1s")
-				.replaceAll(CONFIGURATION_VARIABLE_CONVERTER_CONTEXT_NAME, "%2s");
-		context.setOntologyNamespaceFormat(ontologyNamespaceFormat);
+//		String ontologyPrefix = properties.getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_PREFIX, Ifc2RdfVocabulary.IFC.BASE_PREFIX);
+//		context.setOntologyPrefix(ontologyPrefix);
+//		
+//		String ontologyNamespaceFormat = properties.getProperty(CONFIGURATION_PROPERTY_ONTOLOGY_NAMESPACE_FORMAT, Ifc2RdfVocabulary.IFC.getBaseUriFormat())
+//				.replaceAll(CONFIGURATION_NAMESPACE_FORMAT_VARIABLE_SCHEMA_VERSION, "%1s")
+//				.replaceAll(CONFIGURATION_VARIABLE_CONVERTER_CONTEXT_NAME, "%2s");
+//		context.setOntologyNamespaceUriFormat(ontologyNamespaceFormat);
 		
 				
-		String modelPrefix = properties.getProperty(CONFIGURATION_PROPERTY_MODEL_PREFIX, Ifc2RdfVocabulary.DEFAULT_MODEL_PREFIX);
-		context.setModelPrefix(modelPrefix);
+//		String modelPrefix = properties.getProperty(CONFIGURATION_PROPERTY_MODEL_PREFIX, Ifc2RdfVocabulary.DEFAULT_MODEL_PREFIX);
+		String modelPrefix = properties.getProperty(CONFIGURATION_PROPERTY_MODEL_PREFIX);
+		context.setModelNamespacePrefix(modelPrefix);
 		
-		String modelNamespaceFormat = properties.getProperty(CONFIGURATION_PROPERTY_MODEL_NAMESPACE_FORMAT, Ifc2RdfVocabulary.DEFAULT_MODEL_NAMESPACE_FORMAT)
+//		String modelNamespaceFormat = properties.getProperty(CONFIGURATION_PROPERTY_MODEL_NAMESPACE_FORMAT, Ifc2RdfVocabulary.DEFAULT_MODEL_NAMESPACE_FORMAT)
+//				.replaceAll(CONFIGURATION_NAMESPACE_FORMAT_VARIABLE_SCHEMA_VERSION, "%1s")
+//				.replaceAll(CONFIGURATION_VARIABLE_CONVERTER_CONTEXT_NAME, "%2s");
+		String modelNamespaceFormat = properties.getProperty(CONFIGURATION_PROPERTY_MODEL_NAMESPACE_FORMAT)
 				.replaceAll(CONFIGURATION_NAMESPACE_FORMAT_VARIABLE_SCHEMA_VERSION, "%1s")
 				.replaceAll(CONFIGURATION_VARIABLE_CONVERTER_CONTEXT_NAME, "%2s");
-		context.setModelNamespaceFormat(modelNamespaceFormat);
+		context.setModelNamespaceUriFormat(modelNamespaceFormat);
 		
 	}
 

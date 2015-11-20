@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.Assert;
 
 import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -212,6 +213,21 @@ public class RdfAsserter {
 		
 	}
 	
+	
+	public static class ModelAsserter implements Asserter<Model> {
+
+		public ModelAsserter() {
+		}
+		
+		@Override
+		public void assertEquals(Model o1, Model o2) {
+			
+//			final Asserter<StmtIterator> stmtIteratorAsserter = new StmtIteratorAsserter(false, true, false);
+//			stmtIteratorAsserter.assertEquals(o1.listStatements(), o2.listStatements());
+		}
+		
+	}
+
 	
 	public static class FullResourceAsserter implements Asserter<Resource> {
 

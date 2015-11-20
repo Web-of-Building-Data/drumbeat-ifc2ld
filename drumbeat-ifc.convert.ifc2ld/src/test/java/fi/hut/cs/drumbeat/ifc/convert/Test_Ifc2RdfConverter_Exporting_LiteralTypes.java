@@ -23,7 +23,7 @@ import fi.hut.cs.drumbeat.ifc.data.schema.IfcLogicalTypeInfo;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 
-public class Test_Ifc2RdfExporterBase_Exporting_LiteralTypes {
+public class Test_Ifc2RdfConverter_Exporting_LiteralTypes {
 	
 	private static IfcSchema ifcSchema;
 	private Model jenaModel;
@@ -33,7 +33,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_LiteralTypes {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DrumbeatTestHelper.init();
-		ifcSchema = DrumbeatTestHelper.getTestSchema();
+		ifcSchema = DrumbeatTestHelper.getTestIfcSchema();
 	}
 	
 

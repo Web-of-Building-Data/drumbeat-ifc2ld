@@ -1,8 +1,14 @@
 package fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web;
 
 import java.io.*;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.riot.RDFFormatVariant;
+import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.vaadin.data.Property.ValueChangeEvent;
@@ -19,6 +25,7 @@ import com.vaadin.ui.Upload.SucceededListener;
 
 import fi.hut.cs.drumbeat.common.config.ConfigurationItemEx;
 import fi.hut.cs.drumbeat.common.config.ConfigurationPool;
+import fi.hut.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.hut.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.hut.cs.drumbeat.common.file.FileManager;
 import fi.hut.cs.drumbeat.rdf.RdfUtils;
@@ -27,12 +34,14 @@ import fi.hut.cs.drumbeat.rdf.modelfactory.config.JenaModelFactoryPoolConfigurat
 @SuppressWarnings("serial")
 public class ConvertModelView extends FormLayout {
 
-	private static final Object CSV_FORMAT = new Object();
+//	private static final Object CSV_FORMAT = new Object();
 	
-	private ComboBox cbOutputTypes;
+	
+	private CheckBox chbSaveFile;
+//	private ComboBox cbOutputTypes;
 	private ComboBox cbRdfFormats;
 	private CheckBox chbGzipFile;
-	private boolean outputToFile;
+//	private boolean outputToFile;
 	
 	private ConfigurationPool<ConfigurationItemEx> configurationPool;
 
@@ -65,36 +74,32 @@ public class ConvertModelView extends FormLayout {
 		lblFileName.setCaption("File Name");
 		addComponent(lblFileName);
 		
-		cbOutputTypes = new ComboBox("Output Type");
-		try {
-			configurationPool = JenaModelFactoryPoolConfigurationSection.getInstance().getConfigurationPool();
-		} catch (ConfigurationParserException e1) {
-			e1.printStackTrace();
-			Notification.show(e1.getMessage(), Type.ERROR_MESSAGE);
-			return;
-		}
-		cbOutputTypes.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
-		cbOutputTypes.setRequired(true);
-		cbOutputTypes.setNullSelectionAllowed(false);
-		for (ConfigurationItemEx configuration : configurationPool) {
-			cbOutputTypes.addItem(configuration);
-			cbOutputTypes.setItemCaption(configuration, configuration.getName());
-			if (configuration.isDefault()) {
-				cbOutputTypes.setValue(configuration);
-			}
-		}
-		addComponent(cbOutputTypes);
+//		cbOutputTypes = new ComboBox("Output Type");
+//		try {
+//			configurationPool = JenaModelFactoryPoolConfigurationSection.getInstance().getConfigurationPool();
+//		} catch (ConfigurationParserException e1) {
+//			e1.printStackTrace();
+//			Notification.show(e1.getMessage(), Type.ERROR_MESSAGE);
+//			return;
+//		}
+//		cbOutputTypes.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
+//		cbOutputTypes.setRequired(true);
+//		cbOutputTypes.setNullSelectionAllowed(false);
+//		for (ConfigurationItemEx configuration : configurationPool) {
+//			cbOutputTypes.addItem(configuration);
+//			cbOutputTypes.setItemCaption(configuration, configuration.getName());
+//			if (configuration.isDefault()) {
+//				cbOutputTypes.setValue(configuration);
+//			}
+//		}
+//		addComponent(cbOutputTypes);
 		
+		chbSaveFile = new CheckBox("Save file");
+		addComponent(chbSaveFile);		
 		
 		cbRdfFormats = new ComboBox("RDF Format");
-		
-		cbRdfFormats.addItem(CSV_FORMAT);
-		cbRdfFormats.setItemCaption(CSV_FORMAT, "CSV Format (non-standard)");		
-		
-		RdfUtils.getRdfFormatMap().entrySet().forEach(x -> {
-			cbRdfFormats.addItem(x.getValue());
-			cbRdfFormats.setItemCaption(x.getValue(), x.getKey());
-		}); 
+		fillComboBoxWithRdfFormats(cbRdfFormats);
+	
 		cbRdfFormats.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
 		cbRdfFormats.setRequired(true);
 		cbRdfFormats.setNullSelectionAllowed(false);
@@ -109,13 +114,20 @@ public class ConvertModelView extends FormLayout {
 		addComponent(chbGzipFile);
 		
 		
-		cbOutputTypes.addValueChangeListener(new ValueChangeListener() {
-			
-			@Override
-			public void valueChange(ValueChangeEvent event) {
-				onOutputTypeChanged();
-			}
-		});
+		CheckBox chbExportToVirtuoso = new CheckBox("Export to Virtuoso");
+		addComponent(chbExportToVirtuoso);
+		
+		CheckBox chbExportToNeo4j = new CheckBox("Export to Neo4j");
+		addComponent(chbExportToNeo4j);
+		
+		
+//		cbOutputTypes.addValueChangeListener(new ValueChangeListener() {
+//			
+//			@Override
+//			public void valueChange(ValueChangeEvent event) {
+//				onOutputTypeChanged();
+//			}
+//		});
 		
 		Button btnConvert = new Button("Convert");
 		btnConvert.setEnabled(false);
@@ -128,29 +140,45 @@ public class ConvertModelView extends FormLayout {
 		    public void buttonClick(ClickEvent event) {
 	    		try {
 		    		String fileName = lblFileName.getValue();
-	    			
-			    	if (outputToFile) {
-			    		Object outputFormat = cbRdfFormats.getValue(); 
-			    		boolean export2Neo4j = outputFormat.equals(CSV_FORMAT); 
-			    		
-			    		RDFFormat rdfFormat = export2Neo4j ? RDFFormat.NQUADS : (RDFFormat)outputFormat;
+		    		
+		    		File ntriplesOutputFile = null;
+
+		    		if (chbSaveFile.getValue()) {
+			    		RDFFormat rdfFormat = (RDFFormat)cbRdfFormats.getValue();
 				    	Boolean gzipOutputFile = chbGzipFile.getValue();
 				    	
 				    	Model outputModel = IfcApplication.convertIfcModelToJenaModel(fileName, null);
 				    	File outputFile = IfcApplication.exportJenaModelToFile(outputModel, fileName, rdfFormat, gzipOutputFile);
 				    	
-				    	if (!export2Neo4j) {
-
-					    	FileResource resource = new FileResource(outputFile);			
-							Page.getCurrent().open(resource, null, false);
-							
-				    	} else {
-				    		IfcApplication.convertRdfFileToNeo4j(outputFile);
+				    	if (rdfFormat.equals(RDFFormat.NTRIPLES)) {
+				    		ntriplesOutputFile = outputFile;
 				    	}
 				    	
-			    	} else {
-//			    		exportToJenaModel(fileName);			    		
+				    	FileResource resource = new FileResource(outputFile);			
+						Page.getCurrent().open(resource, null, false);
 			    	}
+			    	
+		    		if (chbExportToVirtuoso.getValue() || chbExportToNeo4j.getValue()) {
+		    			if (ntriplesOutputFile == null) {
+					    	Model outputModel = IfcApplication.convertIfcModelToJenaModel(fileName, null);
+					    	ntriplesOutputFile = IfcApplication.exportJenaModelToFile(outputModel, fileName, RDFFormat.NTRIPLES, false);
+		    			}		    			
+			    	}
+		    		
+		    		if (chbExportToVirtuoso.getValue()) {
+		    			String filePath = IfcApplication.getVirtuosoFolderPath() + "/" + ntriplesOutputFile.getName();
+		    			Logger.getRootLogger().info("Copy output file to " + filePath);
+		    			Files.copy(ntriplesOutputFile.toPath(), new File(filePath).toPath());
+		    		}
+		    		
+		    		if (chbExportToNeo4j.getValue()) {
+		    			String filePath = IfcApplication.getNeo4jFolderPath() + "/" + ntriplesOutputFile.getName();
+		    			Logger.getRootLogger().info("Copy output file to " + filePath);
+		    			Files.copy(ntriplesOutputFile.toPath(), new File(filePath).toPath());
+		    		}
+			    	
+			    	
+			    	
 				} catch (Exception e) {
 					e.printStackTrace();
 					Notification.show(e.getMessage(), Type.ERROR_MESSAGE);
@@ -171,29 +199,53 @@ public class ConvertModelView extends FormLayout {
 			
 		});	
 		
+		chbSaveFile.addValueChangeListener(new ValueChangeListener() {
+			
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				onChkSaveToFileClicked();
+			}
+		});
 		
-		onOutputTypeChanged();
+		onChkSaveToFileClicked();
 		
 	}
 	
-	
-	private void onOutputTypeChanged() {
-		outputToFile = cbOutputTypes.getValue().equals(configurationPool.get(0));
-		cbRdfFormats.setVisible(outputToFile);
-		cbRdfFormats.setRequired(outputToFile);
-		chbGzipFile.setValidationVisible(outputToFile);
+	private void onChkSaveToFileClicked() {
+		boolean saveToFile = chbSaveFile.getValue();
+		cbRdfFormats.setRequired(saveToFile);
+		cbRdfFormats.setNullSelectionAllowed(saveToFile);
+		cbRdfFormats.setVisible(saveToFile);
 	}
 	
 	
-	private void exportToJenaModel(String fileName) throws Exception {
-		ConfigurationItemEx configuration = (ConfigurationItemEx)cbOutputTypes.getValue();
-
-		// TODO:
-//		JenaModelFactoryBase modelFactory = new VirtuosoJenaModelFactory1("Virtuoso", configuration.getProperties());
+//	private void onOutputTypeChanged() {
+//		outputToFile = cbOutputTypes.getValue().equals(configurationPool.get(0));
+//		cbRdfFormats.setVisible(outputToFile);
+//		cbRdfFormats.setRequired(outputToFile);
+//		chbGzipFile.setValidationVisible(outputToFile);
+//	}
+	
+	
+//	private void exportToJenaModel(String fileName) throws Exception {
+//		ConfigurationItemEx configuration = (ConfigurationItemEx)cbOutputTypes.getValue();
+//
+//		// TODO:
+////		JenaModelFactoryBase modelFactory = new VirtuosoJenaModelFactory1("Virtuoso", configuration.getProperties());
+////		
+//////		JenaModelFactoryBase modelFactory = JenaModelFactoryBase.getFactory(configuration);
+////		Model jenaModel = IfcApplication.convertIfcModelToJenaModel(fileName, modelFactory.createModel());
 //		
-////		JenaModelFactoryBase modelFactory = JenaModelFactoryBase.getFactory(configuration);
-//		Model jenaModel = IfcApplication.convertIfcModelToJenaModel(fileName, modelFactory.createModel());
-		
+//		
+//	}
+	
+	
+	private void fillComboBoxWithRdfFormats(ComboBox comboBox) {
+		Set<Entry<String, RDFFormat>> entrySet = RdfUtils.getRdfFormatMap().entrySet(); 
+		entrySet.forEach(x -> {
+			comboBox.addItem(x.getValue());
+			comboBox.setItemCaption(x.getValue(), x.getKey());
+		});
 		
 	}
 	

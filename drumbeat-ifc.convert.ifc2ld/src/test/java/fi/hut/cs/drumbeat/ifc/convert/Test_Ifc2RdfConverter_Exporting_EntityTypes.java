@@ -17,12 +17,10 @@ import fi.hut.cs.drumbeat.ifc.common.IfcException;
 import fi.hut.cs.drumbeat.ifc.convert.RdfAsserter.FullResourceAsserter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConverter;
-import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
-import fi.hut.cs.drumbeat.ifc.data.schema.IfcSelectTypeInfo;
+import fi.hut.cs.drumbeat.ifc.data.schema.IfcEntityTypeInfo;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
-import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 
-public class Test_Ifc2RdfExporterBase_Exporting_SelectTypes {
+public class Test_Ifc2RdfConverter_Exporting_EntityTypes {
 	
 	private static IfcSchema ifcSchema;
 	private Model jenaModel;
@@ -32,7 +30,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_SelectTypes {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DrumbeatTestHelper.init();
-		ifcSchema = DrumbeatTestHelper.getTestSchema();
+		ifcSchema = DrumbeatTestHelper.getTestIfcSchema();
 	}
 	
 
@@ -51,6 +49,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_SelectTypes {
 		if (readExpectedModel) {
 			String testFilePath = DrumbeatTestHelper.getTestFilePath(this, 2, true, "txt");
 			Model expectedModel = DrumbeatTestHelper.readModel(testFilePath);
+			
 			Resource expectedTypeResource = expectedModel.getResource(actualTypeResource.getURI());
 			assertNotNull(expectedTypeResource);
 			
@@ -64,13 +63,11 @@ public class Test_Ifc2RdfExporterBase_Exporting_SelectTypes {
 	}
 	
 	
-	private void test_convert_IfcSelectTypeInfo(String typeName) throws IOException, IfcException {
+	private void test_convert_IfcEntityTypeInfo(String typeName) throws IOException, IfcException {
 		
-		IfcTypeInfo typeInfo = ifcSchema.getNonEntityTypeInfo(typeName);
+		IfcEntityTypeInfo typeInfo = ifcSchema.getEntityTypeInfo(typeName);
 		
-		assertEquals(IfcSelectTypeInfo.class, typeInfo.getClass());
-		
-		Resource typeResource = converter.convertSelectTypeInfo((IfcSelectTypeInfo)typeInfo, jenaModel);
+		Resource typeResource = converter.convertEntityTypeInfo((IfcEntityTypeInfo)typeInfo, jenaModel);
 		
 		assertNotNull(typeResource);
 		assertTrue(typeResource.isURIResource());
@@ -83,10 +80,20 @@ public class Test_Ifc2RdfExporterBase_Exporting_SelectTypes {
 
 
 	@Test
-	public void test_convert_IfcSelectTypeInfo_IfcValue() throws IOException, IfcException {		
-		
-		test_convert_IfcSelectTypeInfo("IfcValue");
-		
+	public void test_convert_IfcEntityTypeInfo_IfcObject() throws IOException, IfcException {
+		test_convert_IfcEntityTypeInfo("IfcObject");		
 	}	
+	
+	@Test
+	public void test_convert_IfcEntityTypeInfo_IfcPolyline() throws IOException, IfcException {
+		test_convert_IfcEntityTypeInfo("IfcPolyline");		
+	}
+	
+	@Test
+	public void test_convert_IfcEntityTypeInfo_IfcCompositeProfileDef() throws IOException, IfcException {
+		test_convert_IfcEntityTypeInfo("IfcCompositeProfileDef");		
+	}
+
+	
 
 }

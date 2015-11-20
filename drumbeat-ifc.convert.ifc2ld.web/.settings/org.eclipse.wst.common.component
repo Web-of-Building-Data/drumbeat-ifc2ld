@@ -33,6 +33,6 @@
         </dependent-module>
         <property name="java-output-path" value="/drumbeat-ifc.convert.ifc2ld.web/target/classes"/>
         <property name="component.exclusion.patterns" value="WEB-INF/classes/VAADIN/gwt-unitCache/**,WEB-INF/classes/VAADIN/widgetsets/WEB-INF/**"/>
-        <property name="context-root" value="ifc2ld"/>
+        <property name="context-root" value="drumbeat-ifc.convert.ifc2ld.web"/>
     </wb-module>
 </project-modules>

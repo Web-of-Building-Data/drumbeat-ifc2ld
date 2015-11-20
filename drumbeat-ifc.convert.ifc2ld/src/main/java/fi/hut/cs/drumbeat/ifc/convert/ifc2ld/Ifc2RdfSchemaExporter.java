@@ -35,12 +35,12 @@ import fi.hut.cs.drumbeat.rdf.RdfVocabulary;
  */
 public class Ifc2RdfSchemaExporter {
 
-	private Ifc2RdfConverter converter;
-	private IfcSchema ifcSchema;
-	private Ifc2RdfConversionContext context;
-	private Model jenaModel;
+	private final Ifc2RdfConverter converter;
+	private final IfcSchema ifcSchema;
+	private final Ifc2RdfConversionContext context;
+	private final Model jenaModel;
 
-	private Map<String, IfcCollectionTypeInfo> additionalCollectionTypeDictionary = new HashMap<>();
+//	private Map<String, IfcCollectionTypeInfo> additionalCollectionTypeDictionary = new HashMap<>();
 
 	public Ifc2RdfSchemaExporter(IfcSchema ifcSchema, Ifc2RdfConversionContext context, Model jenaModel) {
 		this.ifcSchema = ifcSchema;
@@ -48,11 +48,11 @@ public class Ifc2RdfSchemaExporter {
 		this.jenaModel = jenaModel;		
 		
 		converter = new Ifc2RdfConverter(context, ifcSchema);
-		if (context.getOntologyNamespaceFormat() != null) {
-			converter.setIfcOntologyNamespaceUri(String.format(
-					context.getOntologyNamespaceFormat(),
-					ifcSchema.getVersion(), context.getName()));
-		}		
+//		if (context.getOntologyNamespaceUriFormat() != null) {
+//			converter.setIfcOntologyNamespaceUri(String.format(
+//					context.getOntologyNamespaceUriFormat(),
+//					ifcSchema.getVersion(), context.getName()));
+//		}		
 	}
 
 	public Model export() throws IfcException, IOException {

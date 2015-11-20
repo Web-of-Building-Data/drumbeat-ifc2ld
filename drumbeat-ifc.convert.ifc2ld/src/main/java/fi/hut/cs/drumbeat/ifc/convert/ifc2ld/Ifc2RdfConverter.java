@@ -64,8 +64,12 @@ public class Ifc2RdfConverter {
 		this.context = context;
 		owlProfileList = context.getOwlProfileList();		
 		map_Type_hasXXXProperty = new HashMap<>();
-		assert(context.getOntologyNamespaceFormat() != null);
-		ifcOntologyNamespaceUri = String.format(context.getOntologyNamespaceFormat(), schemaVersion);
+//		if(context.getOntologyNamespaceUriFormat() == null) {
+//			throw new IllegalArgumentException("IFC ontology namespace URI format is undefined");
+//		}
+//		ifcOntologyNamespaceUri = String.format(context.getOntologyNamespaceUriFormat(), schemaVersion);
+		
+		ifcOntologyNamespaceUri = Ifc2RdfVocabulary.IFC.getBaseUri(schemaVersion);
 	}
 	
 	public Ifc2RdfConversionContext getContext() {
@@ -105,7 +109,7 @@ public class Ifc2RdfConverter {
 	 * @param name
 	 * @return
 	 */
-	private String formatIfcOntologyName(String name) {		
+	public String formatIfcOntologyName(String name) {		
 		return getIfcOntologyNamespaceUri() + name;
 	}
 	
@@ -115,7 +119,7 @@ public class Ifc2RdfConverter {
 	 * @param typeInfo
 	 * @return
 	 */
-	private String formatTypeName(IfcTypeInfo typeInfo) {
+	public String formatTypeName(IfcTypeInfo typeInfo) {
 		if (typeInfo instanceof IfcLiteralTypeInfo || typeInfo instanceof IfcLogicalTypeInfo) {
 			return formatExpressOntologyName(typeInfo.getName());			
 		} else {
@@ -129,7 +133,7 @@ public class Ifc2RdfConverter {
 	 * @param attributeInfo
 	 * @return
 	 */
-	private String formatAttributeName(IfcAttributeInfo attributeInfo) {
+	public String formatAttributeName(IfcAttributeInfo attributeInfo) {
 		if (context.getConversionParams().useLongAttributeName()) {
 			return formatIfcOntologyName(String.format("%s_%s", attributeInfo.getName(), attributeInfo.getEntityTypeInfo()));			
 		} else {

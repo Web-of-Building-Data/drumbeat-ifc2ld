@@ -32,7 +32,9 @@ import fi.hut.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.hut.cs.drumbeat.common.file.FileManager;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConverter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfVocabulary;
+import fi.hut.cs.drumbeat.ifc.convert.stff2ifc.IfcParserException;
 import fi.hut.cs.drumbeat.ifc.convert.stff2ifc.util.IfcParserUtil;
+import fi.hut.cs.drumbeat.ifc.data.model.IfcModel;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchemaPool;
 import fi.hut.cs.drumbeat.rdf.RdfVocabulary;
@@ -48,14 +50,25 @@ public class DrumbeatTestHelper {
 	public static final String CONFIG_FILE_PATH = "src/test/java/ifc2rdf-config.xml";
 	public static final String LOGGER_CONFIG_FILE_PATH = "src/test/java/log4j.xml";
 	
+	public static final String TEST_SOURCE_RESOURCES_PATH = TEST_RESOURCES_PATH + "source/";
+
+	public static final String TEST_IFC_SCHEMAS_FILE_PATH = TEST_SOURCE_RESOURCES_PATH + "schemas";
+	public static final String TEST_IFC_MODEL_FILE_PATH = TEST_SOURCE_RESOURCES_PATH + "models/sample.ifc";
+	
+	public static final String TEST_TARGET_RESOURCES_PATH = TEST_RESOURCES_PATH + "target/";
+
+	public static final String MODEL_NAMESPACE_PREFIX = "model";
+	public static final String MODEL_NAMESPACE_URI_FORMAT = "http://example.org/domain/";
+	
 	private static boolean initialized = false;
+	private static IfcModel testIfcModel;
 	
 	public static void init() throws Exception {
 		if (!initialized) {
 			initialized = true;
 			DOMConfigurator.configure(LOGGER_CONFIG_FILE_PATH);			
 			ConfigurationDocument.load(CONFIG_FILE_PATH);
-			IfcParserUtil.parseSchemas(TEST_RESOURCES_PATH + "schemas");
+			IfcParserUtil.parseSchemas(TEST_IFC_SCHEMAS_FILE_PATH);
 		}
 	}
 	
@@ -73,7 +86,7 @@ public class DrumbeatTestHelper {
 	
 	public static String getTestFilePath(Object object, int methodCallShift, boolean isExpected, String extension) {
 		return String.format("%s%s/%s/%s.%s",
-				TEST_RESOURCES_PATH,
+				TEST_TARGET_RESOURCES_PATH,
 				isExpected ? "expected" : "actual",
 				object.getClass().getSimpleName(),
 				getMethodName(methodCallShift + 1),
@@ -118,8 +131,17 @@ public class DrumbeatTestHelper {
 		}
 	}
 
-	public static IfcSchema getTestSchema() {
+	public static IfcSchema getTestIfcSchema() {
 		return IfcSchemaPool.getSchema(TEST_SCHEMA_VERSION);
+	}
+	
+	public static IfcModel getTestIfcModel() throws IfcParserException, IOException {
+		
+		if (testIfcModel == null) {
+			testIfcModel = IfcParserUtil.parseModel(TEST_IFC_MODEL_FILE_PATH);
+		}
+		return testIfcModel;
+		
 	}
 	
 	
