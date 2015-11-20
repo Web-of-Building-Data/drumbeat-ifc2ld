@@ -13,17 +13,16 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 
-import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
+import fi.hut.cs.drumbeat.ifc.common.IfcException;
 import fi.hut.cs.drumbeat.ifc.convert.RdfAsserter.FullResourceAsserter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConverter;
 import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
-import fi.hut.cs.drumbeat.ifc.data.schema.IfcDefinedTypeInfo;
-import fi.hut.cs.drumbeat.ifc.data.schema.IfcLiteralTypeInfo;
+import fi.hut.cs.drumbeat.ifc.data.schema.IfcSelectTypeInfo;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 
-public class Test_Ifc2RdfExporterBase_Exporting_DefinedTypes {
+public class Test_Ifc2RdfConverter_Exporting_SelectTypes {
 	
 	private static IfcSchema ifcSchema;
 	private Model jenaModel;
@@ -33,7 +32,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_DefinedTypes {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DrumbeatTestHelper.init();
-		ifcSchema = DrumbeatTestHelper.getTestSchema();
+		ifcSchema = DrumbeatTestHelper.getTestIfcSchema();
 	}
 	
 
@@ -64,36 +63,30 @@ public class Test_Ifc2RdfExporterBase_Exporting_DefinedTypes {
 		}
 	}
 	
-	private void test_convert_IfcDefinedTypeInfo(String typeName, Class<?> expectedSuperTypeClass) throws IfcNotFoundException, IOException {		
+	
+	private void test_convert_IfcSelectTypeInfo(String typeName) throws IOException, IfcException {
 		
 		IfcTypeInfo typeInfo = ifcSchema.getNonEntityTypeInfo(typeName);
 		
-		assertEquals(IfcDefinedTypeInfo.class, typeInfo.getClass());
+		assertEquals(IfcSelectTypeInfo.class, typeInfo.getClass());
 		
-		IfcTypeInfo superTypeInfo = ((IfcDefinedTypeInfo)typeInfo).getSuperTypeInfo();		
-		assertEquals(expectedSuperTypeClass, superTypeInfo.getClass());
+		Resource typeResource = converter.convertSelectTypeInfo((IfcSelectTypeInfo)typeInfo, jenaModel);
 		
-		Resource typeResource = converter.convertDefinedTypeInfo((IfcDefinedTypeInfo)typeInfo, jenaModel);
+		assertNotNull(typeResource);
+		assertTrue(typeResource.isURIResource());
+		assertEquals(typeResource.getLocalName(), typeInfo.getName());
 		
+
 		compareWithExpectedResult(typeResource);
-	}	
-	
-
-	@Test
-	public void test_convert_IfcDefinedTypeInfo_IFC_INTEGER() throws IfcNotFoundException, IOException {		
-		test_convert_IfcDefinedTypeInfo(IfcVocabulary.TypeNames.IFC_INTEGER, IfcLiteralTypeInfo.class);
-	}	
-
-	@Test
-	public void test_convert_IfcDefinedTypeInfo_IfcPlaneAngleMeasure() throws IfcNotFoundException, IOException {		
-		test_convert_IfcDefinedTypeInfo("IfcPlaneAngleMeasure", IfcLiteralTypeInfo.class);
-	}	
-
-	@Test
-	public void test_convert_IfcDefinedTypeInfo_IfcPositivePlaneAngleMeasure() throws IfcNotFoundException, IOException {		
-		test_convert_IfcDefinedTypeInfo("IfcPositivePlaneAngleMeasure", IfcDefinedTypeInfo.class);
 	}
 	
 
+
+	@Test
+	public void test_convert_IfcSelectTypeInfo_IfcValue() throws IOException, IfcException {		
+		
+		test_convert_IfcSelectTypeInfo("IfcValue");
+		
+	}	
 
 }

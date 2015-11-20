@@ -2,10 +2,13 @@ package fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.InvalidParameterException;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.jena.riot.RDFFormat;
 import org.apache.log4j.Logger;
@@ -15,6 +18,8 @@ import com.vaadin.server.VaadinService;
 
 import fi.hut.cs.drumbeat.common.config.ConfigurationItemEx;
 import fi.hut.cs.drumbeat.common.config.ConfigurationPool;
+import fi.hut.cs.drumbeat.common.config.document.ConfigurationDocument;
+import fi.hut.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.hut.cs.drumbeat.ifc.common.IfcException;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.cli.Ifc2RdfExporter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.util.Ifc2RdfExportUtil;
@@ -34,6 +39,9 @@ public class IfcApplication {
 	public final static String TEMP_PATH = WEB_INF_PATH + "/tmp";
 	public final static String TEMP_OUTPUTS_PATH = TEMP_PATH + "/outputs";
 	public final static String TEMP_UPLOADS_PATH = TEMP_PATH + "/uploads";
+
+	private static final String VIRTUOSO_FOLDER_PROPERTY_NAME = "virtuoso.folder";
+	private static final String NEO4J_FOLDER_PROPERTY_NAME = "neo4j.folder";
 
 	private static boolean systemInitialized;
 	private static Object mutex = new Object();
@@ -62,7 +70,7 @@ public class IfcApplication {
 			Ifc2RdfExporter.init(loggerConfigFilePath, ifc2ldConfigFilePath);
 			
 			ifcSchemas  = Ifc2RdfExporter.parseSchemas(inputSchemaDirPath);
-
+			logger.info("Config file: " + ifc2ldConfigFilePath);
 		}
 		
 		
@@ -133,65 +141,89 @@ public class IfcApplication {
 //	}
 	
 	
-	public static void convertRdfFileToNeo4j(File rdfFilePath) {
-		
-//		String pythonLibFolderPath = WEB_INF_PATH + "/python/Lib/";
-////		logger.info(String.format("Initializing python: lib folder: %s", pythonLibFolderPath));
+//	public static void convertRdfFileToNeo4j(File rdfFilePath) {
 //		
-//		JythonFactory jythonFactory = JythonFactory.getInstance();
-//		jythonFactory.init(pythonLibFolderPath);
+////		String pythonLibFolderPath = WEB_INF_PATH + "/python/Lib/";
+//////		logger.info(String.format("Initializing python: lib folder: %s", pythonLibFolderPath));
+////		
+////		JythonFactory jythonFactory = JythonFactory.getInstance();
+////		jythonFactory.init(pythonLibFolderPath);
+////
+////		String pythonFilePath = String.format("%s/python/%sImpl.py", WEB_INF_PATH, Rdf2Neo4j.class.getSimpleName());
+////		logger.info(String.format("Creating Rdf2Neo4j instance from python file '%s'", pythonFilePath));
+////		
+////		
+////		Rdf2Neo4j ifc2Neo4j = (Rdf2Neo4j)jythonFactory.getJythonObject(Rdf2Neo4j.class.getName(), pythonFilePath);
+////		
+////		String filePath = IfcApplication.TEMP_UPLOADS_PATH + "/" + rdfFilePath;
+////		ifc2Neo4j.run(filePath);
+//		
+//		String domainName = "google.com";
+//		
+////		//in mac oxs
+////		String command = "ping -c 3 " + domainName;
+//		
+//		//in windows
+//		String command = "ping -n 3 " + domainName;
+//		
+//		command = "python --help";
+//		
+//		String output = executeCommand(command);
 //
-//		String pythonFilePath = String.format("%s/python/%sImpl.py", WEB_INF_PATH, Rdf2Neo4j.class.getSimpleName());
-//		logger.info(String.format("Creating Rdf2Neo4j instance from python file '%s'", pythonFilePath));
-//		
-//		
-//		Rdf2Neo4j ifc2Neo4j = (Rdf2Neo4j)jythonFactory.getJythonObject(Rdf2Neo4j.class.getName(), pythonFilePath);
-//		
-//		String filePath = IfcApplication.TEMP_UPLOADS_PATH + "/" + rdfFilePath;
-//		ifc2Neo4j.run(filePath);
-		
-		String domainName = "google.com";
-		
-//		//in mac oxs
-//		String command = "ping -c 3 " + domainName;
-		
-		//in windows
-		String command = "ping -n 3 " + domainName;
-		
-		command = "python --help";
-		
-		String output = executeCommand(command);
-
-		logger.info(output);
-
-	}
+//		logger.info(output);
+//
+//	}
 	
 	
 	
-	public static String executeCommand(String command) {
+//	public static String executeCommand(String command) {
+//
+//		StringBuffer output = new StringBuffer();
+//
+//		Process p;
+//		try {
+//			p = Runtime.getRuntime().exec(command, new String[]{ "cmd.exe" });
+//			p.waitFor();
+//			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+//
+//            String line;			
+//			while ((line = reader.readLine())!= null) {
+//				output.append(line + "\n");
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		return output.toString();
+//
+//	}
+	
 
-		StringBuffer output = new StringBuffer();
-
-		Process p;
-		try {
-			p = Runtime.getRuntime().exec(command, new String[]{ "cmd.exe" });
-			p.waitFor();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-            String line;			
-			while ((line = reader.readLine())!= null) {
-				output.append(line + "\n");
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
+	public static String getVirtuosoFolderPath() throws ConfigurationParserException, FileNotFoundException, IOException {
+		Properties properties = new Properties(); 
+		properties.load(new FileInputStream(WEB_INF_PATH + "/config/config.properties"));
+		
+		String folderPath = properties.getProperty(VIRTUOSO_FOLDER_PROPERTY_NAME);
+		if (folderPath == null) {
+			logger.warn(String.format(properties.toString()));
+			throw new IllegalArgumentException(VIRTUOSO_FOLDER_PROPERTY_NAME + " is not defined in the config file");
 		}
-
-		return output.toString();
-
+		return folderPath;
 	}
 	
-
+	public static String getNeo4jFolderPath() throws ConfigurationParserException, FileNotFoundException, IOException {
+		Properties properties = new Properties(); 
+		properties.load(new FileInputStream(WEB_INF_PATH + "/config/config.properties"));
+		
+		String folderPath = properties.getProperty(NEO4J_FOLDER_PROPERTY_NAME);
+		if (folderPath == null) {
+			throw new IllegalArgumentException(NEO4J_FOLDER_PROPERTY_NAME + " is not defined in the config file");
+		}
+		return folderPath;
+	}
+	
+	
 	
 
 }

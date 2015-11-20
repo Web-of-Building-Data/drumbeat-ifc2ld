@@ -23,7 +23,7 @@ import fi.hut.cs.drumbeat.ifc.data.model.IfcLiteralValue;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
 
-public class Test_Ifc2RdfExporterBase_Exporting_BooleanTypes {
+public class Test_Ifc2RdfConverter_Exporting_BooleanTypes {
 	
 	private static final String TEST_SCHEMA_VERSION = "IfcTest"; 
 	

@@ -6,6 +6,8 @@
 		<express.baseuri>http://purl.org/vocab/express/</express.baseuri>
 		<step.baseuri>http://drumbeat.cs.hut.fi/owl/STEP#</step.baseuri>
 		<ifc.baseuri>http://www.buildingsmart-tech.org/ifcOWL/IFC4_ADD1#</ifc.baseuri>
+		<virtuoso.folder>c:/temp/virtuoso</virtuoso.folder>
+		<neo4j.folder>c:/temp/neo4j</neo4j.folder>
 
 		<!--  <express.baseuri>http://drumbeat.cs.hut.fi/owl/EXPRESS#</express.baseuri>
 		<step.baseuri>http://drumbeat.cs.hut.fi/owl/STEP#</step.baseuri>

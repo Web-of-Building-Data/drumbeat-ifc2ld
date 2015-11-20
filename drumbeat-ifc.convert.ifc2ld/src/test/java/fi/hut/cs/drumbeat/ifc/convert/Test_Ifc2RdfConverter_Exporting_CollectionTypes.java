@@ -17,10 +17,12 @@ import fi.hut.cs.drumbeat.ifc.common.IfcException;
 import fi.hut.cs.drumbeat.ifc.convert.RdfAsserter.FullResourceAsserter;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
 import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConverter;
-import fi.hut.cs.drumbeat.ifc.data.schema.IfcEntityTypeInfo;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.schema.IfcCollectionTypeInfo;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
+import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 
-public class Test_Ifc2RdfExporterBase_Exporting_EntityTypes {
+public class Test_Ifc2RdfConverter_Exporting_CollectionTypes {
 	
 	private static IfcSchema ifcSchema;
 	private Model jenaModel;
@@ -30,7 +32,7 @@ public class Test_Ifc2RdfExporterBase_Exporting_EntityTypes {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DrumbeatTestHelper.init();
-		ifcSchema = DrumbeatTestHelper.getTestSchema();
+		ifcSchema = DrumbeatTestHelper.getTestIfcSchema();
 	}
 	
 
@@ -49,7 +51,6 @@ public class Test_Ifc2RdfExporterBase_Exporting_EntityTypes {
 		if (readExpectedModel) {
 			String testFilePath = DrumbeatTestHelper.getTestFilePath(this, 2, true, "txt");
 			Model expectedModel = DrumbeatTestHelper.readModel(testFilePath);
-			
 			Resource expectedTypeResource = expectedModel.getResource(actualTypeResource.getURI());
 			assertNotNull(expectedTypeResource);
 			
@@ -57,17 +58,20 @@ public class Test_Ifc2RdfExporterBase_Exporting_EntityTypes {
 			asserter.assertEquals(expectedTypeResource, actualTypeResource);
 		} else {
 			String actualFilePath = DrumbeatTestHelper.getTestFilePath(this, 2, false, "txt");
-			DrumbeatTestHelper.writeModel(jenaModel, actualFilePath);			
+			DrumbeatTestHelper.writeModel(jenaModel, actualFilePath);
 			throw new NotImplementedException("TODO: Compare with expected result");
 		}
 	}
 	
 	
-	private void test_convert_IfcEntityTypeInfo(String typeName) throws IOException, IfcException {
+	private void test_convert_IfcCollectionTypeInfo(String typeName) throws IOException, IfcException {		
 		
-		IfcEntityTypeInfo typeInfo = ifcSchema.getEntityTypeInfo(typeName);
 		
-		Resource typeResource = converter.convertEntityTypeInfo((IfcEntityTypeInfo)typeInfo, jenaModel);
+		IfcTypeInfo typeInfo = ifcSchema.getNonEntityTypeInfo(typeName);
+		
+		assertEquals(IfcCollectionTypeInfo.class, typeInfo.getClass());
+		
+		Resource typeResource = converter.convertCollectionTypeInfo((IfcCollectionTypeInfo)typeInfo, jenaModel);
 		
 		assertNotNull(typeResource);
 		assertTrue(typeResource.isURIResource());
@@ -80,20 +84,27 @@ public class Test_Ifc2RdfExporterBase_Exporting_EntityTypes {
 
 
 	@Test
-	public void test_convert_IfcEntityTypeInfo_IfcObject() throws IOException, IfcException {
-		test_convert_IfcEntityTypeInfo("IfcObject");		
-	}	
-	
-	@Test
-	public void test_convert_IfcEntityTypeInfo_IfcPolyline() throws IOException, IfcException {
-		test_convert_IfcEntityTypeInfo("IfcPolyline");		
+	public void test_convert_IfcCollectionTypeInfo_IfcLineIndex() throws IOException, IfcException {		
+		
+		test_convert_IfcCollectionTypeInfo("IfcLineIndex");
+		
 	}
 	
-	@Test
-	public void test_convert_IfcEntityTypeInfo_IfcCompositeProfileDef() throws IOException, IfcException {
-		test_convert_IfcEntityTypeInfo("IfcCompositeProfileDef");		
-	}
-
 	
 
+	@Test
+	public void test_convert_IfcCollectionTypeInfo_IfcCompoundPlaneAngleMeasure() throws IOException, IfcException {		
+		
+		test_convert_IfcCollectionTypeInfo("IfcCompoundPlaneAngleMeasure");
+		
+	}
+	
+	
+	@Test
+	public void test_convert_IfcCollectionTypeInfo_IfcPropertySetDefinitionSet() throws IOException, IfcException {		
+		
+		test_convert_IfcCollectionTypeInfo("IfcPropertySetDefinitionSet");
+		
+	}
+	
 }

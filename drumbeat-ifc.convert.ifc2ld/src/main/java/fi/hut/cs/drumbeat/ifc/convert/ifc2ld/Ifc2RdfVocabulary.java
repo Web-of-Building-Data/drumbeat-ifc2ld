@@ -27,8 +27,8 @@ public class Ifc2RdfVocabulary {
 	public static final String DEFAULT_EXPRESS_ONTOLOGY_BASE = DEFAULT_ONTOLOGY_BASE + "EXPRESS#";
 	public static final String DEFAULT_IFC_ONTOLOGY_BASE_FORMAT = DEFAULT_ONTOLOGY_BASE + "%s#";
 	
-	public static final String DEFAULT_MODEL_PREFIX = ":";
-	public static final String DEFAULT_MODEL_NAMESPACE_FORMAT = "http://drumbeat.cs.hut.fi/model/";	
+//	public static final String DEFAULT_MODEL_PREFIX = ":";
+//	public static final String DEFAULT_MODEL_NAMESPACE_FORMAT = "http://drumbeat.cs.hut.fi/model/";	
 
 	public static class IFC {
 		
@@ -204,5 +204,46 @@ public class Ifc2RdfVocabulary {
 			public static final Property schema_identifiers = RdfVocabulary.DEFAULT_MODEL.createProperty(getBaseUri() + "schema_identifiers");
 		}
 	}
+	
+	
+//	public static class Model {
+//		
+//		private static String basePrefix;
+//		private static String baseUriFormat;
+//
+//		public static final String BASE_PREFIX = "model";
+//
+//		public static final String getBasePrefix() {
+//			if (basePrefix == null) {
+//				Properties properties;
+//				try {
+//					properties = ConfigurationDocument.getInstance().getProperties();
+//				} catch (ConfigurationParserException e) {
+//					Logger.getRootLogger().error("Error properties section in the configuration file", e);
+//					return null;
+//				}
+//				basePrefix = properties.getProperty("model.baseuri", DEFAULT_MODEL_BASE_PREFIX);
+//			}
+//			return basePrefix;
+//		}
+//
+//		public static final String getBaseUriFormat() {
+//			if (baseUriFormat == null) {
+//				Properties properties;
+//				try {
+//					properties = ConfigurationDocument.getInstance().getProperties();
+//				} catch (ConfigurationParserException e) {
+//					Logger.getRootLogger().error("Error properties section in the configuration file", e);
+//					return null;
+//				}
+//				baseUriFormat = properties.getProperty("model.baseuri", DEFAULT_MODEL_BASE_FORMAT);
+//			}
+//			return baseUriFormat;
+//		}
+//		
+//		public static final String getBaseUri(String ifcVersion) {
+//			return String.format(getBaseUriFormat(), ifcVersion);
+//		}
+
 
 }

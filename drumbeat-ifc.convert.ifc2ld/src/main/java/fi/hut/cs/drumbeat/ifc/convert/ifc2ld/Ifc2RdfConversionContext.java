@@ -9,18 +9,18 @@ public class Ifc2RdfConversionContext {
 	private String ifcOntologyVersion; 
 	private OwlProfileList owlProfileList;
 	private String name;
-	private String ontologyPrefix;
-	private String ontologyNamespaceFormat;
-	private String modelPrefix;
-	private String modelNamespaceFormat;
+//	private String ontologyPrefix;
+//	private String ontologyNamespaceUriFormat;
+	private String modelNamespacePrefix;
+	private String modelNamespaceUriFormat;
 	
 	private Ifc2RdfConversionParams conversionParams;
 	
 	public Ifc2RdfConversionContext() {
 		conversionParams = new Ifc2RdfConversionParams();
 		owlProfileList = new OwlProfileList(OwlProfileEnum.OWL2_Full);
-		ontologyPrefix = Ifc2RdfVocabulary.IFC.BASE_PREFIX;
-		ontologyNamespaceFormat = Ifc2RdfVocabulary.DEFAULT_IFC_ONTOLOGY_BASE_FORMAT;
+//		ontologyPrefix = Ifc2RdfVocabulary.IFC.BASE_PREFIX;
+//		ontologyNamespaceUriFormat = Ifc2RdfVocabulary.DEFAULT_IFC_ONTOLOGY_BASE_FORMAT;
 	}
 	
 	public String getIfcOntologyVersion() {
@@ -43,60 +43,60 @@ public class Ifc2RdfConversionContext {
 		this.name = name;
 	}
 	
-	/**
-	 * @return the ontologyPrefix
-	 */
-	public String getOntologyPrefix() {
-		return ontologyPrefix;
-	}
+//	/**
+//	 * @return the ontologyPrefix
+//	 */
+//	public String getOntologyPrefix() {
+//		return ontologyPrefix;
+//	}
 	
-	/**
-	 * @param ontologyPrefix the ontologyPrefix to set
-	 */
-	public void setOntologyPrefix(String ontologyPrefix) {
-		this.ontologyPrefix = ontologyPrefix;
-	}
-	
-	/**
-	 * @return the ontologyNamespaceFormat
-	 */
-	public String getOntologyNamespaceFormat() {
-		return ontologyNamespaceFormat;
-	}
-	
-	/**
-	 * @param ontologyNamespaceFormat the ontologyNamespaceFormat to set
-	 */
-	public void setOntologyNamespaceFormat(String ontologyNamespaceFormat) {
-		this.ontologyNamespaceFormat = ontologyNamespaceFormat;
-	}
+//	/**
+//	 * @param ontologyPrefix the ontologyPrefix to set
+//	 */
+//	public void setOntologyPrefix(String ontologyPrefix) {
+//		this.ontologyPrefix = ontologyPrefix;
+//	}
+//	
+//	/**
+//	 * @return the ontologyNamespaceUriFormat
+//	 */
+//	public String getOntologyNamespaceUriFormat() {
+//		return ontologyNamespaceUriFormat;
+//	}
+//	
+//	/**
+//	 * @param ontologyNamespaceUriFormat the ontologyNamespaceUriFormat to set
+//	 */
+//	public void setOntologyNamespaceUriFormat(String ontologyNamespaceUriFormat) {
+//		this.ontologyNamespaceUriFormat = ontologyNamespaceUriFormat;
+//	}
 	
 	/**
 	 * @return the modelPrefix
 	 */
-	public String getModelPrefix() {
-		return modelPrefix;	
+	public String getModelNamespacePrefix() {
+		return modelNamespacePrefix;	
 	}
 	
 	/**
-	 * @param modelPrefix the modelPrefix to set
+	 * @param modelNamespacePrefix the modelPrefix to set
 	 */
-	public void setModelPrefix(String modelPrefix) {
-		this.modelPrefix = modelPrefix;
+	public void setModelNamespacePrefix(String modelNamespacePrefix) {
+		this.modelNamespacePrefix = modelNamespacePrefix;
 	}
 	
 	/**
-	 * @return the modelNamespaceFormat
+	 * @return the modelNamespaceUriFormat
 	 */
-	public String getModelNamespaceFormat() {
-		return modelNamespaceFormat;
+	public String getModelNamespaceUriFormat() {
+		return modelNamespaceUriFormat;
 	}
 	
 	/**
-	 * @param modelNamespaceFormat the modelNamespaceFormat to set
+	 * @param modelNamespaceUriFormat the modelNamespaceUriFormat to set
 	 */
-	public void setModelNamespaceFormat(String modelNamespaceFormat) {
-		this.modelNamespaceFormat = modelNamespaceFormat;
+	public void setModelNamespaceUriFormat(String modelNamespaceUriFormat) {
+		this.modelNamespaceUriFormat = modelNamespaceUriFormat;
 	}
 	
 	/**
