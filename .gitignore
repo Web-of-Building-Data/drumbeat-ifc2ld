@@ -3,4 +3,6 @@
 /.xd/
 /output/
 /Servers*/
+/python/
+/RemoteSystemsTempFiles/
 *.log

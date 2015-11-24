@@ -14,6 +14,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import com.hp.hpl.jena.vocabulary.XSD;
 
+import fi.hut.cs.drumbeat.common.collections.Pair;
 import fi.hut.cs.drumbeat.ifc.common.IfcException;
 import fi.hut.cs.drumbeat.ifc.data.model.*;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcAttributeInfo;
@@ -170,17 +171,27 @@ public class Ifc2RdfModelExporter {
 			return;
 		}
 		
-		Resource entityResource = convertEntityToResource(entity);
+		final boolean nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
+		
+		String parentNodeId = nameAllBlankNodes ? Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT : null;
+		long childNodeCount = entity.getLineNumber();		
+
+		Resource entityResource = convertEntityToResource(entity, parentNodeId, childNodeCount);
+		
+		parentNodeId = entityResource.getLocalName();
+		childNodeCount = 1L;
 		
 		IfcEntityTypeInfo entityTypeInfo = entity.getTypeInfo();		
 		entityResource.addProperty(RDF.type, jenaModel.createResource(converter.formatTypeName(entityTypeInfo)));
 		
+		
+		
 		for (IfcLink link : entity.getOutgoingLinks()) {
-			writeAttribute(entityResource, link);
+			writeAttribute(entityResource, link, parentNodeId, childNodeCount++);
 		}
 		
 		for (IfcLiteralAttribute attribute : entity.getLiteralAttributes()) {
-			writeAttribute(entityResource, attribute);
+			writeAttribute(entityResource, attribute, parentNodeId, childNodeCount++);
 		}
 		
 		if ((Boolean)context.getConversionParams().getParam(Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO).getValue()) {
@@ -225,37 +236,71 @@ public class Ifc2RdfModelExporter {
 		//adapter.exportEmptyLine();
 	}
 	
-	private void writeAttribute(Resource entityResource, IfcAttribute attribute) {		
+	private void writeAttribute(Resource entityResource, IfcAttribute attribute, String parentNodeId, long childNodeCount) {		
 		IfcAttributeInfo attributeInfo = attribute.getAttributeInfo();
 		Property attributeResource = convertAttributeInfoToResource(attributeInfo);
 		IfcValue value = attribute.getValue();
-		jenaModel.add(entityResource, attributeResource, convertValueToNode(value, attributeInfo.getAttributeTypeInfo()));
+		jenaModel.add(entityResource, attributeResource, convertValueToNode(value, attributeInfo.getAttributeTypeInfo(), parentNodeId, childNodeCount));
 	}
 	
-	public RDFNode convertValueToNode(IfcValue value, IfcTypeInfo typeInfo) {
+	/**
+	 * Converts any {@link IfcValue} value to {@link RDFNode}
+	 * @param value
+	 * @param typeInfo
+	 * @return
+	 */
+	public RDFNode convertValueToNode(IfcValue value, IfcTypeInfo typeInfo, String parentNodeId, long childNodeCount) {
 		if (typeInfo instanceof IfcCollectionTypeInfo) {
-			return convertListToResource((IfcCollectionValue<?>) value, (IfcCollectionTypeInfo)typeInfo);
+			return convertListToResource((IfcCollectionValue<?>) value, (IfcCollectionTypeInfo)typeInfo, parentNodeId, childNodeCount);
 		} else {
 			if (value instanceof IfcEntityBase) {
-				return convertEntityToResource((IfcEntity) value);
+				return convertEntityToResource((IfcEntity) value, parentNodeId, childNodeCount);
 			} else {
+				assert(value instanceof IfcLiteralValue);
 				return converter.convertLiteralValue((IfcLiteralValue) value, jenaModel);
 			}
 		}
 	}
 	
-	public Resource convertListToResource(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo) {
+	public Resource convertListToResource(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo,
+			String parentNodeId, long childNodeCount)
+	{		
+		final String convertCollectionsTo = context.getConversionParams().convertCollectionsTo();
+		final boolean nameAllBlanksNodes = context.getConversionParams().nameAllBlankNodes();
+		
+		
+		
+		switch (convertCollectionsTo) {
+		case Ifc2RdfConversionParams.VALUE_DRUMMOND_LIST:
+			
+			break;
+
+		default:
+			break;
+		}
+		
+		Resource listResource;
+		String listResourceName;
+		if (nameAllBlanksNodes) {
+			assert(parentNodeId != null);
+			listResourceName = String.format("%s_%d", parentNodeId, childNodeCount);
+			listResource = jenaModel.createResource(formatModelName(listResourceName));			
+		} else {
+			listResourceName = null;
+			listResource = jenaModel.createResource();
+		}
 		
 		IfcTypeInfo itemTypeInfo = collectionTypeInfo.getItemTypeInfo();
 		
 		List<RDFNode> nodeList = new ArrayList<>();
+		long count = 1;
 		for (IfcValue value : listValue.getSingleValues()) {
-			nodeList.add(convertValueToNode(value, itemTypeInfo));
+			nodeList.add(convertValueToNode(value, itemTypeInfo, listResourceName, count++));
 		}
 		
 		int length = nodeList.size();
 		
-		Resource listResource = jenaModel.createResource();
+		
 		Resource typeResource = jenaModel.createResource(converter.formatTypeName(collectionTypeInfo)); 
 		listResource.addProperty(RDF.type, typeResource);
 		listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.size, jenaModel.createTypedLiteral(length));
@@ -264,7 +309,13 @@ public class Ifc2RdfModelExporter {
 //		listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.itemType, jenaModel.createResource(converter.formatTypeName(itemTypeInfo)));
 		
 		for (int i = 0; i < nodeList.size(); ++i) {
-			Resource slotResource = jenaModel.createResource();
+			Resource slotResource;
+			if (nameAllBlanksNodes) {
+				String slotResourceName = String.format("%s_slot_%d", listResourceName, i+1);
+				slotResource = jenaModel.createResource(formatModelName(slotResourceName));
+			} else {
+				slotResource = jenaModel.createResource();
+			}
 			slotResource.addProperty(Ifc2RdfVocabulary.EXPRESS.index, jenaModel.createTypedLiteral(i + 1));
 			slotResource.addProperty(Ifc2RdfVocabulary.EXPRESS.item, nodeList.get(i));
 			listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.slot, slotResource);
@@ -273,13 +324,18 @@ public class Ifc2RdfModelExporter {
 		return listResource;			
 	}
 	
-	public Resource convertEntityToResource(IfcEntity value) {
-		IfcEntity entity = (IfcEntity)value;
+	public Resource convertEntityToResource(IfcEntity value, String parentBlankNodeId, long childNodeCount) {
+		IfcEntity entity = (IfcEntity)value;		
 		if (entity.hasName()) {
 			return jenaModel.createResource(formatModelName(entity.getName()));
 		} else {
-			//return jenaModel.createResource(new AnonId(String.format(Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT, entity.getLineNumber())));
-			return jenaModel.createResource(formatModelName(String.format(Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT, entity.getLineNumber())));
+			final boolean nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
+			String nodeName = String.format("%s_%d", parentBlankNodeId, childNodeCount);
+			if (nameAllBlankNodes) {
+				return jenaModel.createResource(formatModelName(nodeName));				
+			} else {
+				return jenaModel.createResource(new AnonId(nodeName));				
+			}
 		}
 	}
 	
