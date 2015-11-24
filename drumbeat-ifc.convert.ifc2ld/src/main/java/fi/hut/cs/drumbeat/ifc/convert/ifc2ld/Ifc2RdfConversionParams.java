@@ -2,6 +2,8 @@ package fi.hut.cs.drumbeat.ifc.convert.ifc2ld;
 
 import java.util.Arrays;
 
+import static fi.hut.cs.drumbeat.common.params.StringParam.*;
+
 import org.apache.commons.lang3.NotImplementedException;
 
 import fi.hut.cs.drumbeat.common.params.*;
@@ -19,24 +21,17 @@ public class Ifc2RdfConversionParams extends TypedParams {
 	public static final String PARAM_CONVERT_ENUMS_TO = "ConvertEnumsTo";
 	public static final String PARAM_EXPORT_DEBUG_INFO = "ExportDebugInfo";
 	public static final String PARAM_USE_LONG_ATTRIBUTE_NAME = "UseLongAttributeName";
-	public static final String PARAM_CONVERT_COLLECTIONS_TO = "ConvertCollectionsTo";	
-	
-	public static final String VALUE_AUTO = StringParam.VALUE_AUTO;
-	public static final String VALUE_AUTO_DESCRIPTION = StringParam.VALUE_AUTO_DESCRIPTION;
-
-	public static final String VALUE_NONE = StringParam.VALUE_NONE;
-	public static final String VALUE_NONE_DESCRIPTION = StringParam.VALUE_NONE_DESCRIPTION;	
+	public static final String PARAM_CONVERT_COLLECTIONS_TO = "ConvertCollectionsTo";
+	public static final String PARAM_NAME_ALL_BLANK_NODES = "NameAllBlankNodes";
 	
 	public static final String VALUE_NAMED_INDIVIDUAL = "owl:NamedIndividual";
 	public static final String VALUE_NAMED_INDIVIDUAL_DESCRIPTION = "owl:NamedIndividual";
 	
-	public static final String VALUE_YES = StringParam.VALUE_YES;
-	public static final String VALUE_YES_DESCRIPTION = StringParam.VALUE_YES_DESCRIPTION;
+//	public static final String VALUE_YES = StringParam.VALUE_YES;
+//	public static final String VALUE_YES_DESCRIPTION = StringParam.VALUE_YES_DESCRIPTION;
 	
-	public static final String VALUE_NO = StringParam.VALUE_NO;
-	public static final String VALUE_NO_DESCRIPTION = StringParam.VALUE_NO_DESCRIPTION;
-	
-	public static final String VALUE_DEFAULT_DESCRIPTION = StringParam.VALUE_DEFAULT_DESCRIPTION;
+//	public static final String VALUE_NO = StringParam.VALUE_NO;
+//	public static final String VALUE_NO_DESCRIPTION = StringParam.VALUE_NO_DESCRIPTION;
 	
 	public static final String VALUE_XSD_STRING = "xsd:string";
 	public static final String VALUE_XSD_STRING_DESCRIPTION = "xsd:string";
@@ -182,6 +177,20 @@ public class Ifc2RdfConversionParams extends TypedParams {
 							VALUE_NO_DESCRIPTION + VALUE_DEFAULT_DESCRIPTION),
 					Boolean.TRUE
 					));
+		
+		addParam(
+				new BooleanParam(
+					PARAM_NAME_ALL_BLANK_NODES,
+					null,
+					null,
+					Arrays.asList(
+							Boolean.TRUE,
+							Boolean.FALSE),
+					Arrays.asList(
+							VALUE_YES_DESCRIPTION,
+							VALUE_NO_DESCRIPTION + VALUE_DEFAULT_DESCRIPTION),
+					Boolean.TRUE));
+		
 	
 	}
 	
@@ -197,6 +206,10 @@ public class Ifc2RdfConversionParams extends TypedParams {
 		return (Boolean)getParam(PARAM_IGNORE_IFC_SCHEMA).getValue();
 	}
 	
+	public boolean nameAllBlankNodes() {
+		return (Boolean)getParam(PARAM_NAME_ALL_BLANK_NODES).getValue();
+	}
+
 	public String convertBooleansTo() {
 		return (String)getParam(PARAM_CONVERT_BOOLEANS_TO).getValue();
 	}

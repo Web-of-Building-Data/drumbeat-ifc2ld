@@ -23,6 +23,15 @@
 				<param name="encoderType" value="SafeUrl" />
 			</params>
 		</processor>
+		<processor name="SetNameForLiteralValueContainers" enabled="true">
+			<class>fi.hut.cs.drumbeat.ifc.processing.grounding.SetNameForLiteralValueContainers</class>
+			<params>
+				<param name="propertyPattern" value="$Property.Name$:'$Property.Value$';" />
+				<param name="entityNamePattern" value="$Entity.Type${$propertyPattern$}" />
+				<param name="encoderType" value="MD5" />
+			</params>
+		</processor>
+		
 		<processor name="ReplacePropertiesWithValueGlobalId" enabled="true">
 			<class>fi.hut.cs.drumbeat.ifc.processing.grounding.ReplacePropertiesWithValueGlobalId</class>
 		</processor>
@@ -32,7 +41,10 @@
 	<complexProcessorPool type="grounding">
 		<complexProcessor name="BASIC GROUNDING RULES" enabled="true" default="true">
 			<add name="SetNameByGlobalId" />
-			<!--  <add name="ReplacePropertiesWithValueGlobalId" />  -->
+			<!--  
+			<add name="SetNameForLiteralValueContainers" />
+			<add name="ReplacePropertiesWithValueGlobalId" />
+			 -->
 		</complexProcessor>
 		<complexProcessor name="NO GROUNDING RULES" enabled="false" />		
 	</complexProcessorPool>
@@ -48,15 +60,15 @@
 				<!--  param name="OwlProfile" value="OWL2_EL,OWL2_QL,OWL2_RL,OWL2_DL" /> -->				
 				<param name="OwlProfile" value="OWL2_DL" />
 				
-				<!-- Options.ExportDebugInfo: yes, no (default)  -->
-				<param name="Options.IgnoreExpressSchema" value="yes" />
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.IgnoreExpressSchema" value="true" />
 
-				<!-- Options.ExportDebugInfo: yes, no (default)  -->
-				<param name="Options.IgnoreIfcSchema" value="no" />
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.IgnoreIfcSchema" value="false" />
 								
 
-				<!-- Options.ExportDebugInfo: yes, no (default)  -->
-				<param name="Options.ExportDebugInfo" value="no" />
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.ExportDebugInfo" value="false" />
 
 				<!-- Options.ExportPropertyDomainsAndRanges: None (default)  -->
 				<param name="Options.ExportPropertyDomainsAndRanges" value="None" />
@@ -70,6 +82,9 @@
 				<!-- Options.ConvertDoublesTo: xsd:decimal (default), AutoMostEfficient (=xsd:double or owl:real), xsd:decimal, xsd:double, owl:real, xsd:string -->
 				<param name="Options.ConvertDoublesTo" value="xsd:decimal" />
 				
+				<!-- Options.Options.NameAllBlankNodes: true, false -->
+				<param name="Options.NameAllBlankNodes" value="true" />
+
 				<!--
 				<param name="Options.UseSpecificDoubleTypes" value="false" /> 
 				<param name="Options.IgnoreSelectTypes" value="false" />
@@ -84,7 +99,7 @@
 				<param name="Ontology.Prefix" value="ifc" />
 				<param name="Ontology.NamespaceFormat" value="http://drumbeat.cs.hut.fi/owl/$Schema.Version$#" />
 				<param name="Model.Prefix" value="model" />
-				<param name="Model.NamespaceFormat" value="http://drumbeat.cs.hut.fi/tomcat/marmotta/resource/" />				
+				<param name="Model.NamespaceFormat" value="http://drumbeat.cs.hut.fi/tomcat/marmotta/resource/" />								
 			</params>
 		</converter>	
 		

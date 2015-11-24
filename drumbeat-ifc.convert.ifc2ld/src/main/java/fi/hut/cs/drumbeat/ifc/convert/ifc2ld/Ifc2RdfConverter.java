@@ -15,6 +15,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import com.hp.hpl.jena.vocabulary.XSD;
 
+import fi.hut.cs.drumbeat.common.digest.EncoderTypeEnum;
 import fi.hut.cs.drumbeat.common.params.StringParam;
 import fi.hut.cs.drumbeat.ifc.common.IfcException;
 import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
@@ -663,11 +664,22 @@ public class Ifc2RdfConverter {
 			assert (valueType == IfcTypeEnum.DATETIME) : "Expected: valueType == IfcTypeEnum.DATETIME. Actual: valueType = " + valueType + ", " + typeInfo;
 			valueNode = jenaModel.createTypedLiteral((Calendar)value);				
 		}
-
-		Resource resource = jenaModel.createResource();
-		resource.addProperty(RDF.type, jenaModel.createResource(formatTypeName(typeInfo)));
 		
 		Property hasXXXProperty = getHasXXXProperty(typeInfo.getValueTypes().iterator().next(), jenaModel);
+
+		final boolean nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
+		
+		Resource resource;
+		if (nameAllBlankNodes) {
+			String rawNodeName = String.format("%s_%s", hasXXXProperty.getLocalName(), value);
+			String encodedNodeName = EncoderTypeEnum.encode(EncoderTypeEnum.SafeUrl, rawNodeName);			
+			resource = jenaModel.createResource(formatIfcOntologyName(encodedNodeName));
+		} else {
+			resource = jenaModel.createResource();
+		}
+
+		resource.addProperty(RDF.type, jenaModel.createResource(formatTypeName(typeInfo)));
+		
 		resource.addProperty(hasXXXProperty, valueNode);
 		
 		return resource;
