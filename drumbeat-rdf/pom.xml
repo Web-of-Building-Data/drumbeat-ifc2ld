@@ -2,9 +2,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fi.hut.cs.drumbeat</groupId>
+	<parent>
+		<groupId>fi.hut.cs.drumbeat</groupId>
+		<artifactId>drumbeat-ifc2ld-parent</artifactId>
+		<version>0.2.0-RELEASE</version>
+		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
+	</parent>
+
 	<artifactId>drumbeat-rdf</artifactId>
-	<version>0.2.0-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>drumbeat-rdf</name>

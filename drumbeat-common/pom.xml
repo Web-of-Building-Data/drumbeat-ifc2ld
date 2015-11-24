@@ -6,12 +6,10 @@
 		<groupId>fi.hut.cs.drumbeat</groupId>
 		<artifactId>drumbeat-ifc2ld-parent</artifactId>
 		<version>0.2.0-RELEASE</version>
-		<relativePath>../drumbeat-ifc2ld-parent/pom.xml</relativePath>
+		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>fi.hut.cs.drumbeat</groupId>
 	<artifactId>drumbeat-common</artifactId>
-	<version>0.2.0-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>drumbeat-common</name>

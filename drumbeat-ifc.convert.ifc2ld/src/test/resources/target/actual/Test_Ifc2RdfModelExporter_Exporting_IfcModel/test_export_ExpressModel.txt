@@ -1,0 +1,2489 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ifc:   <http://drumbeat.cs.hut.fi/owl/IFC2X3#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix expr:  <http://drumbeat.cs.hut.fi/owl/EXPRESS#> .
+@prefix model: <http://example.org/domain/> .
+
+model:_LINE_150  a                   ifc:IfcShapeRepresentation ;
+        ifc:contextOfItems_IfcRepresentation
+                model:_LINE_20 ;
+        ifc:items_IfcRepresentation  [ a               ifc:IfcRepresentationItem_Set ;
+                                       expr:isOrdered  expr:false ;
+                                       expr:size       "1"^^xsd:int ;
+                                       expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                         expr:item   model:_LINE_151
+                                                       ]
+                                     ] ;
+        ifc:representationIdentifier_IfcRepresentation
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "Body"^^xsd:string
+                ] ;
+        ifc:representationType_IfcRepresentation
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "SweptSolid"^^xsd:string
+                ] .
+
+model:_LINE_97  a                       ifc:IfcOpeningElement ;
+        ifc:description_IfcRoot         [ a               ifc:IfcText ;
+                                          expr:hasString  "Description of Opening"^^xsd:string
+                                        ] ;
+        ifc:globalId_IfcRoot            [ a               ifc:IfcGloballyUniqueId ;
+                                          expr:hasString  "2LcE70iQb51PEZynawyvuT"^^xsd:string
+                                        ] ;
+        ifc:name_IfcRoot                [ a               ifc:IfcLabel ;
+                                          expr:hasString  "Opening Element xyz"^^xsd:string
+                                        ] ;
+        ifc:objectPlacement_IfcProduct  model:_LINE_98 ;
+        ifc:ownerHistory_IfcRoot        model:_LINE_2 ;
+        ifc:representation_IfcProduct   model:_LINE_103 .
+
+model:_LINE_19  a                  ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:LUMEN ;
+        ifc:unitType_IfcNamedUnit  ifc:LUMINOUSINTENSITYUNIT .
+
+model:_LINE_65  a                     ifc:IfcQuantityLength ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "Width"^^xsd:string
+                ] ;
+        ifc:lengthValue_IfcQuantityLength
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "Width"^^xsd:string
+                                      ] .
+
+model:_LINE_33  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_149  a                ifc:IfcRelDefinesByProperties ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "0FmgI0DRX49OXL_$Wa2P1E"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelDefines
+                [ a               ifc:IfcObject_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_124
+                                  ]
+                ] ;
+        ifc:relatingPropertyDefinition_IfcRelDefinesByProperties
+                model:_LINE_146 .
+
+model:_LINE_117  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_163  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_131  a                ifc:IfcRelFillsElement ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "1CDlLMVMv1qw1giUXpQgxI"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedBuildingElement_IfcRelFillsElement
+                model:_LINE_124 ;
+        ifc:relatingOpeningElement_IfcRelFillsElement
+                model:_LINE_97 .
+
+model:_LINE_78  a             ifc:IfcMaterial ;
+        ifc:name_IfcMaterial  [ a               ifc:IfcLabel ;
+                                expr:hasString  "Name of the material used for the wall"^^xsd:string
+                              ] .
+
+model:_LINE_46  a  ifc:IfcLocalPlacement ;
+        ifc:placementRelTo_IfcLocalPlacement
+                model:_LINE_36 ;
+        ifc:relativePlacement_IfcLocalPlacement
+                model:_LINE_47 .
+
+model:_LINE_92  a                     ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_94 ;
+        ifc:location_IfcPlacement     model:_LINE_93 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_95 .
+
+model:_LINE_14  a                  ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:RADIAN ;
+        ifc:unitType_IfcNamedUnit  ifc:PLANEANGLEUNIT .
+
+model:_LINE_60  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "ExtendToStructure"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "ExtendToStructure"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_144  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "SmokeStop"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "SmokeStop"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_112  a                     ifc:IfcArbitraryClosedProfileDef ;
+        ifc:outerCurve_IfcArbitraryClosedProfileDef
+                model:_LINE_113 ;
+        ifc:profileType_IfcProfileDef  ifc:AREA .
+
+model:_LINE_59  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "IsExternal"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "IsExternal"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:true
+                ] .
+
+model:_LINE_27  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_73  a                 ifc:IfcRelDefinesByProperties ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "0cpLgxVi9Ew8B08wF2Ql1w"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelDefines
+                [ a               ifc:IfcObject_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_45
+                                  ]
+                ] ;
+        ifc:relatingPropertyDefinition_IfcRelDefinesByProperties
+                model:_LINE_64 .
+
+model:_LINE_41  a                 ifc:IfcRelAggregates ;
+        ifc:description_IfcRoot   [ a               ifc:IfcText ;
+                                    expr:hasString  "BuildingContainer for BuildigStories"^^xsd:string
+                                  ] ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "2168U9nPH5xB3UpDx_uK11"^^xsd:string
+                                  ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "BuildingContainer"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelDecomposes
+                [ a               ifc:IfcObjectDefinition_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_35
+                                  ]
+                ] ;
+        ifc:relatingObject_IfcRelDecomposes
+                model:_LINE_29 .
+
+model:_LINE_157  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_125  a  ifc:IfcLocalPlacement ;
+        ifc:placementRelTo_IfcLocalPlacement
+                model:_LINE_98 ;
+        ifc:relativePlacement_IfcLocalPlacement
+                model:_LINE_126 .
+
+model:_LINE_5  a                  ifc:IfcOrganization ;
+        ifc:description_IfcOrganization
+                [ a               ifc:IfcText ;
+                  expr:hasString  "TNO Building Innovation"^^xsd:string
+                ] ;
+        ifc:name_IfcOrganization  [ a               ifc:IfcLabel ;
+                                    expr:hasString  "TNO"^^xsd:string
+                                  ] .
+
+model:_LINE_86  a               ifc:IfcPolyline ;
+        ifc:points_IfcPolyline  [ a               ifc:IfcCartesianPoint_List ;
+                                  expr:isOrdered  expr:true ;
+                                  expr:size       "5"^^xsd:int ;
+                                  expr:slot       [ expr:index  "5"^^xsd:int ;
+                                                    expr:item   model:_LINE_91
+                                                  ] ;
+                                  expr:slot       [ expr:index  "4"^^xsd:int ;
+                                                    expr:item   model:_LINE_90
+                                                  ] ;
+                                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                                    expr:item   model:_LINE_89
+                                                  ] ;
+                                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                                    expr:item   model:_LINE_88
+                                                  ] ;
+                                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                    expr:item   model:_LINE_87
+                                                  ]
+                                ] .
+
+model:_LINE_54  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "AcousticRating"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "AcousticRating"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a               ifc:IfcText ;
+                  expr:hasString  ""^^xsd:string
+                ] .
+
+model:_LINE_22  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_138  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "Infiltration"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "Infiltration"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_106  a                    ifc:IfcQuantityLength ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "Height"^^xsd:string
+                ] ;
+        ifc:lengthValue_IfcQuantityLength
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "1"^^xsd:decimal
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "Height"^^xsd:string
+                                      ] .
+
+model:_LINE_152  a                     ifc:IfcArbitraryClosedProfileDef ;
+        ifc:outerCurve_IfcArbitraryClosedProfileDef
+                model:_LINE_153 ;
+        ifc:profileType_IfcProfileDef  ifc:AREA .
+
+model:_LINE_120  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_99  a                     ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_101 ;
+        ifc:location_IfcPlacement     model:_LINE_100 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_102 .
+
+model:_LINE_67  a                      ifc:IfcQuantityArea ;
+        ifc:areaValue_IfcQuantityArea  [ a             ifc:IfcAreaMeasure ;
+                                         expr:hasReal  "11"^^xsd:decimal
+                                       ] ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "GrossSideArea"^^xsd:string
+                ] ;
+        ifc:name_IfcPhysicalQuantity   [ a               ifc:IfcLabel ;
+                                         expr:hasString  "GrossSideArea"^^xsd:string
+                                       ] .
+
+model:_LINE_35  a                       ifc:IfcBuildingStorey ;
+        ifc:compositionType_IfcSpatialStructureElement
+                ifc:ELEMENT ;
+        ifc:description_IfcRoot         [ a               ifc:IfcText ;
+                                          expr:hasString  "Description of Default Building Storey"^^xsd:string
+                                        ] ;
+        ifc:elevation_IfcBuildingStorey
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] ;
+        ifc:globalId_IfcRoot            [ a               ifc:IfcGloballyUniqueId ;
+                                          expr:hasString  "0C87kaqBXF$xpGmTZ7zxN$"^^xsd:string
+                                        ] ;
+        ifc:name_IfcRoot                [ a               ifc:IfcLabel ;
+                                          expr:hasString  "Default Building Storey"^^xsd:string
+                                        ] ;
+        ifc:objectPlacement_IfcProduct  model:_LINE_36 ;
+        ifc:ownerHistory_IfcRoot        model:_LINE_2 .
+
+model:_LINE_81  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_119  a                    ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_121 ;
+        ifc:location_IfcPlacement     model:_LINE_120 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_122 .
+
+model:_LINE_133  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "Reference"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "Reference"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a               ifc:IfcText ;
+                  expr:hasString  ""^^xsd:string
+                ] .
+
+model:_LINE_101  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_48  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_94  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_16  a                  ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:GRAM ;
+        ifc:unitType_IfcNamedUnit  ifc:MASSUNIT .
+
+model:_LINE_62  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "Compartmentation"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "Compartmentation"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_30  a  ifc:IfcLocalPlacement ;
+        ifc:placementRelTo_IfcLocalPlacement
+                model:_LINE_24 ;
+        ifc:relativePlacement_IfcLocalPlacement
+                model:_LINE_31 .
+
+model:_LINE_146  a                ifc:IfcElementQuantity ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "0bB_7AP5v5OBZ90TDvo0Fo"^^xsd:string
+                                  ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "BaseQuantities"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:quantities_IfcElementQuantity
+                [ a               ifc:IfcPhysicalQuantity_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   model:_LINE_148
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_147
+                                  ]
+                ] .
+
+model:_LINE_114  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_160  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_29  a                       ifc:IfcBuilding ;
+        ifc:compositionType_IfcSpatialStructureElement
+                ifc:ELEMENT ;
+        ifc:description_IfcRoot         [ a               ifc:IfcText ;
+                                          expr:hasString  "Description of Default Building"^^xsd:string
+                                        ] ;
+        ifc:globalId_IfcRoot            [ a               ifc:IfcGloballyUniqueId ;
+                                          expr:hasString  "0yf_M5JZv9QQXly4dq_zvI"^^xsd:string
+                                        ] ;
+        ifc:name_IfcRoot                [ a               ifc:IfcLabel ;
+                                          expr:hasString  "Default Building"^^xsd:string
+                                        ] ;
+        ifc:objectPlacement_IfcProduct  model:_LINE_30 ;
+        ifc:ownerHistory_IfcRoot        model:_LINE_2 .
+
+model:_LINE_75  a  ifc:IfcMaterialLayerSetUsage ;
+        ifc:directionSense_IfcMaterialLayerSetUsage
+                ifc:POSITIVE ;
+        ifc:forLayerSet_IfcMaterialLayerSetUsage
+                model:_LINE_76 ;
+        ifc:layerSetDirection_IfcMaterialLayerSetUsage
+                ifc:AXIS2 ;
+        ifc:offsetFromReferenceLine_IfcMaterialLayerSetUsage
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] .
+
+model:_LINE_43  a                 ifc:IfcRelAggregates ;
+        ifc:description_IfcRoot   [ a               ifc:IfcText ;
+                                    expr:hasString  "ProjectContainer for Sites"^^xsd:string
+                                  ] ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "1Nl_BIjGLBke9u_6U3IWlW"^^xsd:string
+                                  ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "ProjectContainer"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelDecomposes
+                [ a               ifc:IfcObjectDefinition_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_23
+                                  ]
+                ] ;
+        ifc:relatingObject_IfcRelDecomposes
+                model:_LINE_1 .
+
+model:_LINE_159  a                    ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_161 ;
+        ifc:location_IfcPlacement     model:_LINE_160 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_162 .
+
+model:_LINE_11  a                    ifc:IfcConversionBasedUnit ;
+        ifc:conversionFactor_IfcConversionBasedUnit
+                model:_LINE_13 ;
+        ifc:dimensions_IfcNamedUnit  model:_LINE_12 ;
+        ifc:name_IfcConversionBasedUnit
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "DEGREE"^^xsd:string
+                ] ;
+        ifc:unitType_IfcNamedUnit    ifc:PLANEANGLEUNIT .
+
+model:_LINE_127  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_141  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "HandicapAccessible"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "HandicapAccessible"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_7  a                     ifc:IfcUnitAssignment ;
+        ifc:units_IfcUnitAssignment  [ a               ifc:IfcUnit_Set ;
+                                       expr:isOrdered  expr:false ;
+                                       expr:size       "9"^^xsd:int ;
+                                       expr:slot       [ expr:index  "6"^^xsd:int ;
+                                                         expr:item   model:_LINE_16
+                                                       ] ;
+                                       expr:slot       [ expr:index  "7"^^xsd:int ;
+                                                         expr:item   model:_LINE_17
+                                                       ] ;
+                                       expr:slot       [ expr:index  "8"^^xsd:int ;
+                                                         expr:item   model:_LINE_18
+                                                       ] ;
+                                       expr:slot       [ expr:index  "9"^^xsd:int ;
+                                                         expr:item   model:_LINE_19
+                                                       ] ;
+                                       expr:slot       [ expr:index  "2"^^xsd:int ;
+                                                         expr:item   model:_LINE_9
+                                                       ] ;
+                                       expr:slot       [ expr:index  "3"^^xsd:int ;
+                                                         expr:item   model:_LINE_10
+                                                       ] ;
+                                       expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                         expr:item   model:_LINE_8
+                                                       ] ;
+                                       expr:slot       [ expr:index  "5"^^xsd:int ;
+                                                         expr:item   model:_LINE_15
+                                                       ] ;
+                                       expr:slot       [ expr:index  "4"^^xsd:int ;
+                                                         expr:item   model:_LINE_11
+                                                       ]
+                                     ] .
+
+model:_LINE_88  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_56  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "Combustible"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "Combustible"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_24  a  ifc:IfcLocalPlacement ;
+        ifc:relativePlacement_IfcLocalPlacement
+                model:_LINE_25 .
+
+model:_LINE_70  a                     ifc:IfcQuantityVolume ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "NetVolume"^^xsd:string
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "NetVolume"^^xsd:string
+                                      ] ;
+        ifc:volumeValue_IfcQuantityVolume
+                [ a             ifc:IfcVolumeMeasure ;
+                  expr:hasReal  "3"^^xsd:decimal
+                ] .
+
+model:_LINE_108  a                ifc:IfcRelDefinesByProperties ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "2UEO1blXL9sPmb1AMeW7Ax"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelDefines
+                [ a               ifc:IfcObject_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_97
+                                  ]
+                ] ;
+        ifc:relatingPropertyDefinition_IfcRelDefinesByProperties
+                model:_LINE_104 .
+
+model:_LINE_154  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_122  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_2  a                        ifc:IfcOwnerHistory ;
+        ifc:changeAction_IfcOwnerHistory
+                ifc:ADDED ;
+        ifc:creationDate_IfcOwnerHistory
+                [ a                 ifc:IfcTimeStamp ;
+                  expr:hasDatetime  "2008-08-01T19:53:56Z"^^xsd:dateTime
+                ] ;
+        ifc:owningApplication_IfcOwnerHistory
+                model:_LINE_6 ;
+        ifc:owningUser_IfcOwnerHistory  model:_LINE_3 .
+
+model:_LINE_69  a                     ifc:IfcQuantityVolume ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "GrossVolume"^^xsd:string
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "GrossVolume"^^xsd:string
+                                      ] ;
+        ifc:volumeValue_IfcQuantityVolume
+                [ a             ifc:IfcVolumeMeasure ;
+                  expr:hasReal  "3"^^xsd:decimal
+                ] .
+
+model:_LINE_37  a                     ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_39 ;
+        ifc:location_IfcPlacement     model:_LINE_38 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_40 .
+
+model:_LINE_83  a                    ifc:IfcShapeRepresentation ;
+        ifc:contextOfItems_IfcRepresentation
+                model:_LINE_20 ;
+        ifc:items_IfcRepresentation  [ a               ifc:IfcRepresentationItem_Set ;
+                                       expr:isOrdered  expr:false ;
+                                       expr:size       "1"^^xsd:int ;
+                                       expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                         expr:item   model:_LINE_84
+                                                       ]
+                                     ] ;
+        ifc:representationIdentifier_IfcRepresentation
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "Body"^^xsd:string
+                ] ;
+        ifc:representationType_IfcRepresentation
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "SweptSolid"^^xsd:string
+                ] .
+
+model:_LINE_51  a  ifc:IfcProductDefinitionShape ;
+        ifc:representations_IfcProductRepresentation
+                [ a               ifc:IfcRepresentation_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   model:_LINE_83
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_79
+                                  ]
+                ] .
+
+model:_LINE_135  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "AcousticRating"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "AcousticRating"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a               ifc:IfcText ;
+                  expr:hasString  ""^^xsd:string
+                ] .
+
+model:_LINE_103  a  ifc:IfcProductDefinitionShape ;
+        ifc:representations_IfcProductRepresentation
+                [ a               ifc:IfcRepresentation_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_110
+                                  ]
+                ] .
+
+model:_LINE_96  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_18  a                  ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:DEGREE_CELSIUS ;
+        ifc:unitType_IfcNamedUnit  ifc:THERMODYNAMICTEMPERATUREUNIT .
+
+model:_LINE_64  a                 ifc:IfcElementQuantity ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "10m6qcXSj0Iu4RVOK1omPJ"^^xsd:string
+                                  ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "BaseQuantities"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:quantities_IfcElementQuantity
+                [ a               ifc:IfcPhysicalQuantity_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "8"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_65
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   model:_LINE_66
+                                  ] ;
+                  expr:slot       [ expr:index  "6"^^xsd:int ;
+                                    expr:item   model:_LINE_70
+                                  ] ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   model:_LINE_67
+                                  ] ;
+                  expr:slot       [ expr:index  "7"^^xsd:int ;
+                                    expr:item   model:_LINE_71
+                                  ] ;
+                  expr:slot       [ expr:index  "4"^^xsd:int ;
+                                    expr:item   model:_LINE_68
+                                  ] ;
+                  expr:slot       [ expr:index  "8"^^xsd:int ;
+                                    expr:item   model:_LINE_72
+                                  ] ;
+                  expr:slot       [ expr:index  "5"^^xsd:int ;
+                                    expr:item   model:_LINE_69
+                                  ]
+                ] .
+
+model:_LINE_32  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_148  a                    ifc:IfcQuantityLength ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "Width"^^xsd:string
+                ] ;
+        ifc:lengthValue_IfcQuantityLength
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "Width"^^xsd:string
+                                      ] .
+
+model:_LINE_116  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_162  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_130  a  ifc:IfcProductDefinitionShape ;
+        ifc:representations_IfcProductRepresentation
+                [ a               ifc:IfcRepresentation_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_150
+                                  ]
+                ] .
+
+model:_LINE_77  a                      ifc:IfcMaterialLayer ;
+        ifc:layerThickness_IfcMaterialLayer
+                [ a             ifc:IfcPositiveLengthMeasure ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] ;
+        ifc:material_IfcMaterialLayer  model:_LINE_78 .
+
+model:_LINE_45  a                       ifc:IfcWallStandardCase ;
+        ifc:description_IfcRoot         [ a               ifc:IfcText ;
+                                          expr:hasString  "Description of Wall"^^xsd:string
+                                        ] ;
+        ifc:globalId_IfcRoot            [ a               ifc:IfcGloballyUniqueId ;
+                                          expr:hasString  "3vB2YO$MX4xv5uCqZZG05x"^^xsd:string
+                                        ] ;
+        ifc:name_IfcRoot                [ a               ifc:IfcLabel ;
+                                          expr:hasString  "Wall xyz"^^xsd:string
+                                        ] ;
+        ifc:objectPlacement_IfcProduct  model:_LINE_46 ;
+        ifc:ownerHistory_IfcRoot        model:_LINE_2 ;
+        ifc:representation_IfcProduct   model:_LINE_51 .
+
+model:_LINE_91  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_13  a  ifc:IfcMeasureWithUnit ;
+        ifc:unitComponent_IfcMeasureWithUnit
+                model:_LINE_14 ;
+        ifc:valueComponent_IfcMeasureWithUnit
+                [ a             ifc:IfcPlaneAngleMeasure ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] .
+
+model:_LINE_129  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_143  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "SelfClosing"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "SelfClosing"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_9  a                   ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:SQUARE_METRE ;
+        ifc:unitType_IfcNamedUnit  ifc:AREAUNIT .
+
+model:_LINE_111  a                      ifc:IfcExtrudedAreaSolid ;
+        ifc:depth_IfcExtrudedAreaSolid  [ a             ifc:IfcPositiveLengthMeasure ;
+                                          expr:hasReal  "1"^^xsd:decimal
+                                        ] ;
+        ifc:extrudedDirection_IfcExtrudedAreaSolid
+                model:_LINE_123 ;
+        ifc:position_IfcSweptAreaSolid  model:_LINE_119 ;
+        ifc:sweptArea_IfcSweptAreaSolid
+                model:_LINE_112 .
+
+model:_LINE_58  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "ThermalTransmittance"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "ThermalTransmittance"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a             ifc:IfcReal ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] .
+
+model:_LINE_26  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_72  a                      ifc:IfcQuantityArea ;
+        ifc:areaValue_IfcQuantityArea  [ a             ifc:IfcAreaMeasure ;
+                                         expr:hasReal  "1"^^xsd:decimal
+                                       ] ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "GrossFootprintArea"^^xsd:string
+                ] ;
+        ifc:name_IfcPhysicalQuantity   [ a               ifc:IfcLabel ;
+                                         expr:hasString  "GrossFootprintArea"^^xsd:string
+                                       ] .
+
+model:_LINE_40  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_156  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_124  a                      ifc:IfcWindow ;
+        ifc:description_IfcRoot         [ a               ifc:IfcText ;
+                                          expr:hasString  "Description of Window"^^xsd:string
+                                        ] ;
+        ifc:globalId_IfcRoot            [ a               ifc:IfcGloballyUniqueId ;
+                                          expr:hasString  "0LV8Pid0X3IA3jJLVDPidY"^^xsd:string
+                                        ] ;
+        ifc:name_IfcRoot                [ a               ifc:IfcLabel ;
+                                          expr:hasString  "Window xyz"^^xsd:string
+                                        ] ;
+        ifc:objectPlacement_IfcProduct  model:_LINE_125 ;
+        ifc:overallHeight_IfcWindow     [ a             ifc:IfcPositiveLengthMeasure ;
+                                          expr:hasReal  "1"^^xsd:decimal
+                                        ] ;
+        ifc:overallWidth_IfcWindow      [ a             ifc:IfcPositiveLengthMeasure ;
+                                          expr:hasReal  "0"^^xsd:decimal
+                                        ] ;
+        ifc:ownerHistory_IfcRoot        model:_LINE_2 ;
+        ifc:representation_IfcProduct   model:_LINE_130 .
+
+model:_LINE_4  a                  ifc:IfcPerson ;
+        ifc:familyName_IfcPerson  [ a               ifc:IfcLabel ;
+                                    expr:hasString  "Bonsma"^^xsd:string
+                                  ] ;
+        ifc:givenName_IfcPerson   [ a               ifc:IfcLabel ;
+                                    expr:hasString  "Peter"^^xsd:string
+                                  ] ;
+        ifc:id_IfcPerson          [ a               ifc:IfcIdentifier ;
+                                    expr:hasString  "ID001"^^xsd:string
+                                  ] .
+
+model:_LINE_39  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_85  a                      ifc:IfcArbitraryClosedProfileDef ;
+        ifc:outerCurve_IfcArbitraryClosedProfileDef
+                model:_LINE_86 ;
+        ifc:profileType_IfcProfileDef  ifc:AREA .
+
+model:_LINE_53  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "Reference"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "Reference"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a               ifc:IfcText ;
+                  expr:hasString  ""^^xsd:string
+                ] .
+
+model:_LINE_21  a                  ifc:IfcAxis2Placement3D ;
+        ifc:location_IfcPlacement  model:_LINE_22 .
+
+model:_LINE_137  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "IsExternal"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "IsExternal"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:true
+                ] .
+
+model:_LINE_105  a                    ifc:IfcQuantityLength ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "Depth"^^xsd:string
+                ] ;
+        ifc:lengthValue_IfcQuantityLength
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "Depth"^^xsd:string
+                                      ] .
+
+model:_LINE_151  a                      ifc:IfcExtrudedAreaSolid ;
+        ifc:depth_IfcExtrudedAreaSolid  [ a             ifc:IfcPositiveLengthMeasure ;
+                                          expr:hasReal  "1"^^xsd:decimal
+                                        ] ;
+        ifc:extrudedDirection_IfcExtrudedAreaSolid
+                model:_LINE_163 ;
+        ifc:position_IfcSweptAreaSolid  model:_LINE_159 ;
+        ifc:sweptArea_IfcSweptAreaSolid
+                model:_LINE_152 .
+
+model:_LINE_98  a  ifc:IfcLocalPlacement ;
+        ifc:placementRelTo_IfcLocalPlacement
+                model:_LINE_46 ;
+        ifc:relativePlacement_IfcLocalPlacement
+                model:_LINE_99 .
+
+model:_LINE_66  a                     ifc:IfcQuantityLength ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "Lenght"^^xsd:string
+                ] ;
+        ifc:lengthValue_IfcQuantityLength
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "5"^^xsd:decimal
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "Lenght"^^xsd:string
+                                      ] .
+
+model:_LINE_34  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_80  a               ifc:IfcPolyline ;
+        ifc:points_IfcPolyline  [ a               ifc:IfcCartesianPoint_List ;
+                                  expr:isOrdered  expr:true ;
+                                  expr:size       "2"^^xsd:int ;
+                                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                                    expr:item   model:_LINE_82
+                                                  ] ;
+                                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                    expr:item   model:_LINE_81
+                                                  ]
+                                ] .
+
+model:_LINE_118  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_132  a                ifc:IfcPropertySet ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "0fhz_bHU54xB$tXHjHPUZl"^^xsd:string
+                                  ] ;
+        ifc:hasProperties_IfcPropertySet
+                [ a               ifc:IfcProperty_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "12"^^xsd:int ;
+                  expr:slot       [ expr:index  "12"^^xsd:int ;
+                                    expr:item   model:_LINE_144
+                                  ] ;
+                  expr:slot       [ expr:index  "11"^^xsd:int ;
+                                    expr:item   model:_LINE_143
+                                  ] ;
+                  expr:slot       [ expr:index  "10"^^xsd:int ;
+                                    expr:item   model:_LINE_142
+                                  ] ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   model:_LINE_135
+                                  ] ;
+                  expr:slot       [ expr:index  "9"^^xsd:int ;
+                                    expr:item   model:_LINE_141
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   model:_LINE_134
+                                  ] ;
+                  expr:slot       [ expr:index  "6"^^xsd:int ;
+                                    expr:item   model:_LINE_138
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_133
+                                  ] ;
+                  expr:slot       [ expr:index  "5"^^xsd:int ;
+                                    expr:item   model:_LINE_137
+                                  ] ;
+                  expr:slot       [ expr:index  "8"^^xsd:int ;
+                                    expr:item   model:_LINE_140
+                                  ] ;
+                  expr:slot       [ expr:index  "7"^^xsd:int ;
+                                    expr:item   model:_LINE_139
+                                  ] ;
+                  expr:slot       [ expr:index  "4"^^xsd:int ;
+                                    expr:item   model:_LINE_136
+                                  ]
+                ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "Pset_WindowCommon"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 .
+
+model:_LINE_100  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_79  a                    ifc:IfcShapeRepresentation ;
+        ifc:contextOfItems_IfcRepresentation
+                model:_LINE_20 ;
+        ifc:items_IfcRepresentation  [ a               ifc:IfcRepresentationItem_Set ;
+                                       expr:isOrdered  expr:false ;
+                                       expr:size       "1"^^xsd:int ;
+                                       expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                         expr:item   model:_LINE_80
+                                                       ]
+                                     ] ;
+        ifc:representationIdentifier_IfcRepresentation
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "Axis"^^xsd:string
+                ] ;
+        ifc:representationType_IfcRepresentation
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "Curve2D"^^xsd:string
+                ] .
+
+model:_LINE_47  a                     ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_49 ;
+        ifc:location_IfcPlacement     model:_LINE_48 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_50 .
+
+model:_LINE_93  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_15  a                  ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:STERADIAN ;
+        ifc:unitType_IfcNamedUnit  ifc:SOLIDANGLEUNIT .
+
+model:_LINE_61  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "LoadBearing"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "LoadBearing"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_145  a                ifc:IfcRelDefinesByProperties ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "2fHMxamlj5DvGvEKfCk8nj"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelDefines
+                [ a               ifc:IfcObject_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_124
+                                  ]
+                ] ;
+        ifc:relatingPropertyDefinition_IfcRelDefinesByProperties
+                model:_LINE_132 .
+
+model:_LINE_113  a              ifc:IfcPolyline ;
+        ifc:points_IfcPolyline  [ a               ifc:IfcCartesianPoint_List ;
+                                  expr:isOrdered  expr:true ;
+                                  expr:size       "5"^^xsd:int ;
+                                  expr:slot       [ expr:index  "5"^^xsd:int ;
+                                                    expr:item   model:_LINE_118
+                                                  ] ;
+                                  expr:slot       [ expr:index  "4"^^xsd:int ;
+                                                    expr:item   model:_LINE_117
+                                                  ] ;
+                                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                                    expr:item   model:_LINE_116
+                                                  ] ;
+                                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                                    expr:item   model:_LINE_115
+                                                  ] ;
+                                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                    expr:item   model:_LINE_114
+                                                  ]
+                                ] .
+
+model:_LINE_28  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_74  a                 ifc:IfcRelAssociatesMaterial ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "2zeggBjk9A5wcc3k9CYqdL"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelAssociates
+                [ a               ifc:IfcRoot_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_45
+                                  ]
+                ] ;
+        ifc:relatingMaterial_IfcRelAssociatesMaterial
+                model:_LINE_75 .
+
+model:_LINE_42  a                 ifc:IfcRelAggregates ;
+        ifc:description_IfcRoot   [ a               ifc:IfcText ;
+                                    expr:hasString  "SiteContainer For Buildings"^^xsd:string
+                                  ] ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "3JuhmQJDj9xPnAnWoNb94X"^^xsd:string
+                                  ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "SiteContainer"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelDecomposes
+                [ a               ifc:IfcObjectDefinition_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_29
+                                  ]
+                ] ;
+        ifc:relatingObject_IfcRelDecomposes
+                model:_LINE_23 .
+
+model:_LINE_158  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_10  a                  ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:CUBIC_METRE ;
+        ifc:unitType_IfcNamedUnit  ifc:VOLUMEUNIT .
+
+model:_LINE_126  a                    ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_128 ;
+        ifc:location_IfcPlacement     model:_LINE_127 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_129 .
+
+model:_LINE_140  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "GlazingAresFraction"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "GlazingAresFraction"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a             ifc:IfcReal ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] .
+
+model:_LINE_6  a                    ifc:IfcApplication ;
+        ifc:applicationDeveloper_IfcApplication
+                model:_LINE_5 ;
+        ifc:applicationFullName_IfcApplication
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "Test Application"^^xsd:string
+                ] ;
+        ifc:applicationIdentifier_IfcApplication
+                [ a               ifc:IfcIdentifier ;
+                  expr:hasString  "TA 1001"^^xsd:string
+                ] ;
+        ifc:version_IfcApplication  [ a               ifc:IfcLabel ;
+                                      expr:hasString  "0.10"^^xsd:string
+                                    ] .
+
+model:_LINE_87  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_55  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "FireRating"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "FireRating"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a               ifc:IfcText ;
+                  expr:hasString  ""^^xsd:string
+                ] .
+
+model:_LINE_23  a                       ifc:IfcSite ;
+        ifc:compositionType_IfcSpatialStructureElement
+                ifc:ELEMENT ;
+        ifc:description_IfcRoot         [ a               ifc:IfcText ;
+                                          expr:hasString  "Description of Default Site"^^xsd:string
+                                        ] ;
+        ifc:globalId_IfcRoot            [ a               ifc:IfcGloballyUniqueId ;
+                                          expr:hasString  "3rNg_N55v4CRBpQVbZJoHB"^^xsd:string
+                                        ] ;
+        ifc:name_IfcRoot                [ a               ifc:IfcLabel ;
+                                          expr:hasString  "Default Site"^^xsd:string
+                                        ] ;
+        ifc:objectPlacement_IfcProduct  model:_LINE_24 ;
+        ifc:ownerHistory_IfcRoot        model:_LINE_2 ;
+        ifc:refLatitude_IfcSite         [ a               ifc:IfcCompoundPlaneAngleMeasure ;
+                                          expr:isOrdered  expr:true ;
+                                          expr:size       "3"^^xsd:int ;
+                                          expr:slot       [ expr:index  "3"^^xsd:int ;
+                                                            expr:item   [ a                expr:INTEGER ;
+                                                                          expr:hasInteger  "0"^^xsd:long
+                                                                        ]
+                                                          ] ;
+                                          expr:slot       [ expr:index  "2"^^xsd:int ;
+                                                            expr:item   [ a                expr:INTEGER ;
+                                                                          expr:hasInteger  "28"^^xsd:long
+                                                                        ]
+                                                          ] ;
+                                          expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                            expr:item   [ a                expr:INTEGER ;
+                                                                          expr:hasInteger  "24"^^xsd:long
+                                                                        ]
+                                                          ]
+                                        ] ;
+        ifc:refLongitude_IfcSite        [ a               ifc:IfcCompoundPlaneAngleMeasure ;
+                                          expr:isOrdered  expr:true ;
+                                          expr:size       "3"^^xsd:int ;
+                                          expr:slot       [ expr:index  "3"^^xsd:int ;
+                                                            expr:item   [ a                expr:INTEGER ;
+                                                                          expr:hasInteger  "0"^^xsd:long
+                                                                        ]
+                                                          ] ;
+                                          expr:slot       [ expr:index  "2"^^xsd:int ;
+                                                            expr:item   [ a                expr:INTEGER ;
+                                                                          expr:hasInteger  "25"^^xsd:long
+                                                                        ]
+                                                          ] ;
+                                          expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                            expr:item   [ a                expr:INTEGER ;
+                                                                          expr:hasInteger  "54"^^xsd:long
+                                                                        ]
+                                                          ]
+                                        ] .
+
+ifc:    a                owl:Ontology ;
+        rdfs:comment     "OWL profile: [OWL2_Full].\r\n\t\tConversion options: {ConvertBooleansTo=fi.hut.cs.drumbeat.common.params.StringParam@29d89d5d\r\n\t\t\t ConvertCollectionsTo=fi.hut.cs.drumbeat.common.params.StringParam@3514a4c0\r\n\t\t\t ConvertDoublesTo=fi.hut.cs.drumbeat.common.params.StringParam@212b5695\r\n\t\t\t ConvertEnumsTo=fi.hut.cs.drumbeat.common.params.StringParam@446293d\r\n\t\t\t ExportDebugInfo=fi.hut.cs.drumbeat.common.params.BooleanParam@69997e9d\r\n\t\t\t ExportPropertyDomainsAndRanges=fi.hut.cs.drumbeat.common.params.StringParam@793be5ca\r\n\t\t\t IgnoreExpressSchema=fi.hut.cs.drumbeat.common.params.BooleanParam@2df9b86\r\n\t\t\t IgnoreIfcSchema=fi.hut.cs.drumbeat.common.params.BooleanParam@37654521\r\n\t\t\t UseLongAttributeName=fi.hut.cs.drumbeat.common.params.BooleanParam@15aab8c6}" ;
+        owl:versionInfo  "v1.0 2015/11/24 04:55:42" .
+
+model:_LINE_139  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "ThermalTransmittance"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "ThermalTransmittance"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a             ifc:IfcReal ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] .
+
+model:_LINE_107  a                    ifc:IfcQuantityLength ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "Width"^^xsd:string
+                ] ;
+        ifc:lengthValue_IfcQuantityLength
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "Width"^^xsd:string
+                                      ] .
+
+model:_LINE_153  a              ifc:IfcPolyline ;
+        ifc:points_IfcPolyline  [ a               ifc:IfcCartesianPoint_List ;
+                                  expr:isOrdered  expr:true ;
+                                  expr:size       "5"^^xsd:int ;
+                                  expr:slot       [ expr:index  "5"^^xsd:int ;
+                                                    expr:item   model:_LINE_158
+                                                  ] ;
+                                  expr:slot       [ expr:index  "4"^^xsd:int ;
+                                                    expr:item   model:_LINE_157
+                                                  ] ;
+                                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                                    expr:item   model:_LINE_156
+                                                  ] ;
+                                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                                    expr:item   model:_LINE_155
+                                                  ] ;
+                                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                    expr:item   model:_LINE_154
+                                                  ]
+                                ] .
+
+model:_LINE_121  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_1  a                       ifc:IfcProject ;
+        ifc:description_IfcRoot        [ a               ifc:IfcText ;
+                                         expr:hasString  "Description of Default Project"^^xsd:string
+                                       ] ;
+        ifc:globalId_IfcRoot           [ a               ifc:IfcGloballyUniqueId ;
+                                         expr:hasString  "0YvctVUKr0kugbFTf53O9L"^^xsd:string
+                                       ] ;
+        ifc:name_IfcRoot               [ a               ifc:IfcLabel ;
+                                         expr:hasString  "Default Project"^^xsd:string
+                                       ] ;
+        ifc:ownerHistory_IfcRoot       model:_LINE_2 ;
+        ifc:representationContexts_IfcProject
+                [ a               ifc:IfcRepresentationContext_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_20
+                                  ]
+                ] ;
+        ifc:unitsInContext_IfcProject  model:_LINE_7 .
+
+model:_LINE_68  a                      ifc:IfcQuantityArea ;
+        ifc:areaValue_IfcQuantityArea  [ a             ifc:IfcAreaMeasure ;
+                                         expr:hasReal  "10"^^xsd:decimal
+                                       ] ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "NetSideArea"^^xsd:string
+                ] ;
+        ifc:name_IfcPhysicalQuantity   [ a               ifc:IfcLabel ;
+                                         expr:hasString  "NetSideArea"^^xsd:string
+                                       ] .
+
+model:_LINE_36  a  ifc:IfcLocalPlacement ;
+        ifc:placementRelTo_IfcLocalPlacement
+                model:_LINE_30 ;
+        ifc:relativePlacement_IfcLocalPlacement
+                model:_LINE_37 .
+
+model:_LINE_82  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "5"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_50  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_134  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "FireRating"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "FireRating"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a               ifc:IfcText ;
+                  expr:hasString  ""^^xsd:string
+                ] .
+
+model:_LINE_102  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_49  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_95  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_17  a                  ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:SECOND ;
+        ifc:unitType_IfcNamedUnit  ifc:TIMEUNIT .
+
+model:_LINE_63  a                 ifc:IfcRelDefinesByProperties ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "3IxFuNHRvBDfMT6_FiWPEz"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedObjects_IfcRelDefines
+                [ a               ifc:IfcObject_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_45
+                                  ]
+                ] ;
+        ifc:relatingPropertyDefinition_IfcRelDefinesByProperties
+                model:_LINE_52 .
+
+model:_LINE_31  a                     ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_33 ;
+        ifc:location_IfcPlacement     model:_LINE_32 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_34 .
+
+model:_LINE_147  a                    ifc:IfcQuantityLength ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "Height"^^xsd:string
+                ] ;
+        ifc:lengthValue_IfcQuantityLength
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "1"^^xsd:decimal
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "Height"^^xsd:string
+                                      ] .
+
+model:_LINE_115  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_161  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_76  a  ifc:IfcMaterialLayerSet ;
+        ifc:materialLayers_IfcMaterialLayerSet
+                [ a               ifc:IfcMaterialLayer_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "1"^^xsd:int ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_77
+                                  ]
+                ] .
+
+model:_LINE_44  a                 ifc:IfcRelContainedInSpatialStructure ;
+        ifc:description_IfcRoot   [ a               ifc:IfcText ;
+                                    expr:hasString  "Contents of Building Storey"^^xsd:string
+                                  ] ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "2O_dMuDnr1Ahv28oR6ZVpr"^^xsd:string
+                                  ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "Default Building"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedElements_IfcRelContainedInSpatialStructure
+                [ a               ifc:IfcProduct_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   model:_LINE_124
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_45
+                                  ]
+                ] ;
+        ifc:relatingStructure_IfcRelContainedInSpatialStructure
+                model:_LINE_35 .
+
+model:_LINE_90  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "5"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_12  a  ifc:IfcDimensionalExponents ;
+        ifc:amountOfSubstanceExponent_IfcDimensionalExponents
+                [ a                expr:INTEGER ;
+                  expr:hasInteger  "0"^^xsd:long
+                ] ;
+        ifc:electricCurrentExponent_IfcDimensionalExponents
+                [ a                expr:INTEGER ;
+                  expr:hasInteger  "0"^^xsd:long
+                ] ;
+        ifc:lengthExponent_IfcDimensionalExponents
+                [ a                expr:INTEGER ;
+                  expr:hasInteger  "0"^^xsd:long
+                ] ;
+        ifc:luminousIntensityExponent_IfcDimensionalExponents
+                [ a                expr:INTEGER ;
+                  expr:hasInteger  "0"^^xsd:long
+                ] ;
+        ifc:massExponent_IfcDimensionalExponents
+                [ a                expr:INTEGER ;
+                  expr:hasInteger  "0"^^xsd:long
+                ] ;
+        ifc:thermodynamicTemperatureExponent_IfcDimensionalExponents
+                [ a                expr:INTEGER ;
+                  expr:hasInteger  "0"^^xsd:long
+                ] ;
+        ifc:timeExponent_IfcDimensionalExponents
+                [ a                expr:INTEGER ;
+                  expr:hasInteger  "0"^^xsd:long
+                ] .
+
+model:_LINE_128  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_142  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "FireExit"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "FireExit"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a                ifc:IfcBoolean ;
+                  expr:hasLogical  expr:false
+                ] .
+
+model:_LINE_8  a                   ifc:IfcSIUnit ;
+        ifc:name_IfcSIUnit         ifc:METRE ;
+        ifc:unitType_IfcNamedUnit  ifc:LENGTHUNIT .
+
+model:_LINE_110  a                   ifc:IfcShapeRepresentation ;
+        ifc:contextOfItems_IfcRepresentation
+                model:_LINE_20 ;
+        ifc:items_IfcRepresentation  [ a               ifc:IfcRepresentationItem_Set ;
+                                       expr:isOrdered  expr:false ;
+                                       expr:size       "1"^^xsd:int ;
+                                       expr:slot       [ expr:index  "1"^^xsd:int ;
+                                                         expr:item   model:_LINE_111
+                                                       ]
+                                     ] ;
+        ifc:representationIdentifier_IfcRepresentation
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "Body"^^xsd:string
+                ] ;
+        ifc:representationType_IfcRepresentation
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "SweptSolid"^^xsd:string
+                ] .
+
+model:_LINE_89  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "5"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_57  a                    ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "SurfaceSpreadOfFlame"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "SurfaceSpreadOfFlame"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a               ifc:IfcText ;
+                  expr:hasString  ""^^xsd:string
+                ] .
+
+model:_LINE_25  a                     ifc:IfcAxis2Placement3D ;
+        ifc:axis_IfcAxis2Placement3D  model:_LINE_27 ;
+        ifc:location_IfcPlacement     model:_LINE_26 ;
+        ifc:refDirection_IfcAxis2Placement3D
+                model:_LINE_28 .
+
+model:_LINE_71  a                     ifc:IfcQuantityLength ;
+        ifc:description_IfcPhysicalQuantity
+                [ a               ifc:IfcText ;
+                  expr:hasString  "Height"^^xsd:string
+                ] ;
+        ifc:lengthValue_IfcQuantityLength
+                [ a             ifc:IfcLengthMeasure ;
+                  expr:hasReal  "2"^^xsd:decimal
+                ] ;
+        ifc:name_IfcPhysicalQuantity  [ a               ifc:IfcLabel ;
+                                        expr:hasString  "Height"^^xsd:string
+                                      ] .
+
+model:_LINE_109  a                ifc:IfcRelVoidsElement ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "3lR5koIT51Kwudkm5eIoTu"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:relatedOpeningElement_IfcRelVoidsElement
+                model:_LINE_97 ;
+        ifc:relatingBuildingElement_IfcRelVoidsElement
+                model:_LINE_45 .
+
+model:_LINE_155  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "2"^^xsd:int ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_123  a  ifc:IfcDirection ;
+        ifc:directionRatios_IfcDirection
+                [ a               ifc:REAL_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "1"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             expr:REAL ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_3  a  ifc:IfcPersonAndOrganization ;
+        ifc:theOrganization_IfcPersonAndOrganization
+                model:_LINE_5 ;
+        ifc:thePerson_IfcPersonAndOrganization
+                model:_LINE_4 .
+
+model:_LINE_38  a  ifc:IfcCartesianPoint ;
+        ifc:coordinates_IfcCartesianPoint
+                [ a               ifc:IfcLengthMeasure_List ;
+                  expr:isOrdered  expr:true ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   [ a             ifc:IfcLengthMeasure ;
+                                                  expr:hasReal  "0"^^xsd:decimal
+                                                ]
+                                  ]
+                ] .
+
+model:_LINE_84  a                       ifc:IfcExtrudedAreaSolid ;
+        ifc:depth_IfcExtrudedAreaSolid  [ a             ifc:IfcPositiveLengthMeasure ;
+                                          expr:hasReal  "2"^^xsd:decimal
+                                        ] ;
+        ifc:extrudedDirection_IfcExtrudedAreaSolid
+                model:_LINE_96 ;
+        ifc:position_IfcSweptAreaSolid  model:_LINE_92 ;
+        ifc:sweptArea_IfcSweptAreaSolid
+                model:_LINE_85 .
+
+model:_LINE_52  a                 ifc:IfcPropertySet ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "18RtPv6efDwuUOMduCZ7rH"^^xsd:string
+                                  ] ;
+        ifc:hasProperties_IfcPropertySet
+                [ a               ifc:IfcProperty_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "10"^^xsd:int ;
+                  expr:slot       [ expr:index  "9"^^xsd:int ;
+                                    expr:item   model:_LINE_61
+                                  ] ;
+                  expr:slot       [ expr:index  "4"^^xsd:int ;
+                                    expr:item   model:_LINE_56
+                                  ] ;
+                  expr:slot       [ expr:index  "6"^^xsd:int ;
+                                    expr:item   model:_LINE_58
+                                  ] ;
+                  expr:slot       [ expr:index  "8"^^xsd:int ;
+                                    expr:item   model:_LINE_60
+                                  ] ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   model:_LINE_55
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   model:_LINE_54
+                                  ] ;
+                  expr:slot       [ expr:index  "5"^^xsd:int ;
+                                    expr:item   model:_LINE_57
+                                  ] ;
+                  expr:slot       [ expr:index  "10"^^xsd:int ;
+                                    expr:item   model:_LINE_62
+                                  ] ;
+                  expr:slot       [ expr:index  "7"^^xsd:int ;
+                                    expr:item   model:_LINE_59
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_53
+                                  ]
+                ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "Pset_WallCommon"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 .
+
+model:_LINE_20  a  ifc:IfcGeometricRepresentationContext ;
+        ifc:contextType_IfcRepresentationContext
+                [ a               ifc:IfcLabel ;
+                  expr:hasString  "Model"^^xsd:string
+                ] ;
+        ifc:coordinateSpaceDimension_IfcGeometricRepresentationContext
+                [ a                ifc:IfcDimensionCount ;
+                  expr:hasInteger  "3"^^xsd:long
+                ] ;
+        ifc:precision_IfcGeometricRepresentationContext
+                [ a             expr:REAL ;
+                  expr:hasReal  "0"^^xsd:decimal
+                ] ;
+        ifc:worldCoordinateSystem_IfcGeometricRepresentationContext
+                model:_LINE_21 .
+
+model:_LINE_136  a                   ifc:IfcPropertySingleValue ;
+        ifc:description_IfcProperty  [ a               ifc:IfcText ;
+                                       expr:hasString  "SecurityRating"^^xsd:string
+                                     ] ;
+        ifc:name_IfcProperty         [ a               ifc:IfcIdentifier ;
+                                       expr:hasString  "SecurityRating"^^xsd:string
+                                     ] ;
+        ifc:nominalValue_IfcPropertySingleValue
+                [ a               ifc:IfcText ;
+                  expr:hasString  ""^^xsd:string
+                ] .
+
+model:_LINE_104  a                ifc:IfcElementQuantity ;
+        ifc:globalId_IfcRoot      [ a               ifc:IfcGloballyUniqueId ;
+                                    expr:hasString  "2yDPSWYWf319fWaWWvPxwA"^^xsd:string
+                                  ] ;
+        ifc:name_IfcRoot          [ a               ifc:IfcLabel ;
+                                    expr:hasString  "BaseQuantities"^^xsd:string
+                                  ] ;
+        ifc:ownerHistory_IfcRoot  model:_LINE_2 ;
+        ifc:quantities_IfcElementQuantity
+                [ a               ifc:IfcPhysicalQuantity_Set ;
+                  expr:isOrdered  expr:false ;
+                  expr:size       "3"^^xsd:int ;
+                  expr:slot       [ expr:index  "3"^^xsd:int ;
+                                    expr:item   model:_LINE_107
+                                  ] ;
+                  expr:slot       [ expr:index  "2"^^xsd:int ;
+                                    expr:item   model:_LINE_106
+                                  ] ;
+                  expr:slot       [ expr:index  "1"^^xsd:int ;
+                                    expr:item   model:_LINE_105
+                                  ]
+                ] .
