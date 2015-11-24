@@ -60,6 +60,15 @@
 	
 	<modules>
 		<module>../drumbeat-common</module>
+		<module>../drumbeat-ifc.common</module>
+		<module>../drumbeat-ifc.data</module>
+		<module>../drumbeat-rdf</module>
+		<module>../drumbeat-rdf.modelfactory</module>
+		<module>../drumbeat-ifc.convert.stff2ifc</module>
+		<module>../drumbeat-ifc.processing.grounding.ifc</module>
+		<module>../drumbeat-ifc.convert.ifc2ld</module>
+		<module>../drumbeat-ifc.convert.ifc2ld.cli</module>
+		<module>../drumbeat-ifc.convert.ifc2ld.web</module>
 	</modules>
 	
 </project>
