@@ -189,7 +189,7 @@ public class Ifc2RdfConversionParams extends TypedParams {
 					Arrays.asList(
 							VALUE_YES_DESCRIPTION,
 							VALUE_NO_DESCRIPTION + VALUE_DEFAULT_DESCRIPTION),
-					Boolean.TRUE));
+					Boolean.FALSE));
 		
 	
 	}
