@@ -58,7 +58,7 @@ public class MainUI extends UI {
 		
 			new Image(
 				null,
-				new FileResource(new File(IfcApplication.WEB_INF_PATH + "/images/drumbeat_banner.jpg"))
+				new FileResource(new File(IfcApplication.WEB_INF_DIR_PATH + "/images/drumbeat_banner.jpg"))
 			),
 			
 			new Label(

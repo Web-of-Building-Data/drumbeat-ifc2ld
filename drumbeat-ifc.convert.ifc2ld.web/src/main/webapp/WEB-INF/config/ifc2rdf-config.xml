@@ -50,15 +50,15 @@
 				<!--  param name="OwlProfile" value="OWL2_EL,OWL2_QL,OWL2_RL,OWL2_DL" /> -->				
 				<param name="OwlProfile" value="OWL2_DL" />
 				
-				<!-- Options.ExportDebugInfo: yes, no (default)  -->
-				<param name="Options.IgnoreExpressSchema" value="yes" />
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.IgnoreExpressSchema" value="true" />
 
-				<!-- Options.ExportDebugInfo: yes, no (default)  -->
-				<param name="Options.IgnoreIfcSchema" value="no" />
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.IgnoreIfcSchema" value="false" />
 								
 
-				<!-- Options.ExportDebugInfo: yes, no (default)  -->
-				<param name="Options.ExportDebugInfo" value="no" />
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.ExportDebugInfo" value="false" />
 
 				<!-- Options.ExportPropertyDomainsAndRanges: None (default)  -->
 				<param name="Options.ExportPropertyDomainsAndRanges" value="None" />
@@ -72,6 +72,9 @@
 				<!-- Options.ConvertDoublesTo: xsd:decimal (default), AutoMostEfficient (=xsd:double or owl:real), xsd:decimal, xsd:double, owl:real, xsd:string -->
 				<param name="Options.ConvertDoublesTo" value="xsd:decimal" />
 				
+				<!-- Options.Options.NameAllBlankNodes: true, false -->
+				<param name="Options.NameAllBlankNodes" value="true" />
+
 				<!--
 				<param name="Options.UseSpecificDoubleTypes" value="false" /> 
 				<param name="Options.IgnoreSelectTypes" value="false" />

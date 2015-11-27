@@ -4,7 +4,7 @@
 
 	<groupId>fi.hut.cs.drumbeat</groupId>
 	<artifactId>drumbeat-ifc2ld-parent</artifactId>
-	<version>0.2.0-RELEASE</version>
+	<version>0.2.1-RELEASE</version>
 	
 	<packaging>pom</packaging>
 
@@ -60,10 +60,9 @@
 	
 	<modules>
 		<module>../drumbeat-common</module>
+		<module>../drumbeat-rdf</module>
 		<module>../drumbeat-ifc.common</module>
 		<module>../drumbeat-ifc.data</module>
-		<module>../drumbeat-rdf</module>
-		<module>../drumbeat-rdf.modelfactory</module>
 		<module>../drumbeat-ifc.convert.stff2ifc</module>
 		<module>../drumbeat-ifc.processing.grounding.ifc</module>
 		<module>../drumbeat-ifc.convert.ifc2ld</module>

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>fi.hut.cs.drumbeat</groupId>
 		<artifactId>drumbeat-ifc2ld-parent</artifactId>
-		<version>0.2.0-RELEASE</version>
+		<version>0.2.1-RELEASE</version>
 		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
 	</parent>
 
@@ -127,12 +127,14 @@
 			<artifactId>drumbeat-ifc.convert.stff2ifc</artifactId>
 			<version>${drumbeat.version}</version>
 		</dependency>
-
+		
+		<!--  
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
 			<artifactId>drumbeat-ifc.processing.grounding.ifc</artifactId>
 			<version>${drumbeat.version}</version>
 		</dependency>
+		 -->
 
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
