@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>fi.hut.cs.drumbeat</groupId>
 		<artifactId>drumbeat-ifc2ld-parent</artifactId>
-		<version>0.2.0-RELEASE</version>
+		<version>0.2.1-RELEASE</version>
 		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
 	</parent>
 
@@ -58,10 +58,18 @@
 			<version>${drumbeat.version}</version>
 		</dependency>
 
+		<!-- 
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
 			<artifactId>drumbeat-rdf.modelfactory</artifactId>
 			<version>${drumbeat.version}</version>
+		</dependency>
+		 -->
+
+		<dependency>
+			<groupId>${drumbeat.groupId}</groupId>
+			<artifactId>drumbeat-rdf.jena.provider</artifactId>
+			<version>0.4.0-SNAPSHOT</version>
 		</dependency>
 
 		<!-- JUnit -->

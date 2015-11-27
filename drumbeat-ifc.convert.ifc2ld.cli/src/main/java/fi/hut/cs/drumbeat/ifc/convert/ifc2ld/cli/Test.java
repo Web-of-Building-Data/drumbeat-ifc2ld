@@ -15,8 +15,8 @@ import fi.hut.cs.drumbeat.ifc.convert.stff2ifc.util.IfcParserUtil;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcModel;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.rdf.RdfUtils;
-import fi.hut.cs.drumbeat.rdf.modelfactory.JenaModelFactoryBase;
-import fi.hut.cs.drumbeat.rdf.modelfactory.MemoryJenaModelFactory;
+import fi.hut.cs.drumbeat.rdf.modelfactory.AbstractJenaProvider;
+import fi.hut.cs.drumbeat.rdf.modelfactory.MemoryJenaProvider;
 
 public class Test {
 
@@ -49,11 +49,11 @@ public class Test {
 		
 		// export IFC schema(s)
 		//
-		final JenaModelFactoryBase jenaModelFactory = new MemoryJenaModelFactory();
+		final AbstractJenaProvider jenaProvider = new MemoryJenaProvider();
 		
 		for (IfcSchema schema : schemas) {
 			// export IFC schema into in-memory Jena graph using default conversion context
-			Model schemaGraph = jenaModelFactory.createModel();
+			Model schemaGraph = jenaProvider.openDefaultModel().removeAll();
 			Ifc2RdfExportUtil.exportSchemaToJenaModel(schemaGraph, schema);		
 
 			// export the in-memory Jena graph to file  
@@ -78,7 +78,7 @@ public class Test {
 		//
 		
 		// export IFC model into in-memory Jena graph using default conversion context
-		Model modelGraph = jenaModelFactory.createModel();
+		Model modelGraph = jenaProvider.openDefaultModel().removeAll();
 		Ifc2RdfExportUtil.exportModelToJenaModel(modelGraph, model);
 		
 		// export the in-memory Jena graph to file  

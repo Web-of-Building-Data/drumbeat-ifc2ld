@@ -29,7 +29,7 @@ import fi.hut.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.hut.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.hut.cs.drumbeat.common.file.FileManager;
 import fi.hut.cs.drumbeat.rdf.RdfUtils;
-import fi.hut.cs.drumbeat.rdf.modelfactory.config.JenaModelFactoryPoolConfigurationSection;
+import fi.hut.cs.drumbeat.rdf.modelfactory.config.JenaProviderPoolConfigurationSection;
 
 @SuppressWarnings("serial")
 public class ConvertModelView extends FormLayout {
@@ -52,8 +52,8 @@ public class ConvertModelView extends FormLayout {
 			@Override
 			public OutputStream receiveUpload(String filename, String mimeType) {
 				try {
-					FileManager.createDirectory(IfcApplication.TEMP_UPLOADS_PATH);
-					return new FileOutputStream(IfcApplication.TEMP_UPLOADS_PATH + "/" + filename, false);
+					FileManager.createDirectory(IfcApplication.TEMP_UPLOADS_DIR_PATH);
+					return new FileOutputStream(IfcApplication.TEMP_UPLOADS_DIR_PATH + "/" + filename, false);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 					Notification.show(e.getMessage(), Type.ERROR_MESSAGE);
@@ -165,18 +165,18 @@ public class ConvertModelView extends FormLayout {
 		    			}		    			
 			    	}
 		    		
-		    		if (chbExportToVirtuoso.getValue()) {
-		    			String filePath = IfcApplication.getVirtuosoFolderPath() + "/" + ntriplesOutputFile.getName();
-		    			Logger.getRootLogger().info("Copy output file to " + filePath);
-		    			Files.copy(ntriplesOutputFile.toPath(), new File(filePath).toPath());
-		    		}
-		    		
-		    		if (chbExportToNeo4j.getValue()) {
-		    			String filePath = IfcApplication.getNeo4jFolderPath() + "/" + ntriplesOutputFile.getName();
-		    			Logger.getRootLogger().info("Copy output file to " + filePath);
-		    			Files.copy(ntriplesOutputFile.toPath(), new File(filePath).toPath());
-		    		}
-			    	
+//		    		if (chbExportToVirtuoso.getValue()) {
+//		    			String filePath = IfcApplication.getVirtuosoFolderPath() + "/" + ntriplesOutputFile.getName();
+//		    			Logger.getRootLogger().info("Copy output file to " + filePath);
+//		    			Files.copy(ntriplesOutputFile.toPath(), new File(filePath).toPath());
+//		    		}
+//		    		
+//		    		if (chbExportToNeo4j.getValue()) {
+//		    			String filePath = IfcApplication.getNeo4jFolderPath() + "/" + ntriplesOutputFile.getName();
+//		    			Logger.getRootLogger().info("Copy output file to " + filePath);
+//		    			Files.copy(ntriplesOutputFile.toPath(), new File(filePath).toPath());
+//		    		}
+//			    	
 			    	
 			    	
 				} catch (Exception e) {
