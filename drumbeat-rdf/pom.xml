@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>fi.hut.cs.drumbeat</groupId>
 		<artifactId>drumbeat-ifc2ld-parent</artifactId>
-		<version>0.2.1-RELEASE</version>
+		<version>0.5.0-SNAPSHOT</version>
 		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
 	</parent>
 
@@ -20,7 +20,7 @@
 
 		<!-- All versions updated on 04.05.2015 -->
 		<drumbeat.groupId>${project.groupId}</drumbeat.groupId>
-		<drumbeat.version>${project.version}</drumbeat.version>
+		<drumbeat.ifc2ld.version>${project.version}</drumbeat.ifc2ld.version>
 		<commons-cli.version>1.2</commons-cli.version>
 		<commons-codec.version>1.10</commons-codec.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
@@ -41,7 +41,7 @@
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
 			<artifactId>drumbeat-ifc.common</artifactId>
-			<version>${drumbeat.version}</version>
+			<version>${drumbeat.ifc2ld.version}</version>
 		</dependency>
 
 		<!-- Apache Commons Codec -->
