@@ -1,0 +1,58 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ifc:   <http://drumbeat.cs.hut.fi/owl/IFC4_ADD1#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix expr:  <http://drumbeat.cs.hut.fi/owl/EXPRESS#> .
+
+ifc:IfcPolyline  a       owl:Class ;
+        rdfs:subClassOf  ifc:IfcBoundedCurve ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   ifc:points_IfcPolyline
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  ifc:IfcCartesianPoint_List ;
+                           owl:onProperty     ifc:points_IfcPolyline
+                         ] .
+
+ifc:IfcCartesianPoint_List
+        a                owl:Class ;
+        rdfs:subClassOf  expr:EmptyList , expr:List ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   expr:hasNext
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  ifc:IfcCartesianPoint_List ;
+                           owl:onProperty     expr:hasNext
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:int ;
+                           owl:onProperty      expr:hasContent
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "0"^^xsd:int ;
+                           owl:onProperty      expr:hasContent
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  ifc:IfcCartesianPoint ;
+                           owl:onProperty     expr:hasContent
+                         ] .
+
+ifc:IfcCartesianPoint_EmptyList
+        a                owl:Class ;
+        rdfs:subClassOf  ifc:IfcCartesianPoint_List .
+
+expr:hasNext  a      owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain  ifc:IfcCartesianPoint_List ;
+        rdfs:range   ifc:IfcCartesianPoint_List .
+
+expr:hasContent  a   owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain  ifc:IfcCartesianPoint_List ;
+        rdfs:range   ifc:IfcCartesianPoint .
+
+ifc:points_IfcPolyline
+        a            owl:FunctionalProperty , owl:ObjectProperty , expr:EntityProperty ;
+        rdfs:domain  ifc:IfcPolyline ;
+        rdfs:range   ifc:IfcCartesianPoint_List .

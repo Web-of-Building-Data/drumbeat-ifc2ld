@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.LogicalEnum;
 
 
@@ -33,7 +33,7 @@ public class IfcSchema implements Serializable {
 	/**
 	 * Predefined literal types
 	 */
-	public final IfcLiteralTypeInfo BINARY = new IfcLiteralTypeInfo(this, IfcVocabulary.TypeNames.BINARY, IfcTypeEnum.INTEGER);
+	public final IfcLiteralTypeInfo BINARY = new IfcLiteralTypeInfo(this, IfcVocabulary.TypeNames.BINARY, IfcTypeEnum.BINARY);
 //	public final IfcLiteralTypeInfo BINARY32 = new IfcLiteralTypeInfo(this, IfcVocabulary.TypeNames.BINARY32, IfcTypeEnum.INTEGER);
 //	public final IfcLiteralTypeInfo BOOLEAN = new IfcLiteralTypeInfo(this, IfcVocabulary.TypeNames.BOOLEAN, IfcTypeEnum.LOGICAL); // true or false
 	public final IfcLiteralTypeInfo DATETIME = new IfcLiteralTypeInfo(this, IfcVocabulary.TypeNames.DATETIME, IfcTypeEnum.DATETIME);

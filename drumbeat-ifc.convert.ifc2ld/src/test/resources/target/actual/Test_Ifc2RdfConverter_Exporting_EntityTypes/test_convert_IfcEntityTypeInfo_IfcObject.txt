@@ -1,0 +1,27 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ifc:   <http://drumbeat.cs.hut.fi/owl/IFC4_ADD1#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix expr:  <http://drumbeat.cs.hut.fi/owl/EXPRESS#> .
+
+ifc:IfcObject  a             owl:Class ;
+        rdfs:subClassOf      ifc:IfcObjectDefinition ;
+        rdfs:subClassOf      [ a                   owl:Restriction ;
+                               owl:maxCardinality  "1"^^xsd:int ;
+                               owl:onProperty      ifc:objectType_IfcObject
+                             ] ;
+        rdfs:subClassOf      [ a                   owl:Restriction ;
+                               owl:minCardinality  "0"^^xsd:int ;
+                               owl:onProperty      ifc:objectType_IfcObject
+                             ] ;
+        rdfs:subClassOf      [ a                  owl:Restriction ;
+                               owl:allValuesFrom  ifc:IfcLabel ;
+                               owl:onProperty     ifc:objectType_IfcObject
+                             ] ;
+        owl:disjointUnionOf  ( ifc:IfcActor ifc:IfcControl ifc:IfcGroup ifc:IfcProcess ifc:IfcProduct ifc:IfcResource ) .
+
+ifc:objectType_IfcObject
+        a            owl:FunctionalProperty , owl:ObjectProperty , expr:EntityProperty ;
+        rdfs:domain  ifc:IfcObject ;
+        rdfs:range   ifc:IfcLabel .

@@ -1,0 +1,44 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ifc:   <http://drumbeat.cs.hut.fi/owl/IFC4_ADD1#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix expr:  <http://drumbeat.cs.hut.fi/owl/EXPRESS#> .
+
+ifc:IfcCompositeProfileDef
+        a                owl:Class ;
+        rdfs:subClassOf  ifc:IfcProfileDef ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:int ;
+                           owl:onProperty      ifc:label_IfcCompositeProfileDef
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "0"^^xsd:int ;
+                           owl:onProperty      ifc:label_IfcCompositeProfileDef
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  ifc:IfcLabel ;
+                           owl:onProperty     ifc:label_IfcCompositeProfileDef
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "2"^^xsd:int ;
+                           owl:onProperty      ifc:profiles_IfcCompositeProfileDef
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  ifc:IfcProfileDef ;
+                           owl:onProperty     ifc:profiles_IfcCompositeProfileDef
+                         ] .
+
+ifc:profiles_IfcCompositeProfileDef
+        a            owl:ObjectProperty , expr:EntityProperty ;
+        rdfs:domain  ifc:IfcCompositeProfileDef ;
+        rdfs:range   ifc:IfcProfileDef .
+
+[ a            owl:AllDisjointClasses ;
+  owl:members  ( ifc:IfcArbitraryClosedProfileDef ifc:IfcArbitraryOpenProfileDef ifc:IfcCompositeProfileDef ifc:IfcDerivedProfileDef ifc:IfcParameterizedProfileDef )
+] .
+
+ifc:label_IfcCompositeProfileDef
+        a            owl:FunctionalProperty , owl:ObjectProperty , expr:EntityProperty ;
+        rdfs:domain  ifc:IfcCompositeProfileDef ;
+        rdfs:range   ifc:IfcLabel .

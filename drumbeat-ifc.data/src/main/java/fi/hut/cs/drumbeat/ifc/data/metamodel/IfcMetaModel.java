@@ -1,7 +1,7 @@
 package fi.hut.cs.drumbeat.ifc.data.metamodel;
 
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcEntity;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcModelBase;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;

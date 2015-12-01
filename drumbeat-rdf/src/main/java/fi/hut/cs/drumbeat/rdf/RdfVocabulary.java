@@ -5,11 +5,19 @@ import org.apache.jena.riot.RDFFormat;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFList;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 public class RdfVocabulary {
 	
 	public static final Model DEFAULT_MODEL = ModelFactory.createDefaultModel();
+	
+	public final static Resource DUMP_URI_1 = DEFAULT_MODEL.createResource("http://example.org/uri1");
+	public final static Resource DUMP_URI_2 = DEFAULT_MODEL.createResource("http://example.org/uri2");
+	public final static Resource DUMP_URI_3 = DEFAULT_MODEL.createResource("http://example.org/uri3");
+	public final static RDFList DUMP_URI_LIST = DEFAULT_MODEL.createList(new RDFNode[]{DUMP_URI_1, DUMP_URI_2, DUMP_URI_3});
+	
 	
 	public static class OWL {
 		public static final String BASE_PREFIX = "owl";
@@ -17,6 +25,7 @@ public class RdfVocabulary {
 		
 		public static final Property FunctionalDataProperty = DEFAULT_MODEL.createProperty(BASE_URI + "FunctionalDataProperty");
 
+		public static final Resource rational = DEFAULT_MODEL.createResource(BASE_URI + "rational");
 		public static final Resource real = DEFAULT_MODEL.createResource(BASE_URI + "real");
 	}
 	

@@ -10,7 +10,7 @@ import fi.hut.cs.drumbeat.common.string.RegexUtils;
 import fi.hut.cs.drumbeat.common.string.StrBuilderWrapper;
 import fi.hut.cs.drumbeat.common.string.StringUtils;
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.LogicalEnum;
 import fi.hut.cs.drumbeat.ifc.data.model.*;
 import fi.hut.cs.drumbeat.ifc.data.schema.*;
@@ -254,14 +254,14 @@ class IfcModelSectionParser {
 					switch (s) {
 					case "T":
 					case "TRUE":
-						attributeValues.add(new IfcLiteralValue(LogicalEnum.TRUE.toString(), attributeTypeInfo, IfcTypeEnum.LOGICAL));
+						attributeValues.add(new IfcLiteralValue(LogicalEnum.TRUE, attributeTypeInfo, IfcTypeEnum.LOGICAL));
 						break;
 					case "F":
 					case "FALSE":
-						attributeValues.add(new IfcLiteralValue(LogicalEnum.FALSE.toString(), attributeTypeInfo, IfcTypeEnum.LOGICAL));
+						attributeValues.add(new IfcLiteralValue(LogicalEnum.FALSE, attributeTypeInfo, IfcTypeEnum.LOGICAL));
 						break;
 					default:
-						attributeValues.add(new IfcLiteralValue(LogicalEnum.UNKNOWN.toString(), attributeTypeInfo, IfcTypeEnum.LOGICAL));
+						attributeValues.add(new IfcLiteralValue(LogicalEnum.UNKNOWN, attributeTypeInfo, IfcTypeEnum.LOGICAL));
 						break;
 
 					}

@@ -10,10 +10,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.apache.log4j.Logger;
 
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.convert.stff2ifc.IfcModelParser;
 import fi.hut.cs.drumbeat.ifc.convert.stff2ifc.IfcParserException;
 import fi.hut.cs.drumbeat.ifc.convert.stff2ifc.IfcSchemaParser;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcModel;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchemaPool;

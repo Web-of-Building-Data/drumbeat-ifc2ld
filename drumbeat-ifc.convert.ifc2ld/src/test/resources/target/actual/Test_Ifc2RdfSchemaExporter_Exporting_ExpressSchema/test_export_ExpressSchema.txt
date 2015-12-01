@@ -1,0 +1,133 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ifc:   <http://drumbeat.cs.hut.fi/owl/IFC4_ADD1#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix expr:  <http://drumbeat.cs.hut.fi/owl/EXPRESS#> .
+
+expr:DATETIME  a         owl:Class ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   expr:hasDatetime
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:dateTime ;
+                           owl:onProperty     expr:hasDatetime
+                         ] .
+
+expr:Defined  a  owl:Class .
+
+expr:STRING  a           owl:Class ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   expr:hasString
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:string ;
+                           owl:onProperty     expr:hasString
+                         ] .
+
+expr:LOGICAL  a    owl:Class ;
+        owl:oneOf  ( expr:true expr:false expr:unknown ) .
+
+expr:Enum  a    owl:Class .
+
+expr:hasInteger  a          owl:FunctionalDataProperty , owl:DatatypeProperty ;
+        rdfs:domain         expr:INTEGER ;
+        rdfs:range          xsd:integer ;
+        rdfs:subPropertyOf  expr:hasValue .
+
+expr:List  a    owl:Class .
+
+expr:hasBinary  a           owl:FunctionalDataProperty , owl:DatatypeProperty ;
+        rdfs:domain         expr:BINARY ;
+        rdfs:range          xsd:hexBinary ;
+        rdfs:subPropertyOf  expr:hasValue .
+
+expr:hasNext  a      owl:ObjectProperty ;
+        rdfs:domain  expr:List .
+
+expr:hasSetItem  a   owl:ObjectProperty ;
+        rdfs:domain  expr:Set .
+
+expr:hasContent  a   owl:ObjectProperty ;
+        rdfs:domain  expr:List .
+
+expr:EmptyList  a        owl:Class ;
+        rdfs:subClassOf  expr:List .
+
+expr:INTEGER  a          owl:Class ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   expr:hasInteger
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:integer ;
+                           owl:onProperty     expr:hasInteger
+                         ] .
+
+expr:Select  a  owl:Class .
+
+expr:hasNumber  a           owl:FunctionalDataProperty , owl:DatatypeProperty ;
+        rdfs:domain         expr:NUMBER ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  expr:hasValue .
+
+expr:hasValue  a  owl:DatatypeProperty .
+
+expr:BINARY  a           owl:Class ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   expr:hasBinary
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:hexBinary ;
+                           owl:onProperty     expr:hasBinary
+                         ] .
+
+expr:REAL  a             owl:Class ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   expr:hasReal
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:decimal ;
+                           owl:onProperty     expr:hasReal
+                         ] .
+
+ifc:    a                owl:Ontology ;
+        rdfs:comment     "OWL profile: [OWL2_Full].\r\n\t\tConversion options: {ConvertBooleansTo=fi.hut.cs.drumbeat.common.params.StringParam@11c9af63\r\n\t\t\t ConvertCollectionsTo=fi.hut.cs.drumbeat.common.params.StringParam@757acd7b\r\n\t\t\t ConvertDoublesTo=fi.hut.cs.drumbeat.common.params.StringParam@36b4fe2a\r\n\t\t\t ConvertEnumsTo=fi.hut.cs.drumbeat.common.params.StringParam@574b560f\r\n\t\t\t ExportDebugInfo=fi.hut.cs.drumbeat.common.params.BooleanParam@ba54932\r\n\t\t\t ExportPropertyDomainsAndRanges=fi.hut.cs.drumbeat.common.params.StringParam@28975c28\r\n\t\t\t IgnoreExpressSchema=fi.hut.cs.drumbeat.common.params.BooleanParam@3943a2be\r\n\t\t\t IgnoreIfcSchema=fi.hut.cs.drumbeat.common.params.BooleanParam@343570b7\r\n\t\t\t UseLongAttributeName=fi.hut.cs.drumbeat.common.params.BooleanParam@157853da}" ;
+        owl:versionInfo  "v1.0 2015/10/26 09:51:05" .
+
+expr:NUMBER  a           owl:Class ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   expr:hasNumber
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:decimal ;
+                           owl:onProperty     expr:hasNumber
+                         ] .
+
+expr:hasReal  a             owl:FunctionalDataProperty , owl:DatatypeProperty ;
+        rdfs:domain         expr:REAL ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  expr:hasValue .
+
+expr:hasDatetime  a         owl:FunctionalDataProperty , owl:DatatypeProperty ;
+        rdfs:domain         expr:DATETIME ;
+        rdfs:range          xsd:dateTime ;
+        rdfs:subPropertyOf  expr:hasValue .
+
+expr:BOOLEAN  a    owl:Class ;
+        owl:oneOf  ( expr:true expr:false ) .
+
+expr:Entity  a  owl:Class .
+
+expr:hasString  a           owl:FunctionalDataProperty , owl:DatatypeProperty ;
+        rdfs:domain         expr:STRING ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  expr:hasValue .
+
+expr:EntityProperty  a   owl:Class ;
+        rdfs:subClassOf  owl:ObjectProperty .

@@ -1,0 +1,3993 @@
+{
+  "@graph" : [ {
+    "@id" : "_:b0",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b1",
+    "index" : "12",
+    "item" : "_:b2"
+  }, {
+    "@id" : "_:b10",
+    "index" : "2",
+    "item" : "_:b643"
+  }, {
+    "@id" : "_:b100",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b103",
+    "name_IfcProperty" : "_:b102",
+    "nominalValue_IfcPropertySingleValue" : "_:b101"
+  }, {
+    "@id" : "_:b101",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:true"
+  }, {
+    "@id" : "_:b102",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "IsExternal"
+  }, {
+    "@id" : "_:b103",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "IsExternal"
+  }, {
+    "@id" : "_:b104",
+    "index" : "7",
+    "item" : "_:b105"
+  }, {
+    "@id" : "_:b105",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b420",
+    "name_IfcProperty" : "_:b400",
+    "nominalValue_IfcPropertySingleValue" : "_:b419"
+  }, {
+    "@id" : "_:b106",
+    "index" : "1",
+    "item" : "_:b107"
+  }, {
+    "@id" : "_:b107",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b108",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b109", "_:b110", "_:b111" ]
+  }, {
+    "@id" : "_:b109",
+    "index" : "3",
+    "item" : "_:b571"
+  }, {
+    "@id" : "_:b11",
+    "index" : "8",
+    "item" : "_:b291"
+  }, {
+    "@id" : "_:b110",
+    "index" : "2",
+    "item" : "_:b363"
+  }, {
+    "@id" : "_:b111",
+    "index" : "1",
+    "item" : "_:b418"
+  }, {
+    "@id" : "_:b112",
+    "index" : "3",
+    "item" : "_:b113"
+  }, {
+    "@id" : "_:b113",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b114",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b115"
+  }, {
+    "@id" : "_:b115",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b552", "_:b704", "_:b396" ]
+  }, {
+    "@id" : "_:b116",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b117",
+    "index" : "3",
+    "item" : "_:b118"
+  }, {
+    "@id" : "_:b118",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b119",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b120", "_:b121", "_:b122" ]
+  }, {
+    "@id" : "_:b12",
+    "@type" : "ifc:IfcPlaneAngleMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b120",
+    "index" : "3",
+    "item" : "_:b575"
+  }, {
+    "@id" : "_:b121",
+    "index" : "2",
+    "item" : "_:b366"
+  }, {
+    "@id" : "_:b122",
+    "index" : "1",
+    "item" : "_:b446"
+  }, {
+    "@id" : "_:b123",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b124",
+    "index" : "6",
+    "item" : "_:b125"
+  }, {
+    "@id" : "_:b125",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:GRAM",
+    "unitType_IfcNamedUnit" : "ifc:MASSUNIT"
+  }, {
+    "@id" : "_:b126",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b127"
+  }, {
+    "@id" : "_:b127",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b364", "_:b365" ]
+  }, {
+    "@id" : "_:b128",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b129", "_:b130" ]
+  }, {
+    "@id" : "_:b129",
+    "index" : "2",
+    "item" : "_:b376"
+  }, {
+    "@id" : "_:b13",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "0FmgI0DRX49OXL_$Wa2P1E"
+  }, {
+    "@id" : "_:b130",
+    "index" : "1",
+    "item" : "_:b699"
+  }, {
+    "@id" : "_:b131",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Description of Window"
+  }, {
+    "@id" : "_:b132",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "AcousticRating"
+  }, {
+    "@id" : "_:b133",
+    "index" : "1",
+    "item" : "_:b134"
+  }, {
+    "@id" : "_:b134",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b135",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b136",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b137", "_:b138", "_:b139" ]
+  }, {
+    "@id" : "_:b137",
+    "index" : "3",
+    "item" : "_:b689"
+  }, {
+    "@id" : "_:b138",
+    "index" : "2",
+    "item" : "_:b82"
+  }, {
+    "@id" : "_:b139",
+    "index" : "1",
+    "item" : "_:b558"
+  }, {
+    "@id" : "_:b14",
+    "@type" : "ifc:IfcObject_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b349"
+  }, {
+    "@id" : "_:b140",
+    "index" : "2",
+    "item" : "_:b141"
+  }, {
+    "@id" : "_:b141",
+    "@type" : "ifc:IfcQuantityLength",
+    "description_IfcPhysicalQuantity" : "_:b664",
+    "lengthValue_IfcQuantityLength" : "_:b303",
+    "name_IfcPhysicalQuantity" : "_:b737"
+  }, {
+    "@id" : "_:b142",
+    "@type" : "ifc:IfcProperty_Set",
+    "isOrdered" : "expr:false",
+    "size" : "12",
+    "slot" : [ "_:b1", "_:b104", "_:b143", "_:b144", "_:b145", "_:b146", "_:b147", "_:b148", "_:b149", "_:b150", "_:b151", "_:b152" ]
+  }, {
+    "@id" : "_:b143",
+    "index" : "3",
+    "item" : "_:b709"
+  }, {
+    "@id" : "_:b144",
+    "index" : "2",
+    "item" : "_:b195"
+  }, {
+    "@id" : "_:b145",
+    "index" : "6",
+    "item" : "_:b568"
+  }, {
+    "@id" : "_:b146",
+    "index" : "9",
+    "item" : "_:b361"
+  }, {
+    "@id" : "_:b147",
+    "index" : "5",
+    "item" : "_:b196"
+  }, {
+    "@id" : "_:b148",
+    "index" : "8",
+    "item" : "_:b391"
+  }, {
+    "@id" : "_:b149",
+    "index" : "4",
+    "item" : "_:b416"
+  }, {
+    "@id" : "_:b15",
+    "@type" : "ifc:IfcOwnerHistory",
+    "changeAction_IfcOwnerHistory" : "ifc:ADDED",
+    "creationDate_IfcOwnerHistory" : "_:b235",
+    "owningApplication_IfcOwnerHistory" : "_:b237",
+    "owningUser_IfcOwnerHistory" : "_:b236"
+  }, {
+    "@id" : "_:b150",
+    "index" : "11",
+    "item" : "_:b62"
+  }, {
+    "@id" : "_:b151",
+    "index" : "1",
+    "item" : "_:b609"
+  }, {
+    "@id" : "_:b152",
+    "index" : "10",
+    "item" : "_:b546"
+  }, {
+    "@id" : "_:b153",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b154", "_:b155", "_:b156" ]
+  }, {
+    "@id" : "_:b154",
+    "index" : "3",
+    "item" : "_:b584"
+  }, {
+    "@id" : "_:b155",
+    "index" : "2",
+    "item" : "_:b390"
+  }, {
+    "@id" : "_:b156",
+    "index" : "1",
+    "item" : "_:b451"
+  }, {
+    "@id" : "_:b157",
+    "index" : "1",
+    "item" : "_:b158"
+  }, {
+    "@id" : "_:b158",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b159",
+    "@type" : "ifc:IfcCartesianPoint_List",
+    "isOrdered" : "expr:true",
+    "size" : "5",
+    "slot" : [ "_:b38", "_:b160", "_:b161", "_:b162", "_:b163" ]
+  }, {
+    "@id" : "_:b16",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "FireRating"
+  }, {
+    "@id" : "_:b160",
+    "index" : "4",
+    "item" : "_:b551"
+  }, {
+    "@id" : "_:b161",
+    "index" : "3",
+    "item" : "_:b750"
+  }, {
+    "@id" : "_:b162",
+    "index" : "2",
+    "item" : "_:b395"
+  }, {
+    "@id" : "_:b163",
+    "index" : "1",
+    "item" : "_:b703"
+  }, {
+    "@id" : "_:b164",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b165",
+    "@type" : "ifc:IfcUnit_Set",
+    "isOrdered" : "expr:false",
+    "size" : "9",
+    "slot" : [ "_:b124", "_:b628", "_:b629", "_:b372", "_:b449", "_:b630", "_:b631", "_:b582", "_:b229" ]
+  }, {
+    "@id" : "_:b166",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "24"
+  }, {
+    "@id" : "_:b167",
+    "index" : "1",
+    "item" : "_:b168"
+  }, {
+    "@id" : "_:b168",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b128"
+  }, {
+    "@id" : "_:b169",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Height"
+  }, {
+    "@id" : "_:b17",
+    "index" : "1",
+    "item" : "_:b18"
+  }, {
+    "@id" : "_:b170",
+    "@type" : "ifc:IfcAreaMeasure",
+    "hasReal" : "10"
+  }, {
+    "@id" : "_:b171",
+    "index" : "10",
+    "item" : "_:b172"
+  }, {
+    "@id" : "_:b172",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b326",
+    "name_IfcProperty" : "_:b93",
+    "nominalValue_IfcPropertySingleValue" : "_:b325"
+  }, {
+    "@id" : "_:b173",
+    "@type" : "ifc:IfcProduct_Set",
+    "isOrdered" : "expr:false",
+    "size" : "2",
+    "slot" : [ "_:b174", "_:b175" ]
+  }, {
+    "@id" : "_:b174",
+    "index" : "2",
+    "item" : "model:GUID_157C866C-9C08-4348-A0ED-4D57CD66C9E2"
+  }, {
+    "@id" : "_:b175",
+    "index" : "1",
+    "item" : "model:GUID_F92C2898-FD68-44EF-9178-3348E340017B"
+  }, {
+    "@id" : "_:b176",
+    "index" : "1",
+    "item" : "_:b177"
+  }, {
+    "@id" : "_:b177",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b178",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "1CDlLMVMv1qw1giUXpQgxI"
+  }, {
+    "@id" : "_:b179",
+    "index" : "1",
+    "item" : "_:b180"
+  }, {
+    "@id" : "_:b18",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b180",
+    "@type" : "ifc:IfcShapeRepresentation",
+    "contextOfItems_IfcRepresentation" : "_:b80",
+    "items_IfcRepresentation" : "_:b233",
+    "representationIdentifier_IfcRepresentation" : "_:b459",
+    "representationType_IfcRepresentation" : "_:b553"
+  }, {
+    "@id" : "_:b181",
+    "index" : "1",
+    "item" : "_:b182"
+  }, {
+    "@id" : "_:b182",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b183",
+    "@type" : "ifc:IfcPolyline",
+    "points_IfcPolyline" : "_:b184"
+  }, {
+    "@id" : "_:b184",
+    "@type" : "ifc:IfcCartesianPoint_List",
+    "isOrdered" : "expr:true",
+    "size" : "5",
+    "slot" : [ "_:b440", "_:b592", "_:b216", "_:b593", "_:b167" ]
+  }, {
+    "@id" : "_:b185",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b186", "_:b187", "_:b188" ]
+  }, {
+    "@id" : "_:b186",
+    "index" : "3",
+    "item" : "_:b603"
+  }, {
+    "@id" : "_:b187",
+    "index" : "2",
+    "item" : "_:b411"
+  }, {
+    "@id" : "_:b188",
+    "index" : "1",
+    "item" : "_:b480"
+  }, {
+    "@id" : "_:b189",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b19",
+    "@type" : "ifc:IfcQuantityVolume",
+    "description_IfcPhysicalQuantity" : "_:b437",
+    "name_IfcPhysicalQuantity" : "_:b322",
+    "volumeValue_IfcQuantityVolume" : "_:b436"
+  }, {
+    "@id" : "_:b190",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b191",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Width"
+  }, {
+    "@id" : "_:b192",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b194",
+    "name_IfcProperty" : "_:b132",
+    "nominalValue_IfcPropertySingleValue" : "_:b193"
+  }, {
+    "@id" : "_:b193",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : ""
+  }, {
+    "@id" : "_:b194",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "AcousticRating"
+  }, {
+    "@id" : "_:b195",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b16",
+    "name_IfcProperty" : "_:b485",
+    "nominalValue_IfcPropertySingleValue" : "_:b288"
+  }, {
+    "@id" : "_:b196",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b199",
+    "name_IfcProperty" : "_:b198",
+    "nominalValue_IfcPropertySingleValue" : "_:b197"
+  }, {
+    "@id" : "_:b197",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:true"
+  }, {
+    "@id" : "_:b198",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "IsExternal"
+  }, {
+    "@id" : "_:b199",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "IsExternal"
+  }, {
+    "@id" : "_:b2",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b596",
+    "name_IfcProperty" : "_:b681",
+    "nominalValue_IfcPropertySingleValue" : "_:b624"
+  }, {
+    "@id" : "_:b20",
+    "@type" : "ifc:IfcMaterialLayer_List",
+    "isOrdered" : "expr:true",
+    "size" : "1",
+    "slot" : "_:b21"
+  }, {
+    "@id" : "_:b200",
+    "index" : "2",
+    "item" : "_:b201"
+  }, {
+    "@id" : "_:b201",
+    "@type" : "ifc:IfcShapeRepresentation",
+    "contextOfItems_IfcRepresentation" : "_:b80",
+    "items_IfcRepresentation" : "_:b479",
+    "representationIdentifier_IfcRepresentation" : "_:b478",
+    "representationType_IfcRepresentation" : "_:b466"
+  }, {
+    "@id" : "_:b202",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b203",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b185"
+  }, {
+    "@id" : "_:b204",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b205",
+    "@type" : "ifc:IfcQuantityLength",
+    "description_IfcPhysicalQuantity" : "_:b208",
+    "lengthValue_IfcQuantityLength" : "_:b207",
+    "name_IfcPhysicalQuantity" : "_:b206"
+  }, {
+    "@id" : "_:b206",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Depth"
+  }, {
+    "@id" : "_:b207",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b208",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Depth"
+  }, {
+    "@id" : "_:b209",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "2O_dMuDnr1Ahv28oR6ZVpr"
+  }, {
+    "@id" : "_:b21",
+    "index" : "1",
+    "item" : "_:b536"
+  }, {
+    "@id" : "_:b210",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Contents of Building Storey"
+  }, {
+    "@id" : "_:b211",
+    "@type" : "ifc:IfcExtrudedAreaSolid",
+    "depth_IfcExtrudedAreaSolid" : "_:b212",
+    "extrudedDirection_IfcExtrudedAreaSolid" : "_:b215",
+    "position_IfcSweptAreaSolid" : "_:b214",
+    "sweptArea_IfcSweptAreaSolid" : "_:b213"
+  }, {
+    "@id" : "_:b212",
+    "@type" : "ifc:IfcPositiveLengthMeasure",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b213",
+    "@type" : "ifc:IfcArbitraryClosedProfileDef",
+    "outerCurve_IfcArbitraryClosedProfileDef" : "_:b438",
+    "profileType_IfcProfileDef" : "ifc:AREA"
+  }, {
+    "@id" : "_:b214",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b521",
+    "location_IfcPlacement" : "_:b743",
+    "refDirection_IfcAxis2Placement3D" : "_:b749"
+  }, {
+    "@id" : "_:b215",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b653"
+  }, {
+    "@id" : "_:b216",
+    "index" : "3",
+    "item" : "_:b217"
+  }, {
+    "@id" : "_:b217",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b744"
+  }, {
+    "@id" : "_:b218",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "SecurityRating"
+  }, {
+    "@id" : "_:b219",
+    "index" : "1",
+    "item" : "_:b220"
+  }, {
+    "@id" : "_:b22",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b220",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b221",
+    "index" : "1",
+    "item" : "_:b222"
+  }, {
+    "@id" : "_:b222",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b223",
+    "@type" : "ifc:IfcObject_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b224"
+  }, {
+    "@id" : "_:b224",
+    "index" : "1",
+    "item" : "model:GUID_157C866C-9C08-4348-A0ED-4D57CD66C9E2"
+  }, {
+    "@id" : "_:b225",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b226",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "2LcE70iQb51PEZynawyvuT"
+  }, {
+    "@id" : "_:b227",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b228",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "ThermalTransmittance"
+  }, {
+    "@id" : "_:b229",
+    "index" : "1",
+    "item" : "_:b230"
+  }, {
+    "@id" : "_:b23",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b24", "_:b25" ]
+  }, {
+    "@id" : "_:b230",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:METRE",
+    "unitType_IfcNamedUnit" : "ifc:LENGTHUNIT"
+  }, {
+    "@id" : "_:b231",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b232",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b233",
+    "@type" : "ifc:IfcRepresentationItem_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b234"
+  }, {
+    "@id" : "_:b234",
+    "index" : "1",
+    "item" : "_:b68"
+  }, {
+    "@id" : "_:b235",
+    "@type" : "ifc:IfcTimeStamp",
+    "hasDatetime" : "2008-08-01T19:53:56Z"
+  }, {
+    "@id" : "_:b236",
+    "@type" : "ifc:IfcPersonAndOrganization",
+    "theOrganization_IfcPersonAndOrganization" : "_:b590",
+    "thePerson_IfcPersonAndOrganization" : "_:b462"
+  }, {
+    "@id" : "_:b237",
+    "@type" : "ifc:IfcApplication",
+    "applicationDeveloper_IfcApplication" : "_:b590",
+    "applicationFullName_IfcApplication" : "_:b589",
+    "applicationIdentifier_IfcApplication" : "_:b499",
+    "version_IfcApplication" : "_:b588"
+  }, {
+    "@id" : "_:b238",
+    "index" : "1",
+    "item" : "_:b239"
+  }, {
+    "@id" : "_:b239",
+    "@type" : "ifc:IfcExtrudedAreaSolid",
+    "depth_IfcExtrudedAreaSolid" : "_:b756",
+    "extrudedDirection_IfcExtrudedAreaSolid" : "_:b505",
+    "position_IfcSweptAreaSolid" : "_:b42",
+    "sweptArea_IfcSweptAreaSolid" : "_:b602"
+  }, {
+    "@id" : "_:b24",
+    "index" : "2",
+    "item" : "_:b298"
+  }, {
+    "@id" : "_:b240",
+    "index" : "2",
+    "item" : "_:b241"
+  }, {
+    "@id" : "_:b241",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b242",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b245",
+    "location_IfcPlacement" : "_:b244",
+    "refDirection_IfcAxis2Placement3D" : "_:b243"
+  }, {
+    "@id" : "_:b243",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b281"
+  }, {
+    "@id" : "_:b244",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b119"
+  }, {
+    "@id" : "_:b245",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b85"
+  }, {
+    "@id" : "_:b246",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b247",
+    "index" : "4",
+    "item" : "_:b248"
+  }, {
+    "@id" : "_:b248",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b292"
+  }, {
+    "@id" : "_:b249",
+    "@type" : "ifc:IfcAreaMeasure",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b25",
+    "index" : "1",
+    "item" : "_:b661"
+  }, {
+    "@id" : "_:b250",
+    "index" : "1",
+    "item" : "_:b251"
+  }, {
+    "@id" : "_:b251",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b252",
+    "@type" : "ifc:IfcQuantityArea",
+    "areaValue_IfcQuantityArea" : "_:b255",
+    "description_IfcPhysicalQuantity" : "_:b254",
+    "name_IfcPhysicalQuantity" : "_:b253"
+  }, {
+    "@id" : "_:b253",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "GrossSideArea"
+  }, {
+    "@id" : "_:b254",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "GrossSideArea"
+  }, {
+    "@id" : "_:b255",
+    "@type" : "ifc:IfcAreaMeasure",
+    "hasReal" : "11"
+  }, {
+    "@id" : "_:b256",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "ID001"
+  }, {
+    "@id" : "_:b257",
+    "index" : "1",
+    "item" : "model:GUID_F55EAF97-145E-4431-B2F3-69F9634F244B"
+  }, {
+    "@id" : "_:b258",
+    "index" : "2",
+    "item" : "_:b259"
+  }, {
+    "@id" : "_:b259",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b26",
+    "index" : "1",
+    "item" : "model:GUID_0C207BA4-D0B8-4FFF-BCD0-C1D8C7F7B5FF"
+  }, {
+    "@id" : "_:b260",
+    "@type" : "ifc:IfcPositiveLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b261",
+    "@type" : "ifc:IfcPositiveLengthMeasure",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b262",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Window xyz"
+  }, {
+    "@id" : "_:b263",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "0LV8Pid0X3IA3jJLVDPidY"
+  }, {
+    "@id" : "_:b264",
+    "@type" : "ifc:IfcProductDefinitionShape",
+    "representations_IfcProductRepresentation" : "_:b350"
+  }, {
+    "@id" : "_:b265",
+    "@type" : "ifc:IfcLocalPlacement",
+    "placementRelTo_IfcLocalPlacement" : "_:b637",
+    "relativePlacement_IfcLocalPlacement" : "_:b381"
+  }, {
+    "@id" : "_:b266",
+    "index" : "5",
+    "item" : "_:b267"
+  }, {
+    "@id" : "_:b267",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b736",
+    "name_IfcProperty" : "_:b498",
+    "nominalValue_IfcPropertySingleValue" : "_:b752"
+  }, {
+    "@id" : "_:b268",
+    "index" : "3",
+    "item" : "_:b269"
+  }, {
+    "@id" : "_:b269",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b27",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b270",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b700", "_:b384" ]
+  }, {
+    "@id" : "_:b271",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b272"
+  }, {
+    "@id" : "_:b272",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b66", "_:b549" ]
+  }, {
+    "@id" : "_:b273",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b274",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b275",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Wall xyz"
+  }, {
+    "@id" : "_:b276",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "3vB2YO$MX4xv5uCqZZG05x"
+  }, {
+    "@id" : "_:b277",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Description of Wall"
+  }, {
+    "@id" : "_:b278",
+    "@type" : "ifc:IfcProductDefinitionShape",
+    "representations_IfcProductRepresentation" : "_:b484"
+  }, {
+    "@id" : "_:b279",
+    "index" : "1",
+    "item" : "_:b280"
+  }, {
+    "@id" : "_:b28",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Height"
+  }, {
+    "@id" : "_:b280",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b281",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b282", "_:b283", "_:b284" ]
+  }, {
+    "@id" : "_:b282",
+    "index" : "3",
+    "item" : "_:b656"
+  }, {
+    "@id" : "_:b283",
+    "index" : "2",
+    "item" : "_:b0"
+  }, {
+    "@id" : "_:b284",
+    "index" : "1",
+    "item" : "_:b527"
+  }, {
+    "@id" : "_:b285",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Pset_WindowCommon"
+  }, {
+    "@id" : "_:b286",
+    "@type" : "ifc:IfcDimensionCount",
+    "hasInteger" : "3"
+  }, {
+    "@id" : "_:b287",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "2168U9nPH5xB3UpDx_uK11"
+  }, {
+    "@id" : "_:b288",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : ""
+  }, {
+    "@id" : "_:b289",
+    "index" : "3",
+    "item" : "_:b290"
+  }, {
+    "@id" : "_:b29",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Description of Default Building"
+  }, {
+    "@id" : "_:b290",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b291",
+    "@type" : "ifc:IfcQuantityArea",
+    "areaValue_IfcQuantityArea" : "_:b249",
+    "description_IfcPhysicalQuantity" : "_:b577",
+    "name_IfcPhysicalQuantity" : "_:b299"
+  }, {
+    "@id" : "_:b292",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b293", "_:b294" ]
+  }, {
+    "@id" : "_:b293",
+    "index" : "2",
+    "item" : "_:b493"
+  }, {
+    "@id" : "_:b294",
+    "index" : "1",
+    "item" : "_:b27"
+  }, {
+    "@id" : "_:b295",
+    "@type" : "ifc:IfcPositiveLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b296",
+    "index" : "1",
+    "item" : "_:b297"
+  }, {
+    "@id" : "_:b297",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b298",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b299",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "GrossFootprintArea"
+  }, {
+    "@id" : "_:b3",
+    "@type" : "ifc:IfcPhysicalQuantity_Set",
+    "isOrdered" : "expr:false",
+    "size" : "8",
+    "slot" : [ "_:b4", "_:b5", "_:b6", "_:b7", "_:b8", "_:b9", "_:b10", "_:b11" ]
+  }, {
+    "@id" : "_:b30",
+    "@type" : "ifc:IfcMaterial",
+    "name_IfcMaterial" : "_:b31"
+  }, {
+    "@id" : "_:b300",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "TNO"
+  }, {
+    "@id" : "_:b301",
+    "index" : "1",
+    "item" : "_:b302"
+  }, {
+    "@id" : "_:b302",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b303",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b304",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Default Building"
+  }, {
+    "@id" : "_:b305",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b306",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b307"
+  }, {
+    "@id" : "_:b307",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b379", "_:b579", "_:b133" ]
+  }, {
+    "@id" : "_:b308",
+    "index" : "1",
+    "item" : "_:b309"
+  }, {
+    "@id" : "_:b309",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b31",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Name of the material used for the wall"
+  }, {
+    "@id" : "_:b310",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b311",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b312",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b313",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b319", "_:b320", "_:b321" ]
+  }, {
+    "@id" : "_:b314",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b315", "_:b316", "_:b317" ]
+  }, {
+    "@id" : "_:b315",
+    "index" : "3",
+    "item" : "_:b674"
+  }, {
+    "@id" : "_:b316",
+    "index" : "2",
+    "item" : "_:b49"
+  }, {
+    "@id" : "_:b317",
+    "index" : "1",
+    "item" : "_:b541"
+  }, {
+    "@id" : "_:b318",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "54"
+  }, {
+    "@id" : "_:b319",
+    "index" : "3",
+    "item" : "_:b676"
+  }, {
+    "@id" : "_:b32",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b320",
+    "index" : "2",
+    "item" : "_:b52"
+  }, {
+    "@id" : "_:b321",
+    "index" : "1",
+    "item" : "_:b545"
+  }, {
+    "@id" : "_:b322",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "NetVolume"
+  }, {
+    "@id" : "_:b323",
+    "index" : "3",
+    "item" : "_:b324"
+  }, {
+    "@id" : "_:b324",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b325",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b326",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Compartmentation"
+  }, {
+    "@id" : "_:b327",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b328",
+    "index" : "1",
+    "item" : "_:b205"
+  }, {
+    "@id" : "_:b329",
+    "@type" : "ifc:IfcLocalPlacement",
+    "placementRelTo_IfcLocalPlacement" : "_:b331",
+    "relativePlacement_IfcLocalPlacement" : "_:b330"
+  }, {
+    "@id" : "_:b33",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b330",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b742",
+    "location_IfcPlacement" : "_:b518",
+    "refDirection_IfcAxis2Placement3D" : "_:b649"
+  }, {
+    "@id" : "_:b331",
+    "@type" : "ifc:IfcLocalPlacement",
+    "relativePlacement_IfcLocalPlacement" : "_:b426"
+  }, {
+    "@id" : "_:b332",
+    "@type" : "ifc:IfcProperty_Set",
+    "isOrdered" : "expr:false",
+    "size" : "10",
+    "slot" : [ "_:b333", "_:b334", "_:b266", "_:b335", "_:b336", "_:b337", "_:b338", "_:b339", "_:b171", "_:b340" ]
+  }, {
+    "@id" : "_:b333",
+    "index" : "3",
+    "item" : "_:b707"
+  }, {
+    "@id" : "_:b334",
+    "index" : "4",
+    "item" : "_:b414"
+  }, {
+    "@id" : "_:b335",
+    "index" : "6",
+    "item" : "_:b565"
+  }, {
+    "@id" : "_:b336",
+    "index" : "1",
+    "item" : "_:b606"
+  }, {
+    "@id" : "_:b337",
+    "index" : "9",
+    "item" : "_:b595"
+  }, {
+    "@id" : "_:b338",
+    "index" : "7",
+    "item" : "_:b100"
+  }, {
+    "@id" : "_:b339",
+    "index" : "2",
+    "item" : "_:b192"
+  }, {
+    "@id" : "_:b34",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b340",
+    "index" : "8",
+    "item" : "_:b58"
+  }, {
+    "@id" : "_:b341",
+    "@type" : "ifc:IfcPolyline",
+    "points_IfcPolyline" : "_:b159"
+  }, {
+    "@id" : "_:b342",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "3IxFuNHRvBDfMT6_FiWPEz"
+  }, {
+    "@id" : "_:b343",
+    "@type" : "ifc:IfcObject_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b353"
+  }, {
+    "@id" : "_:b344",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "HandicapAccessible"
+  }, {
+    "@id" : "_:b345",
+    "index" : "1",
+    "item" : "_:b346"
+  }, {
+    "@id" : "_:b346",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b347",
+    "index" : "1",
+    "item" : "_:b348"
+  }, {
+    "@id" : "_:b348",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b349",
+    "index" : "1",
+    "item" : "model:GUID_157C866C-9C08-4348-A0ED-4D57CD66C9E2"
+  }, {
+    "@id" : "_:b35",
+    "@type" : "ifc:IfcLocalPlacement",
+    "placementRelTo_IfcLocalPlacement" : "_:b37",
+    "relativePlacement_IfcLocalPlacement" : "_:b36"
+  }, {
+    "@id" : "_:b350",
+    "@type" : "ifc:IfcRepresentation_List",
+    "isOrdered" : "expr:true",
+    "size" : "1",
+    "slot" : "_:b351"
+  }, {
+    "@id" : "_:b351",
+    "index" : "1",
+    "item" : "_:b618"
+  }, {
+    "@id" : "_:b352",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b353",
+    "index" : "1",
+    "item" : "model:GUID_F92C2898-FD68-44EF-9178-3348E340017B"
+  }, {
+    "@id" : "_:b354",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b355",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b727"
+  }, {
+    "@id" : "_:b356",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b357",
+    "index" : "1",
+    "item" : "model:GUID_F92C2898-FD68-44EF-9178-3348E340017B"
+  }, {
+    "@id" : "_:b358",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "2UEO1blXL9sPmb1AMeW7Ax"
+  }, {
+    "@id" : "_:b359",
+    "@type" : "ifc:IfcObject_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b555"
+  }, {
+    "@id" : "_:b36",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b670",
+    "location_IfcPlacement" : "_:b306",
+    "refDirection_IfcAxis2Placement3D" : "_:b669"
+  }, {
+    "@id" : "_:b360",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b361",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b344",
+    "name_IfcProperty" : "_:b746",
+    "nominalValue_IfcPropertySingleValue" : "_:b525"
+  }, {
+    "@id" : "_:b362",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b363",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b364",
+    "index" : "2",
+    "item" : "_:b533"
+  }, {
+    "@id" : "_:b365",
+    "index" : "1",
+    "item" : "_:b116"
+  }, {
+    "@id" : "_:b366",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b367",
+    "index" : "1",
+    "item" : "_:b368"
+  }, {
+    "@id" : "_:b368",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b369",
+    "@type" : "ifc:IfcMaterialLayerSetUsage",
+    "directionSense_IfcMaterialLayerSetUsage" : "ifc:POSITIVE",
+    "forLayerSet_IfcMaterialLayerSetUsage" : "_:b371",
+    "layerSetDirection_IfcMaterialLayerSetUsage" : "ifc:AXIS2",
+    "offsetFromReferenceLine_IfcMaterialLayerSetUsage" : "_:b370"
+  }, {
+    "@id" : "_:b37",
+    "@type" : "ifc:IfcLocalPlacement",
+    "placementRelTo_IfcLocalPlacement" : "_:b329",
+    "relativePlacement_IfcLocalPlacement" : "_:b472"
+  }, {
+    "@id" : "_:b370",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b371",
+    "@type" : "ifc:IfcMaterialLayerSet",
+    "materialLayers_IfcMaterialLayerSet" : "_:b20"
+  }, {
+    "@id" : "_:b372",
+    "index" : "8",
+    "item" : "_:b373"
+  }, {
+    "@id" : "_:b373",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:DEGREE_CELSIUS",
+    "unitType_IfcNamedUnit" : "ifc:THERMODYNAMICTEMPERATUREUNIT"
+  }, {
+    "@id" : "_:b374",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b375"
+  }, {
+    "@id" : "_:b375",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b258", "_:b651" ]
+  }, {
+    "@id" : "_:b376",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b377",
+    "index" : "3",
+    "item" : "_:b78"
+  }, {
+    "@id" : "_:b378",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "FireRating"
+  }, {
+    "@id" : "_:b379",
+    "index" : "3",
+    "item" : "_:b380"
+  }, {
+    "@id" : "_:b38",
+    "index" : "5",
+    "item" : "_:b39"
+  }, {
+    "@id" : "_:b380",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b381",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b383",
+    "location_IfcPlacement" : "_:b382",
+    "refDirection_IfcAxis2Placement3D" : "_:b47"
+  }, {
+    "@id" : "_:b382",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b734"
+  }, {
+    "@id" : "_:b383",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b539"
+  }, {
+    "@id" : "_:b384",
+    "index" : "1",
+    "item" : "_:b362"
+  }, {
+    "@id" : "_:b385",
+    "@type" : "ifc:IfcConversionBasedUnit",
+    "conversionFactor_IfcConversionBasedUnit" : "_:b388",
+    "dimensions_IfcNamedUnit" : "_:b387",
+    "name_IfcConversionBasedUnit" : "_:b386",
+    "unitType_IfcNamedUnit" : "ifc:PLANEANGLEUNIT"
+  }, {
+    "@id" : "_:b386",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "DEGREE"
+  }, {
+    "@id" : "_:b387",
+    "@type" : "ifc:IfcDimensionalExponents",
+    "amountOfSubstanceExponent_IfcDimensionalExponents" : "_:b32",
+    "electricCurrentExponent_IfcDimensionalExponents" : "_:b560",
+    "lengthExponent_IfcDimensionalExponents" : "_:b94",
+    "luminousIntensityExponent_IfcDimensionalExponents" : "_:b690",
+    "massExponent_IfcDimensionalExponents" : "_:b354",
+    "thermodynamicTemperatureExponent_IfcDimensionalExponents" : "_:b747",
+    "timeExponent_IfcDimensionalExponents" : "_:b528"
+  }, {
+    "@id" : "_:b388",
+    "@type" : "ifc:IfcMeasureWithUnit",
+    "unitComponent_IfcMeasureWithUnit" : "_:b50",
+    "valueComponent_IfcMeasureWithUnit" : "_:b12"
+  }, {
+    "@id" : "_:b389",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "BaseQuantities"
+  }, {
+    "@id" : "_:b39",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b270"
+  }, {
+    "@id" : "_:b390",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b391",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b393",
+    "name_IfcProperty" : "_:b76",
+    "nominalValue_IfcPropertySingleValue" : "_:b392"
+  }, {
+    "@id" : "_:b392",
+    "@type" : "ifc:IfcReal",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b393",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "GlazingAresFraction"
+  }, {
+    "@id" : "_:b394",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b395",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b520"
+  }, {
+    "@id" : "_:b396",
+    "index" : "1",
+    "item" : "_:b397"
+  }, {
+    "@id" : "_:b397",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b398",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:SQUARE_METRE",
+    "unitType_IfcNamedUnit" : "ifc:AREAUNIT"
+  }, {
+    "@id" : "_:b399",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b4",
+    "index" : "3",
+    "item" : "_:b252"
+  }, {
+    "@id" : "_:b40",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Combustible"
+  }, {
+    "@id" : "_:b400",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "ThermalTransmittance"
+  }, {
+    "@id" : "_:b401",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b402",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "NetSideArea"
+  }, {
+    "@id" : "_:b403",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Pset_WallCommon"
+  }, {
+    "@id" : "_:b404",
+    "index" : "1",
+    "item" : "_:b405"
+  }, {
+    "@id" : "_:b405",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b406",
+    "index" : "3",
+    "item" : "_:b407"
+  }, {
+    "@id" : "_:b407",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b408",
+    "index" : "3",
+    "item" : "_:b409"
+  }, {
+    "@id" : "_:b409",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b41",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "0C87kaqBXF$xpGmTZ7zxN$"
+  }, {
+    "@id" : "_:b410",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b23"
+  }, {
+    "@id" : "_:b411",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b412",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b413",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "5"
+  }, {
+    "@id" : "_:b414",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b40",
+    "name_IfcProperty" : "_:b415",
+    "nominalValue_IfcPropertySingleValue" : "_:b310"
+  }, {
+    "@id" : "_:b415",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "Combustible"
+  }, {
+    "@id" : "_:b416",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b611",
+    "name_IfcProperty" : "_:b218",
+    "nominalValue_IfcPropertySingleValue" : "_:b610"
+  }, {
+    "@id" : "_:b417",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "LoadBearing"
+  }, {
+    "@id" : "_:b418",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b419",
+    "@type" : "ifc:IfcReal",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b42",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b45",
+    "location_IfcPlacement" : "_:b44",
+    "refDirection_IfcAxis2Placement3D" : "_:b43"
+  }, {
+    "@id" : "_:b420",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "ThermalTransmittance"
+  }, {
+    "@id" : "_:b421",
+    "index" : "1",
+    "item" : "_:b422"
+  }, {
+    "@id" : "_:b422",
+    "@type" : "ifc:IfcPolyline",
+    "points_IfcPolyline" : "_:b95"
+  }, {
+    "@id" : "_:b423",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b112", "_:b424", "_:b425" ]
+  }, {
+    "@id" : "_:b424",
+    "index" : "2",
+    "item" : "_:b202"
+  }, {
+    "@id" : "_:b425",
+    "index" : "1",
+    "item" : "_:b614"
+  }, {
+    "@id" : "_:b426",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b114",
+    "location_IfcPlacement" : "_:b572",
+    "refDirection_IfcAxis2Placement3D" : "_:b693"
+  }, {
+    "@id" : "_:b427",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b428", "_:b429" ]
+  }, {
+    "@id" : "_:b428",
+    "index" : "2",
+    "item" : "_:b574"
+  }, {
+    "@id" : "_:b429",
+    "index" : "1",
+    "item" : "_:b394"
+  }, {
+    "@id" : "_:b43",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b455"
+  }, {
+    "@id" : "_:b430",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b117", "_:b431", "_:b432" ]
+  }, {
+    "@id" : "_:b431",
+    "index" : "2",
+    "item" : "_:b204"
+  }, {
+    "@id" : "_:b432",
+    "index" : "1",
+    "item" : "_:b616"
+  }, {
+    "@id" : "_:b433",
+    "@type" : "ifc:IfcQuantityLength",
+    "description_IfcPhysicalQuantity" : "_:b435",
+    "lengthValue_IfcQuantityLength" : "_:b401",
+    "name_IfcPhysicalQuantity" : "_:b434"
+  }, {
+    "@id" : "_:b434",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Width"
+  }, {
+    "@id" : "_:b435",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Width"
+  }, {
+    "@id" : "_:b436",
+    "@type" : "ifc:IfcVolumeMeasure",
+    "hasReal" : "3"
+  }, {
+    "@id" : "_:b437",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "NetVolume"
+  }, {
+    "@id" : "_:b438",
+    "@type" : "ifc:IfcPolyline",
+    "points_IfcPolyline" : "_:b439"
+  }, {
+    "@id" : "_:b439",
+    "@type" : "ifc:IfcCartesianPoint_List",
+    "isOrdered" : "expr:true",
+    "size" : "5",
+    "slot" : [ "_:b723", "_:b247", "_:b640", "_:b740", "_:b508" ]
+  }, {
+    "@id" : "_:b44",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b136"
+  }, {
+    "@id" : "_:b440",
+    "index" : "5",
+    "item" : "_:b441"
+  }, {
+    "@id" : "_:b441",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b542"
+  }, {
+    "@id" : "_:b442",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b443"
+  }, {
+    "@id" : "_:b443",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b452", "_:b453", "_:b454" ]
+  }, {
+    "@id" : "_:b444",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b445",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "2fHMxamlj5DvGvEKfCk8nj"
+  }, {
+    "@id" : "_:b446",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b447",
+    "index" : "1",
+    "item" : "_:b448"
+  }, {
+    "@id" : "_:b448",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b449",
+    "index" : "3",
+    "item" : "_:b450"
+  }, {
+    "@id" : "_:b45",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b313"
+  }, {
+    "@id" : "_:b450",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:CUBIC_METRE",
+    "unitType_IfcNamedUnit" : "ifc:VOLUMEUNIT"
+  }, {
+    "@id" : "_:b451",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b452",
+    "index" : "3",
+    "item" : "_:b717"
+  }, {
+    "@id" : "_:b453",
+    "index" : "2",
+    "item" : "_:b231"
+  }, {
+    "@id" : "_:b454",
+    "index" : "1",
+    "item" : "_:b633"
+  }, {
+    "@id" : "_:b455",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b456", "_:b457", "_:b458" ]
+  }, {
+    "@id" : "_:b456",
+    "index" : "3",
+    "item" : "_:b718"
+  }, {
+    "@id" : "_:b457",
+    "index" : "2",
+    "item" : "_:b232"
+  }, {
+    "@id" : "_:b458",
+    "index" : "1",
+    "item" : "_:b634"
+  }, {
+    "@id" : "_:b459",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Body"
+  }, {
+    "@id" : "_:b46",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b460",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "2zeggBjk9A5wcc3k9CYqdL"
+  }, {
+    "@id" : "_:b461",
+    "@type" : "ifc:IfcRoot_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b357"
+  }, {
+    "@id" : "_:b462",
+    "@type" : "ifc:IfcPerson",
+    "familyName_IfcPerson" : "_:b464",
+    "givenName_IfcPerson" : "_:b463",
+    "id_IfcPerson" : "_:b256"
+  }, {
+    "@id" : "_:b463",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Peter"
+  }, {
+    "@id" : "_:b464",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Bonsma"
+  }, {
+    "@id" : "_:b465",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Description of Default Site"
+  }, {
+    "@id" : "_:b466",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "SweptSolid"
+  }, {
+    "@id" : "_:b467",
+    "index" : "3",
+    "item" : "_:b468"
+  }, {
+    "@id" : "_:b468",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b469",
+    "@type" : "ifc:IfcQuantityVolume",
+    "description_IfcPhysicalQuantity" : "_:b471",
+    "name_IfcPhysicalQuantity" : "_:b470",
+    "volumeValue_IfcQuantityVolume" : "_:b77"
+  }, {
+    "@id" : "_:b47",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b48"
+  }, {
+    "@id" : "_:b470",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "GrossVolume"
+  }, {
+    "@id" : "_:b471",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "GrossVolume"
+  }, {
+    "@id" : "_:b472",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b475",
+    "location_IfcPlacement" : "_:b474",
+    "refDirection_IfcAxis2Placement3D" : "_:b473"
+  }, {
+    "@id" : "_:b473",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b108"
+  }, {
+    "@id" : "_:b474",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b757"
+  }, {
+    "@id" : "_:b475",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b153"
+  }, {
+    "@id" : "_:b476",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b477",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b478",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Body"
+  }, {
+    "@id" : "_:b479",
+    "@type" : "ifc:IfcRepresentationItem_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b238"
+  }, {
+    "@id" : "_:b48",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b688", "_:b83", "_:b564" ]
+  }, {
+    "@id" : "_:b480",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b481",
+    "index" : "1",
+    "item" : "_:b482"
+  }, {
+    "@id" : "_:b482",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "5"
+  }, {
+    "@id" : "_:b483",
+    "index" : "1",
+    "item" : "_:b225"
+  }, {
+    "@id" : "_:b484",
+    "@type" : "ifc:IfcRepresentation_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b200", "_:b612" ]
+  }, {
+    "@id" : "_:b485",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "FireRating"
+  }, {
+    "@id" : "_:b486",
+    "index" : "3",
+    "item" : "_:b487"
+  }, {
+    "@id" : "_:b487",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b488",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "Reference"
+  }, {
+    "@id" : "_:b489",
+    "@type" : "ifc:IfcObjectDefinition_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b490"
+  }, {
+    "@id" : "_:b49",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b490",
+    "index" : "1",
+    "item" : "model:GUID_3CA7E585-4E3E-4969-A86F-F049F4FBDE52"
+  }, {
+    "@id" : "_:b491",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "AcousticRating"
+  }, {
+    "@id" : "_:b492",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "BaseQuantities"
+  }, {
+    "@id" : "_:b493",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b494",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b495",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b496",
+    "index" : "1",
+    "item" : "_:b33"
+  }, {
+    "@id" : "_:b497",
+    "index" : "1",
+    "item" : "model:GUID_F92C2898-FD68-44EF-9178-3348E340017B"
+  }, {
+    "@id" : "_:b498",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "SurfaceSpreadOfFlame"
+  }, {
+    "@id" : "_:b499",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "TA 1001"
+  }, {
+    "@id" : "_:b5",
+    "index" : "5",
+    "item" : "_:b469"
+  }, {
+    "@id" : "_:b50",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:RADIAN",
+    "unitType_IfcNamedUnit" : "ifc:PLANEANGLEUNIT"
+  }, {
+    "@id" : "_:b500",
+    "index" : "3",
+    "item" : "_:b46"
+  }, {
+    "@id" : "_:b501",
+    "index" : "3",
+    "item" : "_:b34"
+  }, {
+    "@id" : "_:b502",
+    "index" : "1",
+    "item" : "_:b503"
+  }, {
+    "@id" : "_:b503",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b504",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b505",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b430"
+  }, {
+    "@id" : "_:b506",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "0cpLgxVi9Ew8B08wF2Ql1w"
+  }, {
+    "@id" : "_:b507",
+    "@type" : "ifc:IfcObject_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b497"
+  }, {
+    "@id" : "_:b508",
+    "index" : "1",
+    "item" : "_:b509"
+  }, {
+    "@id" : "_:b509",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b585"
+  }, {
+    "@id" : "_:b51",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Body"
+  }, {
+    "@id" : "_:b510",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Height"
+  }, {
+    "@id" : "_:b511",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b512",
+    "@type" : "ifc:IfcQuantityLength",
+    "description_IfcPhysicalQuantity" : "_:b514",
+    "lengthValue_IfcQuantityLength" : "_:b513",
+    "name_IfcPhysicalQuantity" : "_:b28"
+  }, {
+    "@id" : "_:b513",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b514",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Height"
+  }, {
+    "@id" : "_:b515",
+    "index" : "1",
+    "item" : "_:b516"
+  }, {
+    "@id" : "_:b516",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "5"
+  }, {
+    "@id" : "_:b517",
+    "index" : "3",
+    "item" : "_:b433"
+  }, {
+    "@id" : "_:b518",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b519"
+  }, {
+    "@id" : "_:b519",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b268", "_:b623", "_:b221" ]
+  }, {
+    "@id" : "_:b52",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b520",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b660", "_:b296" ]
+  }, {
+    "@id" : "_:b521",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b522"
+  }, {
+    "@id" : "_:b522",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b377", "_:b686", "_:b345" ]
+  }, {
+    "@id" : "_:b523",
+    "index" : "1",
+    "item" : "_:b524"
+  }, {
+    "@id" : "_:b524",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "5"
+  }, {
+    "@id" : "_:b525",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b526",
+    "index" : "3",
+    "item" : "_:b81"
+  }, {
+    "@id" : "_:b527",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b528",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b529",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : ""
+  }, {
+    "@id" : "_:b53",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Default Project"
+  }, {
+    "@id" : "_:b530",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b289", "_:b531", "_:b17" ]
+  }, {
+    "@id" : "_:b531",
+    "index" : "2",
+    "item" : "_:b356"
+  }, {
+    "@id" : "_:b532",
+    "@type" : "ifc:IfcObjectDefinition_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b26"
+  }, {
+    "@id" : "_:b533",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b534",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b535",
+    "index" : "3",
+    "item" : "_:b123"
+  }, {
+    "@id" : "_:b536",
+    "@type" : "ifc:IfcMaterialLayer",
+    "layerThickness_IfcMaterialLayer" : "_:b295",
+    "material_IfcMaterialLayer" : "_:b30"
+  }, {
+    "@id" : "_:b537",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b538",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : ""
+  }, {
+    "@id" : "_:b539",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b604", "_:b728", "_:b483" ]
+  }, {
+    "@id" : "_:b54",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "0YvctVUKr0kugbFTf53O9L"
+  }, {
+    "@id" : "_:b540",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b541",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b542",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b706", "_:b404" ]
+  }, {
+    "@id" : "_:b543",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b544",
+    "index" : "1",
+    "item" : "_:b211"
+  }, {
+    "@id" : "_:b545",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b546",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b548",
+    "name_IfcProperty" : "_:b547",
+    "nominalValue_IfcPropertySingleValue" : "_:b246"
+  }, {
+    "@id" : "_:b547",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "FireExit"
+  }, {
+    "@id" : "_:b548",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "FireExit"
+  }, {
+    "@id" : "_:b549",
+    "index" : "1",
+    "item" : "_:b550"
+  }, {
+    "@id" : "_:b55",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Description of Default Project"
+  }, {
+    "@id" : "_:b550",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b551",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b569"
+  }, {
+    "@id" : "_:b552",
+    "index" : "3",
+    "item" : "_:b164"
+  }, {
+    "@id" : "_:b553",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "SweptSolid"
+  }, {
+    "@id" : "_:b554",
+    "index" : "1",
+    "item" : "_:b166"
+  }, {
+    "@id" : "_:b555",
+    "index" : "1",
+    "item" : "model:GUID_9598E1C0-B1A9-4505-93A3-F3193AF39E1D"
+  }, {
+    "@id" : "_:b556",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b557",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "Reference"
+  }, {
+    "@id" : "_:b558",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b559",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b56",
+    "@type" : "ifc:IfcUnitAssignment",
+    "units_IfcUnitAssignment" : "_:b165"
+  }, {
+    "@id" : "_:b560",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b561",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Curve2D"
+  }, {
+    "@id" : "_:b562",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b563",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "0fhz_bHU54xB$tXHjHPUZl"
+  }, {
+    "@id" : "_:b564",
+    "index" : "1",
+    "item" : "_:b190"
+  }, {
+    "@id" : "_:b565",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b567",
+    "name_IfcProperty" : "_:b228",
+    "nominalValue_IfcPropertySingleValue" : "_:b566"
+  }, {
+    "@id" : "_:b566",
+    "@type" : "ifc:IfcReal",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b567",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "ThermalTransmittance"
+  }, {
+    "@id" : "_:b568",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b99",
+    "name_IfcProperty" : "_:b691",
+    "nominalValue_IfcPropertySingleValue" : "_:b360"
+  }, {
+    "@id" : "_:b569",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b570", "_:b106" ]
+  }, {
+    "@id" : "_:b57",
+    "@type" : "ifc:IfcRepresentationContext_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b79"
+  }, {
+    "@id" : "_:b570",
+    "index" : "2",
+    "item" : "_:b692"
+  }, {
+    "@id" : "_:b571",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b572",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b573"
+  }, {
+    "@id" : "_:b573",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b467", "_:b642", "_:b250" ]
+  }, {
+    "@id" : "_:b574",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b575",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b576",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b577",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "GrossFootprintArea"
+  }, {
+    "@id" : "_:b578",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b427"
+  }, {
+    "@id" : "_:b579",
+    "index" : "2",
+    "item" : "_:b444"
+  }, {
+    "@id" : "_:b58",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b61",
+    "name_IfcProperty" : "_:b60",
+    "nominalValue_IfcPropertySingleValue" : "_:b59"
+  }, {
+    "@id" : "_:b580",
+    "index" : "1",
+    "item" : "_:b512"
+  }, {
+    "@id" : "_:b581",
+    "index" : "3",
+    "item" : "_:b227"
+  }, {
+    "@id" : "_:b582",
+    "index" : "5",
+    "item" : "_:b583"
+  }, {
+    "@id" : "_:b583",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:STERADIAN",
+    "unitType_IfcNamedUnit" : "ifc:SOLIDANGLEUNIT"
+  }, {
+    "@id" : "_:b584",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b585",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b586", "_:b157" ]
+  }, {
+    "@id" : "_:b586",
+    "index" : "2",
+    "item" : "_:b702"
+  }, {
+    "@id" : "_:b587",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b588",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "0.10"
+  }, {
+    "@id" : "_:b589",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Test Application"
+  }, {
+    "@id" : "_:b59",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b590",
+    "@type" : "ifc:IfcOrganization",
+    "description_IfcOrganization" : "_:b725",
+    "name_IfcOrganization" : "_:b300"
+  }, {
+    "@id" : "_:b591",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Default Site"
+  }, {
+    "@id" : "_:b592",
+    "index" : "4",
+    "item" : "_:b712"
+  }, {
+    "@id" : "_:b593",
+    "index" : "2",
+    "item" : "_:b410"
+  }, {
+    "@id" : "_:b594",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b595",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b680",
+    "name_IfcProperty" : "_:b417",
+    "nominalValue_IfcPropertySingleValue" : "_:b679"
+  }, {
+    "@id" : "_:b596",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "SmokeStop"
+  }, {
+    "@id" : "_:b597",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b406", "_:b598", "_:b176" ]
+  }, {
+    "@id" : "_:b598",
+    "index" : "2",
+    "item" : "_:b476"
+  }, {
+    "@id" : "_:b599",
+    "@type" : "ifc:IfcRepresentation_List",
+    "isOrdered" : "expr:true",
+    "size" : "1",
+    "slot" : "_:b179"
+  }, {
+    "@id" : "_:b6",
+    "index" : "1",
+    "item" : "_:b98"
+  }, {
+    "@id" : "_:b60",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "ExtendToStructure"
+  }, {
+    "@id" : "_:b600",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b408", "_:b601", "_:b181" ]
+  }, {
+    "@id" : "_:b601",
+    "index" : "2",
+    "item" : "_:b477"
+  }, {
+    "@id" : "_:b602",
+    "@type" : "ifc:IfcArbitraryClosedProfileDef",
+    "outerCurve_IfcArbitraryClosedProfileDef" : "_:b183",
+    "profileType_IfcProfileDef" : "ifc:AREA"
+  }, {
+    "@id" : "_:b603",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b604",
+    "index" : "3",
+    "item" : "_:b274"
+  }, {
+    "@id" : "_:b605",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b606",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b608",
+    "name_IfcProperty" : "_:b557",
+    "nominalValue_IfcPropertySingleValue" : "_:b607"
+  }, {
+    "@id" : "_:b607",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : ""
+  }, {
+    "@id" : "_:b608",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Reference"
+  }, {
+    "@id" : "_:b609",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b731",
+    "name_IfcProperty" : "_:b488",
+    "nominalValue_IfcPropertySingleValue" : "_:b529"
+  }, {
+    "@id" : "_:b61",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "ExtendToStructure"
+  }, {
+    "@id" : "_:b610",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : ""
+  }, {
+    "@id" : "_:b611",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "SecurityRating"
+  }, {
+    "@id" : "_:b612",
+    "index" : "1",
+    "item" : "_:b613"
+  }, {
+    "@id" : "_:b613",
+    "@type" : "ifc:IfcShapeRepresentation",
+    "contextOfItems_IfcRepresentation" : "_:b80",
+    "items_IfcRepresentation" : "_:b667",
+    "representationIdentifier_IfcRepresentation" : "_:b666",
+    "representationType_IfcRepresentation" : "_:b561"
+  }, {
+    "@id" : "_:b614",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b615",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "location_IfcPlacement" : "_:b203"
+  }, {
+    "@id" : "_:b616",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b617",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "SiteContainer For Buildings"
+  }, {
+    "@id" : "_:b618",
+    "@type" : "ifc:IfcShapeRepresentation",
+    "contextOfItems_IfcRepresentation" : "_:b80",
+    "items_IfcRepresentation" : "_:b620",
+    "representationIdentifier_IfcRepresentation" : "_:b51",
+    "representationType_IfcRepresentation" : "_:b619"
+  }, {
+    "@id" : "_:b619",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "SweptSolid"
+  }, {
+    "@id" : "_:b62",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b65",
+    "name_IfcProperty" : "_:b64",
+    "nominalValue_IfcPropertySingleValue" : "_:b63"
+  }, {
+    "@id" : "_:b620",
+    "@type" : "ifc:IfcRepresentationItem_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b544"
+  }, {
+    "@id" : "_:b621",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b622", "_:b219" ]
+  }, {
+    "@id" : "_:b622",
+    "index" : "2",
+    "item" : "_:b713"
+  }, {
+    "@id" : "_:b623",
+    "index" : "2",
+    "item" : "_:b494"
+  }, {
+    "@id" : "_:b624",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b625",
+    "index" : "3",
+    "item" : "_:b305"
+  }, {
+    "@id" : "_:b626",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Description of Opening"
+  }, {
+    "@id" : "_:b627",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "10m6qcXSj0Iu4RVOK1omPJ"
+  }, {
+    "@id" : "_:b628",
+    "index" : "7",
+    "item" : "_:b698"
+  }, {
+    "@id" : "_:b629",
+    "index" : "2",
+    "item" : "_:b398"
+  }, {
+    "@id" : "_:b63",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b630",
+    "index" : "9",
+    "item" : "_:b748"
+  }, {
+    "@id" : "_:b631",
+    "index" : "4",
+    "item" : "_:b385"
+  }, {
+    "@id" : "_:b632",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b633",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b634",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b635",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b636",
+    "index" : "1",
+    "item" : "_:b312"
+  }, {
+    "@id" : "_:b637",
+    "@type" : "ifc:IfcLocalPlacement",
+    "placementRelTo_IfcLocalPlacement" : "_:b35",
+    "relativePlacement_IfcLocalPlacement" : "_:b242"
+  }, {
+    "@id" : "_:b638",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "18RtPv6efDwuUOMduCZ7rH"
+  }, {
+    "@id" : "_:b639",
+    "index" : "1",
+    "item" : "_:b318"
+  }, {
+    "@id" : "_:b64",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "SelfClosing"
+  }, {
+    "@id" : "_:b640",
+    "index" : "3",
+    "item" : "_:b126"
+  }, {
+    "@id" : "_:b641",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Height"
+  }, {
+    "@id" : "_:b642",
+    "index" : "2",
+    "item" : "_:b511"
+  }, {
+    "@id" : "_:b643",
+    "@type" : "ifc:IfcQuantityLength",
+    "description_IfcPhysicalQuantity" : "_:b645",
+    "lengthValue_IfcQuantityLength" : "_:b413",
+    "name_IfcPhysicalQuantity" : "_:b644"
+  }, {
+    "@id" : "_:b644",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Lenght"
+  }, {
+    "@id" : "_:b645",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Lenght"
+  }, {
+    "@id" : "_:b646",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "SiteContainer"
+  }, {
+    "@id" : "_:b647",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "3JuhmQJDj9xPnAnWoNb94X"
+  }, {
+    "@id" : "_:b648",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "BaseQuantities"
+  }, {
+    "@id" : "_:b649",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b650"
+  }, {
+    "@id" : "_:b65",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "SelfClosing"
+  }, {
+    "@id" : "_:b650",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b526", "_:b687", "_:b347" ]
+  }, {
+    "@id" : "_:b651",
+    "index" : "1",
+    "item" : "_:b652"
+  }, {
+    "@id" : "_:b652",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b653",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b581", "_:b716", "_:b447" ]
+  }, {
+    "@id" : "_:b654",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b486", "_:b655", "_:b279" ]
+  }, {
+    "@id" : "_:b655",
+    "index" : "2",
+    "item" : "_:b632"
+  }, {
+    "@id" : "_:b656",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b657",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Model"
+  }, {
+    "@id" : "_:b658",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "BuildingContainer for BuildigStories"
+  }, {
+    "@id" : "_:b659",
+    "@type" : "ifc:IfcQuantityLength",
+    "description_IfcPhysicalQuantity" : "_:b510",
+    "lengthValue_IfcQuantityLength" : "_:b753",
+    "name_IfcPhysicalQuantity" : "_:b641"
+  }, {
+    "@id" : "_:b66",
+    "index" : "2",
+    "item" : "_:b67"
+  }, {
+    "@id" : "_:b660",
+    "index" : "2",
+    "item" : "_:b22"
+  }, {
+    "@id" : "_:b661",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b662",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b500", "_:b663", "_:b301" ]
+  }, {
+    "@id" : "_:b663",
+    "index" : "2",
+    "item" : "_:b543"
+  }, {
+    "@id" : "_:b664",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Width"
+  }, {
+    "@id" : "_:b665",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "0yf_M5JZv9QQXly4dq_zvI"
+  }, {
+    "@id" : "_:b666",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Axis"
+  }, {
+    "@id" : "_:b667",
+    "@type" : "ifc:IfcRepresentationItem_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b421"
+  }, {
+    "@id" : "_:b668",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b669",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b654"
+  }, {
+    "@id" : "_:b67",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b670",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b662"
+  }, {
+    "@id" : "_:b671",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b501", "_:b672", "_:b308" ]
+  }, {
+    "@id" : "_:b672",
+    "index" : "2",
+    "item" : "_:b537"
+  }, {
+    "@id" : "_:b673",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Default Building Storey"
+  }, {
+    "@id" : "_:b674",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b675",
+    "index" : "3",
+    "item" : "_:b399"
+  }, {
+    "@id" : "_:b676",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b677",
+    "index" : "2",
+    "item" : "_:b678"
+  }, {
+    "@id" : "_:b678",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "25"
+  }, {
+    "@id" : "_:b679",
+    "@type" : "ifc:IfcBoolean",
+    "hasLogical" : "expr:false"
+  }, {
+    "@id" : "_:b68",
+    "@type" : "ifc:IfcExtrudedAreaSolid",
+    "depth_IfcExtrudedAreaSolid" : "_:b69",
+    "extrudedDirection_IfcExtrudedAreaSolid" : "_:b72",
+    "position_IfcSweptAreaSolid" : "_:b71",
+    "sweptArea_IfcSweptAreaSolid" : "_:b70"
+  }, {
+    "@id" : "_:b680",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "LoadBearing"
+  }, {
+    "@id" : "_:b681",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "SmokeStop"
+  }, {
+    "@id" : "_:b682",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Opening Element xyz"
+  }, {
+    "@id" : "_:b683",
+    "@type" : "ifc:IfcProductDefinitionShape",
+    "representations_IfcProductRepresentation" : "_:b599"
+  }, {
+    "@id" : "_:b684",
+    "@type" : "ifc:IfcPhysicalQuantity_Set",
+    "isOrdered" : "expr:false",
+    "size" : "3",
+    "slot" : [ "_:b517", "_:b685", "_:b328" ]
+  }, {
+    "@id" : "_:b685",
+    "index" : "2",
+    "item" : "_:b710"
+  }, {
+    "@id" : "_:b686",
+    "index" : "2",
+    "item" : "_:b556"
+  }, {
+    "@id" : "_:b687",
+    "index" : "2",
+    "item" : "_:b562"
+  }, {
+    "@id" : "_:b688",
+    "index" : "3",
+    "item" : "_:b412"
+  }, {
+    "@id" : "_:b689",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b69",
+    "@type" : "ifc:IfcPositiveLengthMeasure",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b690",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b691",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "Infiltration"
+  }, {
+    "@id" : "_:b692",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b693",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b694"
+  }, {
+    "@id" : "_:b694",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b535", "_:b696", "_:b367" ]
+  }, {
+    "@id" : "_:b695",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "BuildingContainer"
+  }, {
+    "@id" : "_:b696",
+    "index" : "2",
+    "item" : "_:b576"
+  }, {
+    "@id" : "_:b697",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "3lR5koIT51Kwudkm5eIoTu"
+  }, {
+    "@id" : "_:b698",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:SECOND",
+    "unitType_IfcNamedUnit" : "ifc:TIMEUNIT"
+  }, {
+    "@id" : "_:b699",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b7",
+    "index" : "7",
+    "item" : "_:b659"
+  }, {
+    "@id" : "_:b70",
+    "@type" : "ifc:IfcArbitraryClosedProfileDef",
+    "outerCurve_IfcArbitraryClosedProfileDef" : "_:b341",
+    "profileType_IfcProfileDef" : "ifc:AREA"
+  }, {
+    "@id" : "_:b700",
+    "index" : "2",
+    "item" : "_:b135"
+  }, {
+    "@id" : "_:b701",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "0bB_7AP5v5OBZ90TDvo0Fo"
+  }, {
+    "@id" : "_:b702",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b703",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b738"
+  }, {
+    "@id" : "_:b704",
+    "index" : "2",
+    "item" : "_:b587"
+  }, {
+    "@id" : "_:b705",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "NetSideArea"
+  }, {
+    "@id" : "_:b706",
+    "index" : "2",
+    "item" : "_:b189"
+  }, {
+    "@id" : "_:b707",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b378",
+    "name_IfcProperty" : "_:b708",
+    "nominalValue_IfcPropertySingleValue" : "_:b538"
+  }, {
+    "@id" : "_:b708",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "FireRating"
+  }, {
+    "@id" : "_:b709",
+    "@type" : "ifc:IfcPropertySingleValue",
+    "description_IfcProperty" : "_:b733",
+    "name_IfcProperty" : "_:b491",
+    "nominalValue_IfcPropertySingleValue" : "_:b759"
+  }, {
+    "@id" : "_:b71",
+    "@type" : "ifc:IfcAxis2Placement3D",
+    "axis_IfcAxis2Placement3D" : "_:b442",
+    "location_IfcPlacement" : "_:b714",
+    "refDirection_IfcAxis2Placement3D" : "_:b726"
+  }, {
+    "@id" : "_:b710",
+    "@type" : "ifc:IfcQuantityLength",
+    "description_IfcPhysicalQuantity" : "_:b711",
+    "lengthValue_IfcQuantityLength" : "_:b594",
+    "name_IfcPhysicalQuantity" : "_:b169"
+  }, {
+    "@id" : "_:b711",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Height"
+  }, {
+    "@id" : "_:b712",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b729"
+  }, {
+    "@id" : "_:b713",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b714",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b314"
+  }, {
+    "@id" : "_:b715",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b716",
+    "index" : "2",
+    "item" : "_:b635"
+  }, {
+    "@id" : "_:b717",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b718",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b719",
+    "@type" : "ifc:IfcCompoundPlaneAngleMeasure",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b323", "_:b677", "_:b639" ]
+  }, {
+    "@id" : "_:b72",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b530"
+  }, {
+    "@id" : "_:b720",
+    "@type" : "ifc:IfcCompoundPlaneAngleMeasure",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b675", "_:b73", "_:b554" ]
+  }, {
+    "@id" : "_:b721",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "3rNg_N55v4CRBpQVbZJoHB"
+  }, {
+    "@id" : "_:b722",
+    "index" : "3",
+    "item" : "_:b504"
+  }, {
+    "@id" : "_:b723",
+    "index" : "5",
+    "item" : "_:b374"
+  }, {
+    "@id" : "_:b724",
+    "@type" : "ifc:IfcQuantityArea",
+    "areaValue_IfcQuantityArea" : "_:b170",
+    "description_IfcPhysicalQuantity" : "_:b705",
+    "name_IfcPhysicalQuantity" : "_:b402"
+  }, {
+    "@id" : "_:b725",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "TNO Building Innovation"
+  }, {
+    "@id" : "_:b726",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b423"
+  }, {
+    "@id" : "_:b727",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b741", "_:b515" ]
+  }, {
+    "@id" : "_:b728",
+    "index" : "2",
+    "item" : "_:b715"
+  }, {
+    "@id" : "_:b729",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b730", "_:b481" ]
+  }, {
+    "@id" : "_:b73",
+    "index" : "2",
+    "item" : "_:b74"
+  }, {
+    "@id" : "_:b730",
+    "index" : "2",
+    "item" : "_:b273"
+  }, {
+    "@id" : "_:b731",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Reference"
+  }, {
+    "@id" : "_:b732",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b733",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "AcousticRating"
+  }, {
+    "@id" : "_:b734",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b625", "_:b735", "_:b496" ]
+  }, {
+    "@id" : "_:b735",
+    "index" : "2",
+    "item" : "_:b668"
+  }, {
+    "@id" : "_:b736",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "SurfaceSpreadOfFlame"
+  }, {
+    "@id" : "_:b737",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Width"
+  }, {
+    "@id" : "_:b738",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b739", "_:b502" ]
+  }, {
+    "@id" : "_:b739",
+    "index" : "2",
+    "item" : "_:b311"
+  }, {
+    "@id" : "_:b74",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "28"
+  }, {
+    "@id" : "_:b740",
+    "index" : "2",
+    "item" : "_:b578"
+  }, {
+    "@id" : "_:b741",
+    "index" : "2",
+    "item" : "_:b327"
+  }, {
+    "@id" : "_:b742",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b600"
+  }, {
+    "@id" : "_:b743",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b597"
+  }, {
+    "@id" : "_:b744",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b745", "_:b523" ]
+  }, {
+    "@id" : "_:b745",
+    "index" : "2",
+    "item" : "_:b495"
+  }, {
+    "@id" : "_:b746",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "HandicapAccessible"
+  }, {
+    "@id" : "_:b747",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b748",
+    "@type" : "ifc:IfcSIUnit",
+    "name_IfcSIUnit" : "ifc:LUMEN",
+    "unitType_IfcNamedUnit" : "ifc:LUMINOUSINTENSITYUNIT"
+  }, {
+    "@id" : "_:b749",
+    "@type" : "ifc:IfcDirection",
+    "directionRatios_IfcDirection" : "_:b671"
+  }, {
+    "@id" : "_:b75",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "Default Building"
+  }, {
+    "@id" : "_:b750",
+    "@type" : "ifc:IfcCartesianPoint",
+    "coordinates_IfcCartesianPoint" : "_:b621"
+  }, {
+    "@id" : "_:b751",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "2yDPSWYWf319fWaWWvPxwA"
+  }, {
+    "@id" : "_:b752",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : ""
+  }, {
+    "@id" : "_:b753",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "2"
+  }, {
+    "@id" : "_:b754",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Description of Default Building Storey"
+  }, {
+    "@id" : "_:b755",
+    "@type" : "ifc:IfcPhysicalQuantity_Set",
+    "isOrdered" : "expr:false",
+    "size" : "2",
+    "slot" : [ "_:b140", "_:b580" ]
+  }, {
+    "@id" : "_:b756",
+    "@type" : "ifc:IfcPositiveLengthMeasure",
+    "hasReal" : "2"
+  }, {
+    "@id" : "_:b757",
+    "@type" : "ifc:IfcLengthMeasure_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b722", "_:b240", "_:b636" ]
+  }, {
+    "@id" : "_:b758",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Width"
+  }, {
+    "@id" : "_:b759",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : ""
+  }, {
+    "@id" : "_:b76",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "GlazingAresFraction"
+  }, {
+    "@id" : "_:b77",
+    "@type" : "ifc:IfcVolumeMeasure",
+    "hasReal" : "3"
+  }, {
+    "@id" : "_:b78",
+    "@type" : "expr:REAL",
+    "hasReal" : "1"
+  }, {
+    "@id" : "_:b79",
+    "index" : "1",
+    "item" : "_:b80"
+  }, {
+    "@id" : "_:b8",
+    "index" : "4",
+    "item" : "_:b724"
+  }, {
+    "@id" : "_:b80",
+    "@type" : "ifc:IfcGeometricRepresentationContext",
+    "contextType_IfcRepresentationContext" : "_:b657",
+    "coordinateSpaceDimension_IfcGeometricRepresentationContext" : "_:b286",
+    "precision_IfcGeometricRepresentationContext" : "_:b732",
+    "worldCoordinateSystem_IfcGeometricRepresentationContext" : "_:b615"
+  }, {
+    "@id" : "_:b81",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b82",
+    "@type" : "ifc:IfcLengthMeasure",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b83",
+    "index" : "2",
+    "item" : "_:b84"
+  }, {
+    "@id" : "_:b84",
+    "@type" : "expr:REAL",
+    "hasReal" : "0"
+  }, {
+    "@id" : "_:b85",
+    "@type" : "ifc:REAL_List",
+    "isOrdered" : "expr:true",
+    "size" : "3",
+    "slot" : [ "_:b86", "_:b87", "_:b88" ]
+  }, {
+    "@id" : "_:b86",
+    "index" : "3",
+    "item" : "_:b559"
+  }, {
+    "@id" : "_:b87",
+    "index" : "2",
+    "item" : "_:b352"
+  }, {
+    "@id" : "_:b88",
+    "index" : "1",
+    "item" : "_:b534"
+  }, {
+    "@id" : "_:b89",
+    "@type" : "ifc:IfcLabel",
+    "expr:hasString" : "ProjectContainer"
+  }, {
+    "@id" : "_:b9",
+    "index" : "6",
+    "item" : "_:b19"
+  }, {
+    "@id" : "_:b90",
+    "@type" : "ifc:IfcGloballyUniqueId",
+    "expr:hasString" : "1Nl_BIjGLBke9u_6U3IWlW"
+  }, {
+    "@id" : "_:b91",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "ProjectContainer for Sites"
+  }, {
+    "@id" : "_:b92",
+    "@type" : "ifc:IfcObjectDefinition_Set",
+    "isOrdered" : "expr:false",
+    "size" : "1",
+    "slot" : "_:b257"
+  }, {
+    "@id" : "_:b93",
+    "@type" : "ifc:IfcIdentifier",
+    "expr:hasString" : "Compartmentation"
+  }, {
+    "@id" : "_:b94",
+    "@type" : "expr:INTEGER",
+    "hasInteger" : "0"
+  }, {
+    "@id" : "_:b95",
+    "@type" : "ifc:IfcCartesianPoint_List",
+    "isOrdered" : "expr:true",
+    "size" : "2",
+    "slot" : [ "_:b96", "_:b97" ]
+  }, {
+    "@id" : "_:b96",
+    "index" : "2",
+    "item" : "_:b355"
+  }, {
+    "@id" : "_:b97",
+    "index" : "1",
+    "item" : "_:b271"
+  }, {
+    "@id" : "_:b98",
+    "@type" : "ifc:IfcQuantityLength",
+    "description_IfcPhysicalQuantity" : "_:b758",
+    "lengthValue_IfcQuantityLength" : "_:b605",
+    "name_IfcPhysicalQuantity" : "_:b191"
+  }, {
+    "@id" : "_:b99",
+    "@type" : "ifc:IfcText",
+    "expr:hasString" : "Infiltration"
+  }, {
+    "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#",
+    "@type" : "owl:Ontology",
+    "comment" : "OWL profile: [OWL2_DL].\r\n\t\tConversion options: {ConvertBooleansTo=fi.hut.cs.drumbeat.common.params.StringParam@fcc85d9\r\n\t\t\t ConvertCollectionsTo=fi.hut.cs.drumbeat.common.params.StringParam@643b5391\r\n\t\t\t ConvertDoublesTo=fi.hut.cs.drumbeat.common.params.StringParam@6ae831e4\r\n\t\t\t ConvertEnumsTo=fi.hut.cs.drumbeat.common.params.StringParam@39378cdc\r\n\t\t\t ExportDebugInfo=fi.hut.cs.drumbeat.common.params.BooleanParam@523e346e\r\n\t\t\t ExportPropertyDomainsAndRanges=fi.hut.cs.drumbeat.common.params.StringParam@6ca74263\r\n\t\t\t IgnoreExpressSchema=fi.hut.cs.drumbeat.common.params.BooleanParam@476b3902\r\n\t\t\t IgnoreIfcSchema=fi.hut.cs.drumbeat.common.params.BooleanParam@423f1c5f\r\n\t\t\t UseLongAttributeName=fi.hut.cs.drumbeat.common.params.BooleanParam@6101dd32}",
+    "versionInfo" : "v1.0 2015/10/24 12:39:11"
+  }, {
+    "@id" : "model:GUID_0C207BA4-D0B8-4FFF-BCD0-C1D8C7F7B5FF",
+    "@type" : "ifc:IfcBuildingStorey",
+    "compositionType_IfcSpatialStructureElement" : "ifc:ELEMENT",
+    "description_IfcRoot" : "_:b754",
+    "elevation_IfcBuildingStorey" : "_:b540",
+    "globalId_IfcRoot" : "_:b41",
+    "name_IfcRoot" : "_:b673",
+    "objectPlacement_IfcProduct" : "_:b37",
+    "ownerHistory_IfcRoot" : "_:b15"
+  }, {
+    "@id" : "model:GUID_0FC2A480-35B8-4425-8855-FBF82409904E",
+    "@type" : "ifc:IfcRelDefinesByProperties",
+    "globalId_IfcRoot" : "_:b13",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelDefines" : "_:b14",
+    "relatingPropertyDefinition_IfcRelDefinesByProperties" : "model:GUID_252FE1CA-645E-4560-B8C9-01D379C803F2"
+  }, {
+    "@id" : "model:GUID_157C866C-9C08-4348-A0ED-4D57CD66C9E2",
+    "@type" : "ifc:IfcWindow",
+    "description_IfcRoot" : "_:b131",
+    "globalId_IfcRoot" : "_:b263",
+    "name_IfcRoot" : "_:b262",
+    "objectPlacement_IfcProduct" : "_:b265",
+    "overallHeight_IfcWindow" : "_:b261",
+    "overallWidth_IfcWindow" : "_:b260",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "representation_IfcProduct" : "_:b264"
+  }, {
+    "@id" : "model:GUID_22E66DDF-794D-40BB-8AA5-3DDA450D8255",
+    "@type" : "ifc:IfcProject",
+    "description_IfcRoot" : "_:b55",
+    "globalId_IfcRoot" : "_:b54",
+    "name_IfcRoot" : "_:b53",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "representationContexts_IfcProject" : "_:b57",
+    "unitsInContext_IfcProject" : "_:b56"
+  }, {
+    "@id" : "model:GUID_252FE1CA-645E-4560-B8C9-01D379C803F2",
+    "@type" : "ifc:IfcElementQuantity",
+    "globalId_IfcRoot" : "_:b701",
+    "name_IfcRoot" : "_:b389",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "quantities_IfcElementQuantity" : "_:b755"
+  }, {
+    "@id" : "model:GUID_26CD5ABB-7EC2-4EE8-82C0-23A3C26AF07A",
+    "@type" : "ifc:IfcRelDefinesByProperties",
+    "globalId_IfcRoot" : "_:b506",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelDefines" : "_:b507",
+    "relatingPropertyDefinition_IfcRelDefinesByProperties" : "model:GUID_40C06D26-85CB-404B-811B-7D8501CB0653"
+  }, {
+    "@id" : "model:GUID_29AFDFA5-45E1-44EC-BFF7-851B5165E8EF",
+    "@type" : "ifc:IfcPropertySet",
+    "globalId_IfcRoot" : "_:b563",
+    "hasProperties_IfcPropertySet" : "_:b142",
+    "name_IfcRoot" : "_:b285",
+    "ownerHistory_IfcRoot" : "_:b15"
+  }, {
+    "@id" : "model:GUID_3CA7E585-4E3E-4969-A86F-F049F4FBDE52",
+    "@type" : "ifc:IfcBuilding",
+    "compositionType_IfcSpatialStructureElement" : "ifc:ELEMENT",
+    "description_IfcRoot" : "_:b29",
+    "globalId_IfcRoot" : "_:b665",
+    "name_IfcRoot" : "_:b304",
+    "objectPlacement_IfcProduct" : "_:b329",
+    "ownerHistory_IfcRoot" : "_:b15"
+  }, {
+    "@id" : "model:GUID_40C06D26-85CB-404B-811B-7D8501CB0653",
+    "@type" : "ifc:IfcElementQuantity",
+    "globalId_IfcRoot" : "_:b627",
+    "name_IfcRoot" : "_:b492",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "quantities_IfcElementQuantity" : "_:b3"
+  }, {
+    "@id" : "model:GUID_486F7679-1A8A-4DEB-8798-5A7E0C8C7D51",
+    "@type" : "ifc:IfcPropertySet",
+    "globalId_IfcRoot" : "_:b638",
+    "hasProperties_IfcPropertySet" : "_:b332",
+    "name_IfcRoot" : "_:b403",
+    "ownerHistory_IfcRoot" : "_:b15"
+  }, {
+    "@id" : "model:GUID_4C36F556-7D6E-41D3-A06A-B1E8736AAED2",
+    "@type" : "ifc:IfcRelFillsElement",
+    "globalId_IfcRoot" : "_:b178",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedBuildingElement_IfcRelFillsElement" : "model:GUID_157C866C-9C08-4348-A0ED-4D57CD66C9E2",
+    "relatingOpeningElement_IfcRelFillsElement" : "model:GUID_9598E1C0-B1A9-4505-93A3-F3193AF39E1D"
+  }, {
+    "@id" : "model:GUID_57BFE2D2-B505-4BBA-8278-F867834A0BE0",
+    "@type" : "ifc:IfcRelAggregates",
+    "description_IfcRoot" : "_:b91",
+    "globalId_IfcRoot" : "_:b90",
+    "name_IfcRoot" : "_:b89",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelDecomposes" : "_:b92",
+    "relatingObject_IfcRelDecomposes" : "model:GUID_22E66DDF-794D-40BB-8AA5-3DDA450D8255"
+  }, {
+    "@id" : "model:GUID_81188789-C594-45EC-B0DE-CCDEFEE14041",
+    "@type" : "ifc:IfcRelAggregates",
+    "description_IfcRoot" : "_:b658",
+    "globalId_IfcRoot" : "_:b287",
+    "name_IfcRoot" : "_:b695",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelDecomposes" : "_:b532",
+    "relatingObject_IfcRelDecomposes" : "model:GUID_3CA7E585-4E3E-4969-A86F-F049F4FBDE52"
+  }, {
+    "@id" : "model:GUID_9598E1C0-B1A9-4505-93A3-F3193AF39E1D",
+    "@type" : "ifc:IfcOpeningElement",
+    "description_IfcRoot" : "_:b626",
+    "globalId_IfcRoot" : "_:b226",
+    "name_IfcRoot" : "_:b682",
+    "objectPlacement_IfcProduct" : "_:b637",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "representation_IfcProduct" : "_:b683"
+  }, {
+    "@id" : "model:GUID_98FA75B8-371D-412A-BE42-2326C68DFCF5",
+    "@type" : "ifc:IfcRelContainedInSpatialStructure",
+    "description_IfcRoot" : "_:b210",
+    "globalId_IfcRoot" : "_:b209",
+    "name_IfcRoot" : "_:b75",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedElements_IfcRelContainedInSpatialStructure" : "_:b173",
+    "relatingStructure_IfcRelContainedInSpatialStructure" : "model:GUID_0C207BA4-D0B8-4FFF-BCD0-C1D8C7F7B5FF"
+  }, {
+    "@id" : "model:GUID_9E398065-BE15-49D9-9C25-04A5A88072BB",
+    "@type" : "ifc:IfcRelDefinesByProperties",
+    "globalId_IfcRoot" : "_:b358",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelDefines" : "_:b359",
+    "relatingPropertyDefinition_IfcRelDefinesByProperties" : "model:GUID_BC359720-8A0A-4304-9A60-92083967BE8A"
+  }, {
+    "@id" : "model:GUID_A9456EE4-C2FB-4537-9439-394A4CB88C6D",
+    "@type" : "ifc:IfcRelDefinesByProperties",
+    "globalId_IfcRoot" : "_:b445",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelDefines" : "_:b223",
+    "relatingPropertyDefinition_IfcRelDefinesByProperties" : "model:GUID_29AFDFA5-45E1-44EC-BFF7-851B5165E8EF"
+  }, {
+    "@id" : "model:GUID_BC359720-8A0A-4304-9A60-92083967BE8A",
+    "@type" : "ifc:IfcElementQuantity",
+    "globalId_IfcRoot" : "_:b751",
+    "name_IfcRoot" : "_:b648",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "quantities_IfcElementQuantity" : "_:b684"
+  }, {
+    "@id" : "model:GUID_BDA2AA8B-B6E2-4A17-A9A6-0EE24C8B49D5",
+    "@type" : "ifc:IfcRelAssociatesMaterial",
+    "globalId_IfcRoot" : "_:b460",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelAssociates" : "_:b461",
+    "relatingMaterial_IfcRelAssociatesMaterial" : "_:b369"
+  }, {
+    "@id" : "model:GUID_D2ECFE17-45BE-4B36-959D-1BE3EC8193BD",
+    "@type" : "ifc:IfcRelDefinesByProperties",
+    "globalId_IfcRoot" : "_:b342",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelDefines" : "_:b343",
+    "relatingPropertyDefinition_IfcRelDefinesByProperties" : "model:GUID_486F7679-1A8A-4DEB-8798-5A7E0C8C7D51"
+  }, {
+    "@id" : "model:GUID_D3E2BC1A-4CDB-49ED-9C4A-C60C97949121",
+    "@type" : "ifc:IfcRelAggregates",
+    "description_IfcRoot" : "_:b617",
+    "globalId_IfcRoot" : "_:b647",
+    "name_IfcRoot" : "_:b646",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedObjects_IfcRelDecomposes" : "_:b489",
+    "relatingObject_IfcRelDecomposes" : "model:GUID_F55EAF97-145E-4431-B2F3-69F9634F244B"
+  }, {
+    "@id" : "model:GUID_EF6C5BB2-49D1-4153-AE27-BB01684B2778",
+    "@type" : "ifc:IfcRelVoidsElement",
+    "globalId_IfcRoot" : "_:b697",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "relatedOpeningElement_IfcRelVoidsElement" : "model:GUID_9598E1C0-B1A9-4505-93A3-F3193AF39E1D",
+    "relatingBuildingElement_IfcRelVoidsElement" : "model:GUID_F92C2898-FD68-44EF-9178-3348E340017B"
+  }, {
+    "@id" : "model:GUID_F55EAF97-145E-4431-B2F3-69F9634F244B",
+    "@type" : "ifc:IfcSite",
+    "compositionType_IfcSpatialStructureElement" : "ifc:ELEMENT",
+    "description_IfcRoot" : "_:b465",
+    "globalId_IfcRoot" : "_:b721",
+    "name_IfcRoot" : "_:b591",
+    "objectPlacement_IfcProduct" : "_:b331",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "refLatitude_IfcSite" : "_:b720",
+    "refLongitude_IfcSite" : "_:b719"
+  }, {
+    "@id" : "model:GUID_F92C2898-FD68-44EF-9178-3348E340017B",
+    "@type" : "ifc:IfcWallStandardCase",
+    "description_IfcRoot" : "_:b277",
+    "globalId_IfcRoot" : "_:b276",
+    "name_IfcRoot" : "_:b275",
+    "objectPlacement_IfcProduct" : "_:b35",
+    "ownerHistory_IfcRoot" : "_:b15",
+    "representation_IfcProduct" : "_:b278"
+  } ],
+  "@context" : {
+    "hasReal" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#hasReal",
+      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "item" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#item",
+      "@type" : "@id"
+    },
+    "index" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#index",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "slot" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#slot",
+      "@type" : "@id"
+    },
+    "isOrdered" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#isOrdered",
+      "@type" : "@id"
+    },
+    "size" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#size",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "globalId_IfcRoot" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#globalId_IfcRoot",
+      "@type" : "@id"
+    },
+    "relatingPropertyDefinition_IfcRelDefinesByProperties" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatingPropertyDefinition_IfcRelDefinesByProperties",
+      "@type" : "@id"
+    },
+    "relatedObjects_IfcRelDefines" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatedObjects_IfcRelDefines",
+      "@type" : "@id"
+    },
+    "ownerHistory_IfcRoot" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#ownerHistory_IfcRoot",
+      "@type" : "@id"
+    },
+    "hasString" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#hasString",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "name_IfcMaterial" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#name_IfcMaterial",
+      "@type" : "@id"
+    },
+    "hasInteger" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#hasInteger",
+      "@type" : "http://www.w3.org/2001/XMLSchema#long"
+    },
+    "relativePlacement_IfcLocalPlacement" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relativePlacement_IfcLocalPlacement",
+      "@type" : "@id"
+    },
+    "placementRelTo_IfcLocalPlacement" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#placementRelTo_IfcLocalPlacement",
+      "@type" : "@id"
+    },
+    "refDirection_IfcAxis2Placement3D" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#refDirection_IfcAxis2Placement3D",
+      "@type" : "@id"
+    },
+    "location_IfcPlacement" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#location_IfcPlacement",
+      "@type" : "@id"
+    },
+    "axis_IfcAxis2Placement3D" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#axis_IfcAxis2Placement3D",
+      "@type" : "@id"
+    },
+    "directionRatios_IfcDirection" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#directionRatios_IfcDirection",
+      "@type" : "@id"
+    },
+    "unitType_IfcNamedUnit" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#unitType_IfcNamedUnit",
+      "@type" : "@id"
+    },
+    "name_IfcSIUnit" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#name_IfcSIUnit",
+      "@type" : "@id"
+    },
+    "name_IfcRoot" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#name_IfcRoot",
+      "@type" : "@id"
+    },
+    "description_IfcRoot" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#description_IfcRoot",
+      "@type" : "@id"
+    },
+    "unitsInContext_IfcProject" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#unitsInContext_IfcProject",
+      "@type" : "@id"
+    },
+    "representationContexts_IfcProject" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#representationContexts_IfcProject",
+      "@type" : "@id"
+    },
+    "nominalValue_IfcPropertySingleValue" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#nominalValue_IfcPropertySingleValue",
+      "@type" : "@id"
+    },
+    "name_IfcProperty" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#name_IfcProperty",
+      "@type" : "@id"
+    },
+    "description_IfcProperty" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#description_IfcProperty",
+      "@type" : "@id"
+    },
+    "depth_IfcExtrudedAreaSolid" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#depth_IfcExtrudedAreaSolid",
+      "@type" : "@id"
+    },
+    "sweptArea_IfcSweptAreaSolid" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#sweptArea_IfcSweptAreaSolid",
+      "@type" : "@id"
+    },
+    "position_IfcSweptAreaSolid" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#position_IfcSweptAreaSolid",
+      "@type" : "@id"
+    },
+    "extrudedDirection_IfcExtrudedAreaSolid" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#extrudedDirection_IfcExtrudedAreaSolid",
+      "@type" : "@id"
+    },
+    "relatingObject_IfcRelDecomposes" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatingObject_IfcRelDecomposes",
+      "@type" : "@id"
+    },
+    "relatedObjects_IfcRelDecomposes" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatedObjects_IfcRelDecomposes",
+      "@type" : "@id"
+    },
+    "coordinates_IfcCartesianPoint" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#coordinates_IfcCartesianPoint",
+      "@type" : "@id"
+    },
+    "units_IfcUnitAssignment" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#units_IfcUnitAssignment",
+      "@type" : "@id"
+    },
+    "relatingOpeningElement_IfcRelFillsElement" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatingOpeningElement_IfcRelFillsElement",
+      "@type" : "@id"
+    },
+    "relatedBuildingElement_IfcRelFillsElement" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatedBuildingElement_IfcRelFillsElement",
+      "@type" : "@id"
+    },
+    "points_IfcPolyline" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#points_IfcPolyline",
+      "@type" : "@id"
+    },
+    "hasLogical" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#hasLogical",
+      "@type" : "@id"
+    },
+    "name_IfcPhysicalQuantity" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#name_IfcPhysicalQuantity",
+      "@type" : "@id"
+    },
+    "lengthValue_IfcQuantityLength" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#lengthValue_IfcQuantityLength",
+      "@type" : "@id"
+    },
+    "description_IfcPhysicalQuantity" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#description_IfcPhysicalQuantity",
+      "@type" : "@id"
+    },
+    "relatingStructure_IfcRelContainedInSpatialStructure" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatingStructure_IfcRelContainedInSpatialStructure",
+      "@type" : "@id"
+    },
+    "relatedElements_IfcRelContainedInSpatialStructure" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatedElements_IfcRelContainedInSpatialStructure",
+      "@type" : "@id"
+    },
+    "creationDate_IfcOwnerHistory" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#creationDate_IfcOwnerHistory",
+      "@type" : "@id"
+    },
+    "changeAction_IfcOwnerHistory" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#changeAction_IfcOwnerHistory",
+      "@type" : "@id"
+    },
+    "owningUser_IfcOwnerHistory" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#owningUser_IfcOwnerHistory",
+      "@type" : "@id"
+    },
+    "owningApplication_IfcOwnerHistory" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#owningApplication_IfcOwnerHistory",
+      "@type" : "@id"
+    },
+    "areaValue_IfcQuantityArea" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#areaValue_IfcQuantityArea",
+      "@type" : "@id"
+    },
+    "overallWidth_IfcWindow" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#overallWidth_IfcWindow",
+      "@type" : "@id"
+    },
+    "overallHeight_IfcWindow" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#overallHeight_IfcWindow",
+      "@type" : "@id"
+    },
+    "representation_IfcProduct" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#representation_IfcProduct",
+      "@type" : "@id"
+    },
+    "objectPlacement_IfcProduct" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#objectPlacement_IfcProduct",
+      "@type" : "@id"
+    },
+    "offsetFromReferenceLine_IfcMaterialLayerSetUsage" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#offsetFromReferenceLine_IfcMaterialLayerSetUsage",
+      "@type" : "@id"
+    },
+    "layerSetDirection_IfcMaterialLayerSetUsage" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#layerSetDirection_IfcMaterialLayerSetUsage",
+      "@type" : "@id"
+    },
+    "directionSense_IfcMaterialLayerSetUsage" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#directionSense_IfcMaterialLayerSetUsage",
+      "@type" : "@id"
+    },
+    "forLayerSet_IfcMaterialLayerSetUsage" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#forLayerSet_IfcMaterialLayerSetUsage",
+      "@type" : "@id"
+    },
+    "name_IfcConversionBasedUnit" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#name_IfcConversionBasedUnit",
+      "@type" : "@id"
+    },
+    "dimensions_IfcNamedUnit" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#dimensions_IfcNamedUnit",
+      "@type" : "@id"
+    },
+    "conversionFactor_IfcConversionBasedUnit" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#conversionFactor_IfcConversionBasedUnit",
+      "@type" : "@id"
+    },
+    "volumeValue_IfcQuantityVolume" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#volumeValue_IfcQuantityVolume",
+      "@type" : "@id"
+    },
+    "relatingMaterial_IfcRelAssociatesMaterial" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatingMaterial_IfcRelAssociatesMaterial",
+      "@type" : "@id"
+    },
+    "relatedObjects_IfcRelAssociates" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatedObjects_IfcRelAssociates",
+      "@type" : "@id"
+    },
+    "id_IfcPerson" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#id_IfcPerson",
+      "@type" : "@id"
+    },
+    "givenName_IfcPerson" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#givenName_IfcPerson",
+      "@type" : "@id"
+    },
+    "familyName_IfcPerson" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#familyName_IfcPerson",
+      "@type" : "@id"
+    },
+    "representationType_IfcRepresentation" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#representationType_IfcRepresentation",
+      "@type" : "@id"
+    },
+    "representationIdentifier_IfcRepresentation" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#representationIdentifier_IfcRepresentation",
+      "@type" : "@id"
+    },
+    "items_IfcRepresentation" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#items_IfcRepresentation",
+      "@type" : "@id"
+    },
+    "contextOfItems_IfcRepresentation" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#contextOfItems_IfcRepresentation",
+      "@type" : "@id"
+    },
+    "representations_IfcProductRepresentation" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#representations_IfcProductRepresentation",
+      "@type" : "@id"
+    },
+    "hasDatetime" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#hasDatetime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "layerThickness_IfcMaterialLayer" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#layerThickness_IfcMaterialLayer",
+      "@type" : "@id"
+    },
+    "material_IfcMaterialLayer" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#material_IfcMaterialLayer",
+      "@type" : "@id"
+    },
+    "valueComponent_IfcMeasureWithUnit" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#valueComponent_IfcMeasureWithUnit",
+      "@type" : "@id"
+    },
+    "unitComponent_IfcMeasureWithUnit" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#unitComponent_IfcMeasureWithUnit",
+      "@type" : "@id"
+    },
+    "hasProperties_IfcPropertySet" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#hasProperties_IfcPropertySet",
+      "@type" : "@id"
+    },
+    "version_IfcApplication" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#version_IfcApplication",
+      "@type" : "@id"
+    },
+    "applicationIdentifier_IfcApplication" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#applicationIdentifier_IfcApplication",
+      "@type" : "@id"
+    },
+    "applicationFullName_IfcApplication" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#applicationFullName_IfcApplication",
+      "@type" : "@id"
+    },
+    "applicationDeveloper_IfcApplication" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#applicationDeveloper_IfcApplication",
+      "@type" : "@id"
+    },
+    "profileType_IfcProfileDef" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#profileType_IfcProfileDef",
+      "@type" : "@id"
+    },
+    "outerCurve_IfcArbitraryClosedProfileDef" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#outerCurve_IfcArbitraryClosedProfileDef",
+      "@type" : "@id"
+    },
+    "quantities_IfcElementQuantity" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#quantities_IfcElementQuantity",
+      "@type" : "@id"
+    },
+    "relatingBuildingElement_IfcRelVoidsElement" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatingBuildingElement_IfcRelVoidsElement",
+      "@type" : "@id"
+    },
+    "relatedOpeningElement_IfcRelVoidsElement" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#relatedOpeningElement_IfcRelVoidsElement",
+      "@type" : "@id"
+    },
+    "thePerson_IfcPersonAndOrganization" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#thePerson_IfcPersonAndOrganization",
+      "@type" : "@id"
+    },
+    "theOrganization_IfcPersonAndOrganization" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#theOrganization_IfcPersonAndOrganization",
+      "@type" : "@id"
+    },
+    "refLongitude_IfcSite" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#refLongitude_IfcSite",
+      "@type" : "@id"
+    },
+    "refLatitude_IfcSite" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#refLatitude_IfcSite",
+      "@type" : "@id"
+    },
+    "compositionType_IfcSpatialStructureElement" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#compositionType_IfcSpatialStructureElement",
+      "@type" : "@id"
+    },
+    "comment" : "http://www.w3.org/2000/01/rdf-schema#comment",
+    "versionInfo" : "http://www.w3.org/2002/07/owl#versionInfo",
+    "materialLayers_IfcMaterialLayerSet" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#materialLayers_IfcMaterialLayerSet",
+      "@type" : "@id"
+    },
+    "timeExponent_IfcDimensionalExponents" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#timeExponent_IfcDimensionalExponents",
+      "@type" : "@id"
+    },
+    "thermodynamicTemperatureExponent_IfcDimensionalExponents" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#thermodynamicTemperatureExponent_IfcDimensionalExponents",
+      "@type" : "@id"
+    },
+    "massExponent_IfcDimensionalExponents" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#massExponent_IfcDimensionalExponents",
+      "@type" : "@id"
+    },
+    "luminousIntensityExponent_IfcDimensionalExponents" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#luminousIntensityExponent_IfcDimensionalExponents",
+      "@type" : "@id"
+    },
+    "lengthExponent_IfcDimensionalExponents" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#lengthExponent_IfcDimensionalExponents",
+      "@type" : "@id"
+    },
+    "electricCurrentExponent_IfcDimensionalExponents" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#electricCurrentExponent_IfcDimensionalExponents",
+      "@type" : "@id"
+    },
+    "amountOfSubstanceExponent_IfcDimensionalExponents" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#amountOfSubstanceExponent_IfcDimensionalExponents",
+      "@type" : "@id"
+    },
+    "elevation_IfcBuildingStorey" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#elevation_IfcBuildingStorey",
+      "@type" : "@id"
+    },
+    "name_IfcOrganization" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#name_IfcOrganization",
+      "@type" : "@id"
+    },
+    "description_IfcOrganization" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#description_IfcOrganization",
+      "@type" : "@id"
+    },
+    "precision_IfcGeometricRepresentationContext" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#precision_IfcGeometricRepresentationContext",
+      "@type" : "@id"
+    },
+    "coordinateSpaceDimension_IfcGeometricRepresentationContext" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#coordinateSpaceDimension_IfcGeometricRepresentationContext",
+      "@type" : "@id"
+    },
+    "contextType_IfcRepresentationContext" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#contextType_IfcRepresentationContext",
+      "@type" : "@id"
+    },
+    "worldCoordinateSystem_IfcGeometricRepresentationContext" : {
+      "@id" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#worldCoordinateSystem_IfcGeometricRepresentationContext",
+      "@type" : "@id"
+    },
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ifc" : "http://drumbeat.cs.hut.fi/owl/IFC2X3#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "expr" : "http://drumbeat.cs.hut.fi/owl/EXPRESS#",
+    "model" : "http://drumbeat.cs.hut.fi/tomcat/marmotta/resource/"
+  }
+}

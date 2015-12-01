@@ -1,0 +1,1052 @@
+
+*****************************************
+BUILDING drumbeat-common (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-common 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-common ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 43 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-common ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.common.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec
+Running fi.hut.cs.drumbeat.common.string.StringUtils_CollectionToString_TestCase
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-common ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\drumbeat-common-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-common ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\target\drumbeat-common-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-common\0.2.0-RELEASE\drumbeat-common-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-common\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-common\0.2.0-RELEASE\drumbeat-common-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.963 s
+[INFO] Finished at: 2015-10-24T01:54:53+02:00
+[INFO] Final Memory: 16M/214M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-common (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.common (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.common 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.common ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.common ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.common.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.common ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\drumbeat-ifc.common-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.common ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\target\drumbeat-ifc.common-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.common\0.2.0-RELEASE\drumbeat-ifc.common-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.common\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.common\0.2.0-RELEASE\drumbeat-ifc.common-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.979 s
+[INFO] Finished at: 2015-10-24T01:55:06+02:00
+[INFO] Final Memory: 17M/215M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.common (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.data (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.data 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.data ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.data ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.data ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 45 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.data ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.data ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.data ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.drumbeat_ifc.data.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.data ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\drumbeat-ifc.data-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.data ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\target\drumbeat-ifc.data-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.data\0.2.0-RELEASE\drumbeat-ifc.data-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.data\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.data\0.2.0-RELEASE\drumbeat-ifc.data-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.449 s
+[INFO] Finished at: 2015-10-24T01:55:13+02:00
+[INFO] Final Memory: 15M/213M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.data (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-rdf (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-rdf 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-rdf ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-rdf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-rdf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-rdf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-rdf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-rdf ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.rdf.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+Running fi.hut.cs.drumbeat.rdf.Test_OwlProfile_supportsStatement
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.762 sec
+
+Results :
+
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-rdf ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\drumbeat-rdf-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-rdf ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\target\drumbeat-rdf-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-rdf\0.2.0-RELEASE\drumbeat-rdf-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-rdf\0.2.0-RELEASE\drumbeat-rdf-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.933 s
+[INFO] Finished at: 2015-10-24T01:55:21+02:00
+[INFO] Final Memory: 17M/216M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-rdf (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-rdf.modelfactory (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat.rdf.modelfactory 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-rdf.modelfactory ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-rdf.modelfactory ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-rdf.modelfactory ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-rdf.modelfactory ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-rdf.modelfactory ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-rdf.modelfactory ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.rdf.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-rdf.modelfactory ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\drumbeat-rdf.modelfactory-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-rdf.modelfactory ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\target\drumbeat-rdf.modelfactory-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-rdf.modelfactory\0.2.0-RELEASE\drumbeat-rdf.modelfactory-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-rdf.modelfactory\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-rdf.modelfactory\0.2.0-RELEASE\drumbeat-rdf.modelfactory-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.674 s
+[INFO] Finished at: 2015-10-24T01:55:33+02:00
+[INFO] Final Memory: 17M/207M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-rdf.modelfactory (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.convert.stff2ifc (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.convert.step2ifc 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.convert.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\drumbeat-ifc.convert.stff2ifc-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.convert.stff2ifc ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\target\drumbeat-ifc.convert.stff2ifc-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.stff2ifc\0.2.0-RELEASE\drumbeat-ifc.convert.stff2ifc-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.stff2ifc\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.stff2ifc\0.2.0-RELEASE\drumbeat-ifc.convert.stff2ifc-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.125 s
+[INFO] Finished at: 2015-10-24T01:55:38+02:00
+[INFO] Final Memory: 15M/212M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.convert.stff2ifc (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.processing.grounding.ifc (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.processing.grounding.ifc 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.processing.grounding.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\drumbeat-ifc.processing.grounding.ifc-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.processing.grounding.ifc ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\target\drumbeat-ifc.processing.grounding.ifc-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.processing.grounding.ifc\0.2.0-RELEASE\drumbeat-ifc.processing.grounding.ifc-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.processing.grounding.ifc\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.processing.grounding.ifc\0.2.0-RELEASE\drumbeat-ifc.processing.grounding.ifc-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.545 s
+[INFO] Finished at: 2015-10-24T01:55:45+02:00
+[INFO] Final Memory: 19M/221M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.processing.grounding.ifc (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.convert.ifc2rdf 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 42 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.convert.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_BooleanTypes
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.262 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_CollectionTypes
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_DefinedTypes
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_DoubleTypes
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_EntityTypes
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_LiteralTypes
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running fi.hut.cs.drumbeat.ifc.convert.Test_Ifc2RdfExporterBase_Exporting_SelectTypes
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+
+Results :
+
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\drumbeat-ifc.convert.ifc2ld-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.convert.ifc2ld ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\target\drumbeat-ifc.convert.ifc2ld-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.ifc2ld\0.2.0-RELEASE\drumbeat-ifc.convert.ifc2ld-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.ifc2ld\0.2.0-RELEASE\drumbeat-ifc.convert.ifc2ld-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.296 s
+[INFO] Finished at: 2015-10-24T01:56:00+02:00
+[INFO] Final Memory: 21M/251M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld.cli (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.convert.ifc2ld.cli 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Surefire report directory: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.hut.cs.drumbeat.ifc.convert.ifc2ld.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Building jar: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.convert.ifc2ld.cli-0.2.0-RELEASE.jar
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:copy-dependencies (copy-dependencies) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Copying jackson-databind-2.3.3.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jackson-databind-2.3.3.jar
+[INFO] Copying libthrift-0.9.1.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\libthrift-0.9.1.jar
+[INFO] Copying log4j-1.2.17.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\log4j-1.2.17.jar
+[INFO] Copying slf4j-api-1.7.6.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\slf4j-api-1.7.6.jar
+[INFO] Copying slf4j-log4j12-1.7.6.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\slf4j-log4j12-1.7.6.jar
+[INFO] Copying drumbeat-ifc.common-0.2.0-RELEASE.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.common-0.2.0-RELEASE.jar
+[INFO] Copying jena-arq-2.12.1.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jena-arq-2.12.1.jar
+[INFO] Copying jackson-annotations-2.3.0.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jackson-annotations-2.3.0.jar
+[INFO] Copying jcl-over-slf4j-1.7.6.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jcl-over-slf4j-1.7.6.jar
+[INFO] Copying jsonld-java-0.5.0.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jsonld-java-0.5.0.jar
+[INFO] Copying drumbeat-ifc.data-0.2.0-RELEASE.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.data-0.2.0-RELEASE.jar
+[INFO] Copying drumbeat-ifc.processing.grounding.ifc-0.2.0-RELEASE.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.processing.grounding.ifc-0.2.0-RELEASE.jar
+[INFO] Copying httpcore-4.2.5.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\httpcore-4.2.5.jar
+[INFO] Copying xercesImpl-2.11.0.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\xercesImpl-2.11.0.jar
+[INFO] Copying xml-apis-1.4.01.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\xml-apis-1.4.01.jar
+[INFO] Copying commons-cli-1.2.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\commons-cli-1.2.jar
+[INFO] Copying commons-codec-1.10.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\commons-codec-1.10.jar
+[INFO] Copying commons-csv-1.0.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\commons-csv-1.0.jar
+[INFO] Copying drumbeat-common-0.2.0-RELEASE.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-common-0.2.0-RELEASE.jar
+[INFO] Copying drumbeat-ifc.convert.ifc2ld-0.2.0-RELEASE.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.convert.ifc2ld-0.2.0-RELEASE.jar
+[INFO] Copying drumbeat-ifc.convert.stff2ifc-0.2.0-RELEASE.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.convert.stff2ifc-0.2.0-RELEASE.jar
+[INFO] Copying drumbeat-rdf.modelfactory-0.2.0-RELEASE.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-rdf.modelfactory-0.2.0-RELEASE.jar
+[INFO] Copying jena-iri-1.1.1.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jena-iri-1.1.1.jar
+[INFO] Copying jackson-core-2.3.3.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jackson-core-2.3.3.jar
+[INFO] Copying jena-core-2.12.1.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\jena-core-2.12.1.jar
+[INFO] Copying hamcrest-core-1.3.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\hamcrest-core-1.3.jar
+[INFO] Copying httpclient-cache-4.2.6.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\httpclient-cache-4.2.6.jar
+[INFO] Copying junit-4.12.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\junit-4.12.jar
+[INFO] Copying commons-lang3-3.3.2.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\commons-lang3-3.3.2.jar
+[INFO] Copying drumbeat-rdf-0.2.0-RELEASE.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-rdf-0.2.0-RELEASE.jar
+[INFO] Copying httpclient-4.2.6.jar to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\httpclient-4.2.6.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.convert.ifc2ld.cli ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\target\drumbeat-ifc.convert.ifc2ld.cli-0.2.0-RELEASE.jar to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.ifc2ld.cli\0.2.0-RELEASE\drumbeat-ifc.convert.ifc2ld.cli-0.2.0-RELEASE.jar
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.cli\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.ifc2ld.cli\0.2.0-RELEASE\drumbeat-ifc.convert.ifc2ld.cli-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.530 s
+[INFO] Finished at: 2015-10-24T01:56:14+02:00
+[INFO] Final Memory: 23M/328M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld.cli (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld.web (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building drumbeat-ifc.convert.ifc2ld.web 0.2.0-RELEASE
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\target
+[INFO] Deleting C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\src\main\webapp\VAADIN\themes (includes = [**/styles.css, **/styles.scss.cache], excludes = [])
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.5.7:update-theme (default) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Updating theme VAADIN\themes\mytheme
+[INFO] Widgetsets found from classpath:
+[INFO] 	fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web.MyAppWidgetset in file://C/DRUM/!github/drumbeat/drumbeat-ifc2ld/drumbeat-ifc.convert.ifc2ld.web/src/main/resources
+[INFO] 	com.vaadin.DefaultWidgetSet in jar:file:C:/Users/vuhoan1/.m2/repository/com/vaadin/vaadin-client/7.5.7/vaadin-client-7.5.7.jar!/
+[INFO] Addon styles found from classpath:
+[INFO] 
+[INFO] Search took 19ms
+[INFO] Theme "VAADIN\themes\mytheme" updated
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\target\classes
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.5.7:update-widgetset (default) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] auto discovered modules [fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web.MyAppWidgetset]
+[INFO] Updating widgetset fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web.MyAppWidgetset
+[INFO] Adding resource directory to command classpath: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\src\main\resources
+[WARNING] Failed to retrieve com.vaadin:vaadin-client-compiler based on project POM
+[INFO] Using com.vaadin:vaadin-client-compiler version 7.5.7
+[INFO] Widgetsets found from classpath:
+[INFO] 	fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web.MyAppWidgetset in file://C/DRUM/!github/drumbeat/drumbeat-ifc2ld/drumbeat-ifc.convert.ifc2ld.web/src/main/resources
+[INFO] 	com.vaadin.DefaultWidgetSet in jar:file:C:/Users/vuhoan1/.m2/repository/com/vaadin/vaadin-client/7.5.7/vaadin-client-7.5.7.jar!/
+[INFO] Addon styles found from classpath:
+[INFO] 
+[INFO] Search took 21ms
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] 
+[INFO] >>> vaadin-maven-plugin:7.5.7:compile (default) > process-resources @ drumbeat-ifc.convert.ifc2ld.web >>>
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.5.7:update-theme (default) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Updating theme VAADIN\themes\mytheme
+[INFO] Widgetsets found from classpath:
+[INFO] 	fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web.MyAppWidgetset in file://C/DRUM/!github/drumbeat/drumbeat-ifc2ld/drumbeat-ifc.convert.ifc2ld.web/target/classes
+[INFO] 	com.vaadin.DefaultWidgetSet in jar:file:C:/Users/vuhoan1/.m2/repository/com/vaadin/vaadin-client/7.5.7/vaadin-client-7.5.7.jar!/
+[INFO] Addon styles found from classpath:
+[INFO] 
+[INFO] Search took 20ms
+[INFO] Theme "VAADIN\themes\mytheme" updated
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] <<< vaadin-maven-plugin:7.5.7:compile (default) < process-resources @ drumbeat-ifc.convert.ifc2ld.web <<<
+[INFO] 
+[INFO] --- vaadin-maven-plugin:7.5.7:compile (default) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] auto discovered modules [fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web.MyAppWidgetset]
+[WARNING] Failed to retrieve com.vaadin:vaadin-client-compiler based on project POM
+[INFO] Using com.vaadin:vaadin-client-compiler version 7.5.7
+[INFO] Compiling module fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web.MyAppWidgetset
+[INFO]    Computing all possible rebind results for 'com.vaadin.client.metadata.ConnectorBundleLoader'
+[INFO]       Rebinding com.vaadin.client.metadata.ConnectorBundleLoader
+[INFO]          Invoking generator com.vaadin.server.widgetsetutils.ConnectorBundleLoaderFactory
+[INFO]             Populating eager bundle
+[INFO]                Visiting RpcDataSourceConnector with ConnectorInitVisitor
+[INFO]                   RpcDataSourceConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.communication.SharedState as a bean
+[INFO]                Will serialize class com.vaadin.shared.communication.URLReference using URLReference_Serializer
+[INFO]                Visiting JavaScriptExtension with ConnectorInitVisitor
+[INFO]                   JavaScriptExtension will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.JavaScriptExtensionState as a bean
+[INFO]                Visiting BrowserWindowOpenerConnector with ConnectorInitVisitor
+[INFO]                   BrowserWindowOpenerConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.BrowserWindowOpenerState as a bean
+[INFO]                Visiting FileDownloaderConnector with ConnectorInitVisitor
+[INFO]                   FileDownloaderConnector will be in the eager bundle
+[INFO]                Visiting ResponsiveConnector with ConnectorInitVisitor
+[INFO]                   ResponsiveConnector will be in the eager bundle
+[INFO]                Visiting AbsoluteLayoutConnector with ConnectorInitVisitor
+[INFO]                   AbsoluteLayoutConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.absolutelayout.AbsoluteLayoutState as a bean
+[INFO]                Visiting JavaScriptComponentConnector with ConnectorInitVisitor
+[INFO]                   JavaScriptComponentConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.JavaScriptComponentState as a bean
+[INFO]                Visiting AccordionConnector with ConnectorInitVisitor
+[INFO]                   AccordionConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.accordion.AccordionState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.tabsheet.TabState as a bean
+[INFO]                Visiting AudioConnector with ConnectorInitVisitor
+[INFO]                   AudioConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.AbstractMediaState as a bean
+[INFO]                Visiting BrowserFrameConnector with ConnectorInitVisitor
+[INFO]                   BrowserFrameConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.browserframe.BrowserFrameState as a bean
+[INFO]                Visiting ButtonConnector with ConnectorInitVisitor
+[INFO]                   ButtonConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.button.ButtonState as a bean
+[INFO]                Visiting CheckBoxConnector with ConnectorInitVisitor
+[INFO]                   CheckBoxConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.checkbox.CheckBoxState as a bean
+[INFO]                Visiting ComboBoxConnector with ConnectorInitVisitor
+[INFO]                   ComboBoxConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.combobox.ComboBoxState as a bean
+[INFO]                Visiting CssLayoutConnector with ConnectorInitVisitor
+[INFO]                   CssLayoutConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.csslayout.CssLayoutState as a bean
+[INFO]                Visiting CustomComponentConnector with ConnectorInitVisitor
+[INFO]                   CustomComponentConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.AbstractComponentState as a bean
+[INFO]                Visiting CustomFieldConnector with ConnectorInitVisitor
+[INFO]                   CustomFieldConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.AbstractFieldState as a bean
+[INFO]                Visiting CustomLayoutConnector with ConnectorInitVisitor
+[INFO]                   CustomLayoutConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.customlayout.CustomLayoutState as a bean
+[INFO]                Visiting DateFieldConnector with ConnectorInitVisitor
+[INFO]                   DateFieldConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.datefield.PopupDateFieldState as a bean
+[INFO]                Will serialize class java.util.Date using Date_Serializer
+[INFO]                Visiting DragAndDropWrapperConnector with ConnectorInitVisitor
+[INFO]                   DragAndDropWrapperConnector will be in the eager bundle
+[INFO]                Visiting EmbeddedConnector with ConnectorInitVisitor
+[INFO]                   EmbeddedConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.embedded.EmbeddedState as a bean
+[INFO]                Visiting FlashConnector with ConnectorInitVisitor
+[INFO]                   FlashConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.flash.FlashState as a bean
+[INFO]                Visiting FormConnector with ConnectorInitVisitor
+[INFO]                   FormConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.form.FormState as a bean
+[INFO]                Visiting FormLayoutConnector with ConnectorInitVisitor
+[INFO]                   FormLayoutConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.orderedlayout.AbstractOrderedLayoutState as a bean
+[INFO]                Will serialize class java.util.HashMap<com.vaadin.shared.Connector, com.vaadin.shared.ui.orderedlayout.AbstractOrderedLayoutState.ChildComponentData> as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.orderedlayout.AbstractOrderedLayoutState.ChildComponentData as a bean
+[INFO]                Visiting GridConnector with ConnectorInitVisitor
+[INFO]                   GridConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.GridState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.GridStaticSectionState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.GridColumnState as a bean
+[INFO]                Will serialize com.vaadin.shared.data.sort.SortDirection[] as an array
+[INFO]                Will serialize class com.vaadin.shared.data.sort.SortDirection as an enum
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.GridStaticSectionState.RowState as a bean
+[INFO]                Will serialize java.lang.String[] as an array
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.HeightMode as an enum
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.GridStaticSectionState.CellState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.GridStaticCellType as an enum
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.GridState.SharedSelectionMode as an enum
+[INFO]                Visiting GridLayoutConnector with ConnectorInitVisitor
+[INFO]                   GridLayoutConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.gridlayout.GridLayoutState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.gridlayout.GridLayoutState.ChildComponentData as a bean
+[INFO]                Visiting HorizontalLayoutConnector with ConnectorInitVisitor
+[INFO]                   HorizontalLayoutConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.orderedlayout.HorizontalLayoutState as a bean
+[INFO]                Visiting HorizontalSplitPanelConnector with ConnectorInitVisitor
+[INFO]                   HorizontalSplitPanelConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.splitpanel.HorizontalSplitPanelState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.SplitterState as a bean
+[INFO]                Visiting ImageConnector with ConnectorInitVisitor
+[INFO]                   ImageConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.image.ImageState as a bean
+[INFO]                Visiting InlineDateFieldConnector with ConnectorInitVisitor
+[INFO]                   InlineDateFieldConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.datefield.InlineDateFieldState as a bean
+[INFO]                Visiting JavaScriptManagerConnector with ConnectorInitVisitor
+[INFO]                   JavaScriptManagerConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.extension.javascriptmanager.JavaScriptManagerState as a bean
+[INFO]                Visiting LabelConnector with ConnectorInitVisitor
+[INFO]                   LabelConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.label.LabelState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.label.ContentMode as an enum
+[INFO]                Visiting LinkConnector with ConnectorInitVisitor
+[INFO]                   LinkConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.link.LinkState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.BorderStyle as an enum
+[INFO]                Visiting ListSelectConnector with ConnectorInitVisitor
+[INFO]                   ListSelectConnector will be in the eager bundle
+[INFO]                Visiting MenuBarConnector with ConnectorInitVisitor
+[INFO]                   MenuBarConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.menubar.MenuBarState as a bean
+[INFO]                Visiting NativeButtonConnector with ConnectorInitVisitor
+[INFO]                   NativeButtonConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.button.NativeButtonState as a bean
+[INFO]                Visiting NativeSelectConnector with ConnectorInitVisitor
+[INFO]                   NativeSelectConnector will be in the eager bundle
+[INFO]                Visiting OptionGroupConnector with ConnectorInitVisitor
+[INFO]                   OptionGroupConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.optiongroup.OptionGroupState as a bean
+[INFO]                Visiting PanelConnector with ConnectorInitVisitor
+[INFO]                   PanelConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.panel.PanelState as a bean
+[INFO]                Visiting PasswordFieldConnector with ConnectorInitVisitor
+[INFO]                   PasswordFieldConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.textfield.AbstractTextFieldState as a bean
+[INFO]                Visiting PopupDateFieldConnector with ConnectorInitVisitor
+[INFO]                   PopupDateFieldConnector will be in the eager bundle
+[INFO]                Visiting PopupViewConnector with ConnectorInitVisitor
+[INFO]                   PopupViewConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.popupview.PopupViewState as a bean
+[INFO]                Visiting ProgressBarConnector with ConnectorInitVisitor
+[INFO]                   ProgressBarConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.progressindicator.ProgressBarState as a bean
+[INFO]                Visiting ProgressIndicatorConnector with ConnectorInitVisitor
+[INFO]                   ProgressIndicatorConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.progressindicator.ProgressIndicatorState as a bean
+[INFO]                Visiting SliderConnector with ConnectorInitVisitor
+[INFO]                   SliderConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.slider.SliderState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.slider.SliderOrientation as an enum
+[INFO]                Visiting TabsheetConnector with ConnectorInitVisitor
+[INFO]                   TabsheetConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.tabsheet.TabsheetState as a bean
+[INFO]                Visiting TableConnector with ConnectorInitVisitor
+[INFO]                   TableConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.table.TableState as a bean
+[INFO]                Visiting TextAreaConnector with ConnectorInitVisitor
+[INFO]                   TextAreaConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.textarea.TextAreaState as a bean
+[INFO]                Visiting TextFieldConnector with ConnectorInitVisitor
+[INFO]                   TextFieldConnector will be in the eager bundle
+[INFO]                Visiting TreeConnector with ConnectorInitVisitor
+[INFO]                   TreeConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.tree.TreeState as a bean
+[INFO]                Visiting TreeTableConnector with ConnectorInitVisitor
+[INFO]                   TreeTableConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.treetable.TreeTableState as a bean
+[INFO]                Visiting TwinColSelectConnector with ConnectorInitVisitor
+[INFO]                   TwinColSelectConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.twincolselect.TwinColSelectState as a bean
+[INFO]                Visiting UIConnector with ConnectorInitVisitor
+[INFO]                   UIConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.UIState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.UIState.LocaleServiceState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.UIState.LoadingIndicatorConfigurationState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.PageState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.UIState.PushConfigurationState as a bean
+[INFO]                Will serialize class com.vaadin.shared.communication.PushMode as an enum
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.UIState.NotificationTypeConfiguration as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.NotificationRole as an enum
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.ui.UIState.LocaleData as a bean
+[INFO]                Visiting UploadConnector with ConnectorInitVisitor
+[INFO]                   UploadConnector will be in the eager bundle
+[INFO]                Visiting VerticalLayoutConnector with ConnectorInitVisitor
+[INFO]                   VerticalLayoutConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.orderedlayout.VerticalLayoutState as a bean
+[INFO]                Visiting VerticalSplitPanelConnector with ConnectorInitVisitor
+[INFO]                   VerticalSplitPanelConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.splitpanel.VerticalSplitPanelState as a bean
+[INFO]                Visiting VideoConnector with ConnectorInitVisitor
+[INFO]                   VideoConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.video.VideoState as a bean
+[INFO]                Visiting WindowConnector with ConnectorInitVisitor
+[INFO]                   WindowConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.window.WindowState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.window.WindowMode as an enum
+[INFO]                Will serialize com.vaadin.shared.Connector[] as an array
+[INFO]                Will serialize class com.vaadin.shared.ui.window.WindowRole as an enum
+[INFO]                Visiting JavaScriptRendererConnector with ConnectorInitVisitor
+[INFO]                   JavaScriptRendererConnector will be in the eager bundle
+[INFO]                Visiting ButtonRendererConnector with ConnectorInitVisitor
+[INFO]                   ButtonRendererConnector will be in the eager bundle
+[INFO]                Visiting DateRendererConnector with ConnectorInitVisitor
+[INFO]                   DateRendererConnector will be in the eager bundle
+[INFO]                Visiting UnsafeHtmlRendererConnector with ConnectorInitVisitor
+[INFO]                   UnsafeHtmlRendererConnector will be in the eager bundle
+[INFO]                Visiting ImageRendererConnector with ConnectorInitVisitor
+[INFO]                   ImageRendererConnector will be in the eager bundle
+[INFO]                Visiting NumberRendererConnector with ConnectorInitVisitor
+[INFO]                   NumberRendererConnector will be in the eager bundle
+[INFO]                Visiting ProgressBarRendererConnector with ConnectorInitVisitor
+[INFO]                   ProgressBarRendererConnector will be in the eager bundle
+[INFO]                Visiting TextRendererConnector with ConnectorInitVisitor
+[INFO]                   TextRendererConnector will be in the eager bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.grid.ScrollDestination as an enum
+[INFO]                Will serialize class com.vaadin.shared.MouseEventDetails as a bean
+[INFO]                Will serialize class com.vaadin.shared.MouseEventDetails.MouseButton as an enum
+[INFO]             Populating CalendarConnector bundle
+[INFO]                Visiting CalendarConnector with ConnectorInitVisitor
+[INFO]                   CalendarConnector will be in the CalendarConnector bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.calendar.CalendarState as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.calendar.CalendarState.Day as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.calendar.CalendarState.Action as a bean
+[INFO]                Will serialize class com.vaadin.shared.ui.calendar.CalendarState.Event as a bean
+[INFO]             Populating ColorPickerConnector bundle
+[INFO]                Visiting ColorPickerConnector with ConnectorInitVisitor
+[INFO]                   ColorPickerConnector will be in the ColorPickerConnector bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.colorpicker.ColorPickerState as a bean
+[INFO]             Populating ColorPickerAreaConnector bundle
+[INFO]                Visiting ColorPickerAreaConnector with ConnectorInitVisitor
+[INFO]                   ColorPickerAreaConnector will be in the ColorPickerAreaConnector bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.colorpicker.ColorPickerState as a bean
+[INFO]             Populating RichTextAreaConnector bundle
+[INFO]                Visiting RichTextAreaConnector with ConnectorInitVisitor
+[INFO]                   RichTextAreaConnector will be in the RichTextAreaConnector bundle
+[INFO]             Populating ColorPickerGradientConnector bundle
+[INFO]                Visiting ColorPickerGradientConnector with ConnectorInitVisitor
+[INFO]                   ColorPickerGradientConnector will be in the ColorPickerGradientConnector bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.colorpicker.ColorPickerGradientState as a bean
+[INFO]             Populating ColorPickerGridConnector bundle
+[INFO]                Visiting ColorPickerGridConnector with ConnectorInitVisitor
+[INFO]                   ColorPickerGridConnector will be in the ColorPickerGridConnector bundle
+[INFO]                Will serialize class com.vaadin.shared.ui.colorpicker.ColorPickerGridState as a bean
+[INFO]    Adding '1' new generated units
+[INFO]       [WARN] Warnings in 'ithub\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\target\.generated\com\vaadin\client\metadata\ConnectorBundleLoaderImpl.java'
+[INFO]          [WARN] Line 4004: Referencing deprecated class 'com.vaadin.shared.ui.progressindicator.ProgressIndicatorState'
+[INFO]          [WARN] Line 4007: Referencing deprecated class 'com.vaadin.shared.ui.progressindicator.ProgressIndicatorState'
+[INFO]          [WARN] Line 4010: Referencing deprecated class 'com.vaadin.shared.ui.progressindicator.ProgressIndicatorState'
+[INFO]          See snapshot: C:\Users\vuhoan1\AppData\Local\Temp\com.vaadin.client.metadata.ConnectorBundleLoaderImpl4198533341521286894.java
+[INFO]    Computing all possible rebind results for 'com.vaadin.client.ui.dd.VAcceptCriterionFactory'
+[INFO]       Rebinding com.vaadin.client.ui.dd.VAcceptCriterionFactory
+[INFO]          Invoking generator com.vaadin.server.widgetsetutils.AcceptCriteriaFactoryGenerator
+[INFO]             Detecting available criteria ...
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.AcceptAll
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.And
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.ContainsDataFlavor
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.SourceIs
+[INFO]             creating mapping for com.vaadin.ui.AbstractSelect.TargetItemIs
+[INFO]             creating mapping for com.vaadin.ui.AbstractSelect.AcceptItem
+[INFO]             creating mapping for com.vaadin.ui.Table.TableDropCriterion
+[INFO]             creating mapping for com.vaadin.ui.Tree.TreeDropCriterion
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.Not
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.Or
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.ServerSideCriterion
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.SourceIsTarget
+[INFO]             creating mapping for com.vaadin.event.dd.acceptcriteria.TargetDetailIs
+[INFO]             creating mapping for com.vaadin.ui.Tree.TargetInSubtree
+[INFO]             Done. (0seconds)
+[INFO]    Compiling 1 permutation
+[INFO]       Compiling permutation 0...
+[INFO]    Compile of permutations succeeded
+[INFO]    Compilation succeeded -- 70.031s
+[INFO] Linking into C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\target\classes\VAADIN\widgetsets\fi.hut.cs.drumbeat.ifc.convert.ifc2ld.web.MyAppWidgetset
+[INFO]    Link succeeded
+[INFO]    Linking succeeded -- 0.517s
+[INFO] 
+[INFO] --- maven-war-plugin:2.3:war (default-war) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [drumbeat-ifc.convert.ifc2ld.web] in [C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\target\drumbeat-ifc.convert.ifc2ld.web-0.2.0-RELEASE]
+[INFO] Processing war project
+[INFO] Copying webapp resources [C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\src\main\webapp]
+[INFO] Webapp assembled in [572 msecs]
+[INFO] Building war: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\target\drumbeat-ifc.convert.ifc2ld.web-0.2.0-RELEASE.war
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ drumbeat-ifc.convert.ifc2ld.web ---
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\target\drumbeat-ifc.convert.ifc2ld.web-0.2.0-RELEASE.war to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.ifc2ld.web\0.2.0-RELEASE\drumbeat-ifc.convert.ifc2ld.web-0.2.0-RELEASE.war
+[INFO] Installing C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-ifc.convert.ifc2ld.web\pom.xml to C:\Users\vuhoan1\.m2\repository\fi\hut\cs\drumbeat\drumbeat-ifc.convert.ifc2ld.web\0.2.0-RELEASE\drumbeat-ifc.convert.ifc2ld.web-0.2.0-RELEASE.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:22 min
+[INFO] Finished at: 2015-10-24T01:57:48+02:00
+[INFO] Final Memory: 29M/327M
+[INFO] ------------------------------------------------------------------------
+
+*****************************************
+BUILDING drumbeat-ifc.convert.ifc2ld.web (completed)
+*****************************************
+
+
+
+
+
+
+*****************************************
+BUILDING drumbeat-test (started)
+*****************************************
+
+[INFO] Scanning for projects...
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]   
+[ERROR]   The project  (C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-test\pom.xml) has 1 error
+[ERROR]     Non-readable POM C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-test\pom.xml: C:\DRUM\!github\drumbeat\drumbeat-ifc2ld\drumbeat-test\pom.xml (The system cannot find the path specified)
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+
+*****************************************
+BUILDING drumbeat-test (completed)
+*****************************************
+
+
+
+
+

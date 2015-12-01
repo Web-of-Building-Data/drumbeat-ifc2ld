@@ -26,9 +26,9 @@ import fi.hut.cs.drumbeat.ifc.convert.ifc2ld.util.Ifc2RdfExportUtil;
 import fi.hut.cs.drumbeat.ifc.convert.stff2ifc.IfcParserException;
 import fi.hut.cs.drumbeat.ifc.convert.stff2ifc.util.IfcParserUtil;
 import fi.hut.cs.drumbeat.rdf.RdfUtils;
-import fi.hut.cs.drumbeat.rdf.modelfactory.JenaModelFactoryBase;
-import fi.hut.cs.drumbeat.rdf.modelfactory.MemoryJenaModelFactory;
-import fi.hut.cs.drumbeat.rdf.modelfactory.config.JenaModelFactoryPoolConfigurationSection;
+import fi.hut.cs.drumbeat.rdf.modelfactory.AbstractJenaProvider;
+import fi.hut.cs.drumbeat.rdf.modelfactory.MemoryJenaProvider;
+import fi.hut.cs.drumbeat.rdf.modelfactory.config.JenaProviderPoolConfigurationSection;
 
 import org.apache.jena.riot.RDFFormat;
 
@@ -91,41 +91,41 @@ public class Ifc2RdfExporter {
 		//
 		// load jena model factory configuration pool
 		//
-		ConfigurationPool<ConfigurationItemEx> jenaModelFactoryConfigurationPool;
+		ConfigurationPool<ConfigurationItemEx> jenaProviderConfigurationPool;
 		if (!StringUtils.isEmptyOrNull(outputSchemaName) || !StringUtils.isEmptyOrNull(outputModelName)) {
-			jenaModelFactoryConfigurationPool = getJenaModelFactoryConfigurationPool();
+			jenaProviderConfigurationPool = getJenaProviderConfigurationPool();
 		} else {
-			jenaModelFactoryConfigurationPool  = null;
+			jenaProviderConfigurationPool  = null;
 		}
 		
 		//
 		// define jena-model factory for the output IFC schema
 		//
-		JenaModelFactoryBase outputSchemaJenaModelFactory = null;		
+		AbstractJenaProvider outputSchemaJenaProvider = null;		
 		if (!StringUtils.isEmptyOrNull(outputSchemaName)) {
-			outputSchemaJenaModelFactory = getJenaModelFactory(jenaModelFactoryConfigurationPool, outputSchemaName);
+			outputSchemaJenaProvider = getJenaProvider(jenaProviderConfigurationPool, outputSchemaName);
 		} else if (!StringUtils.isEmptyOrNull(outputSchemaFilePath)) {
-			outputSchemaJenaModelFactory =  new MemoryJenaModelFactory();			
+			outputSchemaJenaProvider =  new MemoryJenaProvider();			
 		}
 		
 		//
 		// define jena-model factory for the output IFC model 
 		//
-		JenaModelFactoryBase outputModelJenaModelFactory = null;		
+		AbstractJenaProvider outputModelJenaProvider = null;		
 		if (!StringUtils.isEmptyOrNull(outputModelName)) {
-			outputModelJenaModelFactory = getJenaModelFactory(jenaModelFactoryConfigurationPool, outputModelName);
+			outputModelJenaProvider = getJenaProvider(jenaProviderConfigurationPool, outputModelName);
 		} else if (!StringUtils.isEmptyOrNull(outputModelFilePath)) {
-			outputModelJenaModelFactory =  new MemoryJenaModelFactory();			
+			outputModelJenaProvider =  new MemoryJenaProvider();			
 		}
 		
 		//
 		// define jena-model factory for the output IFC model 
 		//
-		JenaModelFactoryBase outputMetaModelJenaModelFactory = null;		
+		AbstractJenaProvider outputMetaModelJenaProvider = null;		
 		if (!StringUtils.isEmptyOrNull(outputMetaModelName)) {
-			outputMetaModelJenaModelFactory = getJenaModelFactory(jenaModelFactoryConfigurationPool, outputMetaModelName);
+			outputMetaModelJenaProvider = getJenaProvider(jenaProviderConfigurationPool, outputMetaModelName);
 		} else if (!StringUtils.isEmptyOrNull(outputMetaModelFilePath)) {
-			outputMetaModelJenaModelFactory =  new MemoryJenaModelFactory();			
+			outputMetaModelJenaProvider =  new MemoryJenaProvider();			
 		}
 
 		try {
@@ -173,30 +173,30 @@ public class Ifc2RdfExporter {
 			}
 			
 			
-			if (outputSchemaJenaModelFactory != null) {
+			if (outputSchemaJenaProvider != null) {
 				for (IfcSchema schema : schemas) {
-					exportSchema(outputSchemaJenaModelFactory, schema, outputLayerName, outputSchemaFilePath, outputFileFormat, gzipOutputFile);
+					exportSchema(outputSchemaJenaProvider, schema, outputLayerName, outputSchemaFilePath, outputFileFormat, gzipOutputFile);
 				}
 			}
 			
 			//
 			// parse model
 			//
-			if (outputModelJenaModelFactory != null || outputMetaModelJenaModelFactory != null) {				
+			if (outputModelJenaProvider != null || outputMetaModelJenaProvider != null) {				
 				IfcModel model = parseModel(inputModelFilePath);
 				
 				//
 				// export model
 				//
-				if (outputModelJenaModelFactory != null) {
-					exportModel(outputModelJenaModelFactory, model, outputLayerName, outputModelFilePath, outputFileFormat, gzipOutputFile);
+				if (outputModelJenaProvider != null) {
+					exportModel(outputModelJenaProvider, model, outputLayerName, outputModelFilePath, outputFileFormat, gzipOutputFile);
 				}
 				
 				//
 				// export meta-model
 				//
-				if (outputMetaModelJenaModelFactory != null) {				
-					exportMetaModel(outputMetaModelJenaModelFactory, model, outputLayerName, outputMetaModelFilePath, outputFileFormat, gzipOutputFile);				
+				if (outputMetaModelJenaProvider != null) {				
+					exportMetaModel(outputMetaModelJenaProvider, model, outputLayerName, outputMetaModelFilePath, outputFileFormat, gzipOutputFile);				
 				}
 				
 			}			
@@ -206,12 +206,12 @@ public class Ifc2RdfExporter {
 			//
 			//  release jena-model factories
 			//
-			if (outputSchemaJenaModelFactory != null) {
-				outputSchemaJenaModelFactory.release();
+			if (outputSchemaJenaProvider != null) {
+				outputSchemaJenaProvider.release();
 			}
 			
-			if (outputModelJenaModelFactory != null) {
-				outputModelJenaModelFactory.release();
+			if (outputModelJenaProvider != null) {
+				outputModelJenaProvider.release();
 			}
 
 		}
@@ -248,27 +248,27 @@ public class Ifc2RdfExporter {
 	 * @return
 	 * @throws ConfigurationParserException
 	 */
-	private static ConfigurationPool<ConfigurationItemEx> getJenaModelFactoryConfigurationPool()
+	private static ConfigurationPool<ConfigurationItemEx> getJenaProviderConfigurationPool()
 			throws ConfigurationParserException {
-		return JenaModelFactoryPoolConfigurationSection.getInstance().getConfigurationPool();
+		return JenaProviderPoolConfigurationSection.getInstance().getConfigurationPool();
 	}
 	
 	/**
 	 * Gets a Jena model factory by name from a pool
-	 * @param jenaModelFactoryConfigurationPool
-	 * @param jenaModelFactoryName
+	 * @param jenaProviderConfigurationPool
+	 * @param jenaProviderName
 	 * @return
 	 * @throws Exception
 	 */
-	private static JenaModelFactoryBase getJenaModelFactory(
-			ConfigurationPool<ConfigurationItemEx> jenaModelFactoryConfigurationPool,
-			String jenaModelFactoryName) throws Exception {
+	private static AbstractJenaProvider getJenaProvider(
+			ConfigurationPool<ConfigurationItemEx> jenaProviderConfigurationPool,
+			String jenaProviderName) throws Exception {
 		
 		try {
-			ConfigurationItemEx configuration = jenaModelFactoryConfigurationPool.getByName(jenaModelFactoryName);
-			return JenaModelFactoryBase.getFactory(configuration);
+			ConfigurationItemEx configuration = jenaProviderConfigurationPool.getByName(jenaProviderName);			
+			return AbstractJenaProvider.getFactory(configuration.getName(), configuration.getType(), configuration.getProperties(), null);
 		} catch(InvalidParameterException e) {
-			throw new IfcException(String.format("Jena model %s is not found", jenaModelFactoryName), e);
+			throw new IfcException(String.format("Jena model %s is not found", jenaProviderName), e);
 		}
 		
 	}
@@ -281,7 +281,7 @@ public class Ifc2RdfExporter {
 	 * @throws IOException
 	 * @throws IfcParserException
 	 */
-	private static List<IfcSchema> parseSchemas(String inputSchemaFilePath) throws IOException, IfcParserException {
+	public static List<IfcSchema> parseSchemas(String inputSchemaFilePath) throws IOException, IfcParserException {
 		logger.info(String.format("Parsing schema from file or folder '%s'", inputSchemaFilePath));
 		final List<IfcSchema> schemas = IfcParserUtil.parseSchemas(inputSchemaFilePath);
 		logger.info("Parsing schema is compeleted");
@@ -290,15 +290,15 @@ public class Ifc2RdfExporter {
 
 	/**
 	 * Exports schema
-	 * @param outputSchemaJenaModelFactory
+	 * @param outputSchemaJenaProvider
 	 * @param schema
 	 * @param outputSchemaFilePath
 	 * @param outputFileFormat
 	 * @param gzipOutputFile 
 	 * @throws Exception
 	 */
-	private static Model exportSchema(
-			JenaModelFactoryBase outputSchemaJenaModelFactory,
+	public static Model exportSchema(
+			AbstractJenaProvider outputSchemaJenaProvider,
 			IfcSchema schema,
 			String conversionContextName,
 			String outputSchemaFilePath,
@@ -307,10 +307,11 @@ public class Ifc2RdfExporter {
 			throws Exception {
 		// export model to RDF graph
 		logger.info("Exporting schema to RDF graph");
-		Model schemaGraph = outputSchemaJenaModelFactory.createModel();
+		Model schemaGraph = outputSchemaJenaProvider.openDefaultModel();
 		if (schemaGraph.supportsTransactions()) {
 			schemaGraph.begin();				
 		}
+		schemaGraph.removeAll();
 		Ifc2RdfExportUtil.exportSchemaToJenaModel(schemaGraph, schema, conversionContextName);
 		if (schemaGraph.supportsTransactions()) {
 			schemaGraph.commit();
@@ -331,7 +332,7 @@ public class Ifc2RdfExporter {
 	 * @throws IOException
 	 * @throws IfcParserException
 	 */
-	private static IfcModel parseModel(String inputModelFilePath) throws IOException, IfcParserException {
+	public static IfcModel parseModel(String inputModelFilePath) throws IOException, IfcParserException {
 		logger.info(String.format("Parsing model from file '%s'", inputModelFilePath));
 		IfcModel model = IfcParserUtil.parseModel(inputModelFilePath);
 		logger.info("Parsing model is completed");
@@ -340,15 +341,15 @@ public class Ifc2RdfExporter {
 	
 	/**
 	 * Exports IFC model to a Jena model (and writes it to a file if needed)
-	 * @param outputModelJenaModelFactory
+	 * @param outputModelJenaProvider
 	 * @param model
 	 * @param contextName
 	 * @param outputModelFilePath
 	 * @param outputFileLanguage
 	 * @throws Exception
 	 */
-	private static Model exportModel(
-			JenaModelFactoryBase outputModelJenaModelFactory,
+	public static Model exportModel(
+			AbstractJenaProvider outputModelJenaProvider,
 			IfcModel model,
 			String conversionContextName,
 			String outputModelFilePath,
@@ -363,11 +364,12 @@ public class Ifc2RdfExporter {
 		
 		// export model to RDF graph
 		logger.info("Exporting model to RDF graph");
-		Model modelGraph = outputModelJenaModelFactory.createModel();
+		Model modelGraph = outputModelJenaProvider.openDefaultModel();
 		if (modelGraph.supportsTransactions()) {
 			logger.info("Enabling RDF graph transactions");
 			modelGraph.begin();				
 		}
+		modelGraph.removeAll();
 		Ifc2RdfExportUtil.exportModelToJenaModel(modelGraph, model, conversionContextName);
 		if (modelGraph.supportsTransactions()) {
 			logger.info("Committing RDF graph transactions");
@@ -385,15 +387,15 @@ public class Ifc2RdfExporter {
 	
 	/**
 	 * Exports IFC model to a Jena model (and writes it to a file if needed)
-	 * @param outputModelJenaModelFactory
+	 * @param outputModelJenaProvider
 	 * @param model
 	 * @param contextName
 	 * @param outputModelFilePath
 	 * @param outputFileLanguage
 	 * @throws Exception
 	 */
-	private static Model exportMetaModel(
-			JenaModelFactoryBase outputMetaModelJenaModelFactory,
+	public static Model exportMetaModel(
+			AbstractJenaProvider outputMetaModelJenaProvider,
 			IfcModel model,
 			String conversionContextName,
 			String outputMetaModelFilePath,
@@ -408,11 +410,12 @@ public class Ifc2RdfExporter {
 		
 		// export model to RDF graph
 		logger.info("Exporting meta model to RDF graph");
-		Model modelGraph = outputMetaModelJenaModelFactory.createModel();
+		Model modelGraph = outputMetaModelJenaProvider.openDefaultModel();
 		if (modelGraph.supportsTransactions()) {
 			logger.info("Enabling RDF graph transactions");
 			modelGraph.begin();				
 		}
+		modelGraph.removeAll();
 		Ifc2RdfExportUtil.exportMetaModelToJenaModel("http://example.org", modelGraph, model, conversionContextName);
 		if (modelGraph.supportsTransactions()) {
 			logger.info("Committing RDF graph transactions");

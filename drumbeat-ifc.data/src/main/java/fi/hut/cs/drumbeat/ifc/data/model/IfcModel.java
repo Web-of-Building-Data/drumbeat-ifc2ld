@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.metamodel.IfcMetaModel;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcLinkInfo;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;

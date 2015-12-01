@@ -2,61 +2,44 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fi.hut.cs.drumbeat</groupId>
+	<parent>
+		<groupId>fi.hut.cs.drumbeat</groupId>
+		<artifactId>drumbeat-ifc2ld-parent</artifactId>
+		<version>0.5.0-SNAPSHOT</version>
+		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
+	</parent>
+
 	<artifactId>drumbeat-ifc.convert.ifc2ld.cli</artifactId>
-	<version>0.1.0-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>drumbeat-ifc.convert.ifc2ld.cli</name>
 	<url>http://maven.apache.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<!-- All versions updated on 04.05.2015 -->
-		<drumbeat.groupId>${project.groupId}</drumbeat.groupId>
-		<drumbeat.version>${project.version}</drumbeat.version>
-		<commons-cli.version>1.2</commons-cli.version>
-		<commons-codec.version>1.10</commons-codec.version>
-		<commons-lang3.version>3.3.2</commons-lang3.version>
-		<httpcomponents.version>4.4</httpcomponents.version>
-		<jackson.version>2.5.1</jackson.version>
-		<jena.version>2.12.1</jena.version>
-		<jena-iri.version>1.1.1</jena-iri.version>
-		<jsonld-java.version>0.5.1</jsonld-java.version>
-		<log4j.version>1.2.17</log4j.version>
-		<slf4j.version>1.7.10</slf4j.version>
-		<xercesImpl.version>2.11.0</xercesImpl.version>
-		<xml-apis.version>1.4.01</xml-apis.version>
-		<javax-api.version>2.2.12</javax-api.version>
-
-	</properties>
-
 	<dependencies>
 
 		<!-- Drumbeat -->
 		<dependency>
-			<groupId>${drumbeat.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>drumbeat-ifc.convert.ifc2ld</artifactId>
-			<version>${drumbeat.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>${drumbeat.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>drumbeat-ifc.convert.stff2ifc</artifactId>
-			<version>${drumbeat.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>${drumbeat.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>drumbeat-ifc.processing.grounding.ifc</artifactId>
-			<version>${drumbeat.version}</version>
+			<version>${project.version}</version>
 		</dependency>
-
+		
 		<dependency>
-			<groupId>${drumbeat.groupId}</groupId>
-			<artifactId>drumbeat-rdf.modelfactory</artifactId>
-			<version>${drumbeat.version}</version>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>drumbeat-rdf.jena.provider</artifactId>
+			<version>${drumbeat.jena.version}</version>
 		</dependency>
 
 		<!-- JUnit -->

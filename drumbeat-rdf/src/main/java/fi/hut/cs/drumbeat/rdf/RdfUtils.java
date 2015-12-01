@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.zip.GZIPOutputStream;
 
 import org.apache.jena.riot.RDFDataMgr;
@@ -22,6 +26,7 @@ import fi.hut.cs.drumbeat.common.file.FileManager;
 public class RdfUtils {
 	
 	private static final Logger logger = Logger.getRootLogger();
+	private static Map<String, RDFFormat> rdfFormats;
 
 	public static String getShortString(RDFNode node) {
 		if (node.isLiteral()) {
@@ -89,14 +94,19 @@ public class RdfUtils {
 		 return count;
 	}
 	
-	public static void exportJenaModelToRdfFile(Model model, String filePath, RDFFormat format, boolean gzip) throws IOException {
+	public static String formatRdfFileName(String filePath, RDFFormat format, boolean gzip) {
 		String fileExtension = RdfVocabulary.getRdfFileExtension(format);
 		if (gzip) {
 			fileExtension += ".gz";
 		}
 				
 		String filePathWithExtension = FileManager.createFileNameWithExtension(filePath, fileExtension);
+		return filePathWithExtension;
+	}
+	
+	public static String exportJenaModelToRdfFile(Model model, String filePath, RDFFormat format, boolean gzip) throws IOException {
 		
+		String filePathWithExtension = formatRdfFileName(filePath, format, gzip);		
 
 		logger.info(String.format("Exporting graph to file '%s' with format '%s'", filePathWithExtension, format));
 		File file = FileManager.createFile(filePathWithExtension);
@@ -111,6 +121,29 @@ public class RdfUtils {
 			out.close();
 		}
 		logger.info(String.format("Exporting graph to file is completed, file size: %s", FileManager.getReadableFileSize(file.length())));
+		
+		return filePathWithExtension;
 	}
+	
+	public static Map<String, RDFFormat> getRdfFormatMap() {
+		
+		if (rdfFormats == null) {
+			rdfFormats = new TreeMap<>();
+			Field[] declaredFields = RDFFormat.class.getDeclaredFields();
+			for (Field field : declaredFields) {
+			    if (Modifier.isStatic(field.getModifiers()) && field.getType().equals(RDFFormat.class)) {			    	
+			    	try {
+						rdfFormats.put(field.getName(), (RDFFormat)field.get(null));
+					} catch (Exception e) {
+						throw new RuntimeException("Unexpected error: " + e.getMessage(), e);
+					}
+			    }
+			}			
+		}
+		
+		return rdfFormats;
+		
+	}
+	
 	
 }

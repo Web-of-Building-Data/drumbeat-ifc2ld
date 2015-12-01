@@ -6,7 +6,7 @@ import java.util.List;
 
 import fi.hut.cs.drumbeat.common.string.StringUtils;
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 
 
 public class IfcSelectTypeInfo extends IfcNonEntityTypeInfo {

@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import fi.hut.cs.drumbeat.common.converters.CalendarConverter;
-import fi.hut.cs.drumbeat.ifc.common.IfcVocabulary;
+import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcEntity;
 
 public class IfcStepFileName extends IfcStepEntity {

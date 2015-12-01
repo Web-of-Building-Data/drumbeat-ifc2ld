@@ -1,5 +1,6 @@
 package fi.hut.cs.drumbeat.rdf.modelfactory;
 
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
@@ -96,5 +97,9 @@ public abstract class JenaModelFactoryBase {
 	public abstract Model getModel() throws Exception;
 	
 	public abstract void release() throws Exception;
+	
+//	public abstract void importModel(Model model) throws Exception;
+//	
+//	public abstract void importModel(InputStream in) throws Exception;
 	
 }

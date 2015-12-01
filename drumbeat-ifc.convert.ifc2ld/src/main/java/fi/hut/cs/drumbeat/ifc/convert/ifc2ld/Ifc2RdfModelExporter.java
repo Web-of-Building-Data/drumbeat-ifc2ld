@@ -1,12 +1,10 @@
 package fi.hut.cs.drumbeat.ifc.convert.ifc2ld;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-
-
-
-
+import com.hp.hpl.jena.rdf.model.AnonId;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
@@ -16,6 +14,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import com.hp.hpl.jena.vocabulary.XSD;
 
+import fi.hut.cs.drumbeat.common.collections.Pair;
 import fi.hut.cs.drumbeat.ifc.common.IfcException;
 import fi.hut.cs.drumbeat.ifc.data.model.*;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcAttributeInfo;
@@ -25,37 +24,55 @@ import fi.hut.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.hut.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 import fi.hut.cs.drumbeat.rdf.OwlProfileList;
 import fi.hut.cs.drumbeat.rdf.RdfVocabulary;
-import fi.hut.cs.drumbeat.rdf.export.RdfExportAdapter;
 
 
-public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
+public class Ifc2RdfModelExporter {
 	
-	private IfcSchema ifcSchema;
-	private IfcModel ifcModel;
-	private Model jenaModel;
+	private final IfcSchema ifcSchema;
+	private final IfcModel ifcModel;
+	private final Ifc2RdfConversionContext context;
+	private final Model jenaModel;
+	private final Ifc2RdfConverter converter;
+	private final String modelNamespacePrefix;
+	private final String modelNamespaceUri;
 	
-	private Ifc2RdfConversionContext context;
-	private OwlProfileList owlProfileList;
-	private RdfExportAdapter adapter;
+	private final OwlProfileList owlProfileList;
 	
-	public Ifc2RdfModelExporter(IfcModel ifcModel, Ifc2RdfConversionContext context, RdfExportAdapter rdfExportAdapter) {
-		super(context, rdfExportAdapter);
+	public Ifc2RdfModelExporter(IfcModel ifcModel, Ifc2RdfConversionContext context, Model jenaModel) {
 		
 		this.ifcSchema = ifcModel.getSchema();
 		this.ifcModel = ifcModel;		
 		this.context = context;
 		this.owlProfileList = context.getOwlProfileList();
-		this.jenaModel = getJenaModel();
-		adapter = rdfExportAdapter;
+		this.jenaModel = jenaModel;
 		
-		String modelNamespacePrefix = context.getModelPrefix();
-		String modelNamespaceUri = String.format(context.getModelNamespaceFormat(), ifcSchema.getVersion(), context.getName());
+		converter = new Ifc2RdfConverter(context, ifcSchema);
+//		if (context.getOntologyNamespaceUriFormat() != null) {
+//			converter.setIfcOntologyNamespaceUri(String.format(
+//					context.getOntologyNamespaceUriFormat(),
+//					ifcSchema.getVersion(), context.getName()));
+//		}
 		
-		String ontologyNamespaceUri = String.format(context.getOntologyNamespaceFormat(), ifcSchema.getVersion(), context.getName());
-		super.setOntologyNamespaceUri(ontologyNamespaceUri);		
+		if (context.getModelNamespacePrefix() != null) {
+			modelNamespacePrefix = context.getModelNamespacePrefix();
+		} else {
+			throw new IllegalArgumentException("Model's namespace prefix is undefined");
+		}
 		
-		super.setModelNamespacePrefix(modelNamespacePrefix);
-		super.setModelNamespaceUri(modelNamespaceUri);		
+		if (context.getModelNamespaceUriFormat() != null) {
+			modelNamespaceUri = String.format(context.getModelNamespaceUriFormat(), ifcSchema.getVersion(), context.getName());
+		} else {
+			throw new IllegalArgumentException("Model's namespace URI format is undefined");
+		}
+		
+		
+//		String ontologyNamespaceUri = String.format(context.getOntologyNamespaceFormat(), ifcSchema.getVersion(), context.getName());
+		
+		// TODO: check URIs
+//		converter.setOntologyNamespaceUri(ontologyNamespaceUri);		
+//		
+//		converter.setModelNamespacePrefix(modelNamespacePrefix);
+//		converter.setModelNamespaceUri(modelNamespaceUri);		
 	}
 	
 	public Model export() throws IfcException {
@@ -63,145 +80,242 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 		//
 		// write header and prefixes
 		//
-		adapter.startExport();
+		exportOntologyHeader();
 		
-		adapter.setNamespacePrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.RDF.BASE_PREFIX, RDF.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.RDFS.BASE_PREFIX, RDFS.getURI());
-		adapter.setNamespacePrefix(RdfVocabulary.XSD.BASE_PREFIX, XSD.getURI());	
-		
-		
-//		if (context.isEnabledOption(Ifc2RdfConversionOptionsEnum.ForceConvertRdfListToOloOrderedList)) {
-//			adapter.setNamespacePrefix(RdfVocabulary.OLO.BASE_PREFIX, RdfVocabulary.OLO.BASE_URI);
-//		}
-//		
-		adapter.setNamespacePrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX, Ifc2RdfVocabulary.EXPRESS.getBaseUri());		
-		adapter.setNamespacePrefix(Ifc2RdfVocabulary.IFC.BASE_PREFIX, getOntologyNamespaceUri());
-		adapter.exportEmptyLine();
-		
-		adapter.setNamespacePrefix(getModelNamespacePrefix(), getModelNamespaceUri());
-		adapter.exportEmptyLine();
+		jenaModel.setNsPrefix(modelNamespacePrefix, modelNamespaceUri);
+		//adapter.exportEmptyLine();
 
-		String conversionOptionsString = context.getConversionOptions().toString()
+		String conversionParamsString = context.getConversionParams().toString()
 				.replaceFirst("\\[", "[\r\n\t\t\t ")
 				.replaceFirst("\\]", "\r\n\t\t]")
 				.replaceAll(",", "\r\n\t\t\t");
 		
-		conversionOptionsString = String.format("OWL profile: %s.\r\n\t\tConversion options: %s",
+		conversionParamsString = String.format("OWL profile: %s.\r\n\t\tConversion options: %s",
 				owlProfileList.getOwlProfileIds(),
-				conversionOptionsString); 
+				conversionParamsString); 
 		
-		adapter.exportOntologyHeader(getModelNamespaceUri(), "1.0", conversionOptionsString);		
+		Resource ontology = jenaModel.createResource(converter.getIfcOntologyNamespaceUri());
+		ontology.addProperty(RDF.type, OWL.Ontology);
+		String version = "1.0";
+		ontology.addProperty(OWL.versionInfo, String.format("v%1$s %2$tY/%2$tm/%2$te %2$tH:%2$tM:%2$tS", version, new Date()));
+		if (conversionParamsString != null) {
+			//ontology.addProperty(RDFS.comment, String.format("\"\"\"%s\"\"\"", comment));
+			ontology.addProperty(RDFS.comment, conversionParamsString);
+		}
 		
 		for (IfcEntity entity : ifcModel.getEntities()) {
 			writeEntity(entity);
 		}
 		
-		adapter.endExport();
+		//adapter.endExport();
 		
 		return jenaModel;
 	}
+	
+	
+	private void exportOntologyHeader() {
+		
+		// define owl:
+		jenaModel.setNsPrefix(RdfVocabulary.OWL.BASE_PREFIX, OWL.getURI());
+
+		// define rdf:
+		jenaModel.setNsPrefix(RdfVocabulary.RDF.BASE_PREFIX, RDF.getURI());
+
+		// define rdfs:
+		jenaModel.setNsPrefix(RdfVocabulary.RDFS.BASE_PREFIX, RDFS.getURI());
+
+		// define xsd:
+		jenaModel.setNsPrefix(RdfVocabulary.XSD.BASE_PREFIX, XSD.getURI());
+
+		// define expr:
+		jenaModel.setNsPrefix(Ifc2RdfVocabulary.EXPRESS.BASE_PREFIX,
+				Ifc2RdfVocabulary.EXPRESS.getBaseUri());
+
+		if (!context.getConversionParams().ignoreIfcSchema()) {
+			// define ifc:
+			jenaModel.setNsPrefix(Ifc2RdfVocabulary.IFC.BASE_PREFIX,
+					converter.getIfcOntologyNamespaceUri());
+		}
+
+		// 
+
+		String conversionParamsString = context.getConversionParams()
+				.toString().replaceFirst("\\[", "[\r\n\t\t\t ")
+				.replaceFirst("\\]", "\r\n\t\t]").replaceAll(",", "\r\n\t\t\t");
+
+		// TODO: Format ontology comment here
+		conversionParamsString = String.format(
+				"OWL profile: %s.\r\n\t\tConversion options: %s",
+				context.getOwlProfileList().getOwlProfileIds(), conversionParamsString);
+
+		// adapter.exportOntologyHeader(converter.getIfcOntologyNamespaceUri(), "1.0",
+		// conversionParamsString);
+
+		Resource ontology = jenaModel.createResource(converter.getIfcOntologyNamespaceUri());
+		ontology.addProperty(RDF.type, OWL.Ontology);
+		String version = "1.0";
+		ontology.addProperty(OWL.versionInfo, String.format(
+				"v%1$s %2$tY/%2$tm/%2$te %2$tH:%2$tM:%2$tS", version,
+				new Date()));
+		if (conversionParamsString != null) {
+			// ontology.addProperty(RDFS.comment,
+			// String.format("\"\"\"%s\"\"\"", comment));
+			ontology.addProperty(RDFS.comment, conversionParamsString);
+		}
+		
+	}
+	
 	
 	private void writeEntity(IfcEntity entity) {
 		if (entity.isDuplicated()) {
 			return;
 		}
 		
-		Resource entityResource = convertEntityToResource(entity);
+		final boolean nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
+		
+		String parentNodeId = nameAllBlankNodes ? Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT : null;
+		long childNodeCount = entity.getLineNumber();		
+
+		Resource entityResource = convertEntityToResource(entity, parentNodeId, childNodeCount);
+		
+		parentNodeId = entityResource.getLocalName();
+		childNodeCount = 1L;
 		
 		IfcEntityTypeInfo entityTypeInfo = entity.getTypeInfo();		
-		entityResource.addProperty(RDF.type, createUriResource(super.formatTypeName(entityTypeInfo)));
+		entityResource.addProperty(RDF.type, jenaModel.createResource(converter.formatTypeName(entityTypeInfo)));
+		
+		
 		
 		for (IfcLink link : entity.getOutgoingLinks()) {
-			writeAttribute(entityResource, link);
+			writeAttribute(entityResource, link, parentNodeId, childNodeCount++);
 		}
 		
 		for (IfcLiteralAttribute attribute : entity.getLiteralAttributes()) {
-			writeAttribute(entityResource, attribute);
+			writeAttribute(entityResource, attribute, parentNodeId, childNodeCount++);
 		}
 		
-		if (context.isEnabledOption(Ifc2RdfConversionOptionsEnum.ExportDebugInfo)) {
+		if ((Boolean)context.getConversionParams().getParam(Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO).getValue()) {
 		
 //			if (entity.isLiteralValueContainer()) {
-//				adapter.exportTriple(entityResource, RDF.type, super.createUriResource(
-//						super.formatOntologyName(Ifc2RdfVocabulary.IFC.LITERAL_VALUE_CONTAINER_ENTITY)));
+//				jenaModel.add(entityResource, RDF.type, jenaModel.createResource(
+//						converter.formatOntologyName(Ifc2RdfVocabulary.IFC.LITERAL_VALUE_CONTAINER_ENTITY)));
 //			}
 			
 //			if (entity.isSharedBlankNode()) {
-//				adapter.exportTriple(
+//				jenaModel.add(
 //						entityResource,
 //						RDF.type,
-//						super.createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.SUPER_ENTITY)));				
+//						jenaModel.createResource(converter.formatOntologyName(Ifc2RdfVocabulary.IFC.SUPER_ENTITY)));				
 //			}		
 //			
 //			
 //			if (entity.hasName()) {
 //				String entityRawName = entity.getRawName();
 //				if (!entityRawName.equals(entity.getName())) {
-//					adapter.exportTriple(
+//					jenaModel.add(
 //							entityResource,
-//							super.createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.RAW_NAME)).as(Property.class),
+//							jenaModel.createResource(converter.formatOntologyName(Ifc2RdfVocabulary.IFC.RAW_NAME)).as(Property.class),
 //									jenaModel.createTypedLiteral(entityRawName));
 //				}
 //			}
 			
 			String debugMessage = entity.getDebugMessage();
 			if (debugMessage != null) {
-				adapter.exportTriple(
+				jenaModel.add(
 				entityResource,
-				super.createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.PROPERTY_DEBUG_MESSAGE)).as(Property.class),
+				jenaModel.createResource(converter.formatIfcOntologyName(Ifc2RdfVocabulary.IFC.PROPERTY_DEBUG_MESSAGE)).as(Property.class),
 						jenaModel.createTypedLiteral(debugMessage));				
 			}
 			
-			adapter.exportTriple(
+			jenaModel.add(
 					entityResource,
-					super.createUriResource(super.formatOntologyName(Ifc2RdfVocabulary.IFC.PROPERTY_LINE_NUMBER_PROPERTY)).as(Property.class),
+					jenaModel.createResource(converter.formatIfcOntologyName(Ifc2RdfVocabulary.IFC.PROPERTY_LINE_NUMBER_PROPERTY)).as(Property.class),
 					jenaModel.createTypedLiteral(entity.getLineNumber()));
 		}		
 
-		adapter.exportEmptyLine();
+		//adapter.exportEmptyLine();
 	}
 	
-	private void writeAttribute(Resource entityResource, IfcAttribute attribute) {		
+	private void writeAttribute(Resource entityResource, IfcAttribute attribute, String parentNodeId, long childNodeCount) {		
 		IfcAttributeInfo attributeInfo = attribute.getAttributeInfo();
 		Property attributeResource = convertAttributeInfoToResource(attributeInfo);
 		IfcValue value = attribute.getValue();
-		adapter.exportTriple(entityResource, attributeResource, convertValueToNode(value, attributeInfo.getAttributeTypeInfo()));
+		jenaModel.add(entityResource, attributeResource, convertValueToNode(value, attributeInfo.getAttributeTypeInfo(), parentNodeId, childNodeCount));
 	}
 	
-	public RDFNode convertValueToNode(IfcValue value, IfcTypeInfo typeInfo) {
+	/**
+	 * Converts any {@link IfcValue} value to {@link RDFNode}
+	 * @param value
+	 * @param typeInfo
+	 * @return
+	 */
+	public RDFNode convertValueToNode(IfcValue value, IfcTypeInfo typeInfo, String parentNodeId, long childNodeCount) {
 		if (typeInfo instanceof IfcCollectionTypeInfo) {
-			return convertListToResource((IfcCollectionValue<?>) value, (IfcCollectionTypeInfo)typeInfo);
+			return convertListToResource((IfcCollectionValue<?>) value, (IfcCollectionTypeInfo)typeInfo, parentNodeId, childNodeCount);
 		} else {
 			if (value instanceof IfcEntityBase) {
-				return convertEntityToResource((IfcEntity) value);
+				return convertEntityToResource((IfcEntity) value, parentNodeId, childNodeCount);
 			} else {
-				return convertLiteralToNode((IfcLiteralValue) value);
+				assert(value instanceof IfcLiteralValue);
+				return converter.convertLiteralValue((IfcLiteralValue) value, jenaModel);
 			}
 		}
 	}
 	
-	public Resource convertListToResource(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo) {
+	public Resource convertListToResource(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo,
+			String parentNodeId, long childNodeCount)
+	{		
+		final String convertCollectionsTo = context.getConversionParams().convertCollectionsTo();
+		final boolean nameAllBlanksNodes = context.getConversionParams().nameAllBlankNodes();
+		
+		
+		
+		switch (convertCollectionsTo) {
+		case Ifc2RdfConversionParams.VALUE_DRUMMOND_LIST:
+			
+			break;
+
+		default:
+			break;
+		}
+		
+		Resource listResource;
+		String listResourceName;
+		if (nameAllBlanksNodes) {
+			assert(parentNodeId != null);
+			listResourceName = String.format("%s_%d", parentNodeId, childNodeCount);
+			listResource = jenaModel.createResource(formatModelName(listResourceName));			
+		} else {
+			listResourceName = null;
+			listResource = jenaModel.createResource();
+		}
 		
 		IfcTypeInfo itemTypeInfo = collectionTypeInfo.getItemTypeInfo();
 		
 		List<RDFNode> nodeList = new ArrayList<>();
+		long count = 1;
 		for (IfcValue value : listValue.getSingleValues()) {
-			nodeList.add(convertValueToNode(value, itemTypeInfo));
+			nodeList.add(convertValueToNode(value, itemTypeInfo, listResourceName, count++));
 		}
 		
 		int length = nodeList.size();
 		
-		Resource listResource = super.createAnonResource();
-		Resource typeResource = super.createUriResource(super.formatTypeName(collectionTypeInfo)); 
+		
+		Resource typeResource = jenaModel.createResource(converter.formatTypeName(collectionTypeInfo)); 
 		listResource.addProperty(RDF.type, typeResource);
 		listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.size, jenaModel.createTypedLiteral(length));
 		listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.isOrdered,
 				collectionTypeInfo.isSorted() ? Ifc2RdfVocabulary.EXPRESS.TRUE : Ifc2RdfVocabulary.EXPRESS.FALSE);
-//		listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.itemType, super.createUriResource(super.formatTypeName(itemTypeInfo)));
+//		listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.itemType, jenaModel.createResource(converter.formatTypeName(itemTypeInfo)));
 		
 		for (int i = 0; i < nodeList.size(); ++i) {
-			Resource slotResource = super.createAnonResource();
+			Resource slotResource;
+			if (nameAllBlanksNodes) {
+				String slotResourceName = String.format("%s_slot_%d", listResourceName, i+1);
+				slotResource = jenaModel.createResource(formatModelName(slotResourceName));
+			} else {
+				slotResource = jenaModel.createResource();
+			}
 			slotResource.addProperty(Ifc2RdfVocabulary.EXPRESS.index, jenaModel.createTypedLiteral(i + 1));
 			slotResource.addProperty(Ifc2RdfVocabulary.EXPRESS.item, nodeList.get(i));
 			listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.slot, slotResource);
@@ -210,17 +324,33 @@ public class Ifc2RdfModelExporter extends Ifc2RdfExporterBase {
 		return listResource;			
 	}
 	
-	public Resource convertEntityToResource(IfcEntity value) {
-		IfcEntity entity = (IfcEntity)value;
+	public Resource convertEntityToResource(IfcEntity value, String parentBlankNodeId, long childNodeCount) {
+		IfcEntity entity = (IfcEntity)value;		
 		if (entity.hasName()) {
-			return super.createUriResource(super.formatModelName(entity.getName()));
+			return jenaModel.createResource(formatModelName(entity.getName()));
 		} else {
-			return super.createAnonResource(String.format(Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT, entity.getLineNumber()));
+			final boolean nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
+			String nodeName = String.format("%s_%d", parentBlankNodeId, childNodeCount);
+			if (nameAllBlankNodes) {
+				return jenaModel.createResource(formatModelName(nodeName));				
+			} else {
+				return jenaModel.createResource(new AnonId(nodeName));				
+			}
 		}
 	}
 	
 	public Property convertAttributeInfoToResource(IfcAttributeInfo attributeInfo) {
-		return super.createUriResource(super.formatAttributeName(attributeInfo)).as(Property.class);		
+		return jenaModel.createResource(converter.formatAttributeName(attributeInfo)).as(Property.class);		
 	}
+	
+	/**
+	 * Creates a URI in the IFC data namespace 
+	 * @param name
+	 * @return
+	 */
+	public String formatModelName(String name) {
+		return modelNamespaceUri + name;
+	}
+	
 	
 }

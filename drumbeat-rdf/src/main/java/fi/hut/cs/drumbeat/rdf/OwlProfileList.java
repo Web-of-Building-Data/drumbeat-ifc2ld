@@ -2,44 +2,60 @@ package fi.hut.cs.drumbeat.rdf;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
-
-import fi.hut.cs.drumbeat.rdf.OwlProfile.RdfTripleObjectTypeEnum;
 
 public class OwlProfileList extends ArrayList<OwlProfile> {
 	
 	private static final long serialVersionUID = 1L;
+	
+	public OwlProfileList() {		
+	}
 
-	public OwlProfileList(String[] owlProfileNames) {
+	public OwlProfileList(String... owlProfileNames) {
 		for (String owlProfileName : owlProfileNames) {
-			OwlProfileEnum owlProfileEnum = OwlProfileEnum.valueOf(owlProfileName.trim());
-			add(new OwlProfile(owlProfileEnum));
+			OwlProfileEnum owlProfileId = OwlProfileEnum.valueOf(owlProfileName.trim());
+			add(new OwlProfile(owlProfileId));
 		}		
 	}
 	
+	public OwlProfileList(OwlProfileEnum... owlProfileIds) {
+		for (OwlProfileEnum owlProfileId : owlProfileIds) {
+			add(new OwlProfile(owlProfileId));
+		}		
+	}
+
+	public OwlProfileList(OwlProfile... owlProfiles) {
+		for (OwlProfile owlProfile : owlProfiles) {
+			add(owlProfile);
+		}		
+	}
+
 	public List<OwlProfileEnum> getOwlProfileIds() {
 		return this.stream().map(OwlProfile::getOwlProfileId).collect(Collectors.toList());
 	}
 	
-	public boolean supportsRdfProperty(Resource property, EnumSet<RdfTripleObjectTypeEnum> tripleObjectType) {
+	public boolean supportsStatement(Property property, RDFNode object) {
 		for (OwlProfile owlProfile : this) {
-			if (!owlProfile.supportsRdfProperty(property, tripleObjectType)) {
+			if (!owlProfile.supportsStatement(property, object)) {
 				return false;
 			}
 		}
 		return true;
 	}
 	
-	public Resource getFirstSupportedType(Collection<Resource> types) {
+	
+	
+	public Resource getFirstSupportedDatatype(Collection<Resource> datatypes) {
 		
-		for (Resource type : types) {
+		for (Resource type : datatypes) {
 			boolean isSupported = true;
 			for (OwlProfile profile : this) {
-				if (!profile.supportXsdType(type)) {
+				if (!profile.supportDataType(type)) {
 					isSupported = false;
 				}
 			}
