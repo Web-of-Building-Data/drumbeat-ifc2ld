@@ -281,7 +281,7 @@ public class Ifc2RdfExporter {
 	 * @throws IOException
 	 * @throws IfcParserException
 	 */
-	private static List<IfcSchema> parseSchemas(String inputSchemaFilePath) throws IOException, IfcParserException {
+	public static List<IfcSchema> parseSchemas(String inputSchemaFilePath) throws IOException, IfcParserException {
 		logger.info(String.format("Parsing schema from file or folder '%s'", inputSchemaFilePath));
 		final List<IfcSchema> schemas = IfcParserUtil.parseSchemas(inputSchemaFilePath);
 		logger.info("Parsing schema is compeleted");
