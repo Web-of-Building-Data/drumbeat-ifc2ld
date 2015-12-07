@@ -1,8 +1,10 @@
 package fi.hut.cs.drumbeat.rdf;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -102,7 +104,7 @@ public class RdfUtils {
 				
 		String filePathWithExtension = FileManager.createFileNameWithExtension(filePath, fileExtension);
 		return filePathWithExtension;
-	}
+	}	
 	
 	public static String exportJenaModelToRdfFile(Model model, String filePath, RDFFormat format, boolean gzip) throws IOException {
 		
@@ -123,6 +125,11 @@ public class RdfUtils {
 		logger.info(String.format("Exporting graph to file is completed, file size: %s", FileManager.getReadableFileSize(file.length())));
 		
 		return filePathWithExtension;
+	}
+	
+	public static void importRdfFileToJenaModel(Model model, String filePath) throws IOException {		
+		InputStream in = new FileInputStream(filePath);
+		RDFDataMgr.read(model, in, RdfVocabulary.getRdfLang(filePath));
 	}
 	
 	public static Map<String, RDFFormat> getRdfFormatMap() {
