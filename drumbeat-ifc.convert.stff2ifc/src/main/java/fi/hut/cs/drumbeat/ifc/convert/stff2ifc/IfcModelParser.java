@@ -73,6 +73,12 @@ public class IfcModelParser  {
 			//
 			// parse entities
 			//
+			statement = lineReader.getNextStatement();
+			
+			if (!statement.equalsIgnoreCase(IfcVocabulary.StepFormat.DATA)) {
+				throw new IfcParserException("Expected statement: " + IfcVocabulary.StepFormat.DATA);
+			}
+			
 			List<IfcEntity> entities = new IfcModelSectionParser().parseEntities(lineReader, schema, false, false);
 			model.addEntities(entities);
 

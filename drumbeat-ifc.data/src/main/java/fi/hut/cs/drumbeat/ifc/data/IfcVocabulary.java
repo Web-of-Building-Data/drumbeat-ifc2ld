@@ -46,6 +46,7 @@ public class IfcVocabulary {
 		public static final String FILE_EXTENSION = "ifc";	
 
 		public static final String HEADER = "HEADER";
+		public static final String DATA = "DATA";
 		public static final String ENDSEC = "ENDSEC";
 		public static final String EQUAL = StringUtils.EQUAL;
 		

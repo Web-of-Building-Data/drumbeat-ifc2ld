@@ -98,7 +98,11 @@ class IfcModelSectionParser {
 			if (!isHeaderSection) {
 				tokens = RegexUtils.split2(statement, IfcVocabulary.StepFormat.LINE_NUMBER);
 				if (tokens.length != 2) {
-					continue;
+					if (tokens.length == 1 && tokens[0].equalsIgnoreCase(IfcVocabulary.StepFormat.ENDSEC)) {
+						break;
+					}
+					throw new IfcParserException("Invalid statement: '" + statement + "'");
+//					continue;
 				}
 			
 				tokens = RegexUtils.split2(tokens[1], IfcVocabulary.StepFormat.EQUAL);
