@@ -6,6 +6,14 @@ import java.util.Collection;
 import fi.hut.cs.drumbeat.common.SimpleTypes;
 
 public class BooleanParam extends TypedParam<Boolean> {
+	
+	public BooleanParam() {
+		this(null, null);
+	}
+
+	public BooleanParam(String name) {
+		this(name, null);
+	}	
 
 	public BooleanParam(String name, String description) {
 		this(name, description, null);
