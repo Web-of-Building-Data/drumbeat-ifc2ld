@@ -6,6 +6,14 @@ import fi.hut.cs.drumbeat.common.SimpleTypes;
 
 public class IntegerParam extends TypedParam<Integer> {
 
+	public IntegerParam() {
+		this(null, null);
+	}
+
+	public IntegerParam(String name) {
+		this(name, null);
+	}	
+
 	public IntegerParam(String name, String description) {
 		super(name, description);
 	}

@@ -4,6 +4,14 @@ import java.util.Collection;
 
 public class StringParam extends TypedParam<String> {
 
+	public StringParam() {
+		this(null, null);
+	}
+
+	public StringParam(String name) {
+		this(name, null);
+	}	
+
 	public StringParam(String name, String description) {
 		super(name, description);
 	}

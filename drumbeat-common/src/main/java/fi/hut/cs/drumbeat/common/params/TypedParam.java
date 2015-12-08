@@ -45,6 +45,14 @@ public abstract class TypedParam<T> {
 	private T defaultValue;
 	private boolean isMandatory;
 	
+	public TypedParam() {
+		this(null, null);
+	}
+
+	public TypedParam(String name) {
+		this(name, null);
+	}
+	
 	public TypedParam(String name, String description) {
 		this.name = name;
 		this.description = description;
