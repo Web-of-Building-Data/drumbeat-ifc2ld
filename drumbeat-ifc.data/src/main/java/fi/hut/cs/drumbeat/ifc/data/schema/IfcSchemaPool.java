@@ -17,7 +17,15 @@ public class IfcSchemaPool implements Serializable {
 	private static Map<String, IfcSchema> schemas = new HashMap<>();
 	
 	/**
-	 * Returns the {@link IfcSchema} with the specified version.
+	 * Gets the map of schemas (schemaVersion --> schema) 
+	 * @return
+	 */
+	public static Map<String, IfcSchema> getSchemas() {
+		return schemas;
+	}
+	
+	/**
+	 * Gets the {@link IfcSchema} with the specified version.
 	 * 
 	 * @param version - the version of the schema 
 	 * @return the {@link IfcSchema} with the specified version, or <code>null</code> if the version is not found.
@@ -45,5 +53,14 @@ public class IfcSchemaPool implements Serializable {
 	 */
 	public static void addSchema(String version, IfcSchema schema) {
 		schemas.put(version, schema);
+	}
+	
+	
+	/**
+	 * Gets number of schemas
+	 * @return
+	 */
+	public static int size() {
+		return schemas.size();
 	}
 }
