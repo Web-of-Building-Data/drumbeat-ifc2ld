@@ -56,7 +56,7 @@ public class Ifc2RdfVocabulary {
 
 		public static final String EMPTY_LIST = "EMPTY_LIST";		
 		
-		public static final String BLANK_NODE_ENTITY_URI_FORMAT = "_LINE";
+		public static final String BLANK_NODE_ENTITY_URI_FORMAT = "_LINE_%d";
 		
 		public static final String PROPERTY_RAW_NAME = "rawName";
 		public static final String PROPERTY_DEBUG_MESSAGE = "debugMessage";

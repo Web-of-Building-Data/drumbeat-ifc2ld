@@ -15,7 +15,6 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import com.hp.hpl.jena.vocabulary.XSD;
 
-import fi.hut.cs.drumbeat.common.digest.EncoderTypeEnum;
 import fi.hut.cs.drumbeat.common.params.StringParam;
 import fi.hut.cs.drumbeat.ifc.common.IfcException;
 import fi.hut.cs.drumbeat.ifc.data.IfcVocabulary;
@@ -276,13 +275,23 @@ public class Ifc2RdfConverter {
 		
 	}
 	
-
 	/**
 	 * Converts an IFC literal value to an RDF resource 
 	 * @param literalValue
 	 * @return
 	 */
 	public RDFNode convertLiteralValue(IfcLiteralValue literalValue, Model jenaModel) {
+		return convertLiteralValue(literalValue, null, 0L, jenaModel);
+	}
+	
+	
+
+	/**
+	 * Converts an IFC literal value to an RDF resource 
+	 * @param literalValue
+	 * @return
+	 */
+	public RDFNode convertLiteralValue(IfcLiteralValue literalValue, Resource parentResource, long childNodeCount, Model jenaModel) {
 		
 		IfcTypeInfo typeInfo = literalValue.getType();
 		
@@ -290,7 +299,7 @@ public class Ifc2RdfConverter {
 
 		if (typeInfo instanceof IfcDefinedTypeInfo || typeInfo instanceof IfcLiteralTypeInfo) {
 			
-			return convertValueOfLiteralOrDefinedType(typeInfo, literalValue.getValue(), jenaModel);
+			return convertValueOfLiteralOrDefinedType(typeInfo, literalValue.getValue(), parentResource, childNodeCount, jenaModel);
 			
 			
 		} else if (typeInfo instanceof IfcEnumerationTypeInfo) {
@@ -641,7 +650,7 @@ public class Ifc2RdfConverter {
 	// Region DEFINED TYPES & VALUES
 	//*****************************************
 	
-	private Resource convertValueOfLiteralOrDefinedType(IfcTypeInfo typeInfo, Object value, Model jenaModel) {
+	private Resource convertValueOfLiteralOrDefinedType(IfcTypeInfo typeInfo, Object value, Resource parentResource, long childNodeCount, Model jenaModel) {
 		
 		assert(typeInfo instanceof IfcLiteralTypeInfo || typeInfo instanceof IfcDefinedTypeInfo);
 		
@@ -671,9 +680,11 @@ public class Ifc2RdfConverter {
 		
 		Resource resource;
 		if (nameAllBlankNodes) {
-			String rawNodeName = String.format("%s_%s", hasXXXProperty.getLocalName(), value);
-			String encodedNodeName = EncoderTypeEnum.encode(EncoderTypeEnum.SafeUrl, rawNodeName);			
-			resource = jenaModel.createResource(formatIfcOntologyName(encodedNodeName));
+			//String rawNodeName = String.format("%s_%s", hasXXXProperty.getLocalName(), value);
+//			String encodedNodeName = EncoderTypeEnum.encode(EncoderTypeEnum.SafeUrl, rawNodeName);			
+
+			String rawNodeName = String.format("%s_%s", parentResource.getURI(), childNodeCount);
+			resource = jenaModel.createResource(rawNodeName);
 		} else {
 			resource = jenaModel.createResource();
 		}
