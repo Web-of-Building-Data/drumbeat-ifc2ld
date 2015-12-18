@@ -16,8 +16,7 @@
 
 		<!-- All versions updated on 04.05.2015 -->
 		<drumbeat.groupId>${project.groupId}</drumbeat.groupId>
-		<drumbeat.ifc2ld.version>0.5.0-SNAPSHOT</drumbeat.ifc2ld.version>
-		<drumbeat.jena.version>0.5.0-SNAPSHOT</drumbeat.jena.version>
+		<drumbeat.jena.version>0.7.3-SNAPSHOT</drumbeat.jena.version>
 		<commons-cli.version>1.2</commons-cli.version>
 		<commons-codec.version>1.10</commons-codec.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>

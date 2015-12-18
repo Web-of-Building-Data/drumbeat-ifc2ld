@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
 			<artifactId>drumbeat-ifc.data</artifactId>
-			<version>${drumbeat.ifc2ld.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>

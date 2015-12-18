@@ -95,19 +95,19 @@
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
 			<artifactId>drumbeat-ifc.convert.ifc2ld.cli</artifactId>
-			<version>${drumbeat.ifc2ld.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
 			<artifactId>drumbeat-ifc.convert.ifc2ld</artifactId>
-			<version>${drumbeat.ifc2ld.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
 			<artifactId>drumbeat-ifc.convert.stff2ifc</artifactId>
-			<version>${drumbeat.ifc2ld.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		
 		<!-- Apache Jena Core -->
