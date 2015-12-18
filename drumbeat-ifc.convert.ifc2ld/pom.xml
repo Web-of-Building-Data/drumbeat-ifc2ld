@@ -27,7 +27,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>drumbeat-rdf</artifactId>
-			<version>${drumbeat.jena.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<!-- JUnit -->

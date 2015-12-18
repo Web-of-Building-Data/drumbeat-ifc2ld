@@ -16,7 +16,7 @@
 	<!-- processorMap -->
 	<processorMap type="grounding">
 		<processor name="SetNameByGlobalId" enabled="true">
-			<class>fi.hut.cs.drumbeat.ifc.processing.grounding.SetNameByGlobalId</class>
+			<class>fi.aalto.cs.drumbeat.ifc.processing.grounding.SetNameByGlobalId</class>
 			<params>
 				<!-- use $Entity.ShortGlobalId$ or $Entity.StandardGlobalId$ -->
 				<param name="entityNamePattern" value="GUID_$Entity.StandardGlobalId$" />
@@ -24,7 +24,7 @@
 			</params>
 		</processor>
 		<processor name="ReplacePropertiesWithValueGlobalId" enabled="true">
-			<class>fi.hut.cs.drumbeat.ifc.processing.grounding.ReplacePropertiesWithValueGlobalId</class>
+			<class>fi.aalto.cs.drumbeat.ifc.processing.grounding.ReplacePropertiesWithValueGlobalId</class>
 		</processor>
 	</processorMap>
 	
@@ -157,10 +157,10 @@
 	
 	<jenaModelPool>
 		<jenaModel name="Memory1" default="true">
-			<class>fi.hut.cs.drumbeat.rdf.modelfactory.MemoryJenaModelFactory</class>
+			<class>fi.aalto.cs.drumbeat.rdf.modelfactory.MemoryJenaModelFactory</class>
 		</jenaModel>
 		<jenaModel name="AllegroGraph1" default="true">
-			<class>fi.hut.cs.drumbeat.rdf.modelfactory.allegrograph.AGJenaModelFactory</class>
+			<class>fi.aalto.cs.drumbeat.rdf.modelfactory.allegrograph.AGJenaModelFactory</class>
 			<params>
 				<param name="ServerUrl" value="http://murskain.cs.hut.fi:10035/" />
 				<param name="UserName" value="test" />
