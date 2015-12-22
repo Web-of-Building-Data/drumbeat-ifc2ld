@@ -29,7 +29,7 @@ import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.aalto.cs.drumbeat.common.file.FileManager;
 import fi.aalto.cs.drumbeat.rdf.RdfUtils;
-import fi.aalto.cs.drumbeat.rdf.modelfactory.config.JenaProviderPoolConfigurationSection;
+import fi.aalto.cs.drumbeat.rdf.jena.provider.config.JenaProviderPoolConfigurationSection;
 
 @SuppressWarnings("serial")
 public class ConvertModelView extends FormLayout {
@@ -76,7 +76,7 @@ public class ConvertModelView extends FormLayout {
 		
 //		cbOutputTypes = new ComboBox("Output Type");
 //		try {
-//			configurationPool = JenaModelFactoryPoolConfigurationSection.getInstance().getConfigurationPool();
+//			configurationPool = JenaProviderPoolConfigurationSection.getInstance().getConfigurationPool();
 //		} catch (ConfigurationParserException e1) {
 //			e1.printStackTrace();
 //			Notification.show(e1.getMessage(), Type.ERROR_MESSAGE);
@@ -231,9 +231,9 @@ public class ConvertModelView extends FormLayout {
 //		ConfigurationItemEx configuration = (ConfigurationItemEx)cbOutputTypes.getValue();
 //
 //		// TODO:
-////		JenaModelFactoryBase modelFactory = new VirtuosoJenaModelFactory1("Virtuoso", configuration.getProperties());
+////		JenaProviderBase modelFactory = new VirtuosoJenaProvider1("Virtuoso", configuration.getProperties());
 ////		
-//////		JenaModelFactoryBase modelFactory = JenaModelFactoryBase.getFactory(configuration);
+//////		JenaProviderBase modelFactory = JenaProviderBase.getFactory(configuration);
 ////		Model jenaModel = IfcApplication.convertIfcModelToJenaModel(fileName, modelFactory.createModel());
 //		
 //		
