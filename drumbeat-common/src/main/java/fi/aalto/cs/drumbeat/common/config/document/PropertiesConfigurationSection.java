@@ -26,19 +26,19 @@ public class PropertiesConfigurationSection extends ConfigurationSection {
 
 		properties = new Properties();
 
-		NodeList propertyElements = element.getElementsByTagName(ConfigurationDocument.TAG_PARAM);
+		NodeList propertyElements = element.getElementsByTagName(ConfigurationDocument.TAG_ANY);
 
 		for (int j = 0; j < propertyElements.getLength(); ++j) {
 
 			Element propertyElement = (Element) propertyElements.item(j);
 
 			String propertyName = propertyElement.getNodeName();
-			String paramValue = propertyElement.getNodeValue();
+			String paramValue = propertyElement.getTextContent();
 
-//			if (propertyName == null || paramValue == null) {
-//				throw new ConfigurationParserException(String.format("Invalid tag '%s/%s/%s'",
-//						element.getTagName(), getTagName(), ConfigurationDocument.TAG_PARAM));
-//			}
+			if (propertyName == null || paramValue == null) {
+				throw new ConfigurationParserException(String.format("Invalid property '<%s>%s</%s>'",
+						propertyName, paramValue, propertyName));
+			}
 
 			properties.put(propertyName, paramValue);
 		}

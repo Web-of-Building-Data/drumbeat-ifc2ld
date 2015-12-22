@@ -1,4 +1,4 @@
-package fi.aalto.cs.drumbeat.rdf.modelfactory.config;
+package fi.aalto.cs.drumbeat.rdf.jena.provider.config;
 
 import java.util.ArrayList;
 import java.util.List;

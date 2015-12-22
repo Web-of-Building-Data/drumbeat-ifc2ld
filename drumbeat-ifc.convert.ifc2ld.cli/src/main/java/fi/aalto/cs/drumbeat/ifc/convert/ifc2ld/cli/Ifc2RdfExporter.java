@@ -24,7 +24,7 @@ import fi.aalto.cs.drumbeat.ifc.convert.stff2ifc.util.IfcParserUtil;
 import fi.aalto.cs.drumbeat.ifc.data.model.IfcModel;
 import fi.aalto.cs.drumbeat.ifc.data.schema.*;
 import fi.aalto.cs.drumbeat.ifc.processing.IfcModelAnalyser;
-import fi.aalto.cs.drumbeat.rdf.modelfactory.config.JenaProviderPoolConfigurationSection;
+import fi.aalto.cs.drumbeat.rdf.jena.provider.config.JenaProviderPoolConfigurationSection;
 import fi.aalto.cs.drumbeat.rdf.RdfUtils;
 import fi.aalto.cs.drumbeat.rdf.jena.provider.AbstractJenaProvider;
 import fi.aalto.cs.drumbeat.rdf.jena.provider.MemoryJenaProvider;
