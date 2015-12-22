@@ -51,7 +51,7 @@ public class Ifc2RdfVocabulary {
 		}
 		
 		public static final String getBaseUri(String ifcVersion) {
-			return String.format(getBaseUriFormat(), ifcVersion);
+			return String.format(getBaseUriFormat(), ifcVersion.toLowerCase());
 		}
 
 		public static final String EMPTY_LIST = "EMPTY_LIST";		

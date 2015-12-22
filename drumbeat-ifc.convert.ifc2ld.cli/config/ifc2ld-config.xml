@@ -159,10 +159,10 @@
 	
 	<jenaModelPool>
 		<jenaModel name="File" default="true">
-			<class>fi.aalto.cs.drumbeat.rdf.modelfactory.MemoryJenaModelFactory</class>
+			<class>fi.aalto.cs.drumbeat.rdf.jena.provider.MemoryJenaProvider</class>
 		</jenaModel>
 		<!-- jenaModel name="AllegroGraph1" default="false" enabled="false">
-			<class>fi.aalto.cs.drumbeat.rdf.modelfactory.allegrograph.AGJenaModelFactory</class>
+			<class>fi.aalto.cs.drumbeat.rdf.jena.provider.allegrograph.AGJenaProvider</class>
 			<params>
 				<param name="ServerUrl" value="http://murskain.cs.hut.fi:10035/" />
 				<param name="UserName" value="test" />
@@ -171,7 +171,7 @@
 			</params>
 		</jenaModel> -->
 		<jenaModel name="Virtuoso_Local" default="false">		           
-			<class>fi.aalto.cs.drumbeat.rdf.modelfactory.virtuoso.VirtuosoJenaModelFactory</class>
+			<class>fi.aalto.cs.drumbeat.rdf.jena.provider.virtuoso.VirtuosoJenaProvider</class>
 			<params>
 				<param name="ServerUrl" value="jdbc:virtuoso://localhost:1111/charset=UTF-8/log_enable=2" />
 				<param name="UserName" value="dba" />

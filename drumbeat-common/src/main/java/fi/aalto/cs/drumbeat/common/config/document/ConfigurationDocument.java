@@ -18,6 +18,7 @@ import fi.aalto.cs.drumbeat.common.file.FileManager;
 public class ConfigurationDocument {
 	
 	public static final String TAG_ADD = "add";
+	public static final String TAG_ANY = "*";
 	public static final String TAG_CLASS = "class";
 	public static final String TAG_COMPLEX_PROCESSOR = "complexProcessor";
 	public static final String TAG_COMPLEX_PROCESSOR_POOL = "complexProcessorPool";

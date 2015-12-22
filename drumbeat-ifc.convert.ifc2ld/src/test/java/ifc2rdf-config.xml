@@ -2,10 +2,13 @@
 <config>
 
 	<!-- common properties -->
-	<properties>		
+	<properties>
+	
+		<!-- 
 		<express.baseuri>http://purl.org/vocab/express/</express.baseuri>
 		<step.baseuri>http://drumbeat.cs.hut.fi/owl/STEP#</step.baseuri>
-		<ifc.baseuri>http://www.buildingsmart-tech.org/ifcOWL/IFC4_ADD1#</ifc.baseuri>
+		<ifc.baseuri>http://www.buildingsmart-tech.org/ifcOWL/%s#</ifc.baseuri>
+		 -->			
 
 		<!--  <express.baseuri>http://drumbeat.cs.hut.fi/owl/EXPRESS#</express.baseuri>
 		<step.baseuri>http://drumbeat.cs.hut.fi/owl/STEP#</step.baseuri>
@@ -157,10 +160,10 @@
 	
 	<jenaModelPool>
 		<jenaModel name="Memory1" default="true">
-			<class>fi.aalto.cs.drumbeat.rdf.modelfactory.MemoryJenaModelFactory</class>
+			<class>fi.aalto.cs.drumbeat.rdf.jena.provider.MemoryJenaProvider</class>
 		</jenaModel>
 		<jenaModel name="AllegroGraph1" default="true">
-			<class>fi.aalto.cs.drumbeat.rdf.modelfactory.allegrograph.AGJenaModelFactory</class>
+			<class>fi.aalto.cs.drumbeat.rdf.jena.provider.allegrograph.AGJenaProvider</class>
 			<params>
 				<param name="ServerUrl" value="http://murskain.cs.hut.fi:10035/" />
 				<param name="UserName" value="test" />
