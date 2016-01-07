@@ -42,7 +42,11 @@ class IfcModelSectionParser {
 			for (IfcValue value : values) {
 				Boolean b = value.isLiteralType(); 
 				if (b != isLiteralValue && b != null) {
-					assert isLiteralValue == null : "Mixed literal and link type: " + StringUtils.collectionToString(values, null, null, null, ",");
+					if (isLiteralValue != null) {
+//						assert isLiteralValue == null : "Mixed literal and link type: " + StringUtils.collectionToString(values, null, null, null, ",");
+						logger.warn("Mixed literal and link type: " + StringUtils.collectionToString(values, null, null, null, ","));
+						return Boolean.FALSE;
+					}
 					isLiteralValue = b;
 				}
 			}
@@ -314,8 +318,8 @@ class IfcModelSectionParser {
 
 					values = parseAttributeValues(new StrBuilderWrapper(s), null, attributeInfos, subNonEntityTypeInfo, attributeValueTypes);
 					assert values.size() == 1 : "Expect only 1 argument: " + entity + ":" + values.toString();
-					//attributeValues.add(new IfcShortEntity(subNonEntityTypeInfo, (IfcLiteralValue)values.get(0)));
-					attributeValues.add((IfcLiteralValue)values.get(0));
+					attributeValues.add(new IfcShortEntity(subNonEntityTypeInfo, (IfcLiteralValue)values.get(0)));
+//					attributeValues.add((IfcLiteralValue)values.get(0));
 				} else {
 					
 					//
@@ -407,7 +411,15 @@ class IfcModelSectionParser {
 									
 									IfcEntityCollection destinations = new IfcEntityCollection();										
 									for (IfcValue destination : ((IfcTemporaryCollectionValueWrapper)attributeValue).getValues()) {
-										destinations.add((IfcEntity)destination);
+										if (!(destination instanceof IfcEntityBase)) {
+											throw new IfcParserException(
+													String.format("Entity attribute %s.%s has non-entity value: %s (%s)", 
+															entity,
+															attributeInfo,
+															destination.getClass(),
+															destination));
+										}
+										destinations.add((IfcEntityBase)destination);
 									}
 									
 									entity.addOutgoingLink(new IfcLink((IfcLinkInfo)attributeInfo, attributeIndex, entity, destinations));
