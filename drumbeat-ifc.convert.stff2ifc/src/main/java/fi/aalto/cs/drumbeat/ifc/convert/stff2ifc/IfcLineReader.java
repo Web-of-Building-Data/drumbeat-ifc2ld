@@ -1,8 +1,8 @@
 package fi.aalto.cs.drumbeat.ifc.convert.stff2ifc;
 
 import java.io.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
 
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 import fi.aalto.cs.drumbeat.ifc.data.IfcVocabulary;
@@ -17,7 +17,7 @@ public class IfcLineReader {
 	// 
 	// Regular expression pattern of a statement that doesn't consist a semicolon inside single quotes
 	//
-	private static final Pattern STATEMENT = Pattern.compile("([^;\\']|(\\'([^\\']|(\\'\\'))*\\'))+;");
+//	private static final Pattern STATEMENT = Pattern.compile("([^;\\']|(\\'([^\\']|(\\'\\'))*\\'))+;");
 	
 	
 	/**
@@ -168,8 +168,13 @@ public class IfcLineReader {
 					
 					int indexOfApostrophe = cache.lastIndexOf(IfcVocabulary.StepFormat.STRING_VALUE, indexOfEndLine);
 					if (indexOfApostrophe >= 0) {
-						Matcher matcher = STATEMENT.matcher(cache);
-						indexOfEndLine = matcher.find(0) ? matcher.end() - 1 : -1;  
+						indexOfEndLine = getIndexOfEndLine(cache);
+						
+						//
+						// This code part is removed because of stack over flow error when long strings are used
+						//
+						//Matcher matcher = STATEMENT.matcher(cache);
+						//indexOfEndLine = matcher.find(0) ? matcher.end() - 1 : -1;
 					}
 					
 					if (indexOfEndLine > 0) {
@@ -202,6 +207,29 @@ public class IfcLineReader {
 			cache.append(line);				
 			
 		}		
+	}
+	
+	
+	private static int getIndexOfEndLine(StringBuilder s) {
+		
+		boolean stringIsOpened = false;
+		
+		for (int i = 0; i < s.length(); ++i) {
+			switch (s.charAt(i)) {
+			case StringUtils.APOSTROPHE_CHAR:
+				stringIsOpened = !stringIsOpened;
+				break;
+				
+			case StringUtils.SEMICOLON_CHAR:
+				if (!stringIsOpened) {
+					return i;
+				}
+				break;
+			}
+		}
+		
+		return -1;
+		
 	}
 
 	
