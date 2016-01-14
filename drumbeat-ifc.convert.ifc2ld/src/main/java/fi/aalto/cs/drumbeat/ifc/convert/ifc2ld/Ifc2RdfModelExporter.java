@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.NotImplementedException;
+
 import com.hp.hpl.jena.rdf.model.AnonId;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -235,9 +237,11 @@ public class Ifc2RdfModelExporter {
 		Property attributeResource = convertAttributeInfoToResource(attributeInfo);
 		
 		IfcValue value = attribute.getValue();
-		RDFNode valueNode = convertValueToNode(value, attributeInfo.getAttributeTypeInfo(), entityResource, childNodeCount);
+		List<RDFNode> valueNodes = convertValueToNode(value, attributeInfo.getAttributeTypeInfo(), entityResource, childNodeCount);
 		
-		jenaModel.add(entityResource, attributeResource, valueNode);
+		for (RDFNode valueNode : valueNodes) {		
+			jenaModel.add(entityResource, attributeResource, valueNode);
+		}
 	}
 	
 	/**
@@ -246,9 +250,9 @@ public class Ifc2RdfModelExporter {
 	 * @param typeInfo
 	 * @return
 	 */
-	public RDFNode convertValueToNode(IfcValue value, IfcTypeInfo typeInfo, Resource entityResource, long childNodeCount) {
+	public RDFNode convertSingleValueToNode(IfcSingleValue value, IfcTypeInfo typeInfo, Resource entityResource, long childNodeCount) {
 		if (typeInfo instanceof IfcCollectionTypeInfo) {
-			return convertListToResource((IfcCollectionValue<?>) value, (IfcCollectionTypeInfo)typeInfo, entityResource, childNodeCount);
+			throw new IllegalArgumentException("Expected non-collection type info: " + typeInfo);
 		} else {
 			if (value instanceof IfcEntity) {
 				return convertEntityToResource((IfcEntity) value);
@@ -261,23 +265,102 @@ public class Ifc2RdfModelExporter {
 		}
 	}
 	
-	public Resource convertListToResource(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo,
+	public List<RDFNode> convertValueToNode(IfcValue value, IfcTypeInfo typeInfo, Resource entityResource, long childNodeCount) {
+		if (value instanceof IfcSingleValue) {
+			List<RDFNode> nodes = new ArrayList<>();
+			nodes.add(convertSingleValueToNode((IfcSingleValue)value, typeInfo, entityResource, childNodeCount));
+			return nodes;
+		} else {
+			assert(typeInfo instanceof IfcCollectionTypeInfo);
+			return convertListToResource((IfcCollectionValue<?>) value, (IfcCollectionTypeInfo)typeInfo, entityResource, childNodeCount);		
+		}
+	}
+	
+	
+	public List<RDFNode> convertListToResource(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo,
 			Resource parentResource, long childNodeCount)
 	{		
-		final String convertCollectionsTo = context.getConversionParams().convertCollectionsTo();
-		final boolean nameAllBlanksNodes = context.getConversionParams().nameAllBlankNodes();
-		
-		
+		final String convertCollectionsTo = context.getConversionParams().convertCollectionsTo();		
 		
 		switch (convertCollectionsTo) {
-		case Ifc2RdfConversionParams.VALUE_DRUMMOND_LIST:
+		case Ifc2RdfConversionParams.VALUE_DRUMMOND_LIST:			
+			return convertListToDrummondList(listValue, collectionTypeInfo, parentResource, childNodeCount);
 			
-			break;
+		case Ifc2RdfConversionParams.VALUE_OLO_SIMILAR_LIST:
+			return convertListToOloSimilarList(listValue, collectionTypeInfo, parentResource, childNodeCount);
 
 		default:
-			break;
+			 throw new NotImplementedException("Unknown collection type");
 		}
+	}
 		
+	private List<RDFNode> convertListToDrummondList(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo,
+			Resource parentResource, long childNodeCount)
+	{
+		final boolean nameAllBlanksNodes = context.getConversionParams().nameAllBlankNodes();
+		
+		if (collectionTypeInfo.isSorted()) {
+			
+			Resource listTypeResource = jenaModel.createResource(converter.formatTypeName(collectionTypeInfo)); 
+			Resource emptyListTypeResource = jenaModel.createResource(converter.formatTypeName(collectionTypeInfo).replace("List", "EmptyList"));
+			IfcTypeInfo itemTypeInfo = collectionTypeInfo.getItemTypeInfo();			
+			
+			List<? extends IfcSingleValue> values = listValue.getSingleValues(); 
+
+			int index = values.size();
+			
+			Resource currentListResource;
+			assert(parentResource != null);
+			if (nameAllBlanksNodes) {
+				String currentResourceName = String.format("%s_%d_%d", parentResource.getURI(), childNodeCount, index);
+				currentListResource = jenaModel.createResource(currentResourceName);			
+			} else {
+				currentListResource = jenaModel.createResource();
+			}
+			
+			currentListResource.addProperty(RDF.type, emptyListTypeResource);
+			
+			while (index > 0) {
+				index--;
+				Resource nextListResource = currentListResource;
+				if (nameAllBlanksNodes) {
+					String currentResourceName = String.format("%s_%d_%d", parentResource.getURI(), childNodeCount, index);
+					currentListResource = jenaModel.createResource(currentResourceName);			
+				} else {
+					currentListResource = jenaModel.createResource();
+				}
+
+				currentListResource.addProperty(RDF.type, listTypeResource);
+				currentListResource.addProperty(Ifc2RdfVocabulary.EXPRESS.hasNext, nextListResource);
+				
+				IfcSingleValue value = values.get(index);
+				RDFNode valueNode = convertSingleValueToNode(value, itemTypeInfo, currentListResource, 0);
+				
+				currentListResource.addProperty(Ifc2RdfVocabulary.EXPRESS.hasValue, valueNode);
+			}
+
+			List<RDFNode> nodes = new ArrayList<>();
+			nodes.add(currentListResource);			
+			return nodes;
+			
+		} else {
+			List<RDFNode> nodes = new ArrayList<>();
+			
+			for (IfcSingleValue value : listValue.getSingleValues()) {
+				RDFNode node = convertSingleValueToNode(value, collectionTypeInfo.getItemTypeInfo(), parentResource, childNodeCount);
+				nodes.add(node);
+			}
+			
+			return nodes;
+		}
+
+	}
+
+	private List<RDFNode> convertListToOloSimilarList(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo,
+			Resource parentResource, long childNodeCount)
+	{
+		final boolean nameAllBlanksNodes = context.getConversionParams().nameAllBlankNodes();
+
 		Resource listResource;
 		if (nameAllBlanksNodes) {
 			assert(parentResource != null);
@@ -291,8 +374,8 @@ public class Ifc2RdfModelExporter {
 		
 		List<RDFNode> nodeList = new ArrayList<>();
 		long count = 1;
-		for (IfcValue value : listValue.getSingleValues()) {
-			nodeList.add(convertValueToNode(value, itemTypeInfo, listResource, count++));
+		for (IfcSingleValue value : listValue.getSingleValues()) {
+			nodeList.add(convertSingleValueToNode(value, itemTypeInfo, listResource, count++));
 		}
 		
 		int length = nodeList.size();
@@ -318,7 +401,9 @@ public class Ifc2RdfModelExporter {
 			listResource.addProperty(Ifc2RdfVocabulary.EXPRESS.slot, slotResource);
 		}
 		
-		return listResource;			
+		List<RDFNode> nodes = new ArrayList<RDFNode>();
+		nodes.add(listResource);
+		return nodes;
 	}
 	
 	public Resource convertEntityToResource(IfcEntity entity) {

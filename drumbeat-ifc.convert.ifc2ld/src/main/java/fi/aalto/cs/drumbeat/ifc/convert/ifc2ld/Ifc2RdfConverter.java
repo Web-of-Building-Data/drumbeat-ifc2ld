@@ -502,6 +502,8 @@ public class Ifc2RdfConverter {
 			switch (convertCollectionsTo) {
 			case Ifc2RdfConversionParams.VALUE_DRUMMOND_LIST:
 				return convertCollectionTypeInfoToDrummondList(typeInfo, jenaModel);
+			case Ifc2RdfConversionParams.VALUE_OLO_SIMILAR_LIST:
+				throw new NotImplementedException("Converting collections to " + Ifc2RdfConversionParams.VALUE_OLO_SIMILAR_LIST);
 			default:
 				throw new NotImplementedException("Unknown collection type");
 			}			

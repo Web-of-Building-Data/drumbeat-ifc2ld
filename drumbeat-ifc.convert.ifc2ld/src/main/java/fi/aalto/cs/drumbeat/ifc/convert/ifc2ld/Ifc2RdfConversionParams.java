@@ -50,6 +50,7 @@ public class Ifc2RdfConversionParams extends TypedParams {
 	public static final String VALUE_AUTO_MOST_EFFICIENT_DESCRIPTION = "Auto (most efficient)";
 	
 	public static final String VALUE_DRUMMOND_LIST = "DrummondList";
+	public static final String VALUE_OLO_SIMILAR_LIST = "OloSimilarList";
 	
 	public static final String VALUE_ATTRIBUTES_WITH_LONG_NAMES = "AttributesWithLongNames";
 	
@@ -159,9 +160,11 @@ public class Ifc2RdfConversionParams extends TypedParams {
 					null,
 					null,
 					Arrays.asList(
-							VALUE_DRUMMOND_LIST),
+							VALUE_DRUMMOND_LIST,
+							VALUE_OLO_SIMILAR_LIST),
 					Arrays.asList(
-							VALUE_DRUMMOND_LIST),
+							VALUE_DRUMMOND_LIST,
+							VALUE_OLO_SIMILAR_LIST),
 					VALUE_DRUMMOND_LIST));
 
 		addParam(
@@ -228,9 +231,13 @@ public class Ifc2RdfConversionParams extends TypedParams {
 
 	public boolean convertSetAttributesAsMultipleProperties() {
 		String convertCollectionsTo = convertCollectionsTo();
-		if (convertCollectionsTo == VALUE_DRUMMOND_LIST) {
+		switch (convertCollectionsTo) {
+		case VALUE_DRUMMOND_LIST:
+			return true;
+		case VALUE_OLO_SIMILAR_LIST:
 			return false;
-		}
-		throw new NotImplementedException("Unknown collection type");
+		default:
+			throw new NotImplementedException("Unknown collection type");
+		}		
 	}
 }
