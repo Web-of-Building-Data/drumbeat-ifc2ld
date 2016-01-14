@@ -104,6 +104,8 @@ public abstract class Ifc2RdfExporterBase {
 		 case Ifc2RdfConversionParams.VALUE_DRUMMOND_LIST:
 			 exportCollectionTypeInfoToDrummondList(typeInfo);
 			 break;
+		 case Ifc2RdfConversionParams.VALUE_OLO_SIMILAR_LIST:
+			throw new NotImplementedException("Converting collections to " + Ifc2RdfConversionParams.VALUE_OLO_SIMILAR_LIST);		 
 		 default:
 			 throw new NotImplementedException("Unknown collection type");
 		 }
