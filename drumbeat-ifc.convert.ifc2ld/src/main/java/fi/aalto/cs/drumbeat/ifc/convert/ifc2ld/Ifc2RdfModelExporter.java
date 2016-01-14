@@ -22,6 +22,7 @@ import fi.aalto.cs.drumbeat.ifc.data.model.*;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcAttributeInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcCollectionTypeInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcEntityTypeInfo;
+import fi.aalto.cs.drumbeat.ifc.data.schema.IfcInverseLinkInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 import fi.aalto.cs.drumbeat.rdf.OwlProfileList;
@@ -234,13 +235,23 @@ public class Ifc2RdfModelExporter {
 	
 	private void writeAttribute(Resource entityResource, IfcAttribute attribute, long childNodeCount) {		
 		IfcAttributeInfo attributeInfo = attribute.getAttributeInfo();
-		Property attributeResource = convertAttributeInfoToResource(attributeInfo);
+		Property attributeProperty = convertAttributeInfoToResource(attributeInfo);
+		Property inverseAttributeProperty = null;
+		if (attribute instanceof IfcLink) {
+			IfcInverseLinkInfo inverseLinkInfo = ((IfcLink)attribute).getInverseLinkInfo();
+			if (inverseLinkInfo != null) {				
+				inverseAttributeProperty = convertAttributeInfoToResource(inverseLinkInfo);
+			}
+		}
 		
 		IfcValue value = attribute.getValue();
 		List<RDFNode> valueNodes = convertValueToNode(value, attributeInfo.getAttributeTypeInfo(), entityResource, childNodeCount);
 		
 		for (RDFNode valueNode : valueNodes) {		
-			jenaModel.add(entityResource, attributeResource, valueNode);
+			jenaModel.add(entityResource, attributeProperty, valueNode);
+			if (inverseAttributeProperty != null) {
+				jenaModel.add((Resource)valueNode, inverseAttributeProperty, entityResource);
+			}
 		}
 	}
 	
