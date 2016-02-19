@@ -90,6 +90,56 @@
 			</params>
 		</converter>	
 		
+		<converter name="LDAC2015-only-EXPRESS" enabled="true" default="false">
+			<params>
+				<param name="OwlVersion" value="1.0.1" />
+
+				<!--  param name="OwlProfile" value="OWL2_EL,OWL2_QL,OWL2_RL,OWL2_DL" /> -->				
+				<param name="OwlProfile" value="OWL2_DL" />
+				
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.IgnoreExpressSchema" value="false" />
+
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.IgnoreIfcSchema" value="true" />
+								
+
+				<!-- Options.ExportDebugInfo: true, false (default)  -->
+				<param name="Options.ExportDebugInfo" value="false" />
+
+				<!-- Options.ExportPropertyDomainsAndRanges: None (default)  -->
+				<param name="Options.ExportPropertyDomainsAndRanges" value="None" />
+				
+				<!-- Options.ConvertBooleansTo: owl:NamedIndividual (default), xsd:string, xsd:boolean  -->
+				<param name="Options.ConvertBooleansTo" value="owl:NamedIndividual" />
+				
+				<!-- Options.ConvertEnumsTo: owl:NamedIndividual (default), xsd:string -->
+				<param name="Options.ConvertEnumsTo" value="owl:NamedIndividual" />
+				
+				<!-- Options.ConvertDoublesTo: xsd:decimal (default), AutoMostEfficient (=xsd:double or owl:real), xsd:decimal, xsd:double, owl:real, xsd:string -->
+				<param name="Options.ConvertDoublesTo" value="xsd:decimal" />
+				
+				<!-- Options.Options.NameAllBlankNodes: true, false -->
+				<param name="Options.NameAllBlankNodes" value="true" />
+
+				<!--
+				<param name="Options.UseSpecificDoubleTypes" value="false" /> 
+				<param name="Options.IgnoreSelectTypes" value="false" />
+				<param name="Options.IgnoreEnumerationTypes" value="false" />
+				<param name="Options.IgnoreDefinedTypes" value="false" />
+				<param name="Options.IgnoreCollectionTypes" value="false" />
+				<param name="Options.IgnoreEntityTypes" value="false" />
+				<param name="Options.ExportProperties" value="true" />
+				<param name="Options.ExportInverseProperties" value="false" />
+				<param name="Options.ExportPropertyCardinalities" value="false" />
+				<param name="Options.ExportDebugInfo" value="false" />  -->
+				<param name="Ontology.Prefix" value="ifc" />
+				<param name="Ontology.NamespaceFormat" value="http://drumbeat.cs.hut.fi/owl/$Schema.Version$#" />
+				<param name="Model.Prefix" value="model" />
+				<param name="Model.NamespaceFormat" value="http://drumbeat.cs.hut.fi/tomcat/marmotta/resource/" />								
+			</params>
+		</converter>	
+
 		<converter name="Simple" enabled="true" default="false">
 			<params>
 				<param name="OwlVersion" value="1.0.1" />
