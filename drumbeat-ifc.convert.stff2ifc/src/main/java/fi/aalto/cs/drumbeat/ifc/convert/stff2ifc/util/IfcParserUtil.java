@@ -31,7 +31,7 @@ public class IfcParserUtil {
 		
 		if (file.isDirectory()) {
 			logger.info(String.format("Parsing schemas in folder '%s'", filePath));
-			FileNameExtensionFilter filter = new FileNameExtensionFilter(null, IfcVocabulary.ExpressFormat.FILE_EXTENSION);
+			FileNameExtensionFilter filter = new FileNameExtensionFilter(null, IfcVocabulary.ExpressFormat.FILE_EXTENSION_EXP);
 			for (File schemaFile : file.listFiles()) {
 				if (filter.accept(schemaFile)) {
 					final IfcSchema schema = parseSchema(schemaFile.getPath());
@@ -50,7 +50,7 @@ public class IfcParserUtil {
 		logger.info(String.format("Parsing schema in '%s'", filePath));
 
 		FileInputStream input = new FileInputStream(filePath);
-
+		
 		IfcSchema schema = IfcSchemaParser.parse(input);
 		IfcSchemaPool.addSchema(schema);
 
@@ -61,7 +61,8 @@ public class IfcParserUtil {
 	public static IfcModel parseModel(String filePath) throws IOException, IfcParserException {
 		logger.info(String.format("Parsing model in '%s'", filePath));
 		FileInputStream input = new FileInputStream(filePath);
-		IfcModel model = IfcModelParser.parse(input);
+		File file = new File(filePath);
+		IfcModel model = IfcModelParser.parse(input, file.getName());
 		logger.info("Parsing model has been completed successfully");
 		return model;
 	}
