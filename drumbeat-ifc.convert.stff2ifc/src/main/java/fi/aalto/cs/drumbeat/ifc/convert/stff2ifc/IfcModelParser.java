@@ -2,7 +2,13 @@ package fi.aalto.cs.drumbeat.ifc.convert.stff2ifc;
 
 import java.io.*;
 import java.util.*;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
+import org.apache.commons.lang3.NotImplementedException;
+
+import fi.aalto.cs.drumbeat.common.file.FileManager;
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 import fi.aalto.cs.drumbeat.ifc.common.IfcNotFoundException;
 import fi.aalto.cs.drumbeat.ifc.data.IfcVocabulary;
@@ -20,6 +26,49 @@ public class IfcModelParser  {
 	}
 
 	public static IfcModel parse(InputStream input) throws IfcParserException {
+		IfcModelParser parser = new IfcModelParser(input);
+		return parser.parseModel();
+	}
+
+	public static IfcModel parse(InputStream input, String fileNameOrExtension) throws IfcParserException {
+		
+		if (fileNameOrExtension != null) {
+			
+			try {
+				String[] tokens = fileNameOrExtension.split("\\.");
+				
+				for (int i = tokens.length - 1; i >= 0; --i) {
+					switch (tokens[i]) {
+					
+					case FileManager.FILE_EXTENSION_GZ:
+					case FileManager.FILE_EXTENSION_GZIP:
+							input = new GZIPInputStream(input);
+							break;
+					case FileManager.FILE_EXTENSION_ZIP:
+					case IfcVocabulary.StepFormat.FILE_EXTENSION_IFC_ZIP:
+						ZipInputStream zipInput = new ZipInputStream(input);
+						ZipEntry zipEntry = zipInput.getNextEntry();
+						return parse(zipInput, zipEntry.getName());
+						
+					case IfcVocabulary.IfcXmlFormat.FILE_EXTENSION_IFC_XML:
+					case IfcVocabulary.IfcXmlFormat.FILE_EXTENSION_IFX:
+						throw new NotImplementedException("Parsing .ifcxml is not implemented yet");
+	
+					case IfcVocabulary.StepFormat.FILE_EXTENSION_IFC:
+					case IfcVocabulary.StepFormat.FILE_EXTENSION_STP:
+					default:
+						IfcModelParser parser = new IfcModelParser(input);
+						return parser.parseModel();
+					
+					}
+				}
+			
+			} catch (IOException e) {
+				throw new IfcParserException("Parsing error: " + e.getMessage());
+			}
+			
+		}
+		
 		IfcModelParser parser = new IfcModelParser(input);
 		return parser.parseModel();
 	}

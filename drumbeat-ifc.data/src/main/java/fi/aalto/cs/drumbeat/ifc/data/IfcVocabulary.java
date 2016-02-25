@@ -4,9 +4,13 @@ import fi.aalto.cs.drumbeat.common.string.StringUtils;
 
 public class IfcVocabulary {
 	
+	/**
+	 * EXPRESS format
+	 *
+	 */
 	public static class ExpressFormat {		
 		
-		public static final String FILE_EXTENSION = "exp";	
+		public static final String FILE_EXTENSION_EXP = "exp";
 
 		public static final String SCHEMA = "SCHEMA"; 
 		public static final String END_SCHEMA = "END_SCHEMA"; 
@@ -42,8 +46,14 @@ public class IfcVocabulary {
 		public static final String UNBOUNDED = StringUtils.QUESTION;		
 	}
 	
+	/**
+	 * STEP Physical File Format
+	 *
+	 */
 	public static class StepFormat {
-		public static final String FILE_EXTENSION = "ifc";	
+		public static final String FILE_EXTENSION_IFC = "ifc";
+		public static final String FILE_EXTENSION_STP = "stp";
+		public static final String FILE_EXTENSION_IFC_ZIP = "ifczip";
 
 		public static final String HEADER = "HEADER";
 		public static final String DATA = "DATA";
@@ -105,6 +115,13 @@ public class IfcVocabulary {
 //		"ENTITY file_name; name : STRING(256); time_stamp : time_stamp_text; author : LIST [ 1 : ? ] OF STRING(256); organization : LIST [ 1 : ? ] OF STRING(256); preprocessor_version : STRING(256); originating_system : STRING(256); authorization : STRING(256); END_ENTITY;" +
 //		"ENTITY file_schema; schema_identifiers : LIST [1:?] OF UNIQUE schema_name; END_ENTITY;" +
 //		"END_SCHEMA;";
+		
+	}
+	
+	public static class IfcXmlFormat {
+		public static final String FILE_EXTENSION_IFC_XML = "ifcxml";
+		public static final String FILE_EXTENSION_IFX = "ifx";
+		
 		
 	}
 	
