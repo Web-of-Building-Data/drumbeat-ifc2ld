@@ -70,9 +70,9 @@ class IfcSpfModelSectionParser {
 	private static final Logger logger = Logger.getLogger(IfcSpfModelParser.class);	
 
 	private IfcSchema schema;
-	private IfcLineReader reader;
+//	private IfcLineReader reader;
 
-	private Map<Long, IfcEntity> entityMap = new HashMap<>(); 	// map of entities indexed by line numbers
+	private Map<String, IfcEntity> entityMap = new HashMap<>(); 	// map of entities indexed by line numbers
 	
 	
 	/**
@@ -84,7 +84,7 @@ class IfcSpfModelSectionParser {
 	public List<IfcEntity> parseEntities(IfcLineReader reader, IfcSchema schema, boolean isHeaderSection, boolean ignoreUnknownTypes) throws IOException, IfcNotFoundException, IfcParserException {		
 		
 		this.schema = schema;
-		this.reader = reader;
+//		this.reader = reader;
 		
 		List<IfcEntity> entities = new ArrayList<>();
 		
@@ -114,12 +114,14 @@ class IfcSpfModelSectionParser {
 				//
 				// create entity
 				//
-				long lineNumber = Long.parseLong(tokens[0].trim());
+				//long lineNumber = Long.parseLong(tokens[0].trim());
+				String lineNumber = tokens[0].trim();
 				entity = getEntity(lineNumber);
 				entityAttributesString = tokens[1].trim();
 				
 			} else {
-				entity = new IfcEntity(0);
+				// header entities have no line numbers, they have different types 
+				entity = new IfcEntity("");
 				entityAttributesString = statement;
 			}
 		
@@ -176,7 +178,7 @@ class IfcSpfModelSectionParser {
 	 * @param lineNumber
 	 * @return
 	 */
-	private IfcEntity getEntity(long lineNumber) {
+	private IfcEntity getEntity(String lineNumber) {
 		IfcEntity entity = entityMap.get(lineNumber);
 		if (entity == null) {
 			entity = new IfcEntity(null, lineNumber);
@@ -231,7 +233,8 @@ class IfcSpfModelSectionParser {
 
 			case IfcVocabulary.SpfFormat.LINE_NUMBER_SYMBOL: // Entity
 				attributeStrBuilderWrapper.skip(1);
-				Long remoteLineNumber = attributeStrBuilderWrapper.getLong();
+				//Long remoteLineNumber = attributeStrBuilderWrapper.getLong();
+				String remoteLineNumber = Long.toString(attributeStrBuilderWrapper.getLong());
 				IfcEntity remoteEntity = getEntity(remoteLineNumber);
 				if (remoteEntity == null) {
 					throw new IfcNotFoundException("Entity not found: #" + remoteLineNumber);
@@ -397,8 +400,8 @@ class IfcSpfModelSectionParser {
 							} else {
 								
 								assert(attributeValue instanceof IfcLiteralValue) :
-									String.format("Object is not a literal value, line number: %d, attributeInfo: %s, attribute value: %s, value type: %s",
-											entity.getLineNumber(), attributeInfo.getName(), attributeValue, attributeInfo.getAttributeTypeInfo().getValueTypes()); 
+									String.format("Object is not a literal value, line number: %s, attributeInfo: %s, attribute value: %s, value type: %s",
+											entity.getLocalId(), attributeInfo.getName(), attributeValue, attributeInfo.getAttributeTypeInfo().getValueTypes()); 
 								entity.addLiteralAttribute(new IfcLiteralAttribute(attributeInfo, attributeIndex, attributeValue));
 								
 							}
@@ -436,8 +439,8 @@ class IfcSpfModelSectionParser {
 							} else {
 								
 								assert (attributeValue instanceof IfcEntityBase) :
-									String.format("Object is not an entity, line number: %d, attributeInfo: %s, attribute value: %s, value type: %s",
-											entity.getLineNumber(), attributeInfo.getName(), attributeValue, attributeInfo.getAttributeTypeInfo().getValueTypes());
+									String.format("Object is not an entity, line number: %s, attributeInfo: %s, attribute value: %s, value type: %s",
+											entity.getLocalId(), attributeInfo.getName(), attributeValue, attributeInfo.getAttributeTypeInfo().getValueTypes());
 								IfcLink link = new IfcLink((IfcLinkInfo)attributeInfo, attributeIndex, entity, (IfcEntityBase)attributeValue);
 								entity.addOutgoingLink(link);
 								
@@ -454,7 +457,7 @@ class IfcSpfModelSectionParser {
 			}
 
 		} catch (Exception e) {
-			throw new IfcParserException(String.format("Error parsing entity %s (line %d): %s", entity.toString(), entity.getLineNumber(),
+			throw new IfcParserException(String.format("Error parsing entity %s (line %s): %s", entity.toString(), entity.getLocalId(),
 					e.getMessage()), e);
 		}
 	}	

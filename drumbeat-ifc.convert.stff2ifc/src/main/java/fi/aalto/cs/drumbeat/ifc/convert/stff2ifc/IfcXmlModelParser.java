@@ -12,15 +12,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.TypeInfo;
 import org.xml.sax.SAXException;
 
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 import fi.aalto.cs.drumbeat.ifc.common.IfcNotFoundException;
-import fi.aalto.cs.drumbeat.ifc.data.IfcVocabulary;
+import fi.aalto.cs.drumbeat.ifc.data.IfcVocabulary.Formatter;
 import fi.aalto.cs.drumbeat.ifc.data.LogicalEnum;
-import fi.aalto.cs.drumbeat.ifc.data.metamodel.IfcMetaModel;
 import fi.aalto.cs.drumbeat.ifc.data.model.*;
 import fi.aalto.cs.drumbeat.ifc.data.schema.*;
 
@@ -32,15 +29,15 @@ public class IfcXmlModelParser {
 	private static final String XML_ATTRIBUTE_NIL = "xsi:nil";
 	private static final String XML_ATTRIBUTE_ID = "id";
 	private static final String XML_ATTRIBUTE_REF = "ref";
+	private static final String XML_ATTRIBUTE_HREF = "href";
 
 	private static final String XML_ELEMENT_TAG_WRAPPER_SUFFIX = "-wrapper";
 
 	private Element documentElement;
 	private IfcSchema schema;
 	private IfcModel model;
-	private int entityCount;
 
-	private Map<Long, IfcEntity> entityMap = new HashMap<>(); // map of entities
+	private Map<String, IfcEntity> entityMap = new HashMap<>(); // map of entities
 																// indexed by
 																// line numbers
 
@@ -76,7 +73,7 @@ public class IfcXmlModelParser {
 
 			model = new IfcModel(schema, null);
 
-			parseEntities(documentElement);
+			parseEntities(documentElement, "");
 
 			return model;
 
@@ -88,15 +85,16 @@ public class IfcXmlModelParser {
 
 	}
 
-	private List<IfcEntityBase> parseEntities(Element parentElement) throws IfcParserException, IfcNotFoundException {
+	private List<IfcEntityBase> parseEntities(Element parentElement, String parentEntityId) throws IfcParserException, IfcNotFoundException {
 		List<IfcEntityBase> entities = new ArrayList<>();
+		int childCount = 0;
 		for (Node childNode = parentElement.getFirstChild(); childNode != null; childNode = childNode
 				.getNextSibling()) {
 			if (childNode instanceof Element) {
 				String typeName = ((Element) childNode).getTagName();
 				if (!typeName.endsWith(XML_ELEMENT_TAG_WRAPPER_SUFFIX)) {
 					// normal entity
-					IfcEntityBase entity = parseEntity((Element) childNode, typeName);
+					IfcEntityBase entity = parseEntity((Element) childNode, typeName, parentEntityId, childCount++);
 					entities.add(entity);
 				} else {
 					// short entity
@@ -117,19 +115,19 @@ public class IfcXmlModelParser {
 	 * Gets an entity from the map by its line number, or creates a new entity
 	 * if it doesn't exist
 	 * 
-	 * @param lineNumber
+	 * @param localId
 	 * @return
 	 */
-	private IfcEntity getEntity(long lineNumber) {
-		IfcEntity entity = entityMap.get(lineNumber);
+	private IfcEntity getEntity(String localId) {
+		IfcEntity entity = entityMap.get(localId);
 		if (entity == null) {
-			entity = new IfcEntity(null, lineNumber);
-			entityMap.put(lineNumber, entity);
+			entity = new IfcEntity(null, localId);
+			entityMap.put(localId, entity);
 		}
 		return entity;
 	}
 
-	private IfcEntityBase parseEntity(Element entityElement, String entityTypeName)
+	private IfcEntityBase parseEntity(Element entityElement, String entityTypeName, String parentEntityId, int childCount)
 			throws IfcParserException, IfcNotFoundException {
 		System.out.println("Parsing " + entityElement);
 
@@ -140,23 +138,22 @@ public class IfcXmlModelParser {
 		//
 		IfcEntity entity;
 		if (!StringUtils.isEmptyOrNull(id)) {
-			// TODO: change lineNumber to ID
-			long lineNumber = Integer.parseInt(id.substring(1)); // skip first
-																	// letter
-																	// "i"
-			entity = getEntity(lineNumber);
+			entity = getEntity(id);
 		} else {
 			// TODO: Support href (not ref)
 			String ref = entityElement.getAttribute(XML_ATTRIBUTE_REF);
 			if (!StringUtils.isEmptyOrNull(ref)) {
-				long lineNumber = Integer.parseInt(ref.substring(1)); // skip
-																		// first
-																		// letter
-																		// "i"
-				entity = getEntity(lineNumber);
+				entity = getEntity(ref);
 				return entity;
 			} else {
-				entity = new IfcEntity(0L);
+				String href = entityElement.getAttribute(XML_ATTRIBUTE_HREF);				
+				if (!StringUtils.isEmptyOrNull(href)) {
+					ref = href.substring(href.lastIndexOf('/'));
+					entity = getEntity(ref);
+					return entity;
+				} else {
+					entity = new IfcEntity(Formatter.formatChildEntityId(parentEntityId, childCount));
+				}
 			}
 		}
 
@@ -167,7 +164,7 @@ public class IfcXmlModelParser {
 			entityTypeName = entityElement.getAttribute(XML_ATTRIBUTE_TYPE);
 
 			if (StringUtils.isEmptyOrNull(entityTypeName)) {
-				List<IfcEntityBase> entities = parseEntities(entityElement);
+				List<IfcEntityBase> entities = parseEntities(entityElement, entity.getLocalId());
 				if (entities.size() == 1) {
 					return entities.get(0);
 				}
@@ -213,6 +210,7 @@ public class IfcXmlModelParser {
 		// add links
 		//
 		if (!isNil) {
+			childCount = 0;
 			for (Node childNode = entityElement.getFirstChild(); childNode != null; childNode = childNode
 					.getNextSibling()) {
 				assert (!(childNode instanceof Attr));
@@ -226,13 +224,13 @@ public class IfcXmlModelParser {
 						IfcLinkInfo linkInfo = (IfcLinkInfo) attributeInfo;
 						IfcTypeInfo linkTypeInfo = linkInfo.getAttributeTypeInfo();
 						if (linkTypeInfo instanceof IfcCollectionTypeInfo) {
-							List<IfcEntityBase> linkedEntities = parseEntities((Element) childNode);
+							List<IfcEntityBase> linkedEntities = parseEntities((Element) childNode, entity.getLocalId());
 							IfcEntityCollection linkedEntityCollection = new IfcEntityCollection(linkedEntities);
 							IfcLink link = new IfcLink(linkInfo, linkInfo.getAttributeIndex(), entity,
 									linkedEntityCollection);
 							entity.addOutgoingLink(link);
 						} else {
-							IfcEntityBase linkedEntity = parseEntity((Element) childNode, null);
+							IfcEntityBase linkedEntity = parseEntity((Element) childNode, null, entity.getLocalId(), childCount++);
 							IfcLink link = new IfcLink(linkInfo, linkInfo.getAttributeIndex(),
 									entity, linkedEntity);
 							entity.addOutgoingLink(link);
@@ -244,10 +242,10 @@ public class IfcXmlModelParser {
 
 						List<IfcEntityBase> linkedEntities;
 						if (inverseLinkTypeInfo instanceof IfcCollectionTypeInfo) {
-							linkedEntities = parseEntities((Element) childNode);							
+							linkedEntities = parseEntities((Element) childNode, entity.getLocalId());							
 						} else {
 							linkedEntities = new ArrayList<>();
-							IfcEntity linkedEntity = (IfcEntity) parseEntity((Element) childNode, null);
+							IfcEntity linkedEntity = (IfcEntity) parseEntity((Element) childNode, null, entity.getLocalId(), childCount++);
 							linkedEntities.add(linkedEntity);
 						}
 						
