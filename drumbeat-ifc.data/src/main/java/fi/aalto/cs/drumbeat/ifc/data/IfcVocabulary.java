@@ -1,5 +1,6 @@
 package fi.aalto.cs.drumbeat.ifc.data;
 
+import fi.aalto.cs.drumbeat.common.file.FileManager;
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 
 public class IfcVocabulary {
@@ -50,7 +51,7 @@ public class IfcVocabulary {
 	 * STEP Physical File Format
 	 *
 	 */
-	public static class StepFormat {
+	public static class SpfFormat {
 		public static final String FILE_EXTENSION_IFC = "ifc";
 		public static final String FILE_EXTENSION_STP = "stp";
 		public static final String FILE_EXTENSION_IFC_ZIP = "ifczip";
@@ -121,6 +122,7 @@ public class IfcVocabulary {
 	public static class IfcXmlFormat {
 		public static final String FILE_EXTENSION_IFC_XML = "ifcxml";
 		public static final String FILE_EXTENSION_IFX = "ifx";
+		public static final String FILE_EXTENSION_XML = FileManager.FILE_EXTENSION_XML;
 		
 		
 	}

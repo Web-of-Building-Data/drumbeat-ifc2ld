@@ -15,7 +15,7 @@ import fi.aalto.cs.drumbeat.ifc.data.LogicalEnum;
 import fi.aalto.cs.drumbeat.ifc.data.model.*;
 import fi.aalto.cs.drumbeat.ifc.data.schema.*;
 
-class IfcModelSectionParser {
+class IfcSpfModelSectionParser {
 	
 	private class IfcTemporaryCollectionValueWrapper extends IfcValue {
 		
@@ -67,7 +67,7 @@ class IfcModelSectionParser {
 	
 	
 	
-	private static final Logger logger = Logger.getLogger(IfcModelParser.class);	
+	private static final Logger logger = Logger.getLogger(IfcSpfModelParser.class);	
 
 	private IfcSchema schema;
 	private IfcLineReader reader;
@@ -100,16 +100,16 @@ class IfcModelSectionParser {
 			String entityAttributesString;
 			
 			if (!isHeaderSection) {
-				tokens = RegexUtils.split2(statement, IfcVocabulary.StepFormat.LINE_NUMBER);
+				tokens = RegexUtils.split2(statement, IfcVocabulary.SpfFormat.LINE_NUMBER);
 				if (tokens.length != 2) {
-					if (tokens.length == 1 && tokens[0].equalsIgnoreCase(IfcVocabulary.StepFormat.ENDSEC)) {
+					if (tokens.length == 1 && tokens[0].equalsIgnoreCase(IfcVocabulary.SpfFormat.ENDSEC)) {
 						break;
 					}
 					throw new IfcParserException("Invalid statement: '" + statement + "'");
 //					continue;
 				}
 			
-				tokens = RegexUtils.split2(tokens[1], IfcVocabulary.StepFormat.EQUAL);
+				tokens = RegexUtils.split2(tokens[1], IfcVocabulary.SpfFormat.EQUAL);
 			
 				//
 				// create entity
@@ -229,7 +229,7 @@ class IfcModelSectionParser {
 
 			switch (attributeStrBuilderWrapper.charAt(0)) {
 
-			case IfcVocabulary.StepFormat.LINE_NUMBER_SYMBOL: // Entity
+			case IfcVocabulary.SpfFormat.LINE_NUMBER_SYMBOL: // Entity
 				attributeStrBuilderWrapper.skip(1);
 				Long remoteLineNumber = attributeStrBuilderWrapper.getLong();
 				IfcEntity remoteEntity = getEntity(remoteLineNumber);
@@ -239,7 +239,7 @@ class IfcModelSectionParser {
 				attributeValues.add(remoteEntity);
 				break;
 
-			case IfcVocabulary.StepFormat.STRING_VALUE_SYMBOL:
+			case IfcVocabulary.SpfFormat.STRING_VALUE_SYMBOL:
 				String s = attributeStrBuilderWrapper.getStringBetweenSingleQuotes();
 				assert attributeValueTypes.size() == 1 : "Expect attributeValueTypes.size() == 1"; 
 //				if (!attributeValueTypes.contains(IfcTypeEnum.GUID)) {
@@ -251,9 +251,9 @@ class IfcModelSectionParser {
 //				}
 				break;
 
-			case IfcVocabulary.StepFormat.ENUMERATION_VALUE_SYMBOL:
+			case IfcVocabulary.SpfFormat.ENUMERATION_VALUE_SYMBOL:
 
-				s = attributeStrBuilderWrapper.getStringBetweenSimilarCharacters(IfcVocabulary.StepFormat.ENUMERATION_VALUE_SYMBOL);
+				s = attributeStrBuilderWrapper.getStringBetweenSimilarCharacters(IfcVocabulary.SpfFormat.ENUMERATION_VALUE_SYMBOL);
 
 				assert attributeValueTypes.size() == 1 : "Expect attributeValueTypes.size() == 1"; 
 				if (!attributeValueTypes.contains(IfcTypeEnum.LOGICAL)) {
@@ -276,12 +276,12 @@ class IfcModelSectionParser {
 				}
 				break;
 
-			case IfcVocabulary.StepFormat.NULL_SYMBOL: // $
+			case IfcVocabulary.SpfFormat.NULL_SYMBOL: // $
 				attributeValues.add(IfcValue.NULL);
 				attributeStrBuilderWrapper.skip(1);
 				break;
 
-			case IfcVocabulary.StepFormat.ANY_SYMBOL: // *
+			case IfcVocabulary.SpfFormat.ANY_SYMBOL: // *
 				attributeValues.add(IfcValue.ANY);
 				attributeStrBuilderWrapper.skip(1);
 				break;
@@ -326,7 +326,7 @@ class IfcModelSectionParser {
 					// parsing number or datetime
 					//
 					assert attributeValueTypes.size() == 1 : "Expect attributeValueTypes.size() == 1";
-					IfcTypeEnum attributeValueType = (IfcTypeEnum)attributeValueTypes.toArray()[0];
+					IfcTypeEnum attributeValueType = (IfcTypeEnum)attributeValueTypes.iterator().next();
 					Object value;
 					if (attributeValueType == IfcTypeEnum.INTEGER) {
 						value = attributeStrBuilderWrapper.getLong();

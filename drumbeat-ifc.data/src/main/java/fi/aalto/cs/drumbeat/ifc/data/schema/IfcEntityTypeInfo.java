@@ -133,17 +133,32 @@ public class IfcEntityTypeInfo extends IfcTypeInfo { // implements IRdfNode {
 	}
 	
 	public IfcAttributeInfo getAttributeInfo(String name) throws IfcNotFoundException {
+		return getAttributeInfo(name, false);
+	}
+
+	public IfcAttributeInfo getAttributeInfo(String name, boolean includeInverseLinks) throws IfcNotFoundException {
 		for (IfcAttributeInfo attributeInfo : attributeInfos) {
-			if (attributeInfo.getName().equals(name)) {
+			if (attributeInfo.getName().equalsIgnoreCase(name)) {
 				return attributeInfo;
 			}
 		}
 		
 		if (superTypeInfo != null) {
-			return superTypeInfo.getAttributeInfo(name);
+			try {
+				return superTypeInfo.getAttributeInfo(name, includeInverseLinks);
+			} catch (IfcNotFoundException e) {				
+			}
 		}
 		
-		throw new IfcNotFoundException(String.format("Attribute not found: '%s'", name));
+		if (includeInverseLinks) {
+			for (IfcInverseLinkInfo inverseLinkInfo : inverseLinkInfos) {
+				if (inverseLinkInfo.getName().equalsIgnoreCase(name)) {
+					return inverseLinkInfo;
+				}
+			}			
+		}
+		
+		throw new IfcNotFoundException(String.format("Entity type '%s' has no such attribute: '%s'", toString(), name));
 	}
 
 	public List<IfcInverseLinkInfo> getInverseLinkInfos() {

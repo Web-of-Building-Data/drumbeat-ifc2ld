@@ -636,7 +636,7 @@ public class IfcSchemaParser {
 	
 	public static IfcSchema getStepSchema() throws IfcParserException {
 		if (stffExpressSchema == null) {
-			stffExpressSchema = parse(new ByteArrayInputStream(IfcVocabulary.StepFormat.Header.SCHEMA_STRING.getBytes()));
+			stffExpressSchema = parse(new ByteArrayInputStream(IfcVocabulary.SpfFormat.Header.SCHEMA_STRING.getBytes()));
 		}
 		return stffExpressSchema;
 	}

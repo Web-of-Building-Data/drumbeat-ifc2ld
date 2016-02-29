@@ -162,11 +162,11 @@ public class IfcLineReader {
 		for (;;) {			
 			
 			if ((length = cache.length()) > 0) {
-				int indexOfEndLine = cache.indexOf(IfcVocabulary.StepFormat.END_LINE);
+				int indexOfEndLine = cache.indexOf(IfcVocabulary.SpfFormat.END_LINE);
 				
 				if (indexOfEndLine >= 0) {
 					
-					int indexOfApostrophe = cache.lastIndexOf(IfcVocabulary.StepFormat.STRING_VALUE, indexOfEndLine);
+					int indexOfApostrophe = cache.lastIndexOf(IfcVocabulary.SpfFormat.STRING_VALUE, indexOfEndLine);
 					if (indexOfApostrophe >= 0) {
 						indexOfEndLine = getIndexOfEndLine(cache);
 						

@@ -12,6 +12,6 @@ public class IfcStepFileSchema extends IfcStepEntity {
 	}
 
 	public List<String> getSchemas() {
-		return getListValue(IfcVocabulary.StepFormat.Header.FileSchema.SCHEMA_IDENTIFIERS);
+		return getListValue(IfcVocabulary.SpfFormat.Header.FileSchema.SCHEMA_IDENTIFIERS);
 	}	
 }

@@ -123,6 +123,15 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 		outgoingLinks.add(link);
 	}
 	
+	public IfcLink getOutgoingLink(IfcLinkInfo linkInfo) {
+		for (IfcLink link : outgoingLinks) {
+			if (link.getLinkInfo().equals(linkInfo)) {
+				return link;
+			}
+		}
+		return null;
+	}
+	
 	public void bindInverseLinks() {
 		
 		for (IfcLink link : outgoingLinks) {		
@@ -191,6 +200,7 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	}
 
 	public boolean isInstanceOf(IfcEntityTypeInfo typeInfo) {
+		assert(this.typeInfo != null) : "typeInfo is null";
 		return this.typeInfo.isTypeOf(typeInfo);
 	}
 	
@@ -377,8 +387,8 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	
 	@Override
 	public String toString() {
-		assert (typeInfo != null);
-		return String.format("%s_%d", typeInfo.getName(), lineNumber);
+//		assert (typeInfo != null) : "Undefined entity type, lineNumber=" + lineNumber;
+		return String.format("%s_%d", typeInfo, lineNumber);
 	}
 
 //	@Override
