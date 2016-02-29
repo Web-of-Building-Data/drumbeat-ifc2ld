@@ -228,7 +228,7 @@ public class Ifc2RdfModelExporter {
 			jenaModel.add(
 					entityResource,
 					jenaModel.createResource(converter.formatIfcOntologyName(Ifc2RdfVocabulary.IFC.PROPERTY_LINE_NUMBER_PROPERTY)).as(Property.class),
-					jenaModel.createTypedLiteral(entity.getLineNumber()));
+					jenaModel.createTypedLiteral(entity.getLocalId()));
 		}		
 
 		//adapter.exportEmptyLine();
@@ -424,7 +424,7 @@ public class Ifc2RdfModelExporter {
 			return jenaModel.createResource(formatModelName(entity.getName()));
 		} else {
 			final boolean nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
-			String nodeName = String.format(Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT, entity.getLineNumber());
+			String nodeName = String.format(Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT, entity.getLocalId());
 			if (nameAllBlankNodes) {
 				return jenaModel.createResource(formatModelName(nodeName));				
 			} else {

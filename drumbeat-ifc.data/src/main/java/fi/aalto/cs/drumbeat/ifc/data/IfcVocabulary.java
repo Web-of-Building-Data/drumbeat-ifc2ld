@@ -2,6 +2,7 @@ package fi.aalto.cs.drumbeat.ifc.data;
 
 import fi.aalto.cs.drumbeat.common.file.FileManager;
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
+import fi.aalto.cs.drumbeat.ifc.data.schema.IfcEntityTypeInfo;
 
 public class IfcVocabulary {
 	
@@ -167,4 +168,16 @@ public class IfcVocabulary {
 		
 	}
 	
+	public static class Formatter {
+		
+		public static String formatEntityName(IfcEntityTypeInfo typeInfo, String localId) {
+			return String.format("%s_%s", typeInfo, localId);
+		}
+		
+		public static String formatChildEntityId(String parentEntityId, int childCount) {
+			return String.format("%s-%s", parentEntityId, childCount);
+		}
+		
+	}
+
 }

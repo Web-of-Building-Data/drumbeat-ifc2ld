@@ -4,6 +4,7 @@ import java.util.*;
 
 import fi.aalto.cs.drumbeat.common.collections.IteratorComparer;
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
+import fi.aalto.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.aalto.cs.drumbeat.ifc.data.schema.*;
 
 
@@ -12,7 +13,7 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	private static final long serialVersionUID = 1L;
 
 	private IfcEntityTypeInfo typeInfo;
-	private long lineNumber;
+	private String localId;
 	private String name;
 	private String rawName;
 	private IfcAttributeList<IfcLiteralAttribute> literalAttributes = new IfcAttributeList<>();
@@ -27,12 +28,12 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	
 //	private transient List<IRdfLink> links;
 	
-	public IfcEntity(long lineNumber) {
-		this.lineNumber = lineNumber;
+	public IfcEntity(String localId) {
+		this.localId = localId;
 	}
 
-	public IfcEntity(IfcEntityTypeInfo typeInfo, long lineNumber) {
-		this(lineNumber);
+	public IfcEntity(IfcEntityTypeInfo typeInfo, String localId) {
+		this(localId);
 		this.typeInfo = typeInfo;
 	}
 
@@ -45,8 +46,8 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	}
 
 
-	public long getLineNumber() {
-		return lineNumber;
+	public String getLocalId() {
+		return localId;
 	}
 
 	public String getName() {
@@ -192,7 +193,8 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	
 	@Override
 	public int compareTo(IfcEntity o) {
-		int compare = Long.compare(lineNumber, o.lineNumber);
+		int compare = localId.compareTo(o.localId);
+//		int compare = Long.compare(localId, o.localId);
 		if (compare == 0) {
 			compare = typeInfo.compareTo(o.typeInfo);
 		}
@@ -387,8 +389,8 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	
 	@Override
 	public String toString() {
-//		assert (typeInfo != null) : "Undefined entity type, lineNumber=" + lineNumber;
-		return String.format("%s_%d", typeInfo, lineNumber);
+//		assert (typeInfo != null) : "Undefined entity type, localId=" + localId;
+		return IfcVocabulary.Formatter.formatEntityName(typeInfo, localId);
 	}
 
 //	@Override
@@ -406,12 +408,12 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 
 	@Override
 	public boolean equals(Object o) {
-		return ((IfcEntity)o).lineNumber == lineNumber;
+		return ((IfcEntity)o).localId == localId;
 	}
 	
 	@Override
-	public int hashCode() {
-		return (int)lineNumber;
+	public int hashCode() {		
+		return localId.hashCode();
 	}
 
 //	@Override
