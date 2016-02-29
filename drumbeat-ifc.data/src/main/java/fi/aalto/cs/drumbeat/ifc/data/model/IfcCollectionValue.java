@@ -29,7 +29,7 @@ public abstract class IfcCollectionValue<V extends IfcSingleValue> extends IfcVa
 		values = new ArrayList<>();
 	}
 
-	public IfcCollectionValue(List<V> values) {
+	public <T extends V> IfcCollectionValue(List<T> values) {
 		this();
 		values.addAll(values);
 	}

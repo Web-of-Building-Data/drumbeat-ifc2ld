@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.NotImplementedException;
+import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.rdf.model.AnonId;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -30,6 +31,8 @@ import fi.aalto.cs.drumbeat.rdf.RdfVocabulary;
 
 
 public class Ifc2RdfModelExporter {
+	
+	private static final Logger logger = Logger.getLogger(Ifc2RdfModelExporter.class); 
 	
 	private final IfcSchema ifcSchema;
 	private final IfcModel ifcModel;
@@ -181,8 +184,6 @@ public class Ifc2RdfModelExporter {
 		IfcEntityTypeInfo entityTypeInfo = entity.getTypeInfo();		
 		entityResource.addProperty(RDF.type, jenaModel.createResource(converter.formatTypeName(entityTypeInfo)));
 		
-		
-		
 		for (IfcLink link : entity.getOutgoingLinks()) {
 			writeAttribute(entityResource, link, childNodeCount++);
 		}
@@ -245,6 +246,7 @@ public class Ifc2RdfModelExporter {
 		}
 		
 		IfcValue value = attribute.getValue();
+		logger.debug("Writing attribute: " + attributeInfo + " value: " + value);
 		List<RDFNode> valueNodes = convertValueToNode(value, attributeInfo.getAttributeTypeInfo(), entityResource, childNodeCount);
 		
 		for (RDFNode valueNode : valueNodes) {		

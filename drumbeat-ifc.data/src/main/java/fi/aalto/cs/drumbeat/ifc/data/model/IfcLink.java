@@ -2,6 +2,7 @@ package fi.aalto.cs.drumbeat.ifc.data.model;
 
 import java.util.List;
 
+import fi.aalto.cs.drumbeat.ifc.data.schema.IfcEntityTypeInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcInverseLinkInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcLinkInfo;
 

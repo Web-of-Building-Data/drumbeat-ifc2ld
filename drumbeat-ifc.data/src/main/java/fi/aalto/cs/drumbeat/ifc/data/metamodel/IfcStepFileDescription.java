@@ -12,11 +12,11 @@ public class IfcStepFileDescription extends IfcStepEntity {
 	}
 	
 	public List<String> getDescriptions() {
-		return getListValue(IfcVocabulary.StepFormat.Header.FileDescription.DESCRIPTION);
+		return getListValue(IfcVocabulary.SpfFormat.Header.FileDescription.DESCRIPTION);
 	}
 	
 	public String getImplementationLevel() {
-		return getSingleValue(IfcVocabulary.StepFormat.Header.FileDescription.IMPLEMENTATION_LEVEL);
+		return getSingleValue(IfcVocabulary.SpfFormat.Header.FileDescription.IMPLEMENTATION_LEVEL);
 	}
 	
 	

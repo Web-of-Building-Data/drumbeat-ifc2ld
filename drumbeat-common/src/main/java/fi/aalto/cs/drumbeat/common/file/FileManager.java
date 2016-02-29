@@ -8,6 +8,8 @@ import java.text.DecimalFormat;
 
 public class FileManager {
 	
+	public static final String FILE_EXTENSION_XML = "xml";
+
 	public static final String FILE_EXTENSION_GZ = "gz";
 	public static final String FILE_EXTENSION_GZIP = "gzip";
 	public static final String FILE_EXTENSION_ZIP = "zip";

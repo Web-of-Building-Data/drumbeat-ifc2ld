@@ -9,7 +9,7 @@ public class IfcEntityCollection extends IfcCollectionValue<IfcEntityBase> {
 	public IfcEntityCollection() {
 	}
 
-	public IfcEntityCollection(List<IfcEntityBase> values) {
+	public <T extends IfcEntityBase> IfcEntityCollection(List<T> values) {
 		super(values);
 	}
 

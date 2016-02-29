@@ -15,12 +15,12 @@ public class IfcStepFileName extends IfcStepEntity {
 	}
 	
 	public String getName() {
-		return getSingleValue(IfcVocabulary.StepFormat.Header.FileName.NAME);
+		return getSingleValue(IfcVocabulary.SpfFormat.Header.FileName.NAME);
 	}
 
 	public Calendar getTimeStamp() {
 		try {
-			return CalendarConverter.xsdDateTimeToCalendar(getSingleValue(IfcVocabulary.StepFormat.Header.FileName.TIME_STAMP));
+			return CalendarConverter.xsdDateTimeToCalendar(getSingleValue(IfcVocabulary.SpfFormat.Header.FileName.TIME_STAMP));
 		} catch (ParseException e) {
 			e.printStackTrace();
 			return null;
@@ -28,23 +28,23 @@ public class IfcStepFileName extends IfcStepEntity {
 	}
 
 	public List<String> getAuthors() {
-		return getListValue(IfcVocabulary.StepFormat.Header.FileName.AUTHOR);
+		return getListValue(IfcVocabulary.SpfFormat.Header.FileName.AUTHOR);
 	}
 	
 	public List<String> getOrganizations() {
-		return getListValue(IfcVocabulary.StepFormat.Header.FileName.ORGANIZATION);
+		return getListValue(IfcVocabulary.SpfFormat.Header.FileName.ORGANIZATION);
 	}
 	
 	public String getPreprocessorVersion() {
-		return getSingleValue(IfcVocabulary.StepFormat.Header.FileName.PREPROCESSOR_VERSION);
+		return getSingleValue(IfcVocabulary.SpfFormat.Header.FileName.PREPROCESSOR_VERSION);
 	}
 
 	public String getOriginatingSystem() {
-		return getSingleValue(IfcVocabulary.StepFormat.Header.FileName.ORIGINATING_SYSTEM);
+		return getSingleValue(IfcVocabulary.SpfFormat.Header.FileName.ORIGINATING_SYSTEM);
 	}
 
 	public String getAuthorization() {
-		return getSingleValue(IfcVocabulary.StepFormat.Header.FileName.AUTHORIZATION);
+		return getSingleValue(IfcVocabulary.SpfFormat.Header.FileName.AUTHORIZATION);
 	}
 
 }

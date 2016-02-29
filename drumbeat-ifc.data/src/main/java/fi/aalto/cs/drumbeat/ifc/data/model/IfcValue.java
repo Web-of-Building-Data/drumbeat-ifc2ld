@@ -31,7 +31,7 @@ public abstract class IfcValue implements Serializable { // IRdfNode,  {
 
 		@Override
 		public String toString() {
-			return IfcVocabulary.StepFormat.NULL;
+			return IfcVocabulary.SpfFormat.NULL;
 		}
 
 		@Override
@@ -72,7 +72,7 @@ public abstract class IfcValue implements Serializable { // IRdfNode,  {
 
 		@Override
 		public String toString() {
-			return IfcVocabulary.StepFormat.ANY;
+			return IfcVocabulary.SpfFormat.ANY;
 		}
 
 		@Override
