@@ -1,4 +1,4 @@
-package fi.hut.cs.drumbeat.ifc.processing.grounding;
+package fi.aalto.cs.drumbeat.ifc.processing.grounding;
 
 import java.util.Properties;
 import java.util.regex.Matcher;
@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import fi.hut.cs.drumbeat.ifc.processing.IfcAnalyserException;
 import fi.hut.cs.drumbeat.ifc.processing.grounding.IfcGroundingMainProcessor;
 import fi.hut.cs.drumbeat.ifc.processing.grounding.IfcGroundingProcessor;
+import fi.hut.cs.drumbeat.ifc.processing.grounding.InputTypeEnum;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcEntity;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcEntityBase;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcLink;
