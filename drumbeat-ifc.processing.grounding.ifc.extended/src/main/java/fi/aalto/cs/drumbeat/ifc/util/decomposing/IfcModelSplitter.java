@@ -1,4 +1,4 @@
-package fi.hut.cs.drumbeat.ifc.util.decomposing;
+package fi.aalto.cs.drumbeat.ifc.util.decomposing;
 
 import java.util.*;
 import java.util.Map.Entry;

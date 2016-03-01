@@ -1,4 +1,4 @@
-package fi.hut.cs.drumbeat.ifc.processing.grounding;
+package fi.aalto.cs.drumbeat.ifc.processing.grounding;
 
 import java.security.InvalidParameterException;
 import java.util.*;
@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import fi.hut.cs.drumbeat.ifc.processing.IfcAnalyserException;
 import fi.hut.cs.drumbeat.ifc.processing.grounding.IfcGroundingMainProcessor;
 import fi.hut.cs.drumbeat.ifc.processing.grounding.IfcGroundingProcessor;
+import fi.hut.cs.drumbeat.ifc.processing.grounding.InputTypeEnum;
 import fi.hut.cs.drumbeat.common.string.RegexUtils;
 import fi.hut.cs.drumbeat.common.string.StrBuilderWrapper;
 import fi.hut.cs.drumbeat.common.string.StringUtils;

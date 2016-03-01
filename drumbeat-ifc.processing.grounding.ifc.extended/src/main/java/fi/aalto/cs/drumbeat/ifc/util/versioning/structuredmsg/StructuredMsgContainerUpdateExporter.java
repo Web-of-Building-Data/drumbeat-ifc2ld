@@ -1,8 +1,8 @@
-package fi.hut.cs.drumbeat.ifc.util.versioning.structuredmsg;
+package fi.aalto.cs.drumbeat.ifc.util.versioning.structuredmsg;
 
 import java.io.IOException;
 
-import fi.hut.cs.drumbeat.ifc.util.decomposing.msg.RdfMsgExporter;
+import fi.aalto.cs.drumbeat.ifc.util.decomposing.msg.RdfMsgExporter;
 import fi.hut.cs.drumbeat.rdf.data.msg.RdfMsgContainer;
 
 

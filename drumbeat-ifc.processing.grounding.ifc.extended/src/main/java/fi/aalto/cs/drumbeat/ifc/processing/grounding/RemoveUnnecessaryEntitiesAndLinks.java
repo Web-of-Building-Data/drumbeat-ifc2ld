@@ -1,10 +1,11 @@
-package fi.hut.cs.drumbeat.ifc.processing.grounding;
+package fi.aalto.cs.drumbeat.ifc.processing.grounding;
 
 import java.util.*;
 
 import fi.hut.cs.drumbeat.ifc.processing.IfcAnalyserException;
 import fi.hut.cs.drumbeat.ifc.processing.grounding.IfcGroundingMainProcessor;
 import fi.hut.cs.drumbeat.ifc.processing.grounding.IfcGroundingProcessor;
+import fi.hut.cs.drumbeat.ifc.processing.grounding.InputTypeEnum;
 import fi.hut.cs.drumbeat.common.string.StringUtils;
 import fi.hut.cs.drumbeat.ifc.common.IfcNotFoundException;
 import fi.hut.cs.drumbeat.ifc.data.model.IfcEntity;

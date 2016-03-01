@@ -1,4 +1,4 @@
-package fi.hut.cs.drumbeat.ifc.util.versioning.structuredmsg;
+package fi.aalto.cs.drumbeat.ifc.util.versioning.structuredmsg;
 
 import java.util.Iterator;
 import java.util.Map.Entry;

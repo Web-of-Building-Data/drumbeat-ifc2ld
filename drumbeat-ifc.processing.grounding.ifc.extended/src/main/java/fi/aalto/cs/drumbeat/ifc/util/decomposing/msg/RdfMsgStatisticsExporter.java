@@ -1,4 +1,4 @@
-package fi.hut.cs.drumbeat.ifc.util.decomposing.msg;
+package fi.aalto.cs.drumbeat.ifc.util.decomposing.msg;
 
 import java.io.IOException;
 import java.io.Writer;
