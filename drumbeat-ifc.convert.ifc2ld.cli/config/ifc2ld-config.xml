@@ -29,7 +29,7 @@
 		<processor name="RemoveUnnecessaryEntitiesAndLinks" enabled="true">
  			<class>fi.aalto.cs.drumbeat.ifc.processing.grounding.RemoveUnnecessaryEntitiesAndLinks</class>
  			<params>
- 				<param name="entityTypeNames" value="IfcProductDefinitionShape" />
+ 				<param name="entityTypeNames" value="IfcProductRepresentation" />
  			</params>
  		</processor>
 	</processorMap>
@@ -38,7 +38,7 @@
 	<complexProcessorPool type="grounding">
 		<complexProcessor name="BASIC GROUNDING RULES" enabled="true" default="true">
 			<add name="SetNameByGlobalId" />
-			<add name="RemoveUnnecessaryEntitiesAndLinks" />
+			<add name="RemoveUnnecessaryEntitiesAndLinks" />			
 		</complexProcessor>
 		<complexProcessor name="NO GROUNDING RULES" enabled="false" />		
 	</complexProcessorPool>
