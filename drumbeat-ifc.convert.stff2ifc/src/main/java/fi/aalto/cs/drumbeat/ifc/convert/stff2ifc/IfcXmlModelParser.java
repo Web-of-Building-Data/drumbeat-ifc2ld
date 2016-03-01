@@ -7,6 +7,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -22,6 +23,8 @@ import fi.aalto.cs.drumbeat.ifc.data.model.*;
 import fi.aalto.cs.drumbeat.ifc.data.schema.*;
 
 public class IfcXmlModelParser {
+	
+	private static final Logger logger = Logger.getLogger(IfcXmlModelParser.class);
 
 	public static final String SCHEMA_LOCATION_BASE_URI = "http://www.buildingsmart-tech.org/ifcXML/";
 
@@ -63,13 +66,24 @@ public class IfcXmlModelParser {
 			schemaLocation = schemaLocation.substring(SCHEMA_LOCATION_BASE_URI.length());
 
 			String[] schemaNameParts = schemaLocation.split("/");
-			String schemaName = schemaNameParts[0] + "_" + schemaNameParts[1];
-
-			schema = IfcSchemaPool.getSchema(schemaName);
-
-			if (schema == null) {
-				throw new IfcNotFoundException("Schema " + schemaName + " not found");
+			String[] schemaNames = new String[] {
+					schemaNameParts[0] + "_" + schemaNameParts[1],
+					getStableSchemaName(schemaNameParts[0]),
+					schemaNameParts[0]
+			};
+			
+			for (String schemaName : schemaNames) {
+				schema = IfcSchemaPool.getSchema(schemaName);
+				if (schema != null) {
+					break;
+				}
 			}
+			
+			if (schema == null) {
+				throw new IfcNotFoundException("None of the following schema found: " + Arrays.toString(schemaNames));
+			}
+			
+			logger.info("Parsing ifcXml file using schema '" + schema.getVersion() + "'");
 
 			model = new IfcModel(schema, null);
 
@@ -83,6 +97,16 @@ public class IfcXmlModelParser {
 			throw new IfcParserException(e);
 		}
 
+	}
+	
+	private String getStableSchemaName(String schemaName) {
+		schemaName = schemaName.toUpperCase();
+		if (schemaName.startsWith("IFC2x3")) {
+			return "IFC2x3";
+		} else if (schemaName.startsWith("IFC2x4") || schemaName.startsWith("IFC4")) {
+			return "IFC4_ADD1";
+		}
+		return schemaName;
 	}
 
 	private List<IfcEntityBase> parseEntities(Element parentElement, String parentEntityId) throws IfcParserException, IfcNotFoundException {
@@ -129,7 +153,6 @@ public class IfcXmlModelParser {
 
 	private IfcEntityBase parseEntity(Element entityElement, String entityTypeName, String parentEntityId, int childCount)
 			throws IfcParserException, IfcNotFoundException {
-		System.out.println("Parsing " + entityElement);
 
 		String id = entityElement.getAttribute(XML_ATTRIBUTE_ID);
 
