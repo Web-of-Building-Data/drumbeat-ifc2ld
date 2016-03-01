@@ -26,12 +26,19 @@
 		<processor name="ReplacePropertiesWithValueGlobalId" enabled="true">
 			<class>fi.aalto.cs.drumbeat.ifc.processing.grounding.ReplacePropertiesWithValueGlobalId</class>
 		</processor>
+		<processor name="RemoveUnnecessaryEntitiesAndLinks" enabled="true">
+ 			<class>fi.aalto.cs.drumbeat.ifc.processing.grounding.RemoveUnnecessaryEntitiesAndLinks</class>
+ 			<params>
+ 				<param name="entityTypeNames" value="IfcProductDefinitionShape" />
+ 			</params>
+ 		</processor>
 	</processorMap>
 	
 	<!-- complexProcessorPools -->
 	<complexProcessorPool type="grounding">
 		<complexProcessor name="BASIC GROUNDING RULES" enabled="true" default="true">
 			<add name="SetNameByGlobalId" />
+			<add name="RemoveUnnecessaryEntitiesAndLinks" />
 		</complexProcessor>
 		<complexProcessor name="NO GROUNDING RULES" enabled="false" />		
 	</complexProcessorPool>
