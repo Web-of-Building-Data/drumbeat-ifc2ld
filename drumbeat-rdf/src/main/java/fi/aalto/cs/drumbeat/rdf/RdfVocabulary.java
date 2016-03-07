@@ -114,54 +114,6 @@ public class RdfVocabulary {
 			return "trig";
 		}
 		return "rdf";
-	}
-	
-	public static RDFFormat getRdfFormat(String filePath) {
-		filePath = filePath.toLowerCase();
-		if (filePath.endsWith(".gzip")) {
-			filePath = filePath.substring(0, filePath.length() - 5);
-		} else if (filePath.endsWith(".gz")) {
-			filePath = filePath.substring(0, filePath.length() - 3);			
-		}
-		
-		if (filePath.endsWith("ttl")) {
-			return RDFFormat.TURTLE;
-		} else if (filePath.endsWith("nt")) {
-			return RDFFormat.NTRIPLES;
-		} else if (filePath.endsWith("nq")) {
-			return RDFFormat.NQUADS;
-		} else if (filePath.endsWith("jsonld")) {
-			return RDFFormat.JSONLD;
-		} else if (filePath.endsWith("trig")) {
-			return RDFFormat.TRIG;
-		} else {
-			return RDFFormat.RDFXML;
-		}
-	}
-	
-	public static Lang getRdfLang(String filePath) {
-		filePath = filePath.toLowerCase();
-		if (filePath.endsWith(".gzip")) {
-			filePath = filePath.substring(0, filePath.length() - 5);
-		} else if (filePath.endsWith(".gz")) {
-			filePath = filePath.substring(0, filePath.length() - 3);			
-		}
-		
-		if (filePath.endsWith("ttl")) {
-			return Lang.TURTLE;
-		} else if (filePath.endsWith("nt")) {
-			return Lang.NTRIPLES;
-		} else if (filePath.endsWith("nq")) {
-			return Lang.NQUADS;
-		} else if (filePath.endsWith("jsonld")) {
-			return Lang.JSONLD;
-		} else if (filePath.endsWith("trig")) {
-			return Lang.TRIG;
-		} else if (filePath.endsWith("csv")) {
-			return Lang.CSV;
-		} else {
-			return Lang.RDFXML;
-		}
-	}
+	}	
 	
 }

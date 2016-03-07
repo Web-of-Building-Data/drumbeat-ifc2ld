@@ -28,8 +28,8 @@ import fi.aalto.cs.drumbeat.common.config.ConfigurationPool;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.aalto.cs.drumbeat.common.file.FileManager;
-import fi.aalto.cs.drumbeat.rdf.RdfUtils;
 import fi.aalto.cs.drumbeat.rdf.jena.provider.config.JenaProviderPoolConfigurationSection;
+import fi.aalto.cs.drumbeat.rdf.utils.RdfUtils;
 
 @SuppressWarnings("serial")
 public class ConvertModelView extends FormLayout {

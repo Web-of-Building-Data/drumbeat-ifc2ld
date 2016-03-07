@@ -1,4 +1,4 @@
-package fi.aalto.cs.drumbeat.rdf;
+package fi.aalto.cs.drumbeat.rdf.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,78 +24,80 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 import fi.aalto.cs.drumbeat.common.file.FileManager;
+import fi.aalto.cs.drumbeat.rdf.RdfVocabulary;
 
 public class RdfUtils {
 	
 	private static final Logger logger = Logger.getRootLogger();
 	private static Map<String, RDFFormat> rdfFormats;
 
-	public static String getShortString(RDFNode node) {
-		if (node.isLiteral()) {
-			return node.toString();
-		} else {
-			return getShortString(node.asResource());
-		}
-	}
-
-	public static String getShortStringWithType(RDFNode node) {
-		if (node.isLiteral()) {
-			return node.asLiteral().getLexicalForm();
-		} else {
-			return getShortStringWithType(node.asResource());
-		}
-	}
-
-
-	public static String getShortString(Resource resource) {
-		if (resource.isURIResource()) {
-			return resource.getLocalName();
-		} else {
-			return resource.getId().toString();
-		}
-	}
+//	public static String getShortString(RDFNode node) {
+//		if (node.isLiteral()) {
+//			return node.toString();
+//		} else {
+//			return getShortString(node.asResource());
+//		}
+//	}
+//
+//	public static String getShortStringWithType(RDFNode node) {
+//		if (node.isLiteral()) {
+//			return node.asLiteral().getLexicalForm();
+//		} else {
+//			return getShortStringWithType(node.asResource());
+//		}
+//	}
+//
+//
+//	public static String getShortString(Resource resource) {
+//		if (resource.isURIResource()) {
+//			return resource.getLocalName();
+//		} else {
+//			return resource.getId().toString();
+//		}
+//	}
+//	
+//	public static String getShortStringWithType(Resource resource) {
+//		Resource type = getType(resource);
+//		String typeLetter;
+//		if (resource.isURIResource()) {
+//			typeLetter = "U";
+//		} else {
+//			typeLetter = "B";
+//		}
+//		
+//		return String.format("%s/%s(%s)", getShortString(resource), type != null ? type.getLocalName() : "", typeLetter);		
+//	}
+//	
+//
+//	public static String getShortString(Statement statement) {
+//		return String.format("[%s, %s, %s]",
+//				RdfUtils.getShortString(statement.getSubject()),
+//				RdfUtils.getShortString(statement.getPredicate()),
+//				RdfUtils.getShortString(statement.getObject()));
+//	}
+//	
+//	public static String getShortStringWithTypes(Statement statement) {
+//		return String.format("[%s, %s, %s]",
+//				RdfUtils.getShortStringWithType(statement.getSubject()),
+//				RdfUtils.getShortString(statement.getPredicate()),
+//				RdfUtils.getShortStringWithType(statement.getObject()));
+//	}
+//	
+//	public static Resource getType(Resource resource) {
+//		return resource.getPropertyResourceValue(RDF.type);
+//	}
+//	
+//	
+//	public static int getNumberOfIncomingLinks(Resource resource) {
+//		 StmtIterator stmtIterator = resource.getModel().listStatements(null, null, resource);
+//		 int count = 0;
+//		 for (; stmtIterator.hasNext(); ++count) {
+//			 stmtIterator.next();
+//		 }
+//		 return count;
+//	}
 	
-	public static String getShortStringWithType(Resource resource) {
-		Resource type = getType(resource);
-		String typeLetter;
-		if (resource.isURIResource()) {
-			typeLetter = "U";
-		} else {
-			typeLetter = "B";
-		}
-		
-		return String.format("%s/%s(%s)", getShortString(resource), type != null ? type.getLocalName() : "", typeLetter);		
-	}
-	
-
-	public static String getShortString(Statement statement) {
-		return String.format("[%s, %s, %s]",
-				RdfUtils.getShortString(statement.getSubject()),
-				RdfUtils.getShortString(statement.getPredicate()),
-				RdfUtils.getShortString(statement.getObject()));
-	}
-	
-	public static String getShortStringWithTypes(Statement statement) {
-		return String.format("[%s, %s, %s]",
-				RdfUtils.getShortStringWithType(statement.getSubject()),
-				RdfUtils.getShortString(statement.getPredicate()),
-				RdfUtils.getShortStringWithType(statement.getObject()));
-	}
-	
-	public static Resource getType(Resource resource) {
-		return resource.getPropertyResourceValue(RDF.type);
-	}
-	
-	
-	public static int getNumberOfIncomingLinks(Resource resource) {
-		 StmtIterator stmtIterator = resource.getModel().listStatements(null, null, resource);
-		 int count = 0;
-		 for (; stmtIterator.hasNext(); ++count) {
-			 stmtIterator.next();
-		 }
-		 return count;
-	}
-	
+	@Deprecated	
 	public static String formatRdfFileName(String filePath, RDFFormat format, boolean gzip) {
 		String fileExtension = RdfVocabulary.getRdfFileExtension(format);
 		if (gzip) {
@@ -106,6 +108,7 @@ public class RdfUtils {
 		return filePathWithExtension;
 	}	
 	
+	@Deprecated
 	public static String exportJenaModelToRdfFile(Model model, String filePath, RDFFormat format, boolean gzip) throws IOException {
 		
 		String filePathWithExtension = formatRdfFileName(filePath, format, gzip);		
@@ -127,11 +130,7 @@ public class RdfUtils {
 		return filePathWithExtension;
 	}
 	
-	public static void importRdfFileToJenaModel(Model model, String filePath) throws IOException {		
-		InputStream in = new FileInputStream(filePath);
-		RDFDataMgr.read(model, in, RdfVocabulary.getRdfLang(filePath));
-	}
-	
+	@Deprecated
 	public static Map<String, RDFFormat> getRdfFormatMap() {
 		
 		if (rdfFormats == null) {

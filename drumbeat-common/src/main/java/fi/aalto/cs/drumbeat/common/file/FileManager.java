@@ -10,8 +10,7 @@ public class FileManager {
 	
 	public static final String FILE_EXTENSION_XML = "xml";
 
-	public static final String FILE_EXTENSION_GZ = "gz";
-	public static final String FILE_EXTENSION_GZIP = "gzip";
+	public static final String FILE_EXTENSION_GZIP = "gz";
 	public static final String FILE_EXTENSION_ZIP = "zip";
 
 	public static File createDirectory(String directoryPath) {
@@ -84,6 +83,44 @@ public class FileManager {
 	
 	public static String getCurrentDirectory() {
 		return System.getProperty("user.dir");
+	}
+	
+	public static String getFileName(String filePath) {
+		File file = new File(filePath);
+		return file.getName();
+	}
+	
+	public static boolean hasFileExtension(String filePath, String extension) {
+		String fileName = getFileName(filePath);
+		int indexOfPoint = fileName.lastIndexOf('.');
+		String fileExtension = indexOfPoint >= 0 ? fileName.substring(indexOfPoint + 1) : fileName;
+		return fileExtension.equalsIgnoreCase(extension);
+	}
+	
+	public static boolean hasAnyFileExtension(String filePath, String... extensions) {
+		String fileName = getFileName(filePath);
+		int indexOfPoint = fileName.lastIndexOf('.');
+		String fileExtension = indexOfPoint >= 0 ? fileName.substring(indexOfPoint + 1) : fileName;
+
+		for (String extension : extensions) {
+			if (fileExtension.equalsIgnoreCase(extension)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static String removeLastExtension(String filePath) {
+		int index = filePath.lastIndexOf('.');
+		if (index >= 0) {
+			return filePath.substring(0, index);
+		} else {
+			return filePath;
+		}
+	}
+
+	public static String replaceLastExtension(String filePath, String newExtension) {
+		return removeLastExtension(filePath) + "." + newExtension;
 	}
 
 }

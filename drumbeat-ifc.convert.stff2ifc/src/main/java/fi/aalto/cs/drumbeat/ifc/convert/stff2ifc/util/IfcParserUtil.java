@@ -60,9 +60,7 @@ public class IfcParserUtil {
 
 	public static IfcModel parseModel(String filePath) throws IOException, IfcParserException {
 		logger.info(String.format("Parsing model in '%s'", filePath));
-		FileInputStream input = new FileInputStream(filePath);
-		File file = new File(filePath);
-		IfcModel model = IfcModelParser.parse(input, file.getName());
+		IfcModel model = IfcModelParser.parse(filePath);
 		logger.info("Parsing model has been completed successfully");
 		return model;
 	}
