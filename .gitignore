@@ -6,3 +6,6 @@
 /python/
 /RemoteSystemsTempFiles/
 *.log
+/drumbeat-jython/
+/drumbeat-rdf.modelfactory*/
+/RemoteSystemsTempFiles/
