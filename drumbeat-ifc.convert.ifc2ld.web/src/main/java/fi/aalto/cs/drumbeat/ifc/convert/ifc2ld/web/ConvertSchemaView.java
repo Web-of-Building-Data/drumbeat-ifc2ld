@@ -16,7 +16,7 @@ import com.vaadin.ui.Notification.Type;
 
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcSchema;
 import fi.aalto.cs.drumbeat.rdf.OwlProfileEnum;
-import fi.aalto.cs.drumbeat.rdf.RdfUtils;
+import fi.aalto.cs.drumbeat.rdf.utils.RdfUtils;
 
 @SuppressWarnings("serial")
 public class ConvertSchemaView extends FormLayout {

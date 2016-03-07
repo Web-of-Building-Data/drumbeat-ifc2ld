@@ -4,28 +4,28 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="drumbeat-ifc.convert.ifc2ld.cli-0.10.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.convert.ifc2ld.cli/drumbeat-ifc.convert.ifc2ld.cli">
+        <dependent-module archiveName="drumbeat-ifc.convert.ifc2ld.cli-0.10.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.convert.ifc2ld.cli/drumbeat-ifc.convert.ifc2ld.cli">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="drumbeat-ifc.processing.grounding.ifc-0.10.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.processing.grounding.ifc/drumbeat-ifc.processing.grounding.ifc">
+        <dependent-module archiveName="drumbeat-ifc.processing.grounding.ifc-0.10.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.processing.grounding.ifc/drumbeat-ifc.processing.grounding.ifc">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="drumbeat-ifc.convert.ifc2ld-0.10.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.convert.ifc2ld/drumbeat-ifc.convert.ifc2ld">
+        <dependent-module archiveName="drumbeat-ifc.convert.ifc2ld-0.10.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.convert.ifc2ld/drumbeat-ifc.convert.ifc2ld">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="drumbeat-ifc.data-0.10.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.data/drumbeat-ifc.data">
+        <dependent-module archiveName="drumbeat-ifc.data-0.10.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.data/drumbeat-ifc.data">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="drumbeat-ifc.common-0.10.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.common/drumbeat-ifc.common">
+        <dependent-module archiveName="drumbeat-ifc.common-0.10.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.common/drumbeat-ifc.common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="drumbeat-common-0.10.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-common/drumbeat-common">
+        <dependent-module archiveName="drumbeat-common-0.10.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-common/drumbeat-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="drumbeat-rdf-0.10.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-rdf/drumbeat-rdf">
+        <dependent-module archiveName="drumbeat-rdf-0.10.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-rdf/drumbeat-rdf">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="drumbeat-ifc.convert.stff2ifc-0.10.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.convert.stff2ifc/drumbeat-ifc.convert.stff2ifc">
+        <dependent-module archiveName="drumbeat-ifc.convert.stff2ifc-0.10.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/drumbeat-ifc.convert.stff2ifc/drumbeat-ifc.convert.stff2ifc">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/drumbeat-ifc.convert.ifc2ld.web/target/classes"/>

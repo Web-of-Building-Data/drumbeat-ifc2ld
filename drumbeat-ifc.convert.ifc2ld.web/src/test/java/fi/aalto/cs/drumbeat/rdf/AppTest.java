@@ -1,6 +1,6 @@
 package fi.aalto.cs.drumbeat.rdf;
 
-import fi.aalto.cs.drumbeat.rdf.RdfUtils;
+import fi.aalto.cs.drumbeat.rdf.utils.RdfUtils;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

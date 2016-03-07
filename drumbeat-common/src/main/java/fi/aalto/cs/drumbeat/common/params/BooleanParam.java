@@ -20,7 +20,7 @@ public class BooleanParam extends TypedParam<Boolean> {
 	}
 
 	public BooleanParam(String name, String description, Boolean value) {
-		this(name, description, value, Arrays.asList(Boolean.TRUE, Boolean.FALSE), null, null);
+		this(name, description, value, Arrays.asList(Boolean.TRUE, Boolean.FALSE), null, Boolean.FALSE);
 	}
 
 	public BooleanParam(String name, String description, Boolean value,
