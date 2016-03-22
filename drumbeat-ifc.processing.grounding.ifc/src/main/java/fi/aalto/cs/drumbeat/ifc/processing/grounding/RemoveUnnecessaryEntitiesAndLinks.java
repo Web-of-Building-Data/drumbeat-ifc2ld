@@ -34,11 +34,13 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.IfcSchema;
 public class RemoveUnnecessaryEntitiesAndLinks extends IfcGroundingProcessor {
 	
 	private static final String PARAM_ENTITY_TYPE_NAMES = "entityTypeNames";
+//	private static final String PARAM_RECURSIVE = "recursive";
 	
 	private List<IfcEntityTypeInfo> entityTypeInfos;
 	private List<IfcEntity> entitiesToRemove;
 	private int numberOfRemovedEntities;
 	private int numberOfRemovedLinks;
+//	private boolean recursive;
 
 	public RemoveUnnecessaryEntitiesAndLinks(IfcGroundingMainProcessor mainProcessor, Properties properties) {
 		super(mainProcessor, properties);
@@ -53,7 +55,9 @@ public class RemoveUnnecessaryEntitiesAndLinks extends IfcGroundingProcessor {
 			String[] tokens = entityTypeNamesString.split(StringUtils.COMMA);
 			try {
 				for (String token : tokens) {
-					entityTypeInfos.add(schema.getEntityTypeInfo(token.trim()));
+					String entityTypeName = token.trim();
+					logger.trace("Removing entity type: '" + entityTypeName + "'");
+					entityTypeInfos.add(schema.getEntityTypeInfo(entityTypeName));
 				}
 			} catch (IfcNotFoundException e) {
 				throw new IfcAnalyserException(e.getMessage(), e);
@@ -61,6 +65,11 @@ public class RemoveUnnecessaryEntitiesAndLinks extends IfcGroundingProcessor {
 		} else {
 			throw new IfcAnalyserException(String.format("Parameter %s is undefined", PARAM_ENTITY_TYPE_NAMES));
 		}
+		
+//		String recursiveString = getProperties().getProperty(PARAM_RECURSIVE);
+//		BooleanParam recursiveParam = new BooleanParam();
+//		recursiveParam.setStringValue(recursiveString);
+//		recursive = recursiveParam.getValue();
 	}
 
 	@Override
@@ -72,12 +81,34 @@ public class RemoveUnnecessaryEntitiesAndLinks extends IfcGroundingProcessor {
 	boolean process(IfcEntity entity) throws IfcAnalyserException {
 		for (IfcEntityTypeInfo entityTypeInfo : entityTypeInfos) {
 			if (entity.isInstanceOf(entityTypeInfo)) {
-				entitiesToRemove.add(entity);
+				logger.trace("Removing entity " + entity);
+				entitiesToRemove.add(entity);				
+//				if (recursive) {
+//					removeOutgoingLinks(entity);
+//				}
 				return true;
 			}
 		}
 		return false;
 	}
+	
+//	private void removeOutgoingLinks(IfcEntity entity) {
+//		for (IfcLink link : entity.getOutgoingLinks()) {
+//			for (IfcEntityBase linkedEntity : link.getDestinations()) {
+//				if (linkedEntity instanceof IfcEntity) {
+//					entitiesToRemove.add((IfcEntity)entity);
+//					removeOutgoingLinks(entity);
+//				}
+//			}
+//		}
+//	}
+	
+//	private void removeIncomingLinks(IfcEntity entity) {
+//		for (IfcLink link : entity.getIncomingLinks()) {
+//			link.getDestinations().remove(entity);
+//			if (link.get)
+//		}
+//	}
 
 	@Override
 	boolean checkNameDuplication() {
@@ -113,6 +144,7 @@ public class RemoveUnnecessaryEntitiesAndLinks extends IfcGroundingProcessor {
 	}
 	
 	private void removeEntity(IfcModel model, IfcEntity entity, boolean forceRemovingIncomingLinks) {
+//		logger.trace("Removing entity " + entity);
 		
 		if (forceRemovingIncomingLinks) {
 			
