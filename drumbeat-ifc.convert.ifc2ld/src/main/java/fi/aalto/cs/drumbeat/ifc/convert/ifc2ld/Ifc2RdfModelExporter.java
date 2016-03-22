@@ -1,6 +1,7 @@
 package fi.aalto.cs.drumbeat.ifc.convert.ifc2ld;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -20,12 +21,18 @@ import com.hp.hpl.jena.vocabulary.XSD;
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 import fi.aalto.cs.drumbeat.ifc.common.IfcException;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfVocabulary.EXPRESS;
+import fi.aalto.cs.drumbeat.ifc.data.LogicalEnum;
 import fi.aalto.cs.drumbeat.ifc.data.model.*;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcAttributeInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcCollectionTypeInfo;
+import fi.aalto.cs.drumbeat.ifc.data.schema.IfcDefinedTypeInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcEntityTypeInfo;
+import fi.aalto.cs.drumbeat.ifc.data.schema.IfcEnumerationTypeInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcInverseLinkInfo;
+import fi.aalto.cs.drumbeat.ifc.data.schema.IfcLiteralTypeInfo;
+import fi.aalto.cs.drumbeat.ifc.data.schema.IfcLogicalTypeInfo;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcSchema;
+import fi.aalto.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 import fi.aalto.cs.drumbeat.rdf.OwlProfileList;
 import fi.aalto.cs.drumbeat.rdf.RdfVocabulary;
@@ -284,7 +291,7 @@ public class Ifc2RdfModelExporter {
 				return convertShortEntityToResource((IfcShortEntity) value, childNodeCount);				
 			} else {
 				assert(value instanceof IfcLiteralValue);
-				return converter.convertLiteralValue((IfcLiteralValue) value, entityResource, childNodeCount, jenaModel);
+				return convertLiteralValue((IfcLiteralValue) value, entityResource, childNodeCount, jenaModel);
 			}
 		}
 	}
@@ -299,6 +306,99 @@ public class Ifc2RdfModelExporter {
 			return convertListToResource((IfcCollectionValue<?>) value, (IfcCollectionTypeInfo)typeInfo, entityResource, childNodeCount);		
 		}
 	}
+	
+
+	/**
+	 * Converts an IFC literal value to an RDF resource 
+	 * @param literalValue
+	 * @return
+	 */
+	public RDFNode convertLiteralValue(IfcLiteralValue literalValue, Model jenaModel) {
+		return convertLiteralValue(literalValue, null, 0L, jenaModel);
+	}
+	
+	
+
+	/**
+	 * Converts an IFC literal value to an RDF resource 
+	 * @param literalValue
+	 * @return
+	 */
+	public RDFNode convertLiteralValue(IfcLiteralValue literalValue, Resource parentResource, long childNodeCount, Model jenaModel) {
+		
+		IfcTypeInfo typeInfo = literalValue.getType();
+		
+		assert(typeInfo != null) : literalValue;
+
+		if (typeInfo instanceof IfcDefinedTypeInfo || typeInfo instanceof IfcLiteralTypeInfo) {
+			
+			return convertValueOfLiteralOrDefinedType(typeInfo, literalValue.getValue(), parentResource, childNodeCount, jenaModel);
+			
+			
+		} else if (typeInfo instanceof IfcEnumerationTypeInfo) {
+			
+			return converter.convertEnumerationValue((IfcEnumerationTypeInfo)typeInfo, (String)literalValue.getValue(), jenaModel);			
+			
+		} else if (typeInfo instanceof IfcLogicalTypeInfo) {
+			
+			assert(literalValue.getValue() instanceof LogicalEnum);
+			return converter.convertBooleanValue((IfcLogicalTypeInfo)typeInfo, (LogicalEnum)literalValue.getValue(), jenaModel);
+		
+		} else {
+			
+			throw new RuntimeException(String.format("Invalid literal value type: %s (%s)", typeInfo, typeInfo.getClass()));			
+		}
+		
+	}
+	
+	
+	private Resource convertValueOfLiteralOrDefinedType(IfcTypeInfo typeInfo, Object value, Resource parentResource, long childNodeCount, Model jenaModel) {
+		
+		assert(typeInfo instanceof IfcLiteralTypeInfo || typeInfo instanceof IfcDefinedTypeInfo);
+		
+		RDFNode valueNode;
+		IfcTypeEnum valueType = typeInfo.getValueTypes().iterator().next();
+		
+		if (valueType == IfcTypeEnum.STRING) {
+			valueNode = jenaModel.createTypedLiteral((String)value);				
+		} else if (valueType == IfcTypeEnum.GUID) {				
+			valueNode = jenaModel.createTypedLiteral(value.toString());
+		} else if (valueType == IfcTypeEnum.REAL || valueType == IfcTypeEnum.NUMBER) {				
+			valueNode = jenaModel.createTypedLiteral((double)value, converter.getBaseTypeForDoubles().getURI());				
+		} else if (valueType == IfcTypeEnum.INTEGER) {				
+			valueNode = jenaModel.createTypedLiteral((long)value);				
+		} else if (valueType == IfcTypeEnum.LOGICAL) {
+//			assert(typeInfo instanceof IfcLogicalTypeInfo) : typeInfo;
+			assert(value instanceof LogicalEnum) : value;
+			valueNode = converter.convertBooleanValue(typeInfo, (LogicalEnum)value, jenaModel);
+		} else {
+			assert (valueType == IfcTypeEnum.DATETIME) : "Expected: valueType == IfcTypeEnum.DATETIME. Actual: valueType = " + valueType + ", " + typeInfo;
+			valueNode = jenaModel.createTypedLiteral((Calendar)value);				
+		}
+		
+		Property hasXXXProperty = converter.getHasXXXProperty(typeInfo.getValueTypes().iterator().next(), jenaModel);
+
+		Resource resource;
+		if (nameAllBlankNodes) {
+			//String rawNodeName = String.format("%s_%s", hasXXXProperty.getLocalName(), value);
+//			String encodedNodeName = EncoderTypeEnum.encode(EncoderTypeEnum.SafeUrl, rawNodeName);			
+
+			String rawNodeName = formatModelBlankNodeName(String.format("%s_%s", parentResource.getLocalName(), childNodeCount));
+			resource = jenaModel.createResource(rawNodeName);
+		} else {
+			resource = jenaModel.createResource();
+		}
+
+		resource.addProperty(RDF.type, jenaModel.createResource(converter.formatTypeName(typeInfo)));
+		
+		resource.addProperty(hasXXXProperty, valueNode);
+		
+		return resource;
+		
+	}
+		
+	
+		
 	
 	
 	public List<RDFNode> convertListToResource(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo,
@@ -346,7 +446,7 @@ public class Ifc2RdfModelExporter {
 				index--;
 				Resource nextListResource = currentListResource;
 				if (nameAllBlankNodes) {
-					String currentResourceName = String.format("%s_%d_%d", parentResource.getURI(), childNodeCount, index);
+					String currentResourceName = formatModelBlankNodeName(String.format("%s_%d_%d", parentResource.getLocalName(), childNodeCount, index));
 					currentListResource = jenaModel.createResource(currentResourceName);			
 				} else {
 					currentListResource = jenaModel.createResource();
@@ -450,7 +550,7 @@ public class Ifc2RdfModelExporter {
 		
 		entityResource.addProperty(RDF.type, jenaModel.createResource(converter.formatTypeName(entity.getTypeInfo())));
 		IfcLiteralValue value = entity.getValue();
-		RDFNode valueNode = converter.convertLiteralValue((IfcLiteralValue) value, entityResource, childNodeCount, jenaModel);
+		RDFNode valueNode = convertLiteralValue((IfcLiteralValue) value, entityResource, childNodeCount, jenaModel);
 		entityResource.addProperty(EXPRESS.hasValue, valueNode);
 		return entityResource;
 	}

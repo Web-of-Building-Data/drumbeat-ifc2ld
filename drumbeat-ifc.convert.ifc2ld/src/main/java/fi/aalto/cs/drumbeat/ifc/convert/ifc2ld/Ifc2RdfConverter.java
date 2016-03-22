@@ -277,50 +277,7 @@ public class Ifc2RdfConverter {
 		
 	}
 	
-	/**
-	 * Converts an IFC literal value to an RDF resource 
-	 * @param literalValue
-	 * @return
-	 */
-	public RDFNode convertLiteralValue(IfcLiteralValue literalValue, Model jenaModel) {
-		return convertLiteralValue(literalValue, null, 0L, jenaModel);
-	}
-	
-	
 
-	/**
-	 * Converts an IFC literal value to an RDF resource 
-	 * @param literalValue
-	 * @return
-	 */
-	public RDFNode convertLiteralValue(IfcLiteralValue literalValue, Resource parentResource, long childNodeCount, Model jenaModel) {
-		
-		IfcTypeInfo typeInfo = literalValue.getType();
-		
-		assert(typeInfo != null) : literalValue;
-
-		if (typeInfo instanceof IfcDefinedTypeInfo || typeInfo instanceof IfcLiteralTypeInfo) {
-			
-			return convertValueOfLiteralOrDefinedType(typeInfo, literalValue.getValue(), parentResource, childNodeCount, jenaModel);
-			
-			
-		} else if (typeInfo instanceof IfcEnumerationTypeInfo) {
-			
-			return convertEnumerationValue((IfcEnumerationTypeInfo)typeInfo, (String)literalValue.getValue(), jenaModel);			
-			
-		} else if (typeInfo instanceof IfcLogicalTypeInfo) {
-			
-			assert(literalValue.getValue() instanceof LogicalEnum);
-			return convertBooleanValue((IfcLogicalTypeInfo)typeInfo, (LogicalEnum)literalValue.getValue(), jenaModel);
-		
-		} else {
-			
-			throw new RuntimeException(String.format("Invalid literal value type: %s (%s)", typeInfo, typeInfo.getClass()));			
-		}
-		
-	}
-	
-	
 	/**
 	 * Returns the equivalent XSD datatype of an IFC literal type
 	 * @param typeInfo
@@ -414,7 +371,7 @@ public class Ifc2RdfConverter {
 	}
 	
 	
-	private Resource convertBooleanValue(IfcTypeInfo typeInfo, LogicalEnum value, Model jenaModel) {
+	Resource convertBooleanValue(IfcTypeInfo typeInfo, LogicalEnum value, Model jenaModel) {
 		
 		Resource baseType = getBaseTypeForBooleans();
 		if (baseType.equals(OWL2.NamedIndividual)) {
@@ -449,7 +406,7 @@ public class Ifc2RdfConverter {
 	 * Returns the equivalent XSD datatype for IFC types: REAL and NUMBER
 	 * @return
 	 */
-	private Resource getBaseTypeForDoubles() {
+	Resource getBaseTypeForDoubles() {
 		
 		if (baseTypeForDoubles == null) {
 			String convertDoubleValuesTo = (String)context.getConversionParams().getParamValue(Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO);
@@ -588,7 +545,7 @@ public class Ifc2RdfConverter {
 	}
 	
 	
-	private Resource convertEnumerationValue(IfcEnumerationTypeInfo typeInfo, String value, Model jenaModel) {
+	Resource convertEnumerationValue(IfcEnumerationTypeInfo typeInfo, String value, Model jenaModel) {
 
 		Resource baseType = getBaseTypeForEnums();
 		if (baseType.equals(OWL2.NamedIndividual)) {			
@@ -653,51 +610,6 @@ public class Ifc2RdfConverter {
 	//*****************************************
 	// Region DEFINED TYPES & VALUES
 	//*****************************************
-	
-	private Resource convertValueOfLiteralOrDefinedType(IfcTypeInfo typeInfo, Object value, Resource parentResource, long childNodeCount, Model jenaModel) {
-		
-		assert(typeInfo instanceof IfcLiteralTypeInfo || typeInfo instanceof IfcDefinedTypeInfo);
-		
-		RDFNode valueNode;
-		IfcTypeEnum valueType = typeInfo.getValueTypes().iterator().next();
-		
-		if (valueType == IfcTypeEnum.STRING) {
-			valueNode = jenaModel.createTypedLiteral((String)value);				
-		} else if (valueType == IfcTypeEnum.GUID) {				
-			valueNode = jenaModel.createTypedLiteral(value.toString());
-		} else if (valueType == IfcTypeEnum.REAL || valueType == IfcTypeEnum.NUMBER) {				
-			valueNode = jenaModel.createTypedLiteral((double)value, getBaseTypeForDoubles().getURI());				
-		} else if (valueType == IfcTypeEnum.INTEGER) {				
-			valueNode = jenaModel.createTypedLiteral((long)value);				
-		} else if (valueType == IfcTypeEnum.LOGICAL) {
-//			assert(typeInfo instanceof IfcLogicalTypeInfo) : typeInfo;
-			assert(value instanceof LogicalEnum) : value;
-			valueNode = convertBooleanValue(typeInfo, (LogicalEnum)value, jenaModel);
-		} else {
-			assert (valueType == IfcTypeEnum.DATETIME) : "Expected: valueType == IfcTypeEnum.DATETIME. Actual: valueType = " + valueType + ", " + typeInfo;
-			valueNode = jenaModel.createTypedLiteral((Calendar)value);				
-		}
-		
-		Property hasXXXProperty = getHasXXXProperty(typeInfo.getValueTypes().iterator().next(), jenaModel);
-
-		Resource resource;
-		if (nameAllBlankNodes) {
-			//String rawNodeName = String.format("%s_%s", hasXXXProperty.getLocalName(), value);
-//			String encodedNodeName = EncoderTypeEnum.encode(EncoderTypeEnum.SafeUrl, rawNodeName);			
-
-			String rawNodeName = String.format("%s_%s", parentResource.getLocalName(), childNodeCount);
-			resource = jenaModel.createResource(rawNodeName);
-		} else {
-			resource = jenaModel.createResource();
-		}
-
-		resource.addProperty(RDF.type, jenaModel.createResource(formatTypeName(typeInfo)));
-		
-		resource.addProperty(hasXXXProperty, valueNode);
-		
-		return resource;
-		
-	}
 	
 	
 	public Resource convertDefinedTypeInfo(IfcDefinedTypeInfo typeInfo, Model jenaModel) {
@@ -1042,7 +954,7 @@ public class Ifc2RdfConverter {
 	 * @param baseTypeInfo
 	 * @return
 	 */
-	private Property getHasXXXProperty(IfcTypeEnum valueType, Model jenaModel) {
+	Property getHasXXXProperty(IfcTypeEnum valueType, Model jenaModel) {
 		Property hasXXXProperty = map_Type_hasXXXProperty.get(valueType);
 		if (hasXXXProperty == null) {
 			String valueTypeName = valueType.toString();			
