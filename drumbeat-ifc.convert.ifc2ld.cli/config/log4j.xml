@@ -49,7 +49,7 @@
 		<appender-ref ref="FILE_ANALYSER"/>
 	</logger>	
 	<logger name="fi.aalto.cs.drumbeat.ifc.processing">
-		<level value="info"/>
+		<level value="trace"/>
 		<appender-ref ref="CONSOLE"/>
 		<appender-ref ref="FILE_ANALYSER"/>
 	</logger>	

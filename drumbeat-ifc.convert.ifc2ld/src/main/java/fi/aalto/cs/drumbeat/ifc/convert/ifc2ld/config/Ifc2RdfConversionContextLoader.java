@@ -30,6 +30,8 @@ public class Ifc2RdfConversionContextLoader {
 	private static final String CONFIGURATION_NAMESPACE_FORMAT_VARIABLE_SCHEMA_VERSION = Matcher.quoteReplacement("$Schema.Version$");
 	private static final String CONFIGURATION_VARIABLE_CONVERTER_CONTEXT_NAME = Matcher.quoteReplacement("$Converter.Context.Name$");
 	
+	private static final String CONFIGURATION_PROPERTY_MODEL_BLANK_NODE_NAME_FORMAT = "Model.BlankNodeNameFormat";
+	
 	
 	public static Ifc2RdfConversionContext loadFromDefaultConfigurationFile(String contextName) throws ConfigurationParserException {
 		ConverterPoolConfigurationSection configurationSection =
@@ -92,6 +94,9 @@ public class Ifc2RdfConversionContextLoader {
 				.replaceAll(CONFIGURATION_NAMESPACE_FORMAT_VARIABLE_SCHEMA_VERSION, "%1s")
 				.replaceAll(CONFIGURATION_VARIABLE_CONVERTER_CONTEXT_NAME, "%2s");
 		context.setModelNamespaceUriFormat(modelNamespaceFormat);
+		
+		String modelBlankNodeNameFormat = properties.getProperty(CONFIGURATION_PROPERTY_MODEL_BLANK_NODE_NAME_FORMAT);
+		context.setModelBlankNodeNameFormat(modelBlankNodeNameFormat);
 		
 	}
 

@@ -60,6 +60,8 @@ public class DrumbeatTestHelper {
 	public static final String MODEL_NAMESPACE_PREFIX = "model";
 	public static final String MODEL_NAMESPACE_URI_FORMAT = "http://example.org/domain/";
 	
+	public static final String MODEL_BLANK_NODE_NAME_FORMAT = "B/%s";
+	
 	private static boolean initialized = false;
 	private static IfcModel testIfcModel;
 	

@@ -15,6 +15,7 @@ public class StringUtils {
 	public static final char OPENING_ROUND_BRACKET_CHAR = '('; 
 	public static final char SEMICOLON_CHAR = ';';
 	public static final char SHARP_CHAR = '#';
+	public static final char SLASH_CHAR = '/';
 	public static final char SPACE_CHAR = ' ';
 	public static final char STAR_CHAR = '*';
 	public static final char QUESTION_CHAR = '?';
@@ -35,6 +36,7 @@ public class StringUtils {
 	public static final String OPENING_SQUARE_BRACKET = "["; 
 	public static final String SEMICOLON = ";";
 	public static final String SHARP = "#";
+	public static final String SLASH = "/";
 	public static final String SPACE = " ";
 	public static final String STAR = "*";
 	public static final String QUESTION = "?";

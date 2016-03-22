@@ -29,7 +29,7 @@
 		<processor name="RemoveUnnecessaryEntitiesAndLinks" enabled="true">
  			<class>fi.aalto.cs.drumbeat.ifc.processing.grounding.RemoveUnnecessaryEntitiesAndLinks</class>
  			<params>
- 				<param name="entityTypeNames" value="IfcProductRepresentation" />
+ 				<param name="entityTypeNames" value="IfcProductRepresentation, IfcRelSpaceBoundary" />
  			</params>
  		</processor>
 	</processorMap>
@@ -94,6 +94,7 @@
 				<param name="Ontology.NamespaceFormat" value="http://drumbeat.cs.hut.fi/owl/$Schema.Version$#" />
 				<param name="Model.Prefix" value="model" />
 				<param name="Model.NamespaceFormat" value="http://drumbeat.cs.hut.fi/tomcat/marmotta/resource/" />								
+				<param name="Model.BlankNodeNameFormat" value="BLANK/%s" />								
 			</params>
 		</converter>	
 		

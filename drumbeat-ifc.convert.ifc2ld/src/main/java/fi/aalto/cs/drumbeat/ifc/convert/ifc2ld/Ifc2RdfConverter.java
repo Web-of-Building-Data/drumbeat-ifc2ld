@@ -54,6 +54,7 @@ public class Ifc2RdfConverter {
 	private Resource baseTypeForEnums;
 	private OwlProfileList owlProfileList;	
 	private Map<IfcTypeEnum, Property> map_Type_hasXXXProperty;
+	private boolean nameAllBlankNodes;
 	
 	public Ifc2RdfConverter(Ifc2RdfConversionContext context, IfcSchema schema) {
 		this(context, schema.getVersion());
@@ -62,6 +63,7 @@ public class Ifc2RdfConverter {
 	
 	public Ifc2RdfConverter(Ifc2RdfConversionContext context, String schemaVersion) {
 		this.context = context;
+		nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
 		owlProfileList = context.getOwlProfileList();		
 		map_Type_hasXXXProperty = new HashMap<>();
 //		if(context.getOntologyNamespaceUriFormat() == null) {
@@ -678,14 +680,12 @@ public class Ifc2RdfConverter {
 		
 		Property hasXXXProperty = getHasXXXProperty(typeInfo.getValueTypes().iterator().next(), jenaModel);
 
-		final boolean nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
-		
 		Resource resource;
 		if (nameAllBlankNodes) {
 			//String rawNodeName = String.format("%s_%s", hasXXXProperty.getLocalName(), value);
 //			String encodedNodeName = EncoderTypeEnum.encode(EncoderTypeEnum.SafeUrl, rawNodeName);			
 
-			String rawNodeName = String.format("%s_%s", parentResource.getURI(), childNodeCount);
+			String rawNodeName = String.format("%s_%s", parentResource.getLocalName(), childNodeCount);
 			resource = jenaModel.createResource(rawNodeName);
 		} else {
 			resource = jenaModel.createResource();

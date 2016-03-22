@@ -46,6 +46,8 @@ public class Test_Ifc2RdfModelExporter_Exporting_IfcModel {
 		context = new Ifc2RdfConversionContext();
 		context.setModelNamespacePrefix(DrumbeatTestHelper.MODEL_NAMESPACE_PREFIX);
 		context.setModelNamespaceUriFormat(DrumbeatTestHelper.MODEL_NAMESPACE_URI_FORMAT);
+		context.setModelBlankNodeNameFormat(DrumbeatTestHelper.MODEL_BLANK_NODE_NAME_FORMAT);
+		
 		context.getConversionParams().setParamValue(Ifc2RdfConversionParams.PARAM_IGNORE_IFC_SCHEMA, false);
 		context.getConversionParams().setParamValue(Ifc2RdfConversionParams.PARAM_IGNORE_EXPRESS_SCHEMA, true);
 		converter = new Ifc2RdfConverter(context, ifcModel.getSchema());
