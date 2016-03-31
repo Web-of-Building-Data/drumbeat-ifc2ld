@@ -18,6 +18,9 @@ import fi.aalto.cs.drumbeat.common.config.document.*;
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 import fi.aalto.cs.drumbeat.ifc.common.IfcCommandLineOptions;
 import fi.aalto.cs.drumbeat.ifc.common.IfcException;
+import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
+import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfVocabulary;
+import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.config.Ifc2RdfConversionContextLoader;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.util.Ifc2RdfExportUtil;
 import fi.aalto.cs.drumbeat.ifc.convert.stff2ifc.IfcParserException;
 import fi.aalto.cs.drumbeat.ifc.convert.stff2ifc.util.IfcParserUtil;
@@ -67,7 +70,7 @@ public class Ifc2RdfExporter {
 		this.outputModelName = outputModelName;
 		this.outputMetaModelFilePath = outputMetaModelFilePath;
 		this.outputMetaModelName = outputMetaModelName;
-		this.outputFileFormatName = outputFileFormatName;		
+		this.outputFileFormatName = outputFileFormatName;
 	}
 	
 	public static void init(String loggerConfigFilePath, String configFilePath) throws ConfigurationParserException {
@@ -86,6 +89,10 @@ public class Ifc2RdfExporter {
 	 * @param args
 	 */	
 	public void run() throws Exception {
+		
+		
+		Ifc2RdfConversionContext conversionContext = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(outputLayerName);
+		
 		
 		//
 		// load jena model factory configuration pool
@@ -174,7 +181,7 @@ public class Ifc2RdfExporter {
 			
 			if (outputSchemaJenaProvider != null) {
 				for (IfcSchema schema : schemas) {
-					exportSchema(outputSchemaJenaProvider, schema, outputLayerName, outputSchemaFilePath, outputFileFormat, gzipOutputFile);
+					exportSchema(outputSchemaJenaProvider, schema, conversionContext, outputSchemaFilePath, outputFileFormat, gzipOutputFile);
 				}
 			}
 			
@@ -188,14 +195,14 @@ public class Ifc2RdfExporter {
 				// export model
 				//
 				if (outputModelJenaProvider != null) {
-					exportModel(outputModelJenaProvider, model, outputLayerName, outputModelFilePath, outputFileFormat, gzipOutputFile);
+					exportModel(outputModelJenaProvider, model, conversionContext, outputModelFilePath, outputFileFormat, gzipOutputFile);
 				}
 				
 				//
 				// export meta-model
 				//
 				if (outputMetaModelJenaProvider != null) {				
-					exportMetaModel(outputMetaModelJenaProvider, model, outputLayerName, outputMetaModelFilePath, outputFileFormat, gzipOutputFile);				
+					exportMetaModel(outputMetaModelJenaProvider, model, conversionContext, outputMetaModelFilePath, outputFileFormat, gzipOutputFile);				
 				}
 				
 			}			
@@ -299,7 +306,7 @@ public class Ifc2RdfExporter {
 	public static Model exportSchema(
 			AbstractJenaProvider outputSchemaJenaProvider,
 			IfcSchema schema,
-			String conversionContextName,
+			Ifc2RdfConversionContext conversionContext,
 			String outputSchemaFilePath,
 			RDFFormat outputFileFormat,
 			boolean gzipOutputFile)
@@ -311,7 +318,7 @@ public class Ifc2RdfExporter {
 			schemaGraph.begin();				
 		}
 		schemaGraph.removeAll();
-		Ifc2RdfExportUtil.exportSchemaToJenaModel(schemaGraph, schema, conversionContextName);
+		Ifc2RdfExportUtil.exportSchemaToJenaModel(schemaGraph, schema, conversionContext);
 		if (schemaGraph.supportsTransactions()) {
 			schemaGraph.commit();
 		}
@@ -319,7 +326,8 @@ public class Ifc2RdfExporter {
 		
 		// export model to RDF file
 		if (!StringUtils.isEmptyOrNull(outputSchemaFilePath)) {
-			RdfUtils.exportJenaModelToRdfFile(schemaGraph, outputSchemaFilePath, outputFileFormat, gzipOutputFile);
+			String baseUri = Ifc2RdfVocabulary.IFC.getBaseUri(schema.getVersion());
+			RdfUtils.exportJenaModelToRdfFile(schemaGraph, baseUri, outputSchemaFilePath, outputFileFormat, gzipOutputFile);
 		}
 		return schemaGraph;
 	}
@@ -350,7 +358,7 @@ public class Ifc2RdfExporter {
 	public static Model exportModel(
 			AbstractJenaProvider outputModelJenaProvider,
 			IfcModel model,
-			String conversionContextName,
+			Ifc2RdfConversionContext conversionContext,
 			String outputModelFilePath,
 			RDFFormat outputFileFormat,
 			boolean gzipOutputFile) throws Exception {
@@ -369,7 +377,7 @@ public class Ifc2RdfExporter {
 			modelGraph.begin();				
 		}
 		modelGraph.removeAll();
-		Ifc2RdfExportUtil.exportModelToJenaModel(modelGraph, model, conversionContextName);
+		Ifc2RdfExportUtil.exportModelToJenaModel(modelGraph, model, conversionContext);
 		if (modelGraph.supportsTransactions()) {
 			logger.info("Committing RDF graph transactions");
 			modelGraph.commit();
@@ -378,7 +386,8 @@ public class Ifc2RdfExporter {
 		
 		// export model to RDF file
 		if (!StringUtils.isEmptyOrNull(outputModelFilePath)) {
-			RdfUtils.exportJenaModelToRdfFile(modelGraph, outputModelFilePath, outputFileFormat, gzipOutputFile);
+			String baseUri = conversionContext.generateModelNamespaceUri(model.getSchema().getVersion());
+			RdfUtils.exportJenaModelToRdfFile(modelGraph, baseUri, outputModelFilePath, outputFileFormat, gzipOutputFile);
 		}
 		
 		return modelGraph;
@@ -396,7 +405,7 @@ public class Ifc2RdfExporter {
 	public static Model exportMetaModel(
 			AbstractJenaProvider outputMetaModelJenaProvider,
 			IfcModel model,
-			String conversionContextName,
+			Ifc2RdfConversionContext conversionContext,
 			String outputMetaModelFilePath,
 			RDFFormat outputFileFormat,
 			boolean gzipOutputFile) throws Exception {
@@ -415,7 +424,7 @@ public class Ifc2RdfExporter {
 			modelGraph.begin();				
 		}
 		modelGraph.removeAll();
-		Ifc2RdfExportUtil.exportMetaModelToJenaModel("http://example.org", modelGraph, model, conversionContextName);
+		Ifc2RdfExportUtil.exportMetaModelToJenaModel("http://example.org", modelGraph, model, conversionContext);
 		if (modelGraph.supportsTransactions()) {
 			logger.info("Committing RDF graph transactions");
 			modelGraph.commit();
@@ -424,7 +433,8 @@ public class Ifc2RdfExporter {
 		
 		// export model to RDF file
 		if (!StringUtils.isEmptyOrNull(outputMetaModelFilePath)) {
-			RdfUtils.exportJenaModelToRdfFile(modelGraph, outputMetaModelFilePath, outputFileFormat, gzipOutputFile);
+			String baseUri = conversionContext.generateModelNamespaceUri(model.getSchema().getVersion());
+			RdfUtils.exportJenaModelToRdfFile(modelGraph, baseUri, outputMetaModelFilePath, outputFileFormat, gzipOutputFile);
 		}
 		
 		return modelGraph;
