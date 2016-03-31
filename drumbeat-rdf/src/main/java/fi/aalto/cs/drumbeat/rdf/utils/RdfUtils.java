@@ -1,10 +1,8 @@
 package fi.aalto.cs.drumbeat.rdf.utils;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -12,16 +10,10 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.zip.GZIPOutputStream;
 
-import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.log4j.Logger;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.vocabulary.RDF;
 
 import fi.aalto.cs.drumbeat.common.file.FileManager;
 import fi.aalto.cs.drumbeat.rdf.RdfVocabulary;
@@ -109,7 +101,7 @@ public class RdfUtils {
 	}	
 	
 	@Deprecated
-	public static String exportJenaModelToRdfFile(Model model, String filePath, RDFFormat format, boolean gzip) throws IOException {
+	public static String exportJenaModelToRdfFile(Model model, String baseUri, String filePath, RDFFormat format, boolean gzip) throws IOException {
 		
 		String filePathWithExtension = formatRdfFileName(filePath, format, gzip);		
 
@@ -120,7 +112,9 @@ public class RdfUtils {
 			out = new GZIPOutputStream(out);
 		}
 		try {
-			RDFDataMgr.write(out, model, format);
+			String lang = format.getLang().getName();
+//			RDFDataMgr.write(out, model, format);
+			model.write(out, lang, baseUri);
 		}
 		finally {
 			out.close();

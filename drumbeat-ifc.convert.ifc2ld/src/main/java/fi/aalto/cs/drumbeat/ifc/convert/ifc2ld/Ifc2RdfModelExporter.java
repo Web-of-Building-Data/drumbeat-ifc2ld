@@ -18,7 +18,6 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import com.hp.hpl.jena.vocabulary.XSD;
 
-import fi.aalto.cs.drumbeat.common.string.StringUtils;
 import fi.aalto.cs.drumbeat.ifc.common.IfcException;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfVocabulary.EXPRESS;
 import fi.aalto.cs.drumbeat.ifc.data.LogicalEnum;
@@ -50,7 +49,7 @@ public class Ifc2RdfModelExporter {
 	private final String modelNamespacePrefix;
 	private final String modelNamespaceUri;
 	private final boolean nameAllBlankNodes;
-	private final String blankNodeNameFormat;
+	private final String blankNodeNamespaceUri;
 	
 	private final OwlProfileList owlProfileList;
 	
@@ -60,11 +59,6 @@ public class Ifc2RdfModelExporter {
 		this.ifcModel = ifcModel;		
 		this.context = context;
 		this.nameAllBlankNodes = context.getConversionParams().nameAllBlankNodes();
-		this.blankNodeNameFormat = context.getModelBlankNodeNameFormat();
-		
-		if (nameAllBlankNodes && StringUtils.isEmptyOrNull(blankNodeNameFormat)) {
-			throw new NullPointerException("Undefined blankNodeNameFormat");
-		}
 		
 		
 		this.owlProfileList = context.getOwlProfileList();
@@ -83,11 +77,24 @@ public class Ifc2RdfModelExporter {
 			throw new IllegalArgumentException("Model's namespace prefix is undefined");
 		}
 		
-		if (context.getModelNamespaceUriFormat() != null) {
-			modelNamespaceUri = String.format(context.getModelNamespaceUriFormat(), ifcSchema.getVersion(), context.getName());
+		if (context.getModelNamespaceUriFormat() != null) {			
+			modelNamespaceUri = context.generateModelNamespaceUri(ifcSchema.getVersion());
 		} else {
 			throw new IllegalArgumentException("Model's namespace URI format is undefined");
+		}		
+		
+		
+		if (nameAllBlankNodes) {
+			if (context.getModelBlankNodeNamespaceUriFormat() != null) {
+				// TODO: Replace with variables such as $schema.version$
+				blankNodeNamespaceUri = context.generateModelBlankNodeNamespaceUri(ifcSchema.getVersion());
+			} else {
+				throw new IllegalArgumentException("Namespace URI format of model blank nodes is undefined");
+			}
+		} else {
+			blankNodeNamespaceUri = null;
 		}
+		
 		
 		
 //		String ontologyNamespaceUri = String.format(context.getOntologyNamespaceFormat(), ifcSchema.getVersion(), context.getName());
@@ -570,7 +577,7 @@ public class Ifc2RdfModelExporter {
 	
 	
 	private String formatModelBlankNodeName(String name) {
-		return formatModelName(String.format(blankNodeNameFormat, name));
+		return blankNodeNamespaceUri + name;
 	}
 	
 	

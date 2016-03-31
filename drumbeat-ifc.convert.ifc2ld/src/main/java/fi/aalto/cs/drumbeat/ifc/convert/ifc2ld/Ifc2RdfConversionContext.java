@@ -13,7 +13,7 @@ public class Ifc2RdfConversionContext {
 //	private String ontologyNamespaceUriFormat;
 	private String modelNamespacePrefix;
 	private String modelNamespaceUriFormat;
-	private String modelBlankNodeNameFormat;
+	private String modelBlankNodeNamespaceUriFormat;
 	
 	private Ifc2RdfConversionParams conversionParams;
 	
@@ -118,15 +118,23 @@ public class Ifc2RdfConversionContext {
 		this.owlProfileList = owlProfileList;
 	}
 
-	public String getModelBlankNodeNameFormat() {
-		return modelBlankNodeNameFormat;
+	public String getModelBlankNodeNamespaceUriFormat() {
+		return modelBlankNodeNamespaceUriFormat;
 	}
 
-	public void setModelBlankNodeNameFormat(String modelBlankNodeNameFormat) {
-		this.modelBlankNodeNameFormat = modelBlankNodeNameFormat;
-	}	
+	public void setModelBlankNodeNamespaceUriFormat(String modelBlankNodeNamespaceUriFormat) {
+		this.modelBlankNodeNamespaceUriFormat = modelBlankNodeNamespaceUriFormat;
+	}
 	
-//	public boolean isEnabledOption(Ifc2RdfConversionParams conversionParam) {
+	public String generateModelNamespaceUri(String schemaVersion) {
+		return String.format(getModelNamespaceUriFormat(), schemaVersion, getName());
+	}
+	
+	public String generateModelBlankNodeNamespaceUri(String schemaVersion) {
+		return String.format(getModelBlankNodeNamespaceUriFormat(), schemaVersion, getName());
+	}
+
+	//	public boolean isEnabledOption(Ifc2RdfConversionParams conversionParam) {
 //		return conversionParams.contains(conversionParam);
 //	}
 //	

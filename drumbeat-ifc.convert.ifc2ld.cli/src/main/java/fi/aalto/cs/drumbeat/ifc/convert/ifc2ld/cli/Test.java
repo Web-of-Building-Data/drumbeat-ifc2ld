@@ -9,6 +9,9 @@ import com.hp.hpl.jena.rdf.model.Model;
 
 import fi.aalto.cs.drumbeat.common.config.ComplexProcessorConfiguration;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
+import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
+import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfVocabulary;
+import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.config.Ifc2RdfConversionContextLoader;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.util.Ifc2RdfExportUtil;
 import fi.aalto.cs.drumbeat.ifc.convert.stff2ifc.util.IfcParserUtil;
 import fi.aalto.cs.drumbeat.ifc.data.model.IfcModel;
@@ -54,10 +57,14 @@ public class Test {
 		for (IfcSchema schema : schemas) {
 			// export IFC schema into in-memory Jena graph using default conversion context
 			Model schemaGraph = jenaProvider.openDefaultModel().removeAll();
-			Ifc2RdfExportUtil.exportSchemaToJenaModel(schemaGraph, schema);		
+			Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(null);
+			Ifc2RdfExportUtil.exportSchemaToJenaModel(schemaGraph, schema, context);
+			
+//			String baseUri = Ifc2RdfVocabulary.IFC.getBaseUri(schema.getVersion());
+			
 
 			// export the in-memory Jena graph to file  
-			RdfUtils.exportJenaModelToRdfFile(schemaGraph, outputSchemaFilePath, outputFileFormat, gzipOutputFile);			
+			RdfUtils.exportJenaModelToRdfFile(schemaGraph, null, outputSchemaFilePath, outputFileFormat, gzipOutputFile);			
 		}
 		
 		//
@@ -82,7 +89,7 @@ public class Test {
 		Ifc2RdfExportUtil.exportModelToJenaModel(modelGraph, model);
 		
 		// export the in-memory Jena graph to file  
-		RdfUtils.exportJenaModelToRdfFile(modelGraph, outputModelFilePath, outputFileFormat, gzipOutputFile);
+		RdfUtils.exportJenaModelToRdfFile(modelGraph, null, outputModelFilePath, outputFileFormat, gzipOutputFile);
 		
 	}
 	

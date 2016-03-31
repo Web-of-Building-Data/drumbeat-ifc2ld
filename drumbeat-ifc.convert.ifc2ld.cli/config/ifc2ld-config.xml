@@ -94,7 +94,7 @@
 				<param name="Ontology.NamespaceFormat" value="http://drumbeat.cs.hut.fi/owl/$Schema.Version$#" />
 				<param name="Model.Prefix" value="model" />
 				<param name="Model.NamespaceFormat" value="http://drumbeat.cs.hut.fi/tomcat/marmotta/resource/" />								
-				<param name="Model.BlankNodeNameFormat" value="BLANK/%s" />								
+				<param name="Model.BlankNodeNamespaceUriFormat" value="http://drumbeat.cs.hut.fi/tomcat/marmotta/resource/B/" />
 			</params>
 		</converter>	
 		
