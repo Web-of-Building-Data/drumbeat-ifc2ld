@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.log4j.PropertyConfigurator;
 
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Model;
 
 import fi.aalto.cs.drumbeat.common.config.ComplexProcessorConfiguration;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;

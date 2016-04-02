@@ -3,7 +3,7 @@ package fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.util;
 
 import org.apache.log4j.Logger;
 
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Model;
 
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;

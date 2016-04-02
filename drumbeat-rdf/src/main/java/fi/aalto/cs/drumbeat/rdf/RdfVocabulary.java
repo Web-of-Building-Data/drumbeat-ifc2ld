@@ -3,12 +3,12 @@ package fi.aalto.cs.drumbeat.rdf;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFFormat;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFList;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.RDFList;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
 
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 
@@ -42,8 +42,8 @@ public class RdfVocabulary {
 
 	public static class XSD {
 		public static final String BASE_PREFIX = "xsd";
-		public static final Property maxExclusive = DEFAULT_MODEL.createProperty(com.hp.hpl.jena.vocabulary.XSD.getURI() + "maxExclusive");
-		public static final Property minExclusive = DEFAULT_MODEL.createProperty(com.hp.hpl.jena.vocabulary.XSD.getURI() + "minExclusive");		
+		public static final Property maxExclusive = DEFAULT_MODEL.createProperty(org.apache.jena.vocabulary.XSD.getURI() + "maxExclusive");
+		public static final Property minExclusive = DEFAULT_MODEL.createProperty(org.apache.jena.vocabulary.XSD.getURI() + "minExclusive");		
 	}	
 	
 //	public static class OLO {

@@ -1,6 +1,6 @@
 package fi.aalto.cs.drumbeat.rdf.data;
 
-import com.hp.hpl.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.RDFNode;
 
 public enum RdfNodeTypeEnum {
 	Uri,

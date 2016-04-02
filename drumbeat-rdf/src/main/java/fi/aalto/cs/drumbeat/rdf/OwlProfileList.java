@@ -5,9 +5,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
 
 public class OwlProfileList extends ArrayList<OwlProfile> {
 	

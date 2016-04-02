@@ -4,8 +4,8 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
 
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationParserException;
