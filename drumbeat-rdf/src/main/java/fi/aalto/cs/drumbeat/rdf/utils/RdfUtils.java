@@ -10,10 +10,11 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.zip.GZIPOutputStream;
 
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.log4j.Logger;
 
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Model;
 
 import fi.aalto.cs.drumbeat.common.file.FileManager;
 import fi.aalto.cs.drumbeat.rdf.RdfVocabulary;

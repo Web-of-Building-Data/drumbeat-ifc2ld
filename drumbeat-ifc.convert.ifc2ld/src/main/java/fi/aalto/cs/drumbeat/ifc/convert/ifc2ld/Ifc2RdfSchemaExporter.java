@@ -9,12 +9,12 @@ package fi.aalto.cs.drumbeat.ifc.convert.ifc2ld;
 import java.io.IOException;
 import java.util.*;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.vocabulary.OWL;
-import com.hp.hpl.jena.vocabulary.RDF;
-import com.hp.hpl.jena.vocabulary.RDFS;
-import com.hp.hpl.jena.vocabulary.XSD;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.OWL;
+import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.vocabulary.XSD;
 
 import fi.aalto.cs.drumbeat.ifc.common.IfcException;
 import fi.aalto.cs.drumbeat.ifc.data.schema.*;

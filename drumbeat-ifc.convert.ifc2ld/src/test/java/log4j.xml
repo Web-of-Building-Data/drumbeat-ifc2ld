@@ -53,13 +53,13 @@
 		<appender-ref ref="CONSOLE"/>
 		<appender-ref ref="FILE_ANALYSER"/>
 	</logger>	
-	<logger name="com.hp.hpl.jena">
+	<logger name="org.apache.jena">
 		<level value="warn"/>
 	</logger>
-	<logger name="com.hp.hpl.jena.arq.exec">
+	<logger name="org.apache.jena.arq.exec">
 		<level value="info"/>
 	</logger>
-	<logger name="com.hp.hpl.jena.arq.info">
+	<logger name="org.apache.jena.arq.info">
 		<level value="info"/>
 	</logger>
 	<logger name="org.apache.jena">

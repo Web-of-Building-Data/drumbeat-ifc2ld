@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.xml.DOMConfigurator;
 
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Model;
 
 import fi.aalto.cs.drumbeat.common.config.*;
 import fi.aalto.cs.drumbeat.common.config.document.*;
