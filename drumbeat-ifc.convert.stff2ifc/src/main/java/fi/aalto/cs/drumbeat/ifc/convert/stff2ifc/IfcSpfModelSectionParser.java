@@ -70,7 +70,7 @@ class IfcSpfModelSectionParser {
 	private static final Logger logger = Logger.getLogger(IfcSpfModelParser.class);	
 
 	private IfcSchema schema;
-//	private IfcLineReader reader;
+	private IfcLineReader reader;
 
 	private Map<String, IfcEntity> entityMap = new HashMap<>(); 	// map of entities indexed by line numbers
 	
@@ -84,7 +84,7 @@ class IfcSpfModelSectionParser {
 	public List<IfcEntity> parseEntities(IfcLineReader reader, IfcSchema schema, boolean isHeaderSection, boolean ignoreUnknownTypes) throws IOException, IfcNotFoundException, IfcParserException {		
 		
 		this.schema = schema;
-//		this.reader = reader;
+		this.reader = reader;
 		
 		List<IfcEntity> entities = new ArrayList<>();
 		
@@ -333,13 +333,14 @@ class IfcSpfModelSectionParser {
 					Object value;
 					if (attributeValueType == IfcTypeEnum.INTEGER) {
 						value = attributeStrBuilderWrapper.getLong();
-					} else if (attributeValueType == IfcTypeEnum.REAL) {
+					} else if (attributeValueType == IfcTypeEnum.REAL || attributeValueType == IfcTypeEnum.NUMBER) {
 						value = attributeStrBuilderWrapper.getDouble();
-					} else {
-						assert attributeValueType == IfcTypeEnum.DATETIME;
+					} else if (attributeValueType == IfcTypeEnum.DATETIME) {
 						long timeStamp = attributeStrBuilderWrapper.getLong();
 						value = Calendar.getInstance();
 						((Calendar)value).setTimeInMillis(timeStamp * 1000);
+					} else {
+						throw new IfcFormatException(reader.getCurrentLineNumber(), "Invalid attributeValueType: " + attributeValueType);
 					}
 					
 					attributeValues.add(new IfcLiteralValue(value, (IfcNonEntityTypeInfo)attributeTypeInfo, attributeValueType));						
