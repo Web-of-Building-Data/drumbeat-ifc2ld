@@ -2,10 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fi.hut.cs.drumbeat</groupId>
+	<parent>
+		<groupId>fi.hut.cs.drumbeat</groupId>
+		<artifactId>drumbeat-ifc2ld-parent</artifactId>
+		<version>0.10.6</version>
+		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
+	</parent>
+
 	<artifactId>drumbeat-ifc.convert.ifc2ld.web</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
 	<name>drumbeat-ifc.convert.ifc2ld.web</name>
 
 	<properties>
@@ -34,6 +39,7 @@
 		</repository>
 	</repositories>
 
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -47,6 +53,34 @@
 	</dependencyManagement>
 
 	<dependencies>
+	
+		<!-- Drumbeat -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>drumbeat-ifc.convert.ifc2ld.cli</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>drumbeat-ifc.convert.stff2ifc</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>drumbeat-ifc.processing.grounding.ifc</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>drumbeat-rdf.jena.provider</artifactId>
+			<version>${drumbeat.jena.version}</version>
+		</dependency>
+		
+		<!-- Other -->
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
