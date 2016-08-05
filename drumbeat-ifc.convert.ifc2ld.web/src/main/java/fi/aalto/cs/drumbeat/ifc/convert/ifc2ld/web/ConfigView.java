@@ -1,26 +1,68 @@
 package fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.web;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
 
+import org.apache.commons.lang3.NotImplementedException;
+
+import com.google.gwt.user.client.ui.TextBox;
+import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 
+import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
+import fi.aalto.cs.drumbeat.common.config.document.ConfigurationParserException;
+import fi.aalto.cs.drumbeat.common.params.BooleanParam;
+import fi.aalto.cs.drumbeat.common.params.StringParam;
 import fi.aalto.cs.drumbeat.common.params.TypedParam;
+import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionParams;
+import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.config.Ifc2RdfConversionContextLoader;
 import fi.aalto.cs.drumbeat.rdf.OwlProfileEnum;
+import fi.aalto.cs.drumbeat.rdf.OwlProfileList;
 
 @SuppressWarnings("serial")
 public class ConfigView extends FormLayout {
 
 	private Ifc2RdfConversionParams params;
+	private Map<String, Component> paramConponentMap;
+	
+	private List<Ifc2RdfConversionContext> contexts;
+	private ComboBox cbConversionContext;
+	private TwinColSelect lstOwlProfiles;
 
-	public ConfigView() {
+	public ConfigView() throws ConfigurationParserException {
 		final boolean readOnly = true;
 		
 		params = new Ifc2RdfConversionParams();
-
+		paramConponentMap = new HashMap<>();
+		
+		ConfigurationDocument configurationDocument = ConfigurationDocument.getInstance();
+		contexts = Ifc2RdfConversionContextLoader.loadAllFromConfigurationDocument(configurationDocument);
+		
+		Ifc2RdfConversionContext defaultContext = new Ifc2RdfConversionContext();
+		defaultContext.setName("(default)");
+		contexts.add(0, defaultContext);
+		
+		cbConversionContext = new ComboBox("Basic context");
+		contexts
+			.stream()
+			.forEach(context -> cbConversionContext.addItem(context));
+		cbConversionContext.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
+		cbConversionContext.setRequired(true);
+		cbConversionContext.setNullSelectionAllowed(false);
+		cbConversionContext.setInvalidAllowed(false);
+		cbConversionContext.select(defaultContext.getName());
+		addComponent(cbConversionContext);
+		
+		
+		addSectionSeparator();
+		
 
 //		ListSelect lstOwlProfiles = new ListSelect("OWL profiles");
 //		lstOwlProfiles.setMultiSelect(true);
@@ -37,19 +79,11 @@ public class ConfigView extends FormLayout {
 //		lstOwlProfiles.setValue(OwlProfileEnum.OWL2_DL);
 //		addComponent(lstOwlProfiles);
 		
-		
-		CheckBox chbIgnoreExpressSchema = new CheckBox(
-				normalizeCaption(Ifc2RdfConversionParams.PARAM_IGNORE_EXPRESS_SCHEMA));
-		chbIgnoreExpressSchema.setEnabled(false);
-		loadControlValue(chbIgnoreExpressSchema,
-				Ifc2RdfConversionParams.PARAM_IGNORE_EXPRESS_SCHEMA, false);
-
-		// chbIgnoreExpressSchema.setValue(params.getParam(Ifc2RdfConversionParams.PARAM_IGNORE_EXPRESS_SCHEMA).getBooleanValue());
-		addComponent(chbIgnoreExpressSchema);
-		//
+//		addParamComponent(params.getParamEx(Ifc2RdfConversionParams.PARAM_IGNORE_EXPRESS_SCHEMA, BooleanParam.class, true));
+//		addParamComponent(params.getParamEx(Ifc2RdfConversionParams.PARAM_IGNORE_IFC_SCHEMA, BooleanParam.class, true));
 		
 		
-		TwinColSelect lstOwlProfiles = new TwinColSelect("OWL Profiles");
+		lstOwlProfiles = new TwinColSelect("OWL Profiles");
 		lstOwlProfiles.setLeftColumnCaption("Not supported by");
 		lstOwlProfiles.setRightColumnCaption("Supported by");
 		lstOwlProfiles.setMultiSelect(true);
@@ -68,114 +102,68 @@ public class ConfigView extends FormLayout {
 		lstOwlProfiles.setReadOnly(readOnly);
 		addComponent(lstOwlProfiles);
 		
+		addParamComponent(
+				params.getParamEx(
+						Ifc2RdfConversionParams.PARAM_EXPORT_PROPERTY_DOMAIN_AND_RANGES_TO,
+						StringParam.class,
+						true));
+		
+		addParamComponent(
+				params.getParamEx(
+						Ifc2RdfConversionParams.PARAM_USE_LONG_ATTRIBUTE_NAME,
+						BooleanParam.class,
+						true));		
+
+		addParamComponent(
+				params.getParamEx(
+						Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO,
+						StringParam.class,
+						true));
+
+
+		addParamComponent(
+				params.getParamEx(
+						Ifc2RdfConversionParams.PARAM_CONVERT_COLLECTIONS_TO,
+						StringParam.class,
+						true));
+
+		addParamComponent(
+				params.getParamEx(
+						Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO,
+						StringParam.class,
+						true));
+
+		addParamComponent(
+				params.getParamEx(
+						Ifc2RdfConversionParams.PARAM_CONVERT_ENUMS_TO,
+						StringParam.class,
+						true));
+
+		addParamComponent(
+				params.getParamEx(
+						Ifc2RdfConversionParams.PARAM_NAME_ALL_BLANK_NODES,
+						BooleanParam.class,
+						true));
+		
+		addParamComponent(
+				params.getParamEx(
+						Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO,
+						BooleanParam.class,
+						true));
 		
 
-		// CheckBox chbIgnoreIfcSchema = new
-		// CheckBox(Ifc2RdfConversionParams.PARAM_IGNORE_IFC_SCHEMA);
-		// chbIgnoreIfcSchema.setValue(params.getParam(Ifc2RdfConversionParams.PARAM_IGNORE_IFC_SCHEMA).getBooleanValue());
-		// addComponent(chbIgnoreIfcSchema);
-		//
-		// CheckBox chbExportDebugInfo = new
-		// CheckBox(Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO);
-		// chbExportDebugInfo.setValue(params.getParam(Ifc2RdfConversionParams.PARAM_EXPORT_DEBUG_INFO).getBooleanValue());
-		// addComponent(chbExportDebugInfo);
-
-		ComboBox cbExportPropertyDomainAndRanges = new ComboBox(
-				normalizeCaption(Ifc2RdfConversionParams.PARAM_EXPORT_PROPERTY_DOMAIN_AND_RANGES));
-		cbExportPropertyDomainAndRanges
-				.addItems(params
-						.getParam(
-								Ifc2RdfConversionParams.PARAM_EXPORT_PROPERTY_DOMAIN_AND_RANGES)
-						.getPossibleValues());
-		cbExportPropertyDomainAndRanges
-				.setValue(params
-						.getParam(
-								Ifc2RdfConversionParams.PARAM_EXPORT_PROPERTY_DOMAIN_AND_RANGES)
-						.getDefaultValue());
-		cbExportPropertyDomainAndRanges.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
-		cbExportPropertyDomainAndRanges.setNullSelectionAllowed(false);
-		cbExportPropertyDomainAndRanges.setRequired(true);
-		cbExportPropertyDomainAndRanges.setReadOnly(readOnly);
-		addComponent(cbExportPropertyDomainAndRanges);
-
-		ComboBox cbConvertEnumsTo = new ComboBox(
-				normalizeCaption(Ifc2RdfConversionParams.PARAM_CONVERT_ENUMS_TO));
-		cbConvertEnumsTo.addItems(params.getParam(
-				Ifc2RdfConversionParams.PARAM_CONVERT_ENUMS_TO)
-				.getPossibleValues());
-		cbConvertEnumsTo.setValue(params.getParam(
-				Ifc2RdfConversionParams.PARAM_CONVERT_ENUMS_TO)
-				.getDefaultValue());
-		cbConvertEnumsTo.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
-		cbConvertEnumsTo.setNullSelectionAllowed(false);
-		cbConvertEnumsTo.setRequired(true);
-		cbConvertEnumsTo.setReadOnly(readOnly);
-		addComponent(cbConvertEnumsTo);
-
-		ComboBox cbConvertBooleansTo = new ComboBox(
-				normalizeCaption(Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO));
-		cbConvertBooleansTo.addItems(params.getParam(
-				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO)
-				.getPossibleValues());
-		cbConvertBooleansTo.setValue(params.getParam(
-				Ifc2RdfConversionParams.PARAM_CONVERT_BOOLEANS_TO)
-				.getDefaultValue());
-		cbConvertBooleansTo.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
-		cbConvertBooleansTo.setNullSelectionAllowed(false);
-		cbConvertBooleansTo.setRequired(true);
-		cbConvertBooleansTo.setReadOnly(readOnly);
-		addComponent(cbConvertBooleansTo);
-
-		ComboBox cbConvertDoublesTo = new ComboBox(
-				normalizeCaption(Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO));
-		cbConvertDoublesTo.addItems(params.getParam(
-				Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO)
-				.getPossibleValues());
-		cbConvertDoublesTo.setValue(params.getParam(
-				Ifc2RdfConversionParams.PARAM_CONVERT_DOUBLES_TO)
-				.getDefaultValue());
-		cbConvertDoublesTo.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
-		cbConvertDoublesTo.setNullSelectionAllowed(false);
-		cbConvertDoublesTo.setRequired(true);
-		cbConvertDoublesTo.setReadOnly(readOnly);
-		addComponent(cbConvertDoublesTo);
-
-		ComboBox cbConvertCollectionsTo = new ComboBox(
-				normalizeCaption(Ifc2RdfConversionParams.PARAM_CONVERT_COLLECTIONS_TO));
-		cbConvertCollectionsTo.addItems(params.getParam(
-				Ifc2RdfConversionParams.PARAM_CONVERT_COLLECTIONS_TO)
-				.getPossibleValues());
-		cbConvertCollectionsTo.setValue(params.getParam(
-				Ifc2RdfConversionParams.PARAM_CONVERT_COLLECTIONS_TO)
-				.getDefaultValue());
-		cbConvertCollectionsTo.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
-		cbConvertCollectionsTo.setNullSelectionAllowed(false);
-		cbConvertCollectionsTo.setRequired(true);
-		cbConvertCollectionsTo.setReadOnly(readOnly);
-		addComponent(cbConvertCollectionsTo);
-
-//		CheckBox cbhUseLongAttributeName = new CheckBox(
-//				normalizeCaption(Ifc2RdfConversionParams.PARAM_USE_LONG_ATTRIBUTE_NAME));
-//		cbhUseLongAttributeName.setValue((Boolean) params.getParam(
-//				Ifc2RdfConversionParams.PARAM_USE_LONG_ATTRIBUTE_NAME)
-//				.getValue());
-//		addComponent(cbhUseLongAttributeName);
-
-//		Button btnConvert = new Button("Convert");
-//		addComponent(btnConvert);
-		
 		
 		HorizontalLayout layoutConfigButtons = new HorizontalLayout();
 
-		Button btnLoadConfig = new Button("Load...");
-		btnLoadConfig.addClickListener(new Button.ClickListener() {
+		Button btnResetConfig = new Button("Reset"); 
+				//new Button("Reset", null, "discard");
+		btnResetConfig.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				// addComponent(new Label("Thank you for clicking"));
+				resetParamValues();
 			}
 		});
-		btnLoadConfig.setEnabled(false);
-		layoutConfigButtons.addComponent(btnLoadConfig);
+		layoutConfigButtons.addComponent(btnResetConfig);
 
 		Button btnSaveConfig = new Button("Save...");
 		btnSaveConfig.addClickListener(new Button.ClickListener() {
@@ -203,6 +191,24 @@ public class ConfigView extends FormLayout {
 		T value = param.getValue();
 		control.setValue(value);
 	}
+	
+	private Ifc2RdfConversionContext getSelectedConversionContext() {
+		return (Ifc2RdfConversionContext)cbConversionContext.getConvertedValue();
+	}
+	
+	private void resetParamValues() {
+		
+		Ifc2RdfConversionContext context = getSelectedConversionContext();
+		
+		if (context != null) {
+		
+			OwlProfileList owlProfileList = context.getOwlProfileList();
+			
+			lstOwlProfiles.setValue(new TreeSet<>(owlProfileList));
+			
+		}
+		
+	}
 
 //	private <T> T saveControlValue(AbstractField<T> control, String paramName) {
 //		TypedParam<T> param = params.getParamEx(paramName);
@@ -224,9 +230,9 @@ public class ConfigView extends FormLayout {
 	// return control;
 	// }
 	
-	//
-	// splits Words ByUpper Case Letters
-	// 
+	/*
+	 * splits Words ByUpper Case Letters
+	 */
 	private static String normalizeCaption(String s) {
 		StringBuilder sb = new StringBuilder();
 		
@@ -239,5 +245,70 @@ public class ConfigView extends FormLayout {
 		}
 		return sb.toString();
 	}
+	
+	
+	private <T> void addParamComponent(TypedParam<T> param) {
+		
+		AbstractComponent component;
+		
+		String paramName = param.getName();
+		String caption = normalizeCaption(paramName);
+		
+		if (param instanceof BooleanParam) {
+		
+			CheckBox checkBox = new CheckBox(caption);
+			checkBox.setEnabled(true);
+			checkBox.setValue(((BooleanParam)param).getValue());
+			
+			component = checkBox;
+			
+		} else if (param instanceof StringParam) {
+			
+			List<String> possibleValues = ((StringParam)param).getPossibleValues();
+			if (possibleValues != null && !possibleValues.isEmpty()) {
+				
+				ComboBox comboBox = new ComboBox(caption);
+				comboBox.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
+				comboBox.addItems(possibleValues);
+				comboBox.setRequired(true);
+				comboBox.setNullSelectionAllowed(false);
+				comboBox.setValue(param.getDefaultValue());
+				
+				component = comboBox;
+				
+			} else {
+				
+				TextField textField = new TextField(caption);
+				textField.setWidth(MainUI.DEFAULT_WIDTH, Unit.PIXELS);
+				textField.setValue(((StringParam)param).getDefaultValue());
+				
+				component = textField;
+			}
+			
+			
+		} else {
+			
+			throw new NotImplementedException("Typed param class: " + param.getClass());
+			
+		}
+		
+		component.setDescription(param.getDescription());			
+
+		paramConponentMap.put(paramName, component);
+		addComponent(component);
+		
+	}
+	
+	private void addSectionSeparator() {
+		
+		Label lblSeparator = new Label("<hr/>", ContentMode.HTML);
+		addComponent(lblSeparator);
+		
+	}
+	
+	
+	
+	
+	
 
 }

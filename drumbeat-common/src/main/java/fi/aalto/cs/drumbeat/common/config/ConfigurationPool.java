@@ -6,9 +6,16 @@ import java.util.ArrayList;
 public class ConfigurationPool<T extends ConfigurationItem> extends ArrayList<T> {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private T defaultT;
-	
+
+	/**
+	 * Gets the default {@link ConfigurationItem}, or the first
+	 * {@link ConfigurationItem} in the list if no {@link ConfigurationItem} set
+	 * as default.
+	 * 
+	 * @return the default {@link ConfigurationItem}.
+	 */
 	public T getDefault() {
 		if (defaultT == null) {
 			if (!isEmpty()) {
@@ -18,18 +25,21 @@ public class ConfigurationPool<T extends ConfigurationItem> extends ArrayList<T>
 						return defaultT;
 					}
 				}
-				
+
 				defaultT = get(0);
 			}
 		}
 		return defaultT;
 	}
-	
+
 	/**
-	 * Gets configuration by a specified name 
+	 * Gets {@link ConfigurationItem} by the specified name
+	 * 
 	 * @param name
-	 * @return configuration
-	 * @throws InvalidParameterException if no configuration with the specified name was found
+	 *            the name of the {@link ConfigurationItem}
+	 * @return the {@link ConfigurationItem} with the specified name
+	 * @throws InvalidParameterException
+	 *             if no configuration with the specified name was found
 	 */
 	public T getByName(String name) {
 		for (T configuration : this) {

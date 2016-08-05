@@ -36,9 +36,10 @@ public class GrouppedCounterTree {
 	
 	/**
 	 * Internal class, map of key-count pairs.
-	 * @author vuhoan1
+	 * 
+	 * @author Nam Vu
 	 *
-	 * @param <T>
+	 * @param <T> the item type?
 	 */
 	public class GroupedCounter<T> extends TreeMap<T, IntegerWrapper> {
 		

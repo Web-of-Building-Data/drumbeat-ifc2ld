@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 
 import org.apache.jena.rdf.model.Model;
 
+import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfMetaModelExporter;
@@ -37,7 +38,8 @@ public class Ifc2RdfExportUtil {
 	 */
 	public static Ifc2RdfConversionContext getDefaultConversionContext() throws ConfigurationParserException {
 		if (defaultContext == null) {
-			defaultContext = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(null); 
+			ConfigurationDocument configurationDocument = ConfigurationDocument.getInstance();
+			defaultContext = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(configurationDocument, null); 
 		}
 		return defaultContext;
 	}
@@ -85,19 +87,19 @@ public class Ifc2RdfExportUtil {
 		}
 	}
 	
-	/**
-	 * Exports an IFC schema to Jena model using a specified IFC-to-RDF conversion context.
-	 * 
-	 * @param jenaModel a Jena {@link Model} (the target).
-	 * @param schema an {@link IfcSchema} (the source).
-	 * @param contextName an {@link Ifc2RdfConversionContext} (the null param indicates to use the default context).  
-	 * 
-	 * @throws Exception
-	 */
-	public static void exportSchemaToJenaModel(Model jenaModel, IfcSchema schema, String contextName) throws Exception {
-		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(contextName);
-		exportSchemaToJenaModel(jenaModel, schema, context);
-	}
+//	/**
+//	 * Exports an IFC schema to Jena model using a specified IFC-to-RDF conversion context.
+//	 * 
+//	 * @param jenaModel a Jena {@link Model} (the target).
+//	 * @param schema an {@link IfcSchema} (the source).
+//	 * @param contextName an {@link Ifc2RdfConversionContext} (the null param indicates to use the default context).  
+//	 * 
+//	 * @throws Exception
+//	 */
+//	public static void exportSchemaToJenaModel(Model jenaModel, IfcSchema schema, String contextName) throws Exception {
+//		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromConfigurationFile(contextName);
+//		exportSchemaToJenaModel(jenaModel, schema, context);
+//	}
 	
 	
 	/**
@@ -139,19 +141,19 @@ public class Ifc2RdfExportUtil {
 		}		
 	}
 	
-	/**
-	 * Exports an IFC schema to Jena model using a specified IFC-to-RDF conversion context.
-	 * 
-	 * @param jenaModel a Jena {@link Model} (the target).
-	 * @param model an {@link IfcModel} (the source).
-	 * @param contextName an {@link Ifc2RdfConversionContext} (the null param indicates to use the default context).  
-	 * 
-	 * @throws Exception
-	 */
-	public static void exportModelToJenaModel(Model jenaModel, IfcModel model, String contextName) throws Exception {
-		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(contextName);
-		exportModelToJenaModel(jenaModel, model, context);
-	}
+//	/**
+//	 * Exports an IFC schema to Jena model using a specified IFC-to-RDF conversion context.
+//	 * 
+//	 * @param jenaModel a Jena {@link Model} (the target).
+//	 * @param model an {@link IfcModel} (the source).
+//	 * @param contextName an {@link Ifc2RdfConversionContext} (the null param indicates to use the default context).  
+//	 * 
+//	 * @throws Exception
+//	 */
+//	public static void exportModelToJenaModel(Model jenaModel, IfcModel model, String contextName) throws Exception {
+//		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(contextName);
+//		exportModelToJenaModel(jenaModel, model, context);
+//	}
 
 	/**
 	 * Exports an IFC model to Jena model using the default IFC-to-RDF conversion context.
@@ -192,17 +194,17 @@ public class Ifc2RdfExportUtil {
 		}		
 	}
 	
-	/**
-	 * Exports an IFC schema to Jena model using a specified IFC-to-RDF conversion context.
-	 * 
-	 * @param jenaModel a Jena {@link Model} (the target).
-	 * @param model an {@link IfcModel} (the source).
-	 * @param contextName an {@link Ifc2RdfConversionContext} (the null param indicates to use the default context).  
-	 * 
-	 * @throws Exception
-	 */
-	public static void exportMetaModelToJenaModel(String metaDataSetUri, Model jenaModel, IfcModel model, String contextName) throws Exception {
-		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(contextName);
-		exportMetaModelToJenaModel(metaDataSetUri, jenaModel, model, context);
-	}
+//	/**
+//	 * Exports an IFC schema to Jena model using a specified IFC-to-RDF conversion context.
+//	 * 
+//	 * @param jenaModel a Jena {@link Model} (the target).
+//	 * @param model an {@link IfcModel} (the source).
+//	 * @param contextName an {@link Ifc2RdfConversionContext} (the null param indicates to use the default context).  
+//	 * 
+//	 * @throws Exception
+//	 */
+//	public static void exportMetaModelToJenaModel(String metaDataSetUri, Model jenaModel, IfcModel model, String contextName) throws Exception {
+//		Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(contextName);
+//		exportMetaModelToJenaModel(metaDataSetUri, jenaModel, model, context);
+//	}
 }

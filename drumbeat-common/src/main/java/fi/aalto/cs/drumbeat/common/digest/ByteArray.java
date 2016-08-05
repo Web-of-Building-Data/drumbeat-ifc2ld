@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 import org.apache.commons.codec.binary.Base64;
 
+/**
+ * A array of {@link Byte} values that supports such operations like AND, XOR,
+ * OR, and comparison with other {@link ByteArray} instances.
+ * 
+ * @author Nam Vu
+ *
+ */
 public class ByteArray implements Comparable<ByteArray> {
 
 	public byte[] array;
@@ -85,7 +92,7 @@ public class ByteArray implements Comparable<ByteArray> {
 		}
 		return 0;
 	}
-	
+
 	public String toBase64String() {
 		return Base64.encodeBase64URLSafeString(array);
 	}
@@ -94,16 +101,16 @@ public class ByteArray implements Comparable<ByteArray> {
 	public boolean equals(Object other) {
 		return Arrays.equals(array, ((ByteArray) other).array);
 	}
-	
+
 	@Override
 	public String toString() {
 		return Arrays.toString(array);
 	}
-	
+
 	@Override
 	public int hashCode() {
 		if (hash == 0) {
-			hash = Arrays.hashCode(array); 
+			hash = Arrays.hashCode(array);
 		}
 		return hash;
 	}

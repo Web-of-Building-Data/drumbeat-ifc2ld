@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.apache.jena.rdf.model.Model;
 import com.vaadin.server.VaadinService;
 
+import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfVocabulary;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.cli.Ifc2RdfExporter;
@@ -34,7 +35,7 @@ public class IfcApplication {
 	public static final String DEFAULT_CONVERSION_CONTEXT_NAME = "LDAC2015";
 
 	private static final String LOGGER_CONFIG_FILE_PATH = WEB_INF_DIR_PATH + "/config/log4j.xml";
-	private static final String IFC2LD_CONFIG_FILE_PATH = WEB_INF_DIR_PATH + "/config/ifc2rdf-config.xml";
+	private static final String IFC2LD_CONFIG_FILE_PATH = WEB_INF_DIR_PATH + "/config/ifc2ld-config.xml";
 	private static final String IFC_SCHEMA_INPUT_DIR_PATH = WEB_INF_DIR_PATH + "/ifc/";
 	private static final String IFC_SCHEMA_OUTPUT_DIR_PATH = WEB_INF_DIR_PATH + "/output/";
 	
@@ -80,7 +81,9 @@ public class IfcApplication {
 		
 		String outputSchemaFilePath = IFC_SCHEMA_OUTPUT_DIR_PATH + name;
 		
-		Ifc2RdfConversionContext conversionContext = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(DEFAULT_CONVERSION_CONTEXT_NAME);		
+		Ifc2RdfConversionContext conversionContext = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(
+				ConfigurationDocument.getInstance(),
+				DEFAULT_CONVERSION_CONTEXT_NAME);		
 		
 		Ifc2RdfExporter.exportSchema(
 				outputSchemaJenaProvider,

@@ -1,8 +1,9 @@
 package fi.aalto.cs.drumbeat.common.collections;
 
+import java.util.Comparator;
 import java.util.Iterator;
 
-public class IteratorComparer {
+public class IteratorEqualChecker {
 	
 	public static boolean areEqual(Iterable<?> it1, Iterable<?> it2) {
 		return areEqual(it1.iterator(), it2.iterator());		
@@ -30,6 +31,10 @@ public class IteratorComparer {
 		}
 		
 		return true;
+	}
+	
+	public <T> int compare(Iterator<T> it1, Iterator<T> it2, Comparator<T> comparator) {
+		return 0;
 	}
 	
 }

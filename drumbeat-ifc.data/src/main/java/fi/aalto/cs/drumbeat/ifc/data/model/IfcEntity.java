@@ -2,7 +2,7 @@ package fi.aalto.cs.drumbeat.ifc.data.model;
 
 import java.util.*;
 
-import fi.aalto.cs.drumbeat.common.collections.IteratorComparer;
+import fi.aalto.cs.drumbeat.common.collections.IteratorEqualChecker;
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 import fi.aalto.cs.drumbeat.ifc.data.IfcVocabulary;
 import fi.aalto.cs.drumbeat.ifc.data.schema.*;
@@ -332,7 +332,7 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 		//
 		// compare literal attributes
 		//
-		if (!IteratorComparer.areEqual(literalAttributes, other.literalAttributes)) {
+		if (!IteratorEqualChecker.areEqual(literalAttributes, other.literalAttributes)) {
 			return false;
 		}
 		

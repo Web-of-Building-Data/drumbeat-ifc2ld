@@ -133,6 +133,11 @@ public class Ifc2RdfConversionContext {
 	public String generateModelBlankNodeNamespaceUri(String schemaVersion) {
 		return String.format(getModelBlankNodeNamespaceUriFormat(), schemaVersion, getName());
 	}
+	
+	@Override
+	public String toString() {
+		return getName();
+	}
 
 	//	public boolean isEnabledOption(Ifc2RdfConversionParams conversionParam) {
 //		return conversionParams.contains(conversionParam);
