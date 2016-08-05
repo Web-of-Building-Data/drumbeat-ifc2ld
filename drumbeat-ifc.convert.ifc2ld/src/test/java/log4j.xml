@@ -35,31 +35,31 @@
 		</layout>
 	</appender>
 	
-	<logger name="fi.hut.cs.drumbeat" additivity="false">
+	<logger name="fi.aalto.cs.drumbeat" additivity="false">
 		<level value="info"/>
 		<appender-ref ref="FILE_COMMON"/>
 	</logger>
-	<logger name="fi.hut.cs.drumbeat.ifc.convert">
+	<logger name="fi.aalto.cs.drumbeat.ifc.convert">
 		<level value="info"/>
 		<appender-ref ref="FILE_PARSER"/>
 	</logger>
-	<logger name="fi.hut.cs.drumbeat.ifc.util">
+	<logger name="fi.aalto.cs.drumbeat.ifc.util">
 		<level value="info"/>
 		<appender-ref ref="CONSOLE"/>
 		<appender-ref ref="FILE_ANALYSER"/>
 	</logger>	
-	<logger name="fi.hut.cs.drumbeat.ifc.processing">
+	<logger name="fi.aalto.cs.drumbeat.ifc.processing">
 		<level value="info"/>
 		<appender-ref ref="CONSOLE"/>
 		<appender-ref ref="FILE_ANALYSER"/>
 	</logger>	
-	<logger name="com.hp.hpl.jena">
+	<logger name="org.apache.jena">
 		<level value="warn"/>
 	</logger>
-	<logger name="com.hp.hpl.jena.arq.exec">
+	<logger name="org.apache.jena.arq.exec">
 		<level value="info"/>
 	</logger>
-	<logger name="com.hp.hpl.jena.arq.info">
+	<logger name="org.apache.jena.arq.info">
 		<level value="info"/>
 	</logger>
 	<logger name="org.apache.jena">

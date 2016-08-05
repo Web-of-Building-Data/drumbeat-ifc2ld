@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>fi.hut.cs.drumbeat</groupId>
 		<artifactId>drumbeat-ifc2ld-parent</artifactId>
-		<version>0.6.0-SNAPSHOT</version>
+		<version>0.10.7</version>
 		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
 	</parent>
 
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>${drumbeat.groupId}</groupId>
 			<artifactId>drumbeat-ifc.data</artifactId>
-			<version>${drumbeat.ifc2ld.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<!-- Apache Commons Lang3 -->
