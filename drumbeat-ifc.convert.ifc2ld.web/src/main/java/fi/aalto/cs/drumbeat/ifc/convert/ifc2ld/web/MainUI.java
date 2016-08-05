@@ -10,6 +10,7 @@ import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
+import com.vaadin.ui.Notification.Type;
 
 
 @DesignRoot
@@ -72,13 +73,23 @@ public class MainUI extends UI {
 		TabSheet tabSheet = new TabSheet();
 		layout.addComponent(tabSheet);
 		
-		tabSheet.addTab(new ConfigView(), "Config");
-
-		tabSheet.addTab(new ConvertSchemaView(), "Convert Schema");
+		try {
 		
-		tabSheet.addTab(new ConvertModelView(), "Convert Data");
-		
-		tabSheet.setSelectedTab(2);
+			tabSheet.addTab(new ConfigView(), "Config");
+	
+			tabSheet.addTab(new ConvertSchemaView(), "Convert Schema");
+			
+			tabSheet.addTab(new ConvertModelView(), "Convert Data");
+			
+//			tabSheet.setSelectedTab(2);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			layout.addComponent(new Label(e.getMessage()));
+//			Notification.show(e.getMessage() != null ? e.getMessage() : "Unexpected error", Type.ERROR_MESSAGE);
+			
+		}
 	}
 	
 

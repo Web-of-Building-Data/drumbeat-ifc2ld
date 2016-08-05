@@ -4,7 +4,7 @@ import java.util.ArrayList;
 //import java.util.Iterator;
 import java.util.List;
 
-import fi.aalto.cs.drumbeat.common.collections.IteratorComparer;
+import fi.aalto.cs.drumbeat.common.collections.IteratorEqualChecker;
 import fi.aalto.cs.drumbeat.common.string.StringUtils;
 
 //import fi.aalto.cse.dsg.rdf.IRdfLink;
@@ -104,7 +104,7 @@ public abstract class IfcCollectionValue<V extends IfcSingleValue> extends IfcVa
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof IfcCollectionValue<?>) {
-			return IteratorComparer.areEqual(this.getSingleValues(), ((IfcCollectionValue<?>) other).getSingleValues());
+			return IteratorEqualChecker.areEqual(this.getSingleValues(), ((IfcCollectionValue<?>) other).getSingleValues());
 		} else {
 			return false;
 		}

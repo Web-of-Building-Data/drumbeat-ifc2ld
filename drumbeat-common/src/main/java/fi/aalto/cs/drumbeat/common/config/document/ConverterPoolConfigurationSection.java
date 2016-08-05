@@ -17,11 +17,13 @@ public class ConverterPoolConfigurationSection extends ConfigurationSection {
 
 	private static SortedMap<String, ConverterPoolConfigurationSection> globalInstanceMap = new TreeMap<>();
 	
-	public static ConverterPoolConfigurationSection getInstance(String converterTypeName) throws ConfigurationParserException {
+	public static ConverterPoolConfigurationSection getInstance(
+			ConfigurationDocument configurationDocument,
+			String converterTypeName) throws ConfigurationParserException {
 		ConverterPoolConfigurationSection instance = globalInstanceMap.get(converterTypeName); 
 		if (instance == null) {
 			instance = new ConverterPoolConfigurationSection(
-					ConfigurationDocument.getInstance().getDocument().getDocumentElement(),
+					configurationDocument.getDocument().getDocumentElement(),
 					converterTypeName,
 					true);
 			globalInstanceMap.put(converterTypeName, instance);

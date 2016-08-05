@@ -15,7 +15,7 @@ public class Ifc2RdfConversionParams extends TypedParams {
 	public static final String PARAM_IGNORE_EXPRESS_SCHEMA = "IgnoreExpressSchema";
 	public static final String PARAM_IGNORE_IFC_SCHEMA = "IgnoreIfcSchema";
 	
-	public static final String PARAM_EXPORT_PROPERTY_DOMAIN_AND_RANGES = "ExportPropertyDomainsAndRanges";
+	public static final String PARAM_EXPORT_PROPERTY_DOMAIN_AND_RANGES_TO = "ExportPropertyDomainsAndRangesTo";
 	public static final String PARAM_CONVERT_BOOLEANS_TO = "ConvertBooleansTo";
 	public static final String PARAM_CONVERT_DOUBLES_TO = "ConvertDoublesTo";
 	public static final String PARAM_CONVERT_ENUMS_TO = "ConvertEnumsTo";
@@ -98,7 +98,7 @@ public class Ifc2RdfConversionParams extends TypedParams {
 		
 		addParam(
 				new StringParam(
-					PARAM_EXPORT_PROPERTY_DOMAIN_AND_RANGES,
+					PARAM_EXPORT_PROPERTY_DOMAIN_AND_RANGES_TO,
 					null,
 					null,
 					Arrays.asList(VALUE_NONE, VALUE_ATTRIBUTES_WITH_LONG_NAMES),

@@ -3,8 +3,8 @@ package fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.cli;
 import org.apache.commons.cli.*;
 import org.apache.log4j.Logger;
 
-import fi.aalto.cs.drumbeat.common.cli.DrumbeatOption;
-import fi.aalto.cs.drumbeat.common.cli.DrumbeatOptionComparator;
+import fi.aalto.cs.drumbeat.common.cli.DrbOption;
+import fi.aalto.cs.drumbeat.common.cli.DrbOptionComparator;
 import fi.aalto.cs.drumbeat.ifc.common.IfcCommandLineOptions;
 
 public class Main {
@@ -82,7 +82,7 @@ public class Main {
 		Options options = new Options();
 		
 		// option --log-properties-file|-lf <file>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.LOGGER_CONFIG_FILE_SHORT,
 				IfcCommandLineOptions.LOGGER_CONFIG_FILE_LONG,
@@ -93,7 +93,7 @@ public class Main {
 		options.addOption(option);
 		
 		// option --config-file|-cf <file>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.CONFIG_FILE_SHORT,
 				IfcCommandLineOptions.CONFIG_FILE_LONG,
@@ -104,7 +104,7 @@ public class Main {
 		options.addOption(option);
 		
 		// option --output-layer-name|-oln <name>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.OUTPUT_LAYER_NAME_SHORT,
 				IfcCommandLineOptions.OUTPUT_LAYER_NAME_LONG,
@@ -115,7 +115,7 @@ public class Main {
 		options.addOption(option);		
 
 		// option --input-schema-file|-isf <file>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.INPUT_SCHEMA_FILE_SHORT,
 				IfcCommandLineOptions.INPUT_SCHEMA_FILE_LONG,
@@ -126,7 +126,7 @@ public class Main {
 		options.addOption(option);
 		
 		// option --input-model-file|-imf <file>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.INPUT_MODEL_FILE_1_SHORT,
 				IfcCommandLineOptions.INPUT_MODEL_FILE_1_LONG,
@@ -140,7 +140,7 @@ public class Main {
 		
 
 		// option --output-schema-file|-osf <name>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.OUTPUT_SCHEMA_NAME_SHORT,
 				IfcCommandLineOptions.OUTPUT_SCHEMA_NAME_LONG,
@@ -150,7 +150,7 @@ public class Main {
 		optionGroup.addOption(option);
 		
 		// option --output-schema-file|-osf <file>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.OUTPUT_SCHEMA_FILE_SHORT,
 				IfcCommandLineOptions.OUTPUT_SCHEMA_FILE_LONG,
@@ -168,7 +168,7 @@ public class Main {
 		optionGroup = new OptionGroup();
 
 		// option --output-model-name|-omn <name>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.OUTPUT_MODEL_NAME_1_SHORT,
 				IfcCommandLineOptions.OUTPUT_MODEL_NAME_1_LONG,
@@ -178,7 +178,7 @@ public class Main {
 		optionGroup.addOption(option);
 		
 		// option --output-model-file|-omf <file>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.OUTPUT_MODEL_FILE_1_SHORT,
 				IfcCommandLineOptions.OUTPUT_MODEL_FILE_1_LONG,
@@ -196,7 +196,7 @@ public class Main {
 		optionGroup = new OptionGroup();
 
 		// option --output-meta-model-name|-ommn <name>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.OUTPUT_META_MODEL_NAME_1_SHORT,
 				IfcCommandLineOptions.OUTPUT_META_MODEL_NAME_1_LONG,
@@ -206,7 +206,7 @@ public class Main {
 		optionGroup.addOption(option);
 		
 		// option --output-meta-model-file|-ommf <file>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.OUTPUT_META_MODEL_FILE_1_SHORT,
 				IfcCommandLineOptions.OUTPUT_META_MODEL_FILE_1_LONG,
@@ -222,7 +222,7 @@ public class Main {
 
 		
 		// option --config-file|-cf <file>
-		option = new DrumbeatOption(
+		option = new DrbOption(
 				++index,
 				IfcCommandLineOptions.OUTPUT_FILE_FORMAT_SHORT,
 				IfcCommandLineOptions.OUTPUT_FILE_FORMAT_LONG,
@@ -250,7 +250,7 @@ public class Main {
 		HelpFormatter helpFormatter = new HelpFormatter();
 		String className = Main.class.getName();
 		helpFormatter.printHelp(className, helpOptions, true);
-		helpFormatter.setOptionComparator(new DrumbeatOptionComparator());
+		helpFormatter.setOptionComparator(new DrbOptionComparator());
 		helpFormatter.printHelp(IfcCommandLineOptions.FORMATTER_WIDTH, className, null, options, null, true);
 	}
 

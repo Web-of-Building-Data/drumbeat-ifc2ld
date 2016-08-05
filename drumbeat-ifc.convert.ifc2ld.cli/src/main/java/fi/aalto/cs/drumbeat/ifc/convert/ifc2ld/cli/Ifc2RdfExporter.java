@@ -90,8 +90,9 @@ public class Ifc2RdfExporter {
 	 */	
 	public void run() throws Exception {
 		
-		
-		Ifc2RdfConversionContext conversionContext = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(outputLayerName);
+		Ifc2RdfConversionContext conversionContext = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(
+				ConfigurationDocument.getInstance(),
+				outputLayerName);
 		
 		
 		//

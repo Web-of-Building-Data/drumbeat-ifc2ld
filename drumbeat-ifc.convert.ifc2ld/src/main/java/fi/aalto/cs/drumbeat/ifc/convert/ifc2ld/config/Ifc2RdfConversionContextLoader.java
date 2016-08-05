@@ -1,9 +1,12 @@
 package fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.config;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
 
 import fi.aalto.cs.drumbeat.common.config.ConfigurationItemEx;
+import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationParserException;
 import fi.aalto.cs.drumbeat.common.config.document.ConverterPoolConfigurationSection;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
@@ -32,9 +35,12 @@ public class Ifc2RdfConversionContextLoader {
 	private static final String CONFIGURATION_PROPERTY_MODEL_BLANK_NODE_NAMESPACE_URI_FORMAT = "Model.BlankNodeNamespaceUriFormat";
 	
 	
-	public static Ifc2RdfConversionContext loadFromDefaultConfigurationFile(String contextName) throws ConfigurationParserException {
+	public static Ifc2RdfConversionContext loadFromConfigurationDocument(
+			ConfigurationDocument configurationDocument,
+			String contextName) throws ConfigurationParserException {
+		
 		ConverterPoolConfigurationSection configurationSection =
-				ConverterPoolConfigurationSection.getInstance(CONFIGURATION_SECTION_CONVERTER_TYPE_NAME);
+				ConverterPoolConfigurationSection.getInstance(configurationDocument, CONFIGURATION_SECTION_CONVERTER_TYPE_NAME);
 		
 		ConfigurationItemEx configuration;
 		if (contextName != null) {
@@ -46,6 +52,23 @@ public class Ifc2RdfConversionContextLoader {
 		Ifc2RdfConversionContext context = new Ifc2RdfConversionContext();
 		loadConfigurationToContext(context, configuration);
 		return context;
+	}
+	
+	public static List<Ifc2RdfConversionContext> loadAllFromConfigurationDocument(
+			ConfigurationDocument configurationDocument) throws ConfigurationParserException {
+		
+		ConverterPoolConfigurationSection configurationSection =
+				ConverterPoolConfigurationSection.getInstance(configurationDocument, CONFIGURATION_SECTION_CONVERTER_TYPE_NAME);
+		
+		List<Ifc2RdfConversionContext> contexts = new ArrayList<>();
+		
+		for (ConfigurationItemEx configuration : configurationSection.getConfigurationPool()) {
+			Ifc2RdfConversionContext context = new Ifc2RdfConversionContext();
+			loadConfigurationToContext(context, configuration);
+			contexts.add(context);			
+		}
+		
+		return contexts;
 	}
 	
 	public static void loadConfigurationToContext(Ifc2RdfConversionContext context, ConfigurationItemEx configuration) {

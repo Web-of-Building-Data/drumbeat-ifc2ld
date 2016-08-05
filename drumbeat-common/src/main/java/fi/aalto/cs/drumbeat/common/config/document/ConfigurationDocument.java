@@ -6,13 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import javax.naming.spi.DirectoryManager;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.*;
-
-import fi.aalto.cs.drumbeat.common.file.FileManager;
 
 
 public class ConfigurationDocument {

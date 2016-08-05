@@ -57,7 +57,8 @@ public class Test {
 		for (IfcSchema schema : schemas) {
 			// export IFC schema into in-memory Jena graph using default conversion context
 			Model schemaGraph = jenaProvider.openDefaultModel().removeAll();
-			Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromDefaultConfigurationFile(null);
+			ConfigurationDocument configurationDocument = ConfigurationDocument.getInstance();
+			Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(configurationDocument, null);
 			Ifc2RdfExportUtil.exportSchemaToJenaModel(schemaGraph, schema, context);
 			
 //			String baseUri = Ifc2RdfVocabulary.IFC.getBaseUri(schema.getVersion());
