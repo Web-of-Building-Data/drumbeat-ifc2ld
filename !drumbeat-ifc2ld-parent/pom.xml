@@ -4,7 +4,7 @@
 
 	<groupId>fi.hut.cs.drumbeat</groupId>
 	<artifactId>drumbeat-ifc2ld-parent</artifactId>
-	<version>0.10.7</version>
+	<version>0.10.8</version>
 
 	<packaging>pom</packaging>
 
@@ -102,6 +102,10 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<configuration>
+							<!-- Ignore warnings when JavaDoc tags are incomplete -->
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
