@@ -18,6 +18,7 @@ import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 
+import fi.aalto.cs.drumbeat.common.string.RegexUtils;
 import fi.aalto.cs.drumbeat.ifc.common.IfcException;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfVocabulary.EXPRESS;
 import fi.aalto.cs.drumbeat.ifc.data.LogicalEnum;
@@ -35,6 +36,7 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
 import fi.aalto.cs.drumbeat.ifc.data.schema.IfcTypeInfo;
 import fi.aalto.cs.drumbeat.rdf.OwlProfileList;
 import fi.aalto.cs.drumbeat.rdf.RdfVocabulary;
+import fi.aalto.cs.drumbeat.rdf.utils.RdfUtils;
 
 
 public class Ifc2RdfModelExporter {
@@ -550,7 +552,7 @@ public class Ifc2RdfModelExporter {
 		String nodeName = String.format("%s_%s", entity.getTypeInfo(), entity.getValue());
 		Resource entityResource;
 		if (nameAllBlankNodes) {
-			entityResource = jenaModel.createResource(formatModelBlankNodeName(nodeName));				
+			entityResource = jenaModel.createResource(formatModelBlankNodeName(RegexUtils.getSafeUrl(nodeName)));				
 		} else {
 			entityResource = jenaModel.createResource(new AnonId(nodeName));				
 		}
