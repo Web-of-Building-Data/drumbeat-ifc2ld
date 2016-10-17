@@ -295,6 +295,10 @@ public class Ifc2RdfModelExporter {
 			throw new IllegalArgumentException("Expected non-collection type info: " + typeInfo);
 		} else {
 			if (value instanceof IfcEntity) {
+				// TODO: Process case when value is undefined (line number is 0, no type)
+//				if (((IfcEntity)value).isUndefined()) {
+//					return convertSingleValueToNode((IfcSingleValue)IfcValue.NULL, null, null, 0L);
+//				}
 				return convertEntityToResource((IfcEntity) value);
 			} if (value instanceof IfcShortEntity) {
 				return convertShortEntityToResource((IfcShortEntity) value, childNodeCount);				

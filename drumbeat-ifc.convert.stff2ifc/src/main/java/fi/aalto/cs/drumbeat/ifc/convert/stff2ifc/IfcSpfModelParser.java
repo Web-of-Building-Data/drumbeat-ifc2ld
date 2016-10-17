@@ -13,6 +13,8 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.*;
 
 public class IfcSpfModelParser  {
 	
+	public static final boolean IGNORE_UNKNOWN_TYPES = false;
+	
 	IfcLineReader lineReader;
 
 	public IfcSpfModelParser(InputStream input) {

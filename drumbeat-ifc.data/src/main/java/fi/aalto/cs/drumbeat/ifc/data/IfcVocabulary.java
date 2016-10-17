@@ -171,7 +171,7 @@ public class IfcVocabulary {
 	public static class Formatter {
 		
 		public static String formatEntityName(IfcEntityTypeInfo typeInfo, String localId) {
-			return String.format("%s_%s", typeInfo, localId);
+			return String.format("%s_%s", typeInfo != null ? typeInfo : "unknown_type", localId);
 		}
 		
 		public static String formatChildEntityId(String parentEntityId, int childCount) {

@@ -9,6 +9,8 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.*;
 
 
 public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { // , IRdfEntityNode {
+	
+	public static final String UNDEFINED_ENTITY_ID = "0";
 
 	private static final long serialVersionUID = 1L;
 
@@ -202,7 +204,10 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	}
 
 	public boolean isInstanceOf(IfcEntityTypeInfo typeInfo) {
-		assert(this.typeInfo != null) : "typeInfo is null";
+		if (isUndefined()) {
+			return false;
+		}
+		assert(typeInfo != null) : "Undefined entity type: localId = " + localId;
 		return this.typeInfo.isTypeOf(typeInfo);
 	}
 	
@@ -425,6 +430,14 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 //	public IRdfNode getRdfClass() {
 //		return typeInfo;
 //	}
+	
+	/**
+	 * Checks if the type is undefined, this is needed for objects "#0"
+	 * @return
+	 */
+	public boolean isUndefined() {
+		return typeInfo == null && localId.equals(UNDEFINED_ENTITY_ID);
+	}
 	
 	
 }
