@@ -16,7 +16,7 @@ import fi.aalto.cs.drumbeat.ifc.data.model.*;
 import fi.aalto.cs.drumbeat.ifc.data.schema.*;
 
 class IfcSpfModelSectionParser {
-	
+
 	private class IfcTemporaryCollectionValueWrapper extends IfcValue {
 		
 		private static final long serialVersionUID = 1L;
@@ -166,13 +166,14 @@ class IfcSpfModelSectionParser {
 		
 		if (!isHeaderSection) {
 			for (IfcEntity entity : entities) {
+				assert(entity.getTypeInfo() != null);
 				entity.bindInverseLinks();
 			}
 		}
 		
 		return entities;
 	}
-
+	
 	/**
 	 * Gets an entity from the map by its line number, or creates a new entity if it doesn't exist 
 	 * @param lineNumber
@@ -234,12 +235,13 @@ class IfcSpfModelSectionParser {
 			case IfcVocabulary.SpfFormat.LINE_NUMBER_SYMBOL: // Entity
 				attributeStrBuilderWrapper.skip(1);
 				//Long remoteLineNumber = attributeStrBuilderWrapper.getLong();
-				String remoteLineNumber = Long.toString(attributeStrBuilderWrapper.getLong());
+				String remoteLineNumber = Long.toString(attributeStrBuilderWrapper.getLong());				
 				IfcEntity remoteEntity = getEntity(remoteLineNumber);
-				if (remoteEntity == null) {
+				if (remoteEntity != null) {
+					attributeValues.add(remoteEntity);
+				} else {
 					throw new IfcNotFoundException("Entity not found: #" + remoteLineNumber);
 				}
-				attributeValues.add(remoteEntity);
 				break;
 
 			case IfcVocabulary.SpfFormat.STRING_VALUE_SYMBOL:
