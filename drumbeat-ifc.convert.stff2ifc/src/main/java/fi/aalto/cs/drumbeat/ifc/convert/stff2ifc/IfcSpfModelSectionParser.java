@@ -387,7 +387,19 @@ class IfcSpfModelSectionParser {
 									
 									IfcLiteralValueCollection values = new IfcLiteralValueCollection();										
 									for (IfcValue value : ((IfcTemporaryCollectionValueWrapper)attributeValue).getValues()) {
-										values.add((IfcLiteralValue)value);
+										if (value instanceof IfcLiteralValue) {
+											values.add((IfcLiteralValue)value);
+										} else {										
+											// TODO: Add objects to internal IfcLiteralValueContainer
+//											IfcLiteralValueCollection internalValue = new IfcLiteralValueCollection();
+//											for (IfcValue value2 : ((IfcTemporaryCollectionValueWrapper)value).getValues()) {
+//												internalValue.add((IfcLiteralValue)value2);
+//											}
+
+											for (IfcValue value2 : ((IfcTemporaryCollectionValueWrapper)value).getValues()) {
+												values.add((IfcLiteralValue)value2);
+											}
+										}
 									}
 									
 									entity.addLiteralAttribute(new IfcLiteralAttribute(attributeInfo, attributeIndex, values));
