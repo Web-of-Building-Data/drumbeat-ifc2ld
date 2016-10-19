@@ -299,8 +299,17 @@ public class IfcSchemaParser {
 		
 		s = s.trim();
 		
-		if (s.isEmpty()) {
-			return null;
+		if (s.isEmpty() && !isArrayIndex) {
+			//
+			// Changed by Nam - 20161019
+			// to solve issue when some properties are defined without cardinalities, e.g.:
+			// ENTITY IfcPropertySetDefinition
+		    // INVERSE
+		    //  DefinesType       : SET OF IfcTypeObject FOR HasPropertySets;
+			//
+			//
+			// return null;
+			return new Cardinality(0, Cardinality.UNBOUNDED, isArrayIndex);
 		}
 		
 		String[] cardinalityTokens = 
@@ -582,9 +591,11 @@ public class IfcSchemaParser {
 				
 				tokens = RegexUtils.split2(tokens[1].trim(), IfcVocabulary.ExpressFormat.OF);
 				cardinality = parseCardinality(tokens[0], false);
+				assert(cardinality != null) : "Empty cardinality string. Entity type: " + entityTypeInfo.getName() + ", inverse link statement: " + statement;
 				tokens = RegexUtils.split2(tokens[1].trim(), RegexUtils.WHITE_SPACE);
 				
 			}
+			
 			
 			String sourceEntityTypeInfoName = tokens[0];
 
