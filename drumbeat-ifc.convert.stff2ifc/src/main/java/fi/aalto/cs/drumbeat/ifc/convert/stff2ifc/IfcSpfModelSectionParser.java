@@ -378,31 +378,43 @@ class IfcSpfModelSectionParser {
 					Boolean isLiteralValue = attributeValue.isLiteralType();
 					
 					if (isLiteralValue != null) {
-						isLiteralValueContainer = isLiteralValueContainer && isLiteralValue == Boolean.TRUE;							
+						isLiteralValueContainer = isLiteralValueContainer && (isLiteralValue == Boolean.TRUE);							
 						if (isLiteralValue) {
 						
 							if (attributeValue instanceof IfcTemporaryCollectionValueWrapper) {
 								
 								if (attributeInfo.isCollection()) {
 									
-									IfcLiteralValueCollection values = new IfcLiteralValueCollection();										
-									for (IfcValue value : ((IfcTemporaryCollectionValueWrapper)attributeValue).getValues()) {
-										if (value instanceof IfcLiteralValue) {
-											values.add((IfcLiteralValue)value);
-										} else {										
-											// TODO: Add objects to internal IfcLiteralValueContainer
-//											IfcLiteralValueCollection internalValue = new IfcLiteralValueCollection();
-//											for (IfcValue value2 : ((IfcTemporaryCollectionValueWrapper)value).getValues()) {
-//												internalValue.add((IfcLiteralValue)value2);
-//											}
-
-											for (IfcValue value2 : ((IfcTemporaryCollectionValueWrapper)value).getValues()) {
-												values.add((IfcLiteralValue)value2);
-											}
-										}
-									}
+									IfcCollectionTypeInfo attributeTypeInfo = (IfcCollectionTypeInfo)attributeInfo.getAttributeTypeInfo();
+									assert(attributeTypeInfo instanceof IfcCollectionTypeInfo) : "attributeTypeInfo instanceof IfcCollectionTypeInfo";
 									
-									entity.addLiteralAttribute(new IfcLiteralAttribute(attributeInfo, attributeIndex, values));
+									if (attributeTypeInfo.getItemTypeInfo() instanceof IfcCollectionTypeInfo) {
+										
+										@SuppressWarnings("serial")
+										IfcCollectionValue<IfcValue> values = new IfcCollectionValue<IfcValue>() {
+											@Override
+											public Boolean isLiteralType() {
+												return null;
+											}											
+										};
+										for (IfcValue value : ((IfcTemporaryCollectionValueWrapper)attributeValue).getValues()) {
+											IfcLiteralValueCollection internalValue = new IfcLiteralValueCollection();
+											for (IfcValue value2 : ((IfcTemporaryCollectionValueWrapper)value).getValues()) {
+												internalValue.add((IfcLiteralValue)value2);
+											}
+											values.add(internalValue);	
+										}
+										entity.addLiteralAttribute(new IfcLiteralAttribute(attributeInfo, attributeIndex, values));
+										
+									} else {
+
+										IfcLiteralValueCollection values = new IfcLiteralValueCollection();										
+										for (IfcValue value : ((IfcTemporaryCollectionValueWrapper)attributeValue).getValues()) {
+											values.add((IfcLiteralValue)value);
+										}
+										entity.addLiteralAttribute(new IfcLiteralAttribute(attributeInfo, attributeIndex, values));										
+										
+									}									
 									
 								} else {										
 									

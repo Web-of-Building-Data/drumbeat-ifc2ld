@@ -40,7 +40,7 @@
 		<appender-ref ref="FILE_COMMON"/>
 	</logger>
 	<logger name="fi.aalto.cs.drumbeat.ifc.convert">
-		<level value="info"/>
+		<level value="trace"/>
 		<appender-ref ref="FILE_PARSER"/>
 	</logger>
 	<logger name="fi.aalto.cs.drumbeat.ifc.util">
@@ -49,7 +49,7 @@
 		<appender-ref ref="FILE_ANALYSER"/>
 	</logger>	
 	<logger name="fi.aalto.cs.drumbeat.ifc.processing">
-		<level value="trace"/>
+		<level value="info"/>
 		<appender-ref ref="CONSOLE"/>
 		<appender-ref ref="FILE_ANALYSER"/>
 	</logger>	

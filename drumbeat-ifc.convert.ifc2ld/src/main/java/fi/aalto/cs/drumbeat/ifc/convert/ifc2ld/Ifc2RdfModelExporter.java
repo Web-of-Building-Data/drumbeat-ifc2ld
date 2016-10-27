@@ -204,6 +204,8 @@ public class Ifc2RdfModelExporter {
 			return;
 		}
 		
+		logger.trace("Exporting entity: " + entity);
+		
 		Resource entityResource = convertEntityToResource(entity);
 		
 		long childNodeCount = 1L;
@@ -273,7 +275,7 @@ public class Ifc2RdfModelExporter {
 		}
 		
 		IfcValue value = attribute.getValue();
-		logger.debug("Writing attribute: " + attributeInfo + " value: " + value);
+		logger.trace("Writing attribute: " + attributeInfo + " value: " + value);
 		List<RDFNode> valueNodes = convertValueToNode(value, attributeInfo.getAttributeTypeInfo(), entityResource, childNodeCount);
 		
 		for (RDFNode valueNode : valueNodes) {		
@@ -292,7 +294,8 @@ public class Ifc2RdfModelExporter {
 	 */
 	public RDFNode convertSingleValueToNode(IfcSingleValue value, IfcTypeInfo typeInfo, Resource entityResource, long childNodeCount) {
 		if (typeInfo instanceof IfcCollectionTypeInfo) {
-			throw new IllegalArgumentException("Expected non-collection type info: " + typeInfo);
+			throw new IllegalArgumentException(
+					String.format("Expected non-collection type info: %s (value: %s, value class: %s)", typeInfo, value, value.getClass()));
 		} else {
 			if (value instanceof IfcEntity) {
 				// TODO: Process case when value is undefined (line number is 0, no type)
@@ -434,13 +437,14 @@ public class Ifc2RdfModelExporter {
 	private List<RDFNode> convertListToDrummondList(IfcCollectionValue<? extends IfcValue> listValue, IfcCollectionTypeInfo collectionTypeInfo,
 			Resource parentResource, long childNodeCount)
 	{
+		IfcTypeInfo itemTypeInfo = collectionTypeInfo.getItemTypeInfo();			
+
 		if (collectionTypeInfo.isSorted()) {
 			
 			Resource listTypeResource = jenaModel.createResource(converter.formatTypeName(collectionTypeInfo)); 
 			Resource emptyListTypeResource = jenaModel.createResource(converter.formatTypeName(collectionTypeInfo).replace("List", "EmptyList"));
-			IfcTypeInfo itemTypeInfo = collectionTypeInfo.getItemTypeInfo();			
 			
-			List<? extends IfcSingleValue> values = listValue.getSingleValues(); 
+			List<? extends IfcValue> values = listValue.getSingleValues(); 
 
 			int index = values.size();
 			
@@ -468,8 +472,26 @@ public class Ifc2RdfModelExporter {
 				currentListResource.addProperty(RDF.type, listTypeResource);
 				currentListResource.addProperty(Ifc2RdfVocabulary.EXPRESS.hasNext, nextListResource);
 				
-				IfcSingleValue value = values.get(index);
-				RDFNode valueNode = convertSingleValueToNode(value, itemTypeInfo, currentListResource, 0);
+				IfcValue value = values.get(index);
+				RDFNode valueNode;
+				if (itemTypeInfo instanceof IfcCollectionTypeInfo) {
+					
+					if (((IfcCollectionTypeInfo)itemTypeInfo).isSorted()) {
+						@SuppressWarnings("unchecked")
+						List<RDFNode> childValueNodes = convertListToDrummondList(
+								(IfcCollectionValue<? extends IfcValue>)value,
+								(IfcCollectionTypeInfo)itemTypeInfo,
+								currentListResource,
+								index);
+						assert(childValueNodes.size() == 1);
+						valueNode = childValueNodes.get(0);
+					} else {
+						throw new RuntimeException("Unexpected list of set values");
+					}
+					
+				} else {
+					valueNode = convertSingleValueToNode((IfcSingleValue)value, itemTypeInfo, currentListResource, 0);
+				}
 				
 				currentListResource.addProperty(Ifc2RdfVocabulary.EXPRESS.hasValue, valueNode);
 			}
@@ -481,9 +503,31 @@ public class Ifc2RdfModelExporter {
 		} else {
 			List<RDFNode> nodes = new ArrayList<>();
 			
-			for (IfcSingleValue value : listValue.getSingleValues()) {
-				RDFNode node = convertSingleValueToNode(value, collectionTypeInfo.getItemTypeInfo(), parentResource, childNodeCount);
-				nodes.add(node);
+			if (itemTypeInfo instanceof IfcCollectionTypeInfo) {
+				
+				for (IfcValue value : listValue.getSingleValues()) {
+				
+					if (((IfcCollectionTypeInfo)itemTypeInfo).isSorted()) {
+						@SuppressWarnings("unchecked")
+						List<RDFNode> childValueNodes = convertListToDrummondList(
+								(IfcCollectionValue<? extends IfcValue>)value,
+								(IfcCollectionTypeInfo)itemTypeInfo,
+								parentResource,
+								// TODO: check index
+								childNodeCount++);
+						nodes.add(childValueNodes.get(0));
+					} else {
+						throw new RuntimeException("Unexpected list of set values");
+					}
+				}				
+				
+			} else {
+			
+				for (IfcValue value : listValue.getSingleValues()) {
+					RDFNode node = convertSingleValueToNode((IfcSingleValue)value, collectionTypeInfo.getItemTypeInfo(), parentResource, childNodeCount);
+					nodes.add(node);
+				}
+				
 			}
 			
 			return nodes;
@@ -507,8 +551,12 @@ public class Ifc2RdfModelExporter {
 		
 		List<RDFNode> nodeList = new ArrayList<>();
 		long count = 1;
-		for (IfcSingleValue value : listValue.getSingleValues()) {
-			nodeList.add(convertSingleValueToNode(value, itemTypeInfo, listResource, count++));
+		if (itemTypeInfo.isCollectionType()) {
+			throw new NotImplementedException("Did not implement case of list of collection");
+		} else {
+			for (IfcValue value : listValue.getSingleValues()) {
+				nodeList.add(convertSingleValueToNode((IfcSingleValue)value, itemTypeInfo, listResource, count++));
+			}
 		}
 		
 		int length = nodeList.size();
