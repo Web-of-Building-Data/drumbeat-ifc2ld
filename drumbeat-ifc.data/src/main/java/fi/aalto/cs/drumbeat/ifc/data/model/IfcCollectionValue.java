@@ -18,7 +18,7 @@ import fi.aalto.cs.drumbeat.common.string.StringUtils;
 //import fi.aalto.cse.dsg.rdf.RdfUriNode;
 //import fi.aalto.cse.dsg.rdf.RdfVocabulary;
 
-public abstract class IfcCollectionValue<V extends IfcSingleValue> extends IfcValue { // implements IRdfList {
+public abstract class IfcCollectionValue<V extends IfcValue> extends IfcValue { // implements IRdfList {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -109,6 +109,6 @@ public abstract class IfcCollectionValue<V extends IfcSingleValue> extends IfcVa
 			return false;
 		}
 	}
-	
+
 
 }

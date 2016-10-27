@@ -4,7 +4,7 @@
 
 	<groupId>fi.hut.cs.drumbeat</groupId>
 	<artifactId>drumbeat-ifc2ld-parent</artifactId>
-	<version>0.10.12</version>
+	<version>0.10.13</version>
 
 	<packaging>pom</packaging>
 
