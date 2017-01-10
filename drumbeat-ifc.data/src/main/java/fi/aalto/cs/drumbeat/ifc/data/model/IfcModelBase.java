@@ -1,7 +1,7 @@
 package fi.aalto.cs.drumbeat.ifc.data.model;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 import fi.aalto.cs.drumbeat.ifc.common.IfcNotFoundException;
@@ -15,11 +15,7 @@ public abstract class IfcModelBase {
 
 	public IfcModelBase(IfcSchema schema) {
 		this.schema = schema;
-		entities = new ArrayList<>(getInitialEntitySize());
-	}
-	
-	protected int getInitialEntitySize() {
-		return 10;
+		entities = new LinkedList<>();
 	}
 	
 	public IfcSchema getSchema() {
@@ -31,7 +27,7 @@ public abstract class IfcModelBase {
 	}
 	
 	public List<IfcEntity> getEntitiesByType(IfcEntityTypeInfo entityType) {
-		List<IfcEntity> selectedEntities = new ArrayList<>();		
+		List<IfcEntity> selectedEntities = new LinkedList<>();		
 		for (IfcEntity entity : entities) {
 			if (entity.isInstanceOf(entityType)) {
 				selectedEntities.add(entity);

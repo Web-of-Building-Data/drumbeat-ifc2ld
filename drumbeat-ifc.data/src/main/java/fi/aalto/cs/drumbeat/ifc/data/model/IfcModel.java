@@ -23,11 +23,6 @@ public class IfcModel extends IfcModelBase implements Serializable { // IRdfEnti
 		this.metaModel = metaModel;
 	}
 	
-	@Override
-	protected int getInitialEntitySize() {
-		return 10240;
-	}
-
 //	public IfcSchema getSchema() throws IfcNotFoundException {
 //		if (schema == null) {
 //			List<String> schemaVersions = metaModel.getFileSchema().getSchemas();
