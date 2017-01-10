@@ -16,11 +16,6 @@ public class IfcMetaModel extends IfcModelBase {
 		super(stepSchema);
 	}
 
-	@Override
-	protected int getInitialEntitySize() {
-		return 0;
-	}
-
 	public IfcStepFileDescription getFileDescription() throws IfcNotFoundException {
 		if (fileDescription == null) {
 			IfcEntity entity = super.getFirstEntityByType(IfcVocabulary.SpfFormat.Header.FileDescription.TYPE_NAME);
