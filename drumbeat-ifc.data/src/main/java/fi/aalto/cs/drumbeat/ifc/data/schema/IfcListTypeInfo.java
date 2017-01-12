@@ -1,5 +1,5 @@
 package fi.aalto.cs.drumbeat.ifc.data.schema;
-//package fi.hut.cs.drumbeat.ifc.data.schema;
+//package fi.aalto.cs.drumbeat.ifc.data.schema;
 //
 //import fi.aalto.cs.drumbeat.ifc.data.Cardinality;
 //

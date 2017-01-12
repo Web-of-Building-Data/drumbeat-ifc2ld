@@ -14,7 +14,7 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.IfcEntityTypeInfo;
  * Processor that sets (and encodes) entity names for all literal-value-containers. Naming is based on their literal values.
  * 
  * 		<processor name="SetNameForLiteralValueContainers" enabled="true">
-			<class>fi.hut.cs.drumbeat.ifc.util.grounding.SetNameForLiteralValueContainers</class>
+			<class>fi.aalto.cs.drumbeat.ifc.util.grounding.SetNameForLiteralValueContainers</class>
 			<params>
 				<param name="propertyPattern" value="$Property.Name$:'$Property.Value$';" />
 				<param name="entityNamePattern" value="$Entity.Type${$propertyPattern$}" />

@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>fi.hut.cs.drumbeat</groupId>
+		<groupId>fi.aalto.cs.drumbeat</groupId>
 		<artifactId>drumbeat-ifc2ld-parent</artifactId>
-		<version>0.10.15</version>
+		<version>0.11.0</version>
 		<relativePath>../!drumbeat-ifc2ld-parent/pom.xml</relativePath>
 	</parent>
 

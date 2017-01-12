@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fi.hut.cs.drumbeat</groupId>
+	<groupId>fi.aalto.cs.drumbeat</groupId>
 	<artifactId>drumbeat-ifc2ld-parent</artifactId>
-	<version>0.10.15</version>
+	<version>0.11.0</version>
 
 	<packaging>pom</packaging>
 
@@ -37,7 +37,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<drumbeat.groupId>${project.groupId}</drumbeat.groupId>
-		<drumbeat.jena.version>0.8.0</drumbeat.jena.version>
+		<drumbeat.jena.version>0.9.0</drumbeat.jena.version>
 
 		<!-- All versions updated on 04.05.2015 -->
 		<commons-cli.version>1.2</commons-cli.version>

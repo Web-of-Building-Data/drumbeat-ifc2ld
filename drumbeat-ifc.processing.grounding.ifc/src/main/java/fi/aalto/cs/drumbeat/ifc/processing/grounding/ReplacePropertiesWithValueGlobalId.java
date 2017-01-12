@@ -26,7 +26,7 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
  *  Sample syntax:
  *  
  *		<processor name="ReplaceByInverseLinks" enabled="true">
- *			<class>fi.hut.cs.drumbeat.ifc.util.grounding.ReplaceByInverseLinks</class>
+ *			<class>fi.aalto.cs.drumbeat.ifc.util.grounding.ReplaceByInverseLinks</class>
  *			<params>
  *				<param name="inverseLinkNames" value="type1.link1, type2.link2, ..." />
  *			</params>

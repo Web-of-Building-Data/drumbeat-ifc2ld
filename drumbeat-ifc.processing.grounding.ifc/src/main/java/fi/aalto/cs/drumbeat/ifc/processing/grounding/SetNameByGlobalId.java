@@ -22,7 +22,7 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.IfcSchema;
  *  Sample syntax:
  *  
  *		<processor name="SetNameByGlobalId" enabled="true">
- *			<class>fi.hut.cs.drumbeat.ifc.util.grounding.SetNameByGlobalId</class>
+ *			<class>fi.aalto.cs.drumbeat.ifc.util.grounding.SetNameByGlobalId</class>
  *			<params>
  *				<param name="entityNamePattern" value="GUID_$Entity.GlobalId$" />
  *				<param name="encoderType" value="None" />
