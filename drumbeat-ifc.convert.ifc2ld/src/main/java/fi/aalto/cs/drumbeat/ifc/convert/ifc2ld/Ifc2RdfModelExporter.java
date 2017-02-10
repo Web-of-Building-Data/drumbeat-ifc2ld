@@ -572,7 +572,7 @@ public class Ifc2RdfModelExporter {
 		for (int i = 0; i < nodeList.size(); ++i) {
 			Resource slotResource;
 			if (nameAllBlankNodes) {
-				String slotResourceName = formatModelBlankNodeName(String.format("%s_slot_%d", listResource.getLocalName(), i+1));
+				String slotResourceName = String.format("%s_slot_%d", listResource.getLocalName(), i+1);
 				slotResource = jenaModel.createResource(formatModelBlankNodeName(slotResourceName));
 			} else {
 				slotResource = jenaModel.createResource();
@@ -588,10 +588,16 @@ public class Ifc2RdfModelExporter {
 	}
 	
 	public Resource convertEntityToResource(IfcEntity entity) {
+		
+		String namespaceSuffix = entity.getNamespaceSuffix();
+		if (namespaceSuffix == null) {
+			namespaceSuffix = "";
+		}
+		
 		if (entity.hasName()) {
-			return jenaModel.createResource(formatModelName(entity.getName()));
+			return jenaModel.createResource(formatModelName(namespaceSuffix + entity.getName()));
 		} else {
-			String nodeName = String.format(Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT, entity.getLocalId());
+			String nodeName = namespaceSuffix + String.format(Ifc2RdfVocabulary.IFC.BLANK_NODE_ENTITY_URI_FORMAT, entity.getLocalId());
 			if (nameAllBlankNodes) {
 				return jenaModel.createResource(formatModelBlankNodeName(nodeName));				
 			} else {
@@ -601,7 +607,12 @@ public class Ifc2RdfModelExporter {
 	}
 	
 	public Resource convertShortEntityToResource(IfcShortEntity entity, long childNodeCount) {
-		String nodeName = String.format("%s_%s", entity.getTypeInfo(), entity.getValue());
+		String namespaceSuffix = entity.getNamespaceSuffix();
+		if (namespaceSuffix == null) {
+			namespaceSuffix = "";
+		}
+
+		String nodeName = namespaceSuffix + String.format("%s_%s", entity.getTypeInfo(), entity.getValue());
 		Resource entityResource;
 		if (nameAllBlankNodes) {
 			entityResource = jenaModel.createResource(formatModelBlankNodeName(RegexUtils.getSafeUrl(nodeName)));				

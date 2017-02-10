@@ -32,6 +32,13 @@
  				<param name="entityTypeNames" value="IfcProductRepresentation, IfcRelSpaceBoundary" />
  			</params>
  		</processor>
+		<processor name="DevideEntitiesToSubModels" enabled="true">
+ 			<class>fi.aalto.cs.drumbeat.ifc.processing.grounding.DevideEntitiesToSubModels</class>
+ 			<params>
+ 				<param name="propertySets.entityTypeNames" value="IfcRelDefinesByProperties, IfcPropertySet, IfcProperty, IfcPropertyDefinition, IfcPropertySetDefinition" />
+ 				<param name="propertySets.namespaceSuffix" value="_PROPERTIES" />
+ 			</params>
+ 		</processor>
 	</processorMap>
 	
 	<!-- complexProcessorPools -->
@@ -39,8 +46,9 @@
 		<complexProcessor name="BASIC GROUNDING RULES" enabled="true" default="true">
 			<add name="SetNameByGlobalId" />
 			<!--  <add name="RemoveUnnecessaryEntitiesAndLinks" />  -->			
+			<add name="DevideEntitiesToSubModels" />
 		</complexProcessor>
-		<complexProcessor name="NO GROUNDING RULES" enabled="false" />		
+		<complexProcessor name="NO GROUNDING RULES" enabled="false" />
 	</complexProcessorPool>
 	
 	
@@ -76,6 +84,9 @@
 				<!-- Options.ConvertDoublesTo: xsd:decimal (default), AutoMostEfficient (=xsd:double or owl:real), xsd:decimal, xsd:double, owl:real, xsd:string -->
 				<param name="Options.ConvertDoublesTo" value="xsd:decimal" />
 				
+				<!-- Options.ConvertCollectionsTo: DrummondList (default), OloSimilarList -->
+				<param name="Options.ConvertCollectionsTo" value="OloSimilarList" />
+
 				<!-- Options.Options.NameAllBlankNodes: true, false -->
 				<param name="Options.NameAllBlankNodes" value="true" />
 
