@@ -2,6 +2,8 @@ package fi.aalto.cs.drumbeat.ifc.processing.grounding;
 
 import java.util.*;
 
+import org.apache.log4j.Logger;
+
 import fi.aalto.cs.drumbeat.ifc.processing.IfcAnalyserException;
 import fi.aalto.cs.drumbeat.ifc.processing.grounding.IfcGroundingMainProcessor;
 import fi.aalto.cs.drumbeat.ifc.processing.grounding.IfcGroundingProcessor;
@@ -33,6 +35,8 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.IfcSchema;
  */
 public class RemoveUnnecessaryEntitiesAndLinks extends IfcGroundingProcessor {
 	
+	private static final Logger logger = Logger.getLogger(RemoveUnnecessaryEntitiesAndLinks.class);	
+
 	private static final String PARAM_ENTITY_TYPE_NAMES = "entityTypeNames";
 //	private static final String PARAM_RECURSIVE = "recursive";
 	

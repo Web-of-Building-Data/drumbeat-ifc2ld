@@ -14,7 +14,7 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.IfcEntityTypeInfo;
 
 abstract class IfcGroundingProcessor {
 	
-	protected static final Logger logger = Logger.getLogger(IfcGroundingProcessor.class);	
+	private static final Logger logger = Logger.getLogger(IfcGroundingProcessor.class);	
 	
 	public enum InputTypeEnum {
 		UngroundedEntity,

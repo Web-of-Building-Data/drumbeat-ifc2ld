@@ -3,6 +3,8 @@ package fi.aalto.cs.drumbeat.ifc.processing.grounding;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 import fi.aalto.cs.drumbeat.ifc.processing.IfcAnalyserException;
 import fi.aalto.cs.drumbeat.ifc.processing.grounding.IfcGroundingMainProcessor;
 import fi.aalto.cs.drumbeat.ifc.processing.grounding.IfcGroundingProcessor;
@@ -36,6 +38,8 @@ import fi.aalto.cs.drumbeat.ifc.data.schema.IfcTypeEnum;
  *
  */
 public class ReplacePropertiesWithValueGlobalId extends IfcGroundingProcessor {
+
+	private static final Logger logger = Logger.getLogger(ReplacePropertiesWithValueGlobalId.class);	
 
 	private static final String IFCPROPERTY_TYPE = "IfcPropertySingleValue";
 	private static final String IFCPROPERTY_NAME_ATTRIBUTE = "name";
