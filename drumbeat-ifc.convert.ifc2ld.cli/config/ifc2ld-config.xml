@@ -82,7 +82,7 @@
 				<param name="Options.ConvertEnumsTo" value="owl:NamedIndividual" />
 				
 				<!-- Options.ConvertDoublesTo: xsd:decimal (default), AutoMostEfficient (=xsd:double or owl:real), xsd:decimal, xsd:double, owl:real, xsd:string -->
-				<param name="Options.ConvertDoublesTo" value="xsd:double" />
+				<param name="Options.ConvertDoublesTo" value="xsd:decimal" />
 				
 				<!-- Options.ConvertCollectionsTo: DrummondList (default), OloSimilarList -->
 				<param name="Options.ConvertCollectionsTo" value="OloSimilarList" />
