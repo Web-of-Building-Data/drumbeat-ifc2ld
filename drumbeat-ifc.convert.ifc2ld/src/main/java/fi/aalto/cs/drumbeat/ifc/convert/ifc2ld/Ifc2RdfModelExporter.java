@@ -1,5 +1,6 @@
 package fi.aalto.cs.drumbeat.ifc.convert.ifc2ld;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -379,8 +380,11 @@ public class Ifc2RdfModelExporter {
 			valueNode = jenaModel.createTypedLiteral((String)value);				
 		} else if (valueType == IfcTypeEnum.GUID) {				
 			valueNode = jenaModel.createTypedLiteral(value.toString());
-		} else if (valueType == IfcTypeEnum.REAL || valueType == IfcTypeEnum.NUMBER) {				
-			valueNode = jenaModel.createTypedLiteral((double)value, converter.getBaseTypeForDoubles().getURI());				
+		} else if (valueType == IfcTypeEnum.REAL || valueType == IfcTypeEnum.NUMBER) {
+			Resource doubleTypeResource = converter.getBaseTypeForDoubles();
+			valueNode = jenaModel.createTypedLiteral(
+					doubleTypeResource.equals(XSD.decimal) ? BigDecimal.valueOf((double)value) : (double)value,
+					doubleTypeResource.getURI());				
 		} else if (valueType == IfcTypeEnum.INTEGER) {				
 			valueNode = jenaModel.createTypedLiteral((long)value);				
 		} else if (valueType == IfcTypeEnum.LOGICAL) {
