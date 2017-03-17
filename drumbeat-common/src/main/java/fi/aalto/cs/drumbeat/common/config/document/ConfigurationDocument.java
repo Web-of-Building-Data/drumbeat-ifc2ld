@@ -35,7 +35,7 @@ public class ConfigurationDocument {
 	public static final String ATTRIBUTE_VALUE = "value";
 	
 	
-	private static ConfigurationDocument defaultConfiguration;
+	private static ConfigurationDocument defaultConfigurationDocument;
 	
 	private Document document;
 	
@@ -43,28 +43,32 @@ public class ConfigurationDocument {
 		this.document = document;
 	}
 	
-	public static ConfigurationDocument getInstance() {
-		if (defaultConfiguration != null) {
-			return defaultConfiguration;
+	public static ConfigurationDocument getDefault() {
+		if (defaultConfigurationDocument != null) {
+			return defaultConfigurationDocument;
 		} else {
 			throw new NullPointerException("Undefined default configuration");
 		}
 	}
 	
-	public static void load(InputStream is) throws ConfigurationParserException {		
+	public static void setDefault(ConfigurationDocument configurationDocument) {
+		defaultConfigurationDocument = configurationDocument;
+	}
+	
+	public static ConfigurationDocument load(InputStream is) throws ConfigurationParserException {		
 		try {
 			DocumentBuilder documentBuilder;
 			documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			Document document = documentBuilder.parse(is);
-			defaultConfiguration = new ConfigurationDocument(document);
+			return new ConfigurationDocument(document);
 		} catch (Exception e) {
 			throw new ConfigurationParserException(String.format("ConfigurationItem parser error: %s", e.getMessage()), e);
 		}
 	}
 
-	public static void load(String configFilePath) throws ConfigurationParserException {
+	public static ConfigurationDocument load(String configFilePath) throws ConfigurationParserException {
 		try {
-			load(new FileInputStream(configFilePath));
+			return load(new FileInputStream(configFilePath));
 		} catch (FileNotFoundException e) {
 			File file = new File(configFilePath);
 			throw new ConfigurationParserException(String.format("ConfigurationItem parser error: file not found '%s'", file.getAbsolutePath()), e);

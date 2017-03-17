@@ -42,7 +42,7 @@ public class ConfigView extends FormLayout {
 		params = new Ifc2RdfConversionParams();
 		paramConponentMap = new HashMap<>();
 		
-		ConfigurationDocument configurationDocument = ConfigurationDocument.getInstance();
+		ConfigurationDocument configurationDocument = ConfigurationDocument.getDefault();
 		contexts = Ifc2RdfConversionContextLoader.loadAllFromConfigurationDocument(configurationDocument);
 		
 		Ifc2RdfConversionContext defaultContext = new Ifc2RdfConversionContext();

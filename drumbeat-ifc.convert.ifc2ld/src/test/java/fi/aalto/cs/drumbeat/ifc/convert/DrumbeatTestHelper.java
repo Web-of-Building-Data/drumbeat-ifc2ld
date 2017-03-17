@@ -69,7 +69,8 @@ public class DrumbeatTestHelper {
 		if (!initialized) {
 			initialized = true;
 			DOMConfigurator.configure(LOGGER_CONFIG_FILE_PATH);			
-			ConfigurationDocument.load(CONFIG_FILE_PATH);
+			ConfigurationDocument configurationDocument = ConfigurationDocument.load(CONFIG_FILE_PATH);
+			ConfigurationDocument.setDefault(configurationDocument);
 			IfcParserUtil.parseSchemas(TEST_IFC_SCHEMAS_FILE_PATH);
 		}
 	}

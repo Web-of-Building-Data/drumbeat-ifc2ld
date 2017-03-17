@@ -82,7 +82,7 @@ public class IfcApplication {
 		String outputSchemaFilePath = IFC_SCHEMA_OUTPUT_DIR_PATH + name;
 		
 		Ifc2RdfConversionContext conversionContext = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(
-				ConfigurationDocument.getInstance(),
+				ConfigurationDocument.getDefault(),
 				DEFAULT_CONVERSION_CONTEXT_NAME);		
 		
 		Ifc2RdfExporter.exportSchema(

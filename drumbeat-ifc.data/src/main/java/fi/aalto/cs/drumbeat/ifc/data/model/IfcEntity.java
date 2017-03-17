@@ -80,7 +80,7 @@ public class IfcEntity extends IfcEntityBase implements Comparable<IfcEntity> { 
 	public void setRawName(String rawName) {
 		this.rawName = rawName;
 	}
-
+	
 //	public void setAttributes(List<IfcAttribute> attributes) {
 ////		List<IfcAttributeInfo> inheritedAttributeInfos = typeInfo.getInheritedAttributeInfos();
 //		for (int i = 0; i < attributes.size(); ++i) {

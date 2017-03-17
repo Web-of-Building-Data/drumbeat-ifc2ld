@@ -23,7 +23,7 @@ public class IfcGroundingProcessorPoolConfigurationSection extends ComplexProces
 			Map<String, ProcessorConfiguration> configurationMap = 
 					IfcGroundingProcessorMapConfigurationSection.getInstance().getConfigurationMap();
 			instance = new IfcGroundingProcessorPoolConfigurationSection(
-					ConfigurationDocument.getInstance().getDocument().getDocumentElement(),
+					ConfigurationDocument.getDefault().getDocument().getDocumentElement(),
 					configurationMap);
 		}
 		return instance;

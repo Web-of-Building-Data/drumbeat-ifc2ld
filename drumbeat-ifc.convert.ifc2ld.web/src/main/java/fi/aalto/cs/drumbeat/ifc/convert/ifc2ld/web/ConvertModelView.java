@@ -143,7 +143,7 @@ public class ConvertModelView extends FormLayout {
 	    		try {
 	    			
 	    			Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(
-	    					ConfigurationDocument.getInstance(),
+	    					ConfigurationDocument.getDefault(),
 	    					IfcApplication.DEFAULT_CONVERSION_CONTEXT_NAME);
 	    			
 		    		String fileName = lblFileName.getValue();

@@ -91,7 +91,7 @@ public class Ifc2RdfExporter {
 	public void run() throws Exception {
 		
 		Ifc2RdfConversionContext conversionContext = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(
-				ConfigurationDocument.getInstance(),
+				ConfigurationDocument.getDefault(),
 				outputLayerName);
 		
 		
@@ -246,7 +246,8 @@ public class Ifc2RdfExporter {
 	 */
 	private static void loadConfiguration(String configFilePath) throws ConfigurationParserException {
 		logger.info(String.format("Loading configuration in '%s'", configFilePath));
-		ConfigurationDocument.load(configFilePath);
+		ConfigurationDocument configurationDocument = ConfigurationDocument.load(configFilePath);
+		ConfigurationDocument.setDefault(configurationDocument);		
 		logger.info("Loading configuration has been completed successfully");
 	}
 

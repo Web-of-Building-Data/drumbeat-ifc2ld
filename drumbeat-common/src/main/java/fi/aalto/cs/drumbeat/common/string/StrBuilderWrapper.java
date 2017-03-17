@@ -61,8 +61,8 @@ public class StrBuilderWrapper {
 	}
 	
 	public double getDouble() {
-		String s = internal.getFirstMatch(DOUBLE); 
-		return Double.parseDouble(s);		
+		String s = internal.getFirstMatch(DOUBLE);
+		return Double.parseDouble(s);
 	}
 	
 	public StrBuilderWrapper skip(int number) {

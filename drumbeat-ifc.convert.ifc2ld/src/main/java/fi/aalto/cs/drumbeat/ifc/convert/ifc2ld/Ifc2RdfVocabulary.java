@@ -40,7 +40,7 @@ public class Ifc2RdfVocabulary {
 			if (baseUriFormat == null) {
 				Properties properties;
 				try {
-					properties = ConfigurationDocument.getInstance().getProperties();
+					properties = ConfigurationDocument.getDefault().getProperties();
 				} catch (ConfigurationParserException e) {
 					Logger.getRootLogger().error("Error properties section in the configuration file", e);
 					return null;
@@ -78,7 +78,7 @@ public class Ifc2RdfVocabulary {
 			if (baseUri == null) {
 				Properties properties;
 				try {
-					properties = ConfigurationDocument.getInstance().getProperties();
+					properties = ConfigurationDocument.getDefault().getProperties();
 				} catch (ConfigurationParserException e) {
 					Logger.getRootLogger().error("Error properties section in the configuration file", e);
 					return null;
@@ -168,7 +168,7 @@ public class Ifc2RdfVocabulary {
 			if (baseUri == null) {
 				Properties properties;
 				try {
-					properties = ConfigurationDocument.getInstance().getProperties();
+					properties = ConfigurationDocument.getDefault().getProperties();
 				} catch (ConfigurationParserException e) {
 					Logger.getRootLogger().error("Error properties section in the configuration file", e);
 					return null;

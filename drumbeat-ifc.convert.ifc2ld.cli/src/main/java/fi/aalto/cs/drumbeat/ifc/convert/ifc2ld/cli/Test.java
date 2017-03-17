@@ -10,7 +10,6 @@ import org.apache.jena.rdf.model.Model;
 import fi.aalto.cs.drumbeat.common.config.ComplexProcessorConfiguration;
 import fi.aalto.cs.drumbeat.common.config.document.ConfigurationDocument;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfConversionContext;
-import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.Ifc2RdfVocabulary;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.config.Ifc2RdfConversionContextLoader;
 import fi.aalto.cs.drumbeat.ifc.convert.ifc2ld.util.Ifc2RdfExportUtil;
 import fi.aalto.cs.drumbeat.ifc.convert.stff2ifc.util.IfcParserUtil;
@@ -42,7 +41,8 @@ public class Test {
 		//
 		// load converter configuration
 		//
-		ConfigurationDocument.load(converterConfigFilePath);
+		ConfigurationDocument configurationDocument = ConfigurationDocument.load(converterConfigFilePath);
+		ConfigurationDocument.setDefault(configurationDocument);
 		
 		//
 		// load IFC schemas
@@ -57,7 +57,6 @@ public class Test {
 		for (IfcSchema schema : schemas) {
 			// export IFC schema into in-memory Jena graph using default conversion context
 			Model schemaGraph = jenaProvider.openDefaultModel().removeAll();
-			ConfigurationDocument configurationDocument = ConfigurationDocument.getInstance();
 			Ifc2RdfConversionContext context = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(configurationDocument, null);
 			Ifc2RdfExportUtil.exportSchemaToJenaModel(schemaGraph, schema, context);
 			

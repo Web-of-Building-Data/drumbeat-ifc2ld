@@ -38,7 +38,7 @@ public class Ifc2RdfExportUtil {
 	 */
 	public static Ifc2RdfConversionContext getDefaultConversionContext() throws ConfigurationParserException {
 		if (defaultContext == null) {
-			ConfigurationDocument configurationDocument = ConfigurationDocument.getInstance();
+			ConfigurationDocument configurationDocument = ConfigurationDocument.getDefault();
 			defaultContext = Ifc2RdfConversionContextLoader.loadFromConfigurationDocument(configurationDocument, null); 
 		}
 		return defaultContext;

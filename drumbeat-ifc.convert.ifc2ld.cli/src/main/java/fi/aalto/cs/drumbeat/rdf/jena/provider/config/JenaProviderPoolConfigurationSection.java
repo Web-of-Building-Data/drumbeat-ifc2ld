@@ -15,7 +15,7 @@ public class JenaProviderPoolConfigurationSection extends ConfigurationSection {
 	
 	public static JenaProviderPoolConfigurationSection getInstance() throws ConfigurationParserException {
 		return new JenaProviderPoolConfigurationSection(
-					ConfigurationDocument.getInstance().getDocument().getDocumentElement(),
+					ConfigurationDocument.getDefault().getDocument().getDocumentElement(),
 					null,
 					true,
 					true);

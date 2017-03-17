@@ -19,7 +19,7 @@ public class IfcGroundingProcessorMapConfigurationSection extends ProcessorMapCo
 	public static IfcGroundingProcessorMapConfigurationSection getInstance() throws ConfigurationParserException {
 		if (instance == null) {
 			instance = new IfcGroundingProcessorMapConfigurationSection(
-					ConfigurationDocument.getInstance().getDocument().getDocumentElement());
+					ConfigurationDocument.getDefault().getDocument().getDocumentElement());
 		}
 		return instance;
 	}
